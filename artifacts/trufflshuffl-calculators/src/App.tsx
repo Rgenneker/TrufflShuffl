@@ -21,6 +21,10 @@ import ClothingSizeCalculator from "@/pages/ClothingSizeCalculator";
 import ShoeSizeCalculator from "@/pages/ShoeSizeCalculator";
 import BeltRingCalculator from "@/pages/BeltRingCalculator";
 import UnitConverter from "@/pages/UnitConverter";
+import AboutPage from "@/pages/About";
+import ContactPage from "@/pages/Contact";
+import TermsPage from "@/pages/Terms";
+import PrivacyPage from "@/pages/Privacy";
 
 const queryClient = new QueryClient();
 
@@ -70,6 +74,10 @@ function Router() {
       <Route path="/shoe-size" component={ShoeSizeCalculator} />
       <Route path="/belt-ring" component={BeltRingCalculator} />
       <Route path="/units" component={UnitConverter} />
+      <Route path="/about" component={AboutPage} />
+      <Route path="/contact" component={ContactPage} />
+      <Route path="/terms" component={TermsPage} />
+      <Route path="/privacy" component={PrivacyPage} />
       <Route component={NotFound} />
     </Switch>
   );

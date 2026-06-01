@@ -216,12 +216,21 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="border-t border-border bg-card/40">
-        <div className="container mx-auto px-4 py-8 text-center space-y-2">
-          <p className="text-xs text-muted-foreground">
-            <strong className="text-foreground">TrufflShuffl®</strong> is a registered trademark. All intellectual property rights in and to the game are owned in South Africa by WordShuffl Trading.
-          </p>
-          <p className="text-xs text-muted-foreground">This site is for educational and informational purposes only.</p>
-          <p className="text-xs text-muted-foreground">© 2026 TrufflShuffl.com. ALL RIGHTS RESERVED</p>
+        <div className="container mx-auto px-4 py-10 space-y-6">
+          <div className="flex flex-wrap justify-center gap-6 text-sm">
+            <Link href="/about"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">About</span></Link>
+            <Link href="/contact"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">Contact</span></Link>
+            <Link href="/terms"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">Terms &amp; Conditions</span></Link>
+            <Link href="/privacy"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">Privacy Policy</span></Link>
+            <a href="/sitemap.xml" className="text-muted-foreground hover:text-primary transition-colors">Sitemap</a>
+          </div>
+          <div className="text-center space-y-1.5">
+            <p className="text-xs text-muted-foreground">
+              <strong className="text-foreground">TrufflShuffl®</strong> is a registered trademark. All intellectual property rights in and to the game are owned in South Africa by WordShuffl Trading.
+            </p>
+            <p className="text-xs text-muted-foreground">This site is for educational and informational purposes only. Not financial, legal or medical advice.</p>
+            <p className="text-xs text-muted-foreground">© 2026 TrufflShuffl.com. ALL RIGHTS RESERVED</p>
+          </div>
         </div>
       </footer>
     </div>
