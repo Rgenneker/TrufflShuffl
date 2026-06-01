@@ -17,6 +17,10 @@ import RenovationCalculator from "@/pages/RenovationCalculator";
 import PaintCalculator from "@/pages/PaintCalculator";
 import CalorieCalculator from "@/pages/CalorieCalculator";
 import BMICalculator from "@/pages/BMICalculator";
+import ClothingSizeCalculator from "@/pages/ClothingSizeCalculator";
+import ShoeSizeCalculator from "@/pages/ShoeSizeCalculator";
+import BeltRingCalculator from "@/pages/BeltRingCalculator";
+import UnitConverter from "@/pages/UnitConverter";
 
 const queryClient = new QueryClient();
 
@@ -62,6 +66,10 @@ function Router() {
       <Route path="/paint" component={PaintCalculator} />
       <Route path="/calories" component={CalorieCalculator} />
       <Route path="/bmi" component={BMICalculator} />
+      <Route path="/clothing-size" component={ClothingSizeCalculator} />
+      <Route path="/shoe-size" component={ShoeSizeCalculator} />
+      <Route path="/belt-ring" component={BeltRingCalculator} />
+      <Route path="/units" component={UnitConverter} />
       <Route component={NotFound} />
     </Switch>
   );
