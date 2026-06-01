@@ -6,21 +6,22 @@ export interface Language {
   labelEn: string;     // English name for the dropdown
   rtl: boolean;
   flag: string;
+  hreflang: string;    // ISO 639-1 / BCP-47 code for hreflang attribute
 }
 
 export const LANGUAGES: Language[] = [
-  { code: "en",  label: "English",           labelEn: "English",            rtl: false, flag: "🇬🇧" },
-  { code: "af",  label: "Afrikaans",         labelEn: "Afrikaans",          rtl: false, flag: "🇿🇦" },
-  { code: "es",  label: "Español",           labelEn: "Spanish",            rtl: false, flag: "🇪🇸" },
-  { code: "ar",  label: "العربية",            labelEn: "Arabic",             rtl: true,  flag: "🇸🇦" },
-  { code: "fr",  label: "Français",          labelEn: "French",             rtl: false, flag: "🇫🇷" },
-  { code: "de",  label: "Deutsch",           labelEn: "German",             rtl: false, flag: "🇩🇪" },
-  { code: "zh",  label: "普通话 (简体)",        labelEn: "Mandarin Chinese",   rtl: false, flag: "🇨🇳" },
-  { code: "yue", label: "廣東話 (繁體)",        labelEn: "Cantonese",          rtl: false, flag: "🇭🇰" },
-  { code: "ru",  label: "Русский",           labelEn: "Russian",            rtl: false, flag: "🇷🇺" },
+  { code: "en",  label: "English",           labelEn: "English",            rtl: false, flag: "🇬🇧", hreflang: "en"      },
+  { code: "af",  label: "Afrikaans",         labelEn: "Afrikaans",          rtl: false, flag: "🇿🇦", hreflang: "af"      },
+  { code: "es",  label: "Español",           labelEn: "Spanish",            rtl: false, flag: "🇪🇸", hreflang: "es"      },
+  { code: "ar",  label: "العربية",            labelEn: "Arabic",             rtl: true,  flag: "🇸🇦", hreflang: "ar"      },
+  { code: "fr",  label: "Français",          labelEn: "French",             rtl: false, flag: "🇫🇷", hreflang: "fr"      },
+  { code: "de",  label: "Deutsch",           labelEn: "German",             rtl: false, flag: "🇩🇪", hreflang: "de"      },
+  { code: "zh",  label: "普通话 (简体)",        labelEn: "Mandarin Chinese",   rtl: false, flag: "🇨🇳", hreflang: "zh-Hans" },
+  { code: "yue", label: "廣東話 (繁體)",        labelEn: "Cantonese",          rtl: false, flag: "🇭🇰", hreflang: "zh-Hant" },
+  { code: "ru",  label: "Русский",           labelEn: "Russian",            rtl: false, flag: "🇷🇺", hreflang: "ru"      },
 ];
 
-export type T = typeof TRANSLATIONS.en;
+export type T = { [K in keyof typeof TRANSLATIONS.en]: string };
 
 const TRANSLATIONS = {
   en: {
@@ -95,6 +96,9 @@ const TRANSLATIONS = {
     footerTrademark: "is a registered trademark. All intellectual property rights owned in South Africa by WordShuffl Trading.",
     footerDisclaimer: "This site is for educational and informational purposes only. Not financial, legal or medical advice.",
     footerCopyright: "© 2026 TrufflShuffl.com. ALL RIGHTS RESERVED",
+    metaTitle: "TrufflShuffl Calculators — Free Online Financial, Health & Unit Calculators",
+    metaDescription: "Free online calculators for finance, mortgage, loan, investment, BMI, calories, clothing size, shoe size, unit conversion and more. 16 professional calculators. No sign-up required.",
+    metaKeywords: "free online calculator, financial calculator, mortgage calculator, loan calculator, investment calculator, compound interest, amortization, bond calculator, BMI calculator, calorie calculator, TDEE, clothing size calculator, shoe size calculator, belt size, ring size, unit converter, currency converter, fuel cost, pool calculator, paint calculator, paving calculator, renovation cost, South Africa calculator, free calculator no sign up",
   },
 
   af: {
@@ -164,6 +168,9 @@ const TRANSLATIONS = {
     footerTrademark: "is 'n geregistreerde handelsmerk. Alle intellektuele eiendomsregte besit in Suid-Afrika deur WordShuffl Trading.",
     footerDisclaimer: "Hierdie webwerf is slegs vir opvoedkundige en inligtingsdoeleindes. Nie finansiële, regs- of mediese advies nie.",
     footerCopyright: "© 2026 TrufflShuffl.com. ALLE REGTE VOORBEHOU",
+    metaTitle: "TrufflShuffl Berekenaar — Gratis Aanlyn Finansiële, Gesondheid & Eenheidsomsetters",
+    metaDescription: "Gratis aanlyn berekenaar vir finansies, verbandkoste, lening, belegging, LMI, kalorieë, kleregrootte, skoenmaat en meer. 16 professionele berekenaar. Geen registrasie nodig nie.",
+    metaKeywords: "gratis aanlyn berekenaar, finansiële berekenaar, verbandberekenaar, leningsberekenaar, beleggingsberekenaar, saamgestelde rente, amortisasie, LMI berekenaar, kalorie berekenaar, kleregrootte berekenaar, skoenmaat berekenaar, eenheidsomskakeling, valuta berekenaar, brandstofkoste, Suid-Afrika berekenaar",
   },
 
   es: {
@@ -233,6 +240,9 @@ const TRANSLATIONS = {
     footerTrademark: "es una marca registrada. Todos los derechos de propiedad intelectual son de WordShuffl Trading.",
     footerDisclaimer: "Este sitio es solo para fines educativos e informativos. No es asesoramiento financiero, legal ni médico.",
     footerCopyright: "© 2026 TrufflShuffl.com. TODOS LOS DERECHOS RESERVADOS",
+    metaTitle: "Calculadoras TrufflShuffl — Calculadoras Online Gratis de Finanzas, Salud y Unidades",
+    metaDescription: "Calculadoras online gratuitas para hipoteca, préstamo, inversión, interés compuesto, IMC, calorías, talla de ropa, talla de zapato, conversión de unidades y más. 16 calculadoras profesionales. Sin registro.",
+    metaKeywords: "calculadora online gratis, calculadora financiera, calculadora hipoteca, calculadora préstamo, calculadora inversión, interés compuesto, amortización, calculadora IMC, calculadora calorías, TDEE, talla ropa calculadora, talla zapato calculadora, conversor unidades, conversor divisas, costo combustible, calculadora sin registro",
   },
 
   ar: {
@@ -302,6 +312,9 @@ const TRANSLATIONS = {
     footerTrademark: "علامة تجارية مسجلة. جميع حقوق الملكية الفكرية مملوكة في جنوب أفريقيا لشركة WordShuffl Trading.",
     footerDisclaimer: "هذا الموقع للأغراض التعليمية والمعلوماتية فقط. ليس نصيحة مالية أو قانونية أو طبية.",
     footerCopyright: "© 2026 TrufflShuffl.com. جميع الحقوق محفوظة",
+    metaTitle: "حاسبات TrufflShuffl — حاسبات مجانية للتمويل والصحة وتحويل الوحدات",
+    metaDescription: "حاسبات مجانية للتمويل والرهن العقاري والقرض والاستثمار ومؤشر كتلة الجسم والسعرات الحرارية وقياس الملابس والأحذية وتحويل الوحدات. 16 حاسبة احترافية. بدون تسجيل.",
+    metaKeywords: "حاسبة مجانية, حاسبة مالية, حاسبة الرهن العقاري, حاسبة القرض, حاسبة الاستثمار, الفائدة المركبة, الإطفاء, حاسبة مؤشر كتلة الجسم, حاسبة السعرات الحرارية, مقاس الملابس, مقاس الحذاء, محول الوحدات, محول العملات, تكلفة الوقود, حاسبة بدون تسجيل",
   },
 
   fr: {
@@ -371,6 +384,9 @@ const TRANSLATIONS = {
     footerTrademark: "est une marque déposée. Tous les droits de propriété intellectuelle appartiennent à WordShuffl Trading en Afrique du Sud.",
     footerDisclaimer: "Ce site est à des fins éducatives et informatives uniquement. Pas de conseil financier, juridique ou médical.",
     footerCopyright: "© 2026 TrufflShuffl.com. TOUS DROITS RÉSERVÉS",
+    metaTitle: "Calculateurs TrufflShuffl — Calculateurs Gratuits en Ligne pour Finance, Santé et Unités",
+    metaDescription: "Calculateurs en ligne gratuits pour le crédit immobilier, prêt, investissement, intérêts composés, IMC, calories, taille vêtements, pointure et conversions d'unités. 16 calculateurs professionnels. Sans inscription.",
+    metaKeywords: "calculateur gratuit en ligne, calculateur financier, calculateur crédit immobilier, calculateur prêt, calculateur investissement, intérêts composés, amortissement, calculateur IMC, calculateur calories, TDEE, taille vêtements, pointure calculateur, convertisseur unités, convertisseur devises, coût carburant, calculateur sans inscription",
   },
 
   de: {
@@ -440,6 +456,9 @@ const TRANSLATIONS = {
     footerTrademark: "ist eine eingetragene Marke. Alle Rechte des geistigen Eigentums gehören WordShuffl Trading in Südafrika.",
     footerDisclaimer: "Diese Website dient ausschließlich Bildungs- und Informationszwecken. Keine Finanz-, Rechts- oder Medizinberatung.",
     footerCopyright: "© 2026 TrufflShuffl.com. ALLE RECHTE VORBEHALTEN",
+    metaTitle: "TrufflShuffl Rechner — Kostenlose Online-Rechner für Finanzen, Gesundheit und Einheiten",
+    metaDescription: "Kostenlose Online-Rechner für Hypothek, Kredit, Investitionen, Zinseszins, BMI, Kalorien, Kleidergröße, Schuhgröße, Einheitenumrechnung und mehr. 16 professionelle Rechner. Keine Registrierung.",
+    metaKeywords: "kostenloser Online-Rechner, Finanzrechner, Hypothekenrechner, Kreditrechner, Investitionsrechner, Zinseszins, Tilgungsplan, BMI Rechner, Kalorienrechner, TDEE, Kleidergrößenrechner, Schuhgrößenrechner, Einheitenumrechner, Währungsrechner, Kraftstoffkosten, Rechner ohne Anmeldung",
   },
 
   zh: {
@@ -509,6 +528,9 @@ const TRANSLATIONS = {
     footerTrademark: "是注册商标。所有知识产权由南非WordShuffl Trading所有。",
     footerDisclaimer: "本网站仅供教育和信息参考，不构成财务、法律或医疗建议。",
     footerCopyright: "© 2026 TrufflShuffl.com. 保留所有权利",
+    metaTitle: "TrufflShuffl 计算器 — 免费在线金融、健康和单位换算计算器",
+    metaDescription: "免费在线计算器，涵盖房贷、贷款、投资、复利、BMI、卡路里、服装尺码、鞋码、单位换算等。16款专业计算器，无需注册，所有计算在本地完成。",
+    metaKeywords: "免费在线计算器, 金融计算器, 房贷计算器, 贷款计算器, 投资计算器, 复利计算器, 还款计划, BMI计算器, 卡路里计算器, TDEE, 服装尺码换算, 鞋码换算, 单位换算, 货币换算, 油费计算器, 免注册计算器",
   },
 
   yue: {
@@ -578,6 +600,9 @@ const TRANSLATIONS = {
     footerTrademark: "係註冊商標。所有知識產權由南非WordShuffl Trading所有。",
     footerDisclaimer: "本網站僅供教育和資訊參考，不構成財務、法律或醫療建議。",
     footerCopyright: "© 2026 TrufflShuffl.com. 版權所有",
+    metaTitle: "TrufflShuffl 計算器 — 免費網上金融、健康及單位換算計算器",
+    metaDescription: "免費網上計算器，涵蓋房貸、貸款、投資、複利、BMI、卡路里、服裝尺碼、鞋碼、單位換算等。16款專業計算器，無需註冊，所有計算在本地完成。",
+    metaKeywords: "免費網上計算器, 金融計算器, 房貸計算器, 貸款計算器, 投資計算器, 複利計算器, 還款計劃, BMI計算器, 卡路里計算器, TDEE, 服裝尺碼換算, 鞋碼換算, 單位換算, 貨幣換算, 油費計算器, 免註冊計算器",
   },
 
   ru: {
@@ -647,6 +672,9 @@ const TRANSLATIONS = {
     footerTrademark: "является зарегистрированным товарным знаком. Все права интеллектуальной собственности принадлежат WordShuffl Trading в ЮАР.",
     footerDisclaimer: "Сайт предназначен только для образовательных и информационных целей. Не является финансовым, юридическим или медицинским советом.",
     footerCopyright: "© 2026 TrufflShuffl.com. ВСЕ ПРАВА ЗАЩИЩЕНЫ",
+    metaTitle: "Калькуляторы TrufflShuffl — Бесплатные Онлайн-Калькуляторы для Финансов, Здоровья и Единиц",
+    metaDescription: "Бесплатные онлайн-калькуляторы для ипотеки, кредита, инвестиций, сложных процентов, ИМТ, калорий, размера одежды, обуви, конвертации единиц и многого другого. 16 калькуляторов. Без регистрации.",
+    metaKeywords: "бесплатный онлайн калькулятор, финансовый калькулятор, ипотечный калькулятор, кредитный калькулятор, инвестиционный калькулятор, сложные проценты, план амортизации, калькулятор ИМТ, калькулятор калорий, TDEE, размер одежды, размер обуви, конвертер единиц, конвертер валют, стоимость топлива, калькулятор без регистрации",
   },
 } as const;
 
