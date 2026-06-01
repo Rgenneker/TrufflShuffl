@@ -1,9 +1,12 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { Switch, Route, Router as WouterRouter, useParams, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { useEffect, useState } from "react";
-import { LanguageProvider } from "@/context/LanguageContext";
+import { LanguageProvider, useLang } from "@/context/LanguageContext";
+import { LANGUAGES, type LangCode } from "@/lib/i18n";
+import { HreflangTags } from "@/components/HreflangTags";
+import { SEOHead } from "@/components/SEOHead";
 import NotFound from "@/pages/not-found";
 import HomePage from "@/pages/Home";
 import InvestmentCalculator from "@/pages/InvestmentCalculator";
@@ -28,6 +31,8 @@ import TermsPage from "@/pages/Terms";
 import PrivacyPage from "@/pages/Privacy";
 
 const queryClient = new QueryClient();
+const VALID_CODES = LANGUAGES.map(l => l.code);
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [dark, setDark] = useState(true);
@@ -55,7 +60,8 @@ function ThemeProvider({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-function Router() {
+/** All calculator/page routes — rendered inside the language-prefixed nested Router */
+function InnerRoutes() {
   return (
     <Switch>
       <Route path="/" component={HomePage} />
@@ -84,15 +90,67 @@ function Router() {
   );
 }
 
+/** Reads :lang from the outer route, syncs to LanguageContext, mounts the inner nested Router */
+function LangApp() {
+  const params = useParams<{ lang: string }>();
+  const langFromUrl = (params?.lang ?? "en") as LangCode;
+  const { setLang } = useLang();
+  const [, navigate] = useLocation();
+
+  const isValid = VALID_CODES.includes(langFromUrl);
+
+  useEffect(() => {
+    if (isValid) {
+      setLang(langFromUrl);
+    } else {
+      navigate("/en", { replace: true } as never);
+    }
+  }, [langFromUrl, isValid]);
+
+  if (!isValid) return null;
+
+  return (
+    <>
+      <HreflangTags lang={langFromUrl} />
+      <SEOHead lang={langFromUrl} />
+      {/* Nested Router: all <Link href="/…"> inside here resolve to /${lang}/… */}
+      <WouterRouter base={`${BASE}/${langFromUrl}`}>
+        <InnerRoutes />
+      </WouterRouter>
+    </>
+  );
+}
+
+/** Redirects bare "/" to the browser-detected or saved language */
+function RootRedirect() {
+  const { lang } = useLang();
+  const [, navigate] = useLocation();
+  useEffect(() => {
+    navigate(`/${lang}`, { replace: true } as never);
+  }, []);
+  return null;
+}
+
+function OuterRouter() {
+  return (
+    <WouterRouter base={BASE}>
+      <Switch>
+        <Route path="/" component={RootRedirect} />
+        <Route path="/:lang" component={LangApp} />
+        <Route path="/:lang/*" component={LangApp} />
+        <Route component={NotFound} />
+      </Switch>
+    </WouterRouter>
+  );
+}
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
         <ThemeProvider>
           <TooltipProvider>
-            <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-              <Router />
-            </WouterRouter>
+            <OuterRouter />
             <Toaster />
           </TooltipProvider>
         </ThemeProvider>

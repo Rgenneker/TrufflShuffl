@@ -7,12 +7,22 @@ interface Props {
   className?: string;
 }
 
+function navigateToLang(newLang: LangCode) {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+  const pathname = window.location.pathname;
+  const withoutBase = pathname.startsWith(base) ? pathname.slice(base.length) : pathname;
+  const segments = withoutBase.split("/").filter(Boolean); // e.g. ["en", "investment"]
+  const pageParts = segments.slice(1);
+  const pageStr = pageParts.length ? `/${pageParts.join("/")}` : "";
+  window.location.href = `${base}/${newLang}${pageStr}`;
+}
+
 export function LanguageSelect({ className }: Props) {
-  const { lang, setLang } = useLang();
+  const { lang } = useLang();
   const current = LANGUAGES.find(l => l.code === lang)!;
 
   return (
-    <Select value={lang} onValueChange={v => setLang(v as LangCode)}>
+    <Select value={lang} onValueChange={v => navigateToLang(v as LangCode)}>
       <SelectTrigger
         className={`h-8 text-xs gap-1.5 bg-transparent border-border hover:border-primary/50 transition-colors ${className ?? ""}`}
         aria-label="Select language"
@@ -23,7 +33,15 @@ export function LanguageSelect({ className }: Props) {
           <span className="sm:hidden">{current.flag}</span>
         </SelectValue>
       </SelectTrigger>
-      <SelectContent className="max-h-72 min-w-[200px]">
+      <SelectContent className="max-h-72 min-w-[220px]">
+        {lang !== "en" && (
+          <SelectItem value="en" className="border-b border-border mb-1">
+            <span className="flex items-center gap-2 font-semibold text-primary">
+              <span>🇬🇧</span>
+              <span>Switch to English</span>
+            </span>
+          </SelectItem>
+        )}
         {LANGUAGES.map(l => (
           <SelectItem key={l.code} value={l.code}>
             <span className="flex items-center gap-2">
