@@ -144,7 +144,7 @@ export default function HomePage() {
             <Link href="/contact"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">{t.contact}</span></Link>
             <Link href="/terms"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">{t.terms}</span></Link>
             <Link href="/privacy"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">{t.privacy}</span></Link>
-            <a href="/sitemap.xml" className="text-muted-foreground hover:text-primary transition-colors">{t.sitemap}</a>
+            <Link href="/sitemap"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">{t.sitemap}</span></Link>
           </div>
           <div className="text-center space-y-1.5">
             <p className="text-xs text-muted-foreground">

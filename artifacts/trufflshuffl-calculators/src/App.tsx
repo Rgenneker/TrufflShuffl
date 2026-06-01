@@ -29,6 +29,7 @@ import AboutPage from "@/pages/About";
 import ContactPage from "@/pages/Contact";
 import TermsPage from "@/pages/Terms";
 import PrivacyPage from "@/pages/Privacy";
+import SitemapPage from "@/pages/Sitemap";
 
 const queryClient = new QueryClient();
 const VALID_CODES = LANGUAGES.map(l => l.code);
@@ -85,6 +86,7 @@ function InnerRoutes() {
       <Route path="/contact" component={ContactPage} />
       <Route path="/terms" component={TermsPage} />
       <Route path="/privacy" component={PrivacyPage} />
+      <Route path="/sitemap" component={SitemapPage} />
       <Route component={NotFound} />
     </Switch>
   );
