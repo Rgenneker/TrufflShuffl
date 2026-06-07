@@ -7,6 +7,7 @@ import { LanguageProvider, useLang } from "@/context/LanguageContext";
 import { LANGUAGES, type LangCode } from "@/lib/i18n";
 import { HreflangTags } from "@/components/HreflangTags";
 import { SEOHead } from "@/components/SEOHead";
+import { Analytics } from "@vercel/analytics/react";
 import NotFound from "@/pages/not-found";
 import HomePage from "@/pages/Home";
 import InvestmentCalculator from "@/pages/InvestmentCalculator";
@@ -154,6 +155,7 @@ function App() {
           <TooltipProvider>
             <OuterRouter />
             <Toaster />
+            <Analytics />
           </TooltipProvider>
         </ThemeProvider>
       </LanguageProvider>
