@@ -1,7 +1,6 @@
 import { Link } from "wouter";
 import { WorldClock } from "@/components/WorldClock";
 import { LanguageSelect } from "@/components/LanguageSelect";
-import { NativeAdBanner } from "@/components/NativeAdBanner";
 import { useLang } from "@/context/LanguageContext";
 import {
   TrendingUp, DollarSign, Home, Droplets, Zap, Heart, Calculator,
@@ -17,30 +16,6 @@ const CATEGORY_META: Record<string, { color: string; badge: string }> = {
   Fashion:             { color: "text-pink-400",    badge: "bg-pink-500/10 text-pink-400 border-pink-500/20" },
   "Unit Conversions":  { color: "text-violet-400",  badge: "bg-violet-500/10 text-violet-400 border-violet-500/20" },
 };
-
-/** Styled wrapper for a grid-slot ad — visually matches calculator cards */
-function GridAdSlot() {
-  return (
-    <div className="bg-card/40 border border-dashed border-border/60 rounded-xl overflow-hidden flex flex-col items-center justify-center min-h-[130px]">
-      <span className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground/40 mb-2 select-none">
-        Advertisement
-      </span>
-      <NativeAdBanner className="w-full" />
-    </div>
-  );
-}
-
-/** Styled wrapper for the flanking hero ads */
-function HeroAdSlot() {
-  return (
-    <div className="hidden xl:flex flex-col items-center justify-center bg-card/30 border border-dashed border-border/50 rounded-xl w-[160px] min-h-[260px] shrink-0">
-      <span className="text-[9px] font-medium uppercase tracking-widest text-muted-foreground/30 mb-2 select-none">
-        Advertisement
-      </span>
-      <NativeAdBanner className="w-full flex items-center justify-center" />
-    </div>
-  );
-}
 
 export default function HomePage() {
   const { t } = useLang();
@@ -100,26 +75,15 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* Hero — ad banners flank the heading on xl screens */}
-      <section className="container mx-auto px-4 pt-14 pb-8">
-        <div className="flex items-center justify-center gap-6">
-          {/* Ad slot 1 — left of heading */}
-          <HeroAdSlot />
-
-          {/* Heading (centered, fills remaining space) */}
-          <div className="text-center flex-1">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
-              <span className="text-foreground">{t.heroTitle1}</span>{" "}
-              <span className="text-primary">{t.heroTitle2}</span>
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-xl mx-auto">
-              {t.heroSubtitle}
-            </p>
-          </div>
-
-          {/* Ad slot 2 — right of heading */}
-          <HeroAdSlot />
-        </div>
+      {/* Hero */}
+      <section className="container mx-auto px-4 pt-14 pb-8 text-center">
+        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
+          <span className="text-foreground">{t.heroTitle1}</span>{" "}
+          <span className="text-primary">{t.heroTitle2}</span>
+        </h1>
+        <p className="text-lg text-muted-foreground max-w-xl mx-auto">
+          {t.heroSubtitle}
+        </p>
       </section>
 
       {/* World Clock */}
@@ -135,12 +99,6 @@ export default function HomePage() {
         {CATEGORIES.map(({ key: cat, label: catLabel }) => {
           const calcs = CALCULATORS.filter(c => c.category === cat);
           const meta = CATEGORY_META[cat];
-
-          // Whether to inject an ad slot after a specific card in this category
-          const injectAdAfterHref =
-            cat === "Financial"     ? "/amortization" :
-            cat === "Fuel & Travel" ? "/fuel"         : null;
-
           return (
             <div key={cat}>
               <div className="flex items-center gap-3 mb-5">
@@ -150,7 +108,6 @@ export default function HomePage() {
                   {calcs.length} {t.tools}
                 </span>
               </div>
-
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                 {calcs.map((calc) => {
                   const Icon = calc.icon;
@@ -173,9 +130,6 @@ export default function HomePage() {
                     </Link>
                   );
                 })}
-
-                {/* Ad slot 3 (after Amortization) and slot 4 (after Fuel & Trip) */}
-                {injectAdAfterHref && <GridAdSlot />}
               </div>
             </div>
           );
