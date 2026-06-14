@@ -5,36 +5,41 @@ const AD_INVOKE_URL =
 const CONTAINER_ID = "container-ad0a4242c48089c8f2af3f8331cc6c92";
 
 /**
- * Injects the effectivecpmnetwork invoke script once per instance so each
- * mounted ad container is independently initialised by the network.
+ * Native ad banner for effectivecpmnetwork.
+ *
+ * The container div is rendered statically so it is present in the DOM
+ * before the invoke script is appended to document.body via useEffect.
+ * The script is always appended to <body> — NOT inside the wrapper div —
+ * which is what the ad network requires to execute correctly.
  */
 export function NativeAdBanner({ className }: { className?: string }) {
-  const wrapperRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const wrapper = wrapperRef.current;
-    if (!wrapper) return;
+    const el = containerRef.current;
+    if (!el) return;
 
-    // Container div the network expects
-    const container = document.createElement("div");
-    container.id = CONTAINER_ID;
-    wrapper.appendChild(container);
-
-    // Load invoke.js fresh — this makes the network discover the container above
     const script = document.createElement("script");
     script.async = true;
     script.setAttribute("data-cfasync", "false");
     script.src = AD_INVOKE_URL;
-    wrapper.appendChild(script);
+
+    // Must be appended to body — appending inside a div prevents the
+    // ad network from initialising correctly on most browsers.
+    document.body.appendChild(script);
 
     return () => {
-      wrapper.innerHTML = "";
+      script.remove();
+      if (el) el.innerHTML = "";
     };
   }, []);
 
+  // Container div rendered statically — it must already be in the DOM
+  // when the invoke.js script runs.
   return (
     <div
-      ref={wrapperRef}
+      id={CONTAINER_ID}
+      ref={containerRef}
       className={className}
     />
   );
