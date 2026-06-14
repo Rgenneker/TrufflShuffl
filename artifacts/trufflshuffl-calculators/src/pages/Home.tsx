@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Link } from "wouter";
 import { WorldClock } from "@/components/WorldClock";
 import { LanguageSelect } from "@/components/LanguageSelect";
@@ -7,6 +8,20 @@ import {
   Fuel, Hammer, PaintBucket, Layers, Activity, BarChart2,
   Ruler, Shirt, ArrowLeftRight
 } from "lucide-react";
+
+function HeroAd() {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!ref.current) return;
+    const s = document.createElement("script");
+    s.async = true;
+    s.setAttribute("data-cfasync", "false");
+    s.src = "https://pl29742062.effectivecpmnetwork.com/ad0a4242c48089c8f2af3f8331cc6c92/invoke.js";
+    document.body.appendChild(s);
+    return () => { s.remove(); };
+  }, []);
+  return <div id="container-ad0a4242c48089c8f2af3f8331cc6c92" ref={ref} />;
+}
 
 const CATEGORY_META: Record<string, { color: string; badge: string }> = {
   Financial:           { color: "text-yellow-400",  badge: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20" },
@@ -75,8 +90,13 @@ export default function HomePage() {
         </div>
       </header>
 
+      {/* Ad — above "Professional Calculators" */}
+      <div className="container mx-auto px-4 pt-10 flex justify-center">
+        <HeroAd />
+      </div>
+
       {/* Hero */}
-      <section className="container mx-auto px-4 pt-14 pb-8 text-center">
+      <section className="container mx-auto px-4 pt-6 pb-8 text-center">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
           <span className="text-foreground">{t.heroTitle1}</span>{" "}
           <span className="text-primary">{t.heroTitle2}</span>
