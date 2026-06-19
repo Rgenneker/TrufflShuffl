@@ -1,3 +1,4 @@
+import CalculatorKeywordPage from "./pages/CalculatorKeywordPage";
 import { Switch, Route, Router as WouterRouter, useParams, useLocation } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -19,6 +20,7 @@ import PoolCalculator from "@/pages/PoolCalculator";
 import PavingCalculator from "@/pages/PavingCalculator";
 import RenovationCalculator from "@/pages/RenovationCalculator";
 import PaintCalculator from "@/pages/PaintCalculator";
+// @ts-ignore: CalorieCalculator is a JS module without a declaration file.
 import CalorieCalculator from "@/pages/CalorieCalculator";
 import BMICalculator from "@/pages/BMICalculator";
 import ClothingSizeCalculator from "@/pages/ClothingSizeCalculator";
@@ -66,6 +68,7 @@ function InnerRoutes() {
   return (
     <Switch>
       <Route path="/" component={HomePage} />
+      <Route path="/calculator/:slug" component={CalculatorKeywordPage} />
       <Route path="/investment" component={InvestmentCalculator} />
       <Route path="/loan" component={LoanCalculator} />
       <Route path="/mortgage" component={MortgageCalculator} />
@@ -87,6 +90,7 @@ function InnerRoutes() {
       <Route path="/terms" component={TermsPage} />
       <Route path="/privacy" component={PrivacyPage} />
       <Route path="/sitemap" component={SitemapPage} />
+      <Route path="/calculator/:slug" component={CalculatorKeywordPage} />
       <Route component={NotFound} />
     </Switch>
   );
