@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.trufflshuffl.com/sitemap.xml
+Sitemap: https://trufflshuffl.com/sitemap-index.xml
