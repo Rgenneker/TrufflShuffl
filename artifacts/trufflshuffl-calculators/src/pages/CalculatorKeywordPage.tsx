@@ -1,11 +1,10 @@
+import keywords from "../data/truffl-keywords.json";
 import { Link, useRoute } from "wouter";
 
 type KeywordPage = {
   keyword: string;
   slug: string;
 };
-
-const keywords: KeywordPage[] = require("../data/truffl-keywords.json");
 
 const keywordPages = keywords as KeywordPage[];
 
