@@ -155,22 +155,12 @@ function LangApp() {
   );
 }
 
-/** Renders the English homepage at bare "/" without changing the URL */
+/** Renders the English homepage at bare "/" */
 function RootHomePage() {
   const { setLang } = useLang();
   useEffect(() => {
-    const host = window.location.hostname;
-    if (host !== "trufflshuffl.com" && host !== "www.trufflshuffl.com") {
-      window.location.replace("https://www.trufflshuffl.com/");
-      return;
-    }
     setLang("en");
   }, []);
-
-  if (typeof window !== "undefined") {
-    const host = window.location.hostname;
-    if (host !== "trufflshuffl.com" && host !== "www.trufflshuffl.com") return null;
-  }
 
   return (
     <>
