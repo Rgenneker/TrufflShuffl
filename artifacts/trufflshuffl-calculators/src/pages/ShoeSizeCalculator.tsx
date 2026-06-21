@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -46,6 +47,7 @@ export default function ShoeSizeCalculator() {
         </ol>
       }
       testimonial="I have oddly shaped feet — long but narrow — and sizing has always been a nightmare. This calculator solved two problems at once. Entering my foot length (272mm) gave me EU 44 across the board, but the width calculator showed I have narrow feet (B width), so I know to look for brands that offer narrow fittings. The full size table at the bottom is incredibly useful for comparing international brands. I now measure both feet every time I shop online (my left is 3mm longer) and use the larger measurement. No more returns, no more ill-fitting shoes. The 'add 5-10mm' tip at the top is exactly the kind of practical advice that makes the difference between a calculator and an actual useful tool."
+    guide={CALCULATOR_GUIDES['shoe-size']}
     >
       <div className="space-y-5">
         <div className="flex flex-wrap gap-3">

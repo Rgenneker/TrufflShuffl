@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -65,6 +66,7 @@ export default function BMICalculator() {
         </ol>
       }
       testimonial="I've checked my BMI hundreds of times using various tools but this one stands out for its clarity and depth. The visual gauge makes it immediately obvious where I sit on the scale — no numbers to decode, just a clear marker. What I love most is the healthy weight range section: instead of just telling me my BMI, it tells me exactly how many kilograms I need to lose (or gain) to reach a healthy range. The four ideal weight formulas are fascinating — mine range from 68kg to 74kg depending on the formula, which shows why BMI alone isn't the whole story. The disclaimer reminding users it's a screening tool, not a diagnosis, is responsible and appreciated. I use it monthly to track my health journey and share it with my partner who has very different build proportions."
+    guide={CALCULATOR_GUIDES['bmi']}
     >
       <div className="space-y-5">
         <div className="flex items-center gap-3">

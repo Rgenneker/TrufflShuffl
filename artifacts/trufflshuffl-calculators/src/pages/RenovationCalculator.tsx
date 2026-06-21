@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -67,6 +68,7 @@ export default function RenovationCalculator() {
         </ol>
       }
       testimonial="Before getting contractor quotes for our kitchen remodel I had no idea what a realistic budget looked like. Using TrufflShuffl's Renovation Calculator I selected Mid-range, Metropolitan, and got a range of R80,000–R160,000 — which matched the three quotes I received almost exactly. The itemised breakdown showing materials vs labour vs contingency helped me understand which quotes were overpriced and which were cutting corners on materials. I upgraded to Premium grade for the kitchen and used Budget estimates for the smaller bedroom repaint. Having data-backed numbers completely changed the power dynamic in contractor negotiations. The 15-category dropdown covers everything from pools to braai areas — the most comprehensive renovation tool I've found for South African conditions."
+    guide={CALCULATOR_GUIDES['renovation']}
     >
       <div className="space-y-5">
         <div className="flex items-center gap-3">

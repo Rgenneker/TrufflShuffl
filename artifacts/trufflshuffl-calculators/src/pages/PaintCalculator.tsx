@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -58,6 +59,7 @@ export default function PaintCalculator() {
         </ol>
       }
       testimonial="Painting our open-plan living room and kitchen was a big job and I was terrified of buying too much — or too little. This calculator let me enter the combined wall area, subtract my 4 doors and 6 windows, add the ceiling, and immediately know I needed 22 litres of interior silk for two coats. The tin optimiser showed me to buy one 20L tin and one 5L tin rather than four 5L tins, saving R180. Knowing the exact coverage per litre also helped me choose between two similar paints — the cheaper one had lower coverage, making it more expensive per m². It's changed how I shop for paint permanently. Professional decorators I've spoken to say this is how they quote too."
+    guide={CALCULATOR_GUIDES['paint']}
     >
       <div className="space-y-5">
         <div className="flex flex-wrap gap-3">

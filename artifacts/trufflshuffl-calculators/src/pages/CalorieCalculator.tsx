@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -81,6 +82,7 @@ export default function CalorieCalculator() {
         </ol>
       }
       testimonial="I've tried dozens of calorie calculators but this one is the most complete. Seeing both the Mifflin-St Jeor and Harris-Benedict BMR formulas side by side gave me confidence in the number — they agreed within 50 calories. The macro breakdown in grams (not just percentages) is what I needed to hit my protein target for muscle gain. The food tracker, while not a full database, covers the foods I actually eat — South African staples like pap, biltong and braai meat could be added, but the main categories are comprehensive. I've been using the TDEE calculator monthly to recalculate as my weight changes, and the results have been tracking perfectly with my actual progress. Best free nutrition tool I've found."
+    guide={CALCULATOR_GUIDES['calories']}
     >
       <div className="space-y-5">
         <div className="flex items-center gap-3">

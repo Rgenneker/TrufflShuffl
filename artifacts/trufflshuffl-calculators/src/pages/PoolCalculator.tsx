@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -42,6 +43,7 @@ export default function PoolCalculator() {
         </ol>
       }
       testimonial="Pool maintenance is much less stressful since I found this calculator. I used to guess how many chlorine tablets to add, which led to cloudy water and irritated eyes. Entering my pool's exact dimensions — a 9m × 4m rectangle, 1.6m deep — gave me 57,600 litres and a precise chlorine starting dose. The fill time estimate (67 hours at 15L/min) helped me plan our annual refill around water restrictions. My pool contractor was impressed I already knew the volume when he quoted for a heat pump. The gallon conversion is handy when reading American pool chemistry guides. I've bookmarked this page and use it every time I open or close the pool for the season."
+    guide={CALCULATOR_GUIDES['pool']}
     >
       <div className="space-y-5">
         <div className="flex items-center gap-3">

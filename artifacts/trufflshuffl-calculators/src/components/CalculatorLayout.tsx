@@ -3,19 +3,22 @@ import { Link } from "wouter";
 import { ArrowLeft } from "lucide-react";
 import { LanguageSelect } from "@/components/LanguageSelect";
 import { useLang } from "@/context/LanguageContext";
+import { CalculatorPageGuide, type PageGuide } from "@/components/CalculatorPageGuide";
 
 export function CalculatorLayout({
   title,
   description,
   instructions,
   children,
-  testimonial
+  testimonial,
+  guide,
 }: {
   title: string;
   description: string;
   instructions: ReactNode;
   children: ReactNode;
   testimonial: string;
+  guide?: PageGuide;
 }) {
   const { t } = useLang();
 
@@ -68,6 +71,12 @@ export function CalculatorLayout({
             </div>
           </div>
         </div>
+
+        {guide && (
+          <div className="mb-16">
+            <CalculatorPageGuide guide={guide} />
+          </div>
+        )}
       </main>
     </div>
   );

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -46,6 +47,7 @@ export default function LoanCalculator() {
         </ol>
       }
       testimonial="I used this loan calculator before taking out vehicle finance and it completely changed my negotiation. Seeing the total interest figure in black and white motivated me to put down a larger deposit and shorten the term. The extra payment feature showed me that adding just a small amount a month would save 11 months and significant interest. My bank told me the same thing but this visual breakdown made it real. I've since shared it with three family members who were about to sign agreements without truly understanding the full cost of their loans. TrufflShuffl's Loan Calculator is exactly what consumers need."
+    guide={CALCULATOR_GUIDES['loan']}
     >
       <div className="space-y-5">
         <div className="space-y-1.5">

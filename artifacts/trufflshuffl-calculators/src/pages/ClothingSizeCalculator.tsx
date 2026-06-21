@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -71,6 +72,7 @@ export default function ClothingSizeCalculator() {
         </ol>
       }
       testimonial="Online shopping used to be a gamble until I discovered this calculator. I input my chest (94cm), waist (78cm) and hips (101cm) and immediately got UK 14, US 10, EU 42 — which matched my favourite brand exactly. The build selector is genius: it told me that as a broad-shouldered woman, I should size up for blazers even though my chest is an L. The trouser section saved me two returns — knowing my exact waist/inseam in US sizing (31W × 30L) means I can shop American brands without guessing. The full size reference chart at the bottom is something I screenshot every time I shop. This calculator is permanently bookmarked on my phone."
+    guide={CALCULATOR_GUIDES['clothing-size']}
     >
       <div className="space-y-5">
         <div className="flex flex-wrap gap-3">

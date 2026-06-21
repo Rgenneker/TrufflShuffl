@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -48,6 +49,7 @@ export default function ROICalculator() {
         </ol>
       }
       testimonial="I use this ROI calculator to evaluate every business decision — from marketing campaigns to equipment purchases. Being able to see both the simple ROI and the annualised ROI side by side helps me compare investments with different time horizons fairly. The multiplier figure is especially useful for pitching to investors. Clear, fast and trustworthy."
+    guide={CALCULATOR_GUIDES['roi']}
     >
       <div className="space-y-5">
         <div className="space-y-1.5">

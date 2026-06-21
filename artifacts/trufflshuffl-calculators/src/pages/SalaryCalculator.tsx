@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -72,6 +73,7 @@ export default function SalaryCalculator() {
         </ol>
       }
       testimonial="When I was negotiating a new job offer, I had an hourly rate offer and needed to compare it to my annual salary at my current job. This calculator converted both to the same basis in seconds. I also used it to figure out what my daily rate would be if I went freelance. The custom hours-per-day feature makes it accurate for part-time roles too."
+    guide={CALCULATOR_GUIDES['salary']}
     >
       <div className="space-y-5">
         <div className="space-y-1.5">

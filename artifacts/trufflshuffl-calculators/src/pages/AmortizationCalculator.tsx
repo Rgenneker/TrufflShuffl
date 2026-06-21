@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -40,6 +41,7 @@ export default function AmortizationCalculator() {
         </ol>
       }
       testimonial="As a first-generation homeowner I had no idea what amortization meant until I used this tool. Watching year one of my bond — where almost 80% of every payment goes to interest and only 20% to principal — was sobering but incredibly motivating. I immediately increased my monthly payment and the calculator showed me I'd save years of repayments. The chart makes the crossover point — where more goes to principal than interest — crystal clear. I now check my amortization schedule every January to track progress and decide if I can afford to make extra payments. It has genuinely changed how I think about debt."
+    guide={CALCULATOR_GUIDES['amortization']}
     >
       <div className="space-y-5">
         <div className="space-y-1.5">

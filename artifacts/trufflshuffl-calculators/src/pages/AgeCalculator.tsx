@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -61,6 +62,7 @@ export default function AgeCalculator() {
         </ol>
       }
       testimonial="I used this age calculator to settle an argument with my siblings about whose turn it was to plan our parents' anniversary party. Turns out I'm exactly 847 days older than my sister — more than I thought! I also love the 'days until next birthday' feature. I now have it bookmarked to check every year on my children's birthdays to see their age in days — a lovely detail for their birthday messages."
+    guide={CALCULATOR_GUIDES['age']}
     >
       <div className="space-y-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

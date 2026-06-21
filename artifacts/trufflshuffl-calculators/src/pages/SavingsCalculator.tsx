@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -64,6 +65,7 @@ export default function SavingsCalculator() {
         </ol>
       }
       testimonial="I started using this savings calculator to plan my emergency fund and it completely changed how I think about money. Seeing that my small monthly contribution would grow so significantly over 10 years made me commit to automating my savings immediately. The split between what I deposit and the interest earned shows exactly why starting early matters. Simple, accurate and motivating."
+    guide={CALCULATOR_GUIDES['savings']}
     >
       <div className="space-y-5">
         <div className="space-y-1.5">

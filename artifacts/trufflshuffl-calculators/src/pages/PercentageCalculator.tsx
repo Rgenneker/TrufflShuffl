@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -57,6 +58,7 @@ export default function PercentageCalculator() {
         </ol>
       }
       testimonial="I use this percentage calculator every day for pricing decisions — whether I need to calculate my profit margin, work out a percentage discount, or figure out how much prices have changed over time. The five modes cover every scenario I've ever needed. Fast, accurate and no unnecessary complexity. Bookmarked on every device."
+    guide={CALCULATOR_GUIDES['percentage']}
     >
       <div className="space-y-5">
         <div className="space-y-2">

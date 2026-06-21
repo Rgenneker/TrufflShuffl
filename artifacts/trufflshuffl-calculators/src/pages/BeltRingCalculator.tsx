@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -64,6 +65,7 @@ export default function BeltRingCalculator() {
         </ol>
       }
       testimonial="Two problems, one page. I'd bought three belts in the wrong length before finding this tool — I had no idea my waist (88cm) plus the 7cm extra for a trouser belt meant I needed a 38-inch belt, not a 36. The commercial size lookup is exactly what I needed for online shopping. The ring size guide is equally brilliant: using the string method and entering my circumference (59mm) gave me US 7, UK N½, EU 54 — perfectly matching the engagement ring my partner secretly measured. The 'measure in the evening' tip stopped me from buying a ring that would only fit me in the morning. The clear diagram of measurement techniques is exactly what I needed. No jeweller required."
+    guide={CALCULATOR_GUIDES['belt-ring']}
     >
       <div className="space-y-4">
         <div className="flex items-center gap-2">

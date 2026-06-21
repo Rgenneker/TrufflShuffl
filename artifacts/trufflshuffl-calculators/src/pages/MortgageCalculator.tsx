@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -48,6 +49,7 @@ export default function MortgageCalculator() {
         </ol>
       }
       testimonial="Buying our first home was terrifying until I found this calculator. The transfer duty auto-calculation alone saved hours of searching. More importantly, seeing the total cost of the property including attorney fees, bond registration, and 20 years of interest changed our thinking entirely. We ended up increasing our deposit and reducing the term from 20 to 15 years, saving a huge amount in interest. The year-by-year breakdown showing exactly how much of each year's payments go to interest vs principal is the most eye-opening thing any first-time buyer can see. This is the calculator every estate agent should show their clients."
+    guide={CALCULATOR_GUIDES['mortgage']}
     >
       <div className="space-y-5">
         <div className="space-y-1.5">

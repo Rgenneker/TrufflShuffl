@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -85,6 +86,7 @@ export default function FuelCalculator() {
         </ol>
       }
       testimonial="Long-distance road trips in South Africa are an institution, and this calculator has become essential planning for every one of mine. Before my Joburg-to-Cape Town drive I entered my car's real-world consumption, current fuel prices and number of passengers — the cost-split feature meant my friends knew exactly what to contribute. The trip time calculator even accounted for our coffee stops at Huguenot Tunnel. I use the conversion tab constantly to compare cars with different efficiency ratings. My European rental car listed fuel economy in L/100km but I think in MPG — this converter bridged the gap in seconds. Brilliant for budget travel, family road trips, and anyone trying to figure out whether EV charging actually saves money versus petrol."
+    guide={CALCULATOR_GUIDES['fuel']}
     >
       <div className="space-y-5">
         <div className="flex items-center gap-3">

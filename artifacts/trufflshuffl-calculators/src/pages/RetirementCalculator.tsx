@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -77,6 +78,7 @@ export default function RetirementCalculator() {
         </ol>
       }
       testimonial="I've been contributing to my retirement annuity for 12 years but never truly understood how much I'd actually have. This calculator showed me the real inflation-adjusted figure and it was eye-opening — I immediately increased my monthly contribution. The breakdown between what I put in versus investment growth made the power of compound interest concrete. Every working adult should use this before their next birthday."
+    guide={CALCULATOR_GUIDES['retirement']}
     >
       <div className="space-y-5">
         <div className="space-y-1.5">

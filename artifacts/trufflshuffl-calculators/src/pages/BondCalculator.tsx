@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -63,6 +64,7 @@ export default function BondCalculator() {
         </ol>
       }
       testimonial="I was studying for my CFP exams and struggled with bond pricing concepts until I found TrufflShuffl's Bond Calculator. Being able to punch in real numbers and instantly see how the price changes as yields move makes the relationship tangible in a way that textbooks never could. The Macaulay duration figure helps me understand interest rate sensitivity, and the coupon schedule table is perfect for checking my manual calculations. My study group now uses it daily."
+    guide={CALCULATOR_GUIDES['bond']}
     >
       <div className="space-y-5">
         <div className="space-y-1.5">

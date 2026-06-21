@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -72,6 +73,7 @@ export default function PavingCalculator() {
         </ol>
       }
       testimonial="Redoing our driveway was daunting until I used this calculator. I entered the 45m² area, chose the 200×100mm brick in a herringbone pattern and got an exact count of 2,475 pavers — including the automatic extra waste for diagonal cuts. Armed with that number I got quotes from three suppliers and saved R3,200 by knowing exactly what I needed. The pack calculator showed me I needed 50 packs of 50, so I didn't order too many and pay return delivery fees. My contractor was pleased I'd done the homework — it saved us both a trip to the builders' merchant mid-project. I now use it for every garden project quote."
+    guide={CALCULATOR_GUIDES['paving']}
     >
       <div className="space-y-5">
         <div className="flex items-center gap-3">

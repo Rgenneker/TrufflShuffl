@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -75,6 +76,7 @@ export default function UnitConverter() {
         </ol>
       }
       testimonial="I work in international logistics and unit conversions are a daily necessity. This converter has replaced four separate tools I used to switch between. The temperature converter is correctly handling all four scales including Rankine, which most free tools ignore. The data storage converter has saved me from embarrassing client errors when quoting gigabytes vs gibibytes. The fuel efficiency section is a bonus — being able to explain to a European client that their 6L/100km car gets 47 MPG in terms they understand has closed deals. The fact that it updates in real-time as I type is the detail that makes the difference. I've installed it as a PWA shortcut on all my work devices."
+    guide={CALCULATOR_GUIDES['units']}
     >
       <div className="space-y-5">
         {/* Category grid */}

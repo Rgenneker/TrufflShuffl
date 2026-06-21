@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -48,6 +49,7 @@ export default function InvestmentCalculator() {
         </ol>
       }
       testimonial="TrufflShuffl's Investment Calculator has become my go-to planning tool. I use it every month to check how my unit trust is tracking against my retirement target. The compound vs simple comparison was eye-opening — I had no idea how much of a difference compounding frequency makes over 20 years. My financial advisor even asked me to share the link. The chart makes it incredibly easy to visualise long-term growth and have those honest conversations about whether I'm saving enough. I've recommended it to everyone in my investment club. Finally a calculator that doesn't require a finance degree to use, but still gives you the depth professionals expect."
+    guide={CALCULATOR_GUIDES['investment']}
     >
       <div className="space-y-5">
         <div className="space-y-1.5">

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -56,6 +57,7 @@ export default function VATCalculator() {
         </ol>
       }
       testimonial="Running a small business in South Africa, I need to calculate VAT constantly. This calculator saves me so much time — I can instantly see whether a price is VAT-inclusive or VAT-exclusive and get the exact VAT amount. The 'remove VAT' feature is especially useful when suppliers give me gross prices and I need to reclaim the VAT portion. Essential tool for any SA business owner."
+    guide={CALCULATOR_GUIDES['vat']}
     >
       <div className="space-y-5">
         <div className="space-y-2">
