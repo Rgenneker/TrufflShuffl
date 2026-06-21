@@ -31,20 +31,20 @@ export function HreflangTags({ lang }: Props) {
       document.head.appendChild(link);
     });
 
-    // x-default → English
+    // x-default → root (no language prefix)
     const xDef = document.createElement("link");
     xDef.rel = "alternate";
     xDef.hreflang = "x-default";
-    xDef.href = `${BASE_URL}/en${pagePath}`;
+    xDef.href = pagePath ? `${BASE_URL}/en${pagePath}` : `${BASE_URL}/`;
     xDef.dataset.i18n = "1";
     document.head.appendChild(xDef);
 
-    // Canonical = current language URL
+    // Canonical — homepage always points to bare root; other pages are language-prefixed
     const existingCanonical = document.querySelector('link[rel="canonical"]');
     if (existingCanonical) existingCanonical.remove();
     const canonical = document.createElement("link");
     canonical.rel = "canonical";
-    canonical.href = `${BASE_URL}/${lang}${pagePath}`;
+    canonical.href = !pagePath ? `${BASE_URL}/` : `${BASE_URL}/${lang}${pagePath}`;
     canonical.dataset.i18n = "1";
     document.head.appendChild(canonical);
 
