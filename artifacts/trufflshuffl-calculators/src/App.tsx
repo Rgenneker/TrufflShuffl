@@ -33,6 +33,8 @@ import SavingsCalculator from "@/pages/SavingsCalculator";
 import AgeCalculator from "@/pages/AgeCalculator";
 import SalaryCalculator from "@/pages/SalaryCalculator";
 import ConversionPage from "@/pages/ConversionPage";
+import ArticlesPage from "@/pages/ArticlesPage";
+import ArticlePage from "@/pages/ArticlePage";
 import AboutPage from "@/pages/About";
 import ContactPage from "@/pages/Contact";
 import TermsPage from "@/pages/Terms";
@@ -108,6 +110,9 @@ function InnerRoutes() {
       {/* Conversion value pages — /convert/miles-to-km/5 */}
       <Route path="/convert/:pair/:value" component={ConversionPage} />
       <Route path="/convert/:pair" component={ConversionPage} />
+      {/* Articles */}
+      <Route path="/articles" component={ArticlesPage} />
+      <Route path="/articles/:slug" component={ArticlePage} />
       {/* Info pages */}
       <Route path="/about" component={AboutPage} />
       <Route path="/contact" component={ContactPage} />

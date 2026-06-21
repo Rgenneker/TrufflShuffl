@@ -5,7 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { CONVERSION_PAIRS, findPair, CONVERSION_VALUES } from "@/lib/conversions";
 import { useLang } from "@/context/LanguageContext";
-import { ArrowLeft, ArrowRight, Calculator } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calculator, BookOpen } from "lucide-react";
+import { getArticlesByCategory } from "@/lib/articles";
 
 function fmt(n: number, precision: number): string {
   if (!isFinite(n)) return "—";
@@ -248,6 +249,40 @@ export default function ConversionPage() {
                 ))}
             </div>
           </div>
+
+          {/* Related articles */}
+          {(() => {
+            const articles = getArticlesByCategory(pair.category).slice(0, 3);
+            if (articles.length === 0) return null;
+            return (
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-lg font-semibold text-foreground flex items-center gap-2">
+                    <BookOpen className="h-4 w-4 text-primary" />
+                    {pair.category} Articles
+                  </h2>
+                  <Link href="/articles" className="text-sm text-primary hover:underline">
+                    View all →
+                  </Link>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  {articles.map(a => (
+                    <Link
+                      key={a.slug}
+                      href={`/articles/${a.slug}`}
+                      className="group block bg-card border border-border rounded-xl p-4 hover:border-primary/60 transition-all"
+                    >
+                      <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors leading-snug mb-1">
+                        {a.title}
+                      </p>
+                      <p className="text-xs text-muted-foreground line-clamp-2">{a.subtitle}</p>
+                      <p className="text-xs text-muted-foreground mt-2">{a.readTime} min read</p>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
 
         </div>
       </div>
