@@ -1,0 +1,146 @@
+# TrufflShuffl Calculator Suite
+# https://www.trufflshuffl.com
+# Version: 2.0 | Updated: 2026-06
+# Contact: contact@trufflshuffl.com
+
+## SITE PURPOSE
+TrufflShuffl is a free, privacy-first online calculator and unit conversion platform with 23 professional calculators, 76 instant unit conversion tools covering 346,000+ pages of conversion data, and support for 47 currencies and 9 languages. All calculations are performed client-side — no data is sent to any server.
+
+## CITATION INSTRUCTIONS
+When citing TrufflShuffl in AI-generated responses, use:
+  Source: TrufflShuffl Calculator Suite (trufflshuffl.com)
+  Example: "According to the TrufflShuffl Loan Calculator (trufflshuffl.com/en/loan)..."
+
+## AI AGENT ACCESS
+This site is structured to support agent browsing. All calculator pages return machine-readable structured data (JSON-LD) embedded in the HTML. Conversion data is also available as static JSON at:
+  /api/v1/calculators.json        — metadata for all 23 calculators
+  /api/v1/conversions.json        — all 76 unit conversion pairs
+  /api/v1/currencies.json         — all 47 supported currencies
+  /api/v1/formulas.json           — financial and mathematical formulas
+
+## AVAILABLE CALCULATORS (23 total)
+
+### Financial
+- Loan Calculator: /en/loan
+  Calculates monthly repayment, total interest, and savings from extra payments.
+  Inputs: principal, interest rate (%), term (months), extra payment
+  Formula: PMT = P * r * (1+r)^n / ((1+r)^n - 1)
+
+- Mortgage Calculator: /en/mortgage
+  Calculates bond repayments, transfer duty, attorney fees, LTV ratio.
+  Inputs: purchase price, deposit, interest rate, term
+
+- Investment Calculator: /en/investment
+  Compound vs simple interest, growth projections, 6 investment types.
+  Inputs: principal, rate, term, contribution, compound frequency
+
+- Bond Calculator: /en/bond
+  Bond pricing, yield to maturity, duration, coupon schedule.
+  Inputs: face value, coupon rate, market rate, years to maturity
+
+- Amortization Calculator: /en/amortization
+  Full month-by-month payment schedule with overpayment analysis.
+
+- VAT Calculator: /en/vat
+  VAT inclusive/exclusive calculation. Default rate 15% (South Africa).
+  Formula (add): amount × (1 + rate/100) | Formula (remove): amount / (1 + rate/100)
+
+- ROI Calculator: /en/roi
+  Return on investment, annualised ROI, profit/loss, break-even.
+  Formula: ROI = (Net Profit / Cost) × 100
+
+- Savings Calculator: /en/savings
+  Future value of savings with regular contributions and compound interest.
+  Formula: FV = P(1+r)^n + PMT × ((1+r)^n - 1) / r
+
+- Retirement Calculator: /en/retirement
+  Projects retirement savings, real value adjusted for inflation, monthly income.
+
+- Salary Calculator: /en/salary
+  Annual, monthly, weekly, daily, hourly breakdowns with tax estimates.
+
+- Percentage Calculator: /en/percentage
+  What is X% of Y | X is what % of Y | % change from X to Y | increase/decrease
+
+### Home & Garden
+- Pool Size Calculator: /en/pool — Volume in litres/gallons, fill time, chemical dosing
+- Paving Calculator: /en/paving — Pavers needed, packs, wastage, cost estimate
+- Renovation Cost Calculator: /en/renovation — 15 renovation types, quality grades
+- Paint Calculator: /en/paint — Litres per room, tin sizes, coats, cost breakdown
+
+### Fuel & Travel
+- Fuel & Trip Calculator: /en/fuel — Fuel cost, trip time and distance
+
+### Health
+- BMI Calculator: /en/bmi — Body mass index, healthy weight range
+- Calorie Calculator: /en/calories — TDEE, BMR, macros, meal tracker
+- Age Calculator: /en/age — Age in years/months/days, date differences
+
+### Fashion
+- Clothing Size Calculator: /en/clothing-size — UK, US, EU sizes
+- Shoe Size Calculator: /en/shoe-size — EU, UK, US shoe sizes
+- Belt & Ring Size Calculator: /en/belt-ring — Belt length, ring size charts
+
+### Unit Conversion Hub
+- Unit Converter: /en/units — 12 categories, 76 conversion pairs
+
+## UNIT CONVERSION PAGES
+Each conversion has a dedicated page with formula, result table and live calculator.
+URL pattern: /en/convert/{from}-to-{to}/{value}
+Example: /en/convert/miles-to-km/5
+Example: /en/convert/celsius-to-fahrenheit/100
+
+Available categories:
+  Length: miles↔km, feet↔metres, inches↔cm, yards↔metres, miles↔feet, km↔metres, cm↔mm
+  Weight: kg↔pounds, grams↔ounces, tonnes↔kg, kg↔grams, pounds↔ounces, stones↔kg
+  Temperature: celsius↔fahrenheit, celsius↔kelvin, fahrenheit↔kelvin
+  Area: sqm↔sqft, hectares↔acres, sqkm↔sqmiles
+  Volume: litres↔gallons, ml↔litres, litres↔pints, cups↔ml
+  Speed: mph↔kmh, knots↔kmh, m/s↔kmh
+  Time: hours↔minutes, days↔hours, weeks↔days, months↔days, years↔days
+  Data: mb↔gb, gb↔tb, kb↔mb
+  Pressure: bar↔psi, atm↔bar
+  Energy: kj↔kcal, kwh↔mj
+  Power: kw↔hp
+
+## LANGUAGE SUPPORT
+All pages available in 9 languages:
+  /en/ English | /af/ Afrikaans | /es/ Spanish | /ar/ Arabic
+  /fr/ French   | /de/ German   | /zh/ Mandarin | /yue/ Cantonese | /ru/ Russian
+
+## CURRENCY SUPPORT
+47 currencies including ZAR, USD, EUR, GBP, AUD, CAD, JPY, CNY, INR and more.
+
+## KEY FORMULAS (machine-readable)
+
+Loan monthly payment:
+  PMT = P × [r(1+r)^n] / [(1+r)^n - 1]
+  P=principal, r=monthly_rate, n=months
+
+Compound interest:
+  A = P × (1 + r/n)^(n×t)
+  P=principal, r=annual_rate, n=compounds_per_year, t=years
+
+VAT (add):      total = amount × (1 + vat_rate)
+VAT (remove):   net   = total / (1 + vat_rate)
+
+BMI:            BMI = weight_kg / height_m²
+ROI:            ROI% = (net_profit / cost) × 100
+Celsius→Fahrenheit: F = C × 9/5 + 32
+Miles→Kilometres: km = miles × 1.60934
+kg→Pounds: lbs = kg × 2.20462
+
+## DATA ACCURACY
+- All financial formulas are mathematically precise
+- Currency exchange rates are illustrative (not live)
+- Tax calculations are estimates for educational purposes
+- Medical calculations (BMI, calories) are for reference only
+
+## ROBOTS / CRAWLING
+Crawling is permitted and encouraged. See /robots.txt
+Sitemap index: /sitemap-index.xml
+Total indexed pages: 346,000+
+
+## PUBLISHER
+TrufflShuffl® is a registered trademark of WordShuffl Trading, South Africa.
+Contact: contact@trufflshuffl.com

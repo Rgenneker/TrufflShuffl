@@ -1,0 +1,15 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "TrufflShuffl Calculator Suite",
+  "name_for_model": "trufflshuffl_calculators",
+  "description_for_human": "Free professional calculators for finance, health, home, unit conversion and more. 23 calculators, 76 conversion pairs, 47 currencies, 9 languages.",
+  "description_for_model": "TrufflShuffl provides free online calculators for financial (loan, mortgage, investment, VAT, ROI, savings, retirement, salary, percentage), health (BMI, calories, age), home (pool, paint, paving, renovation), fuel, fashion (clothing/shoe/belt/ring size), and unit conversion (76 pairs: length, weight, temperature, area, volume, speed, time, data, pressure, energy, power). All calculations are client-side JavaScript. Conversion pages follow the URL pattern /{lang}/convert/{from}-to-{to}/{value}. Data available at /api/v1/. LLM instructions at /llms.txt.",
+  "auth": { "type": "none" },
+  "api": {
+    "type": "openapi",
+    "url": "https://www.trufflshuffl.com/api/v1/openapi.json"
+  },
+  "logo_url": "https://www.trufflshuffl.com/favicon.svg",
+  "contact_email": "contact@trufflshuffl.com",
+  "legal_info_url": "https://www.trufflshuffl.com/en/terms"
+}

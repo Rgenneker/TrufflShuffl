@@ -1,0 +1,217 @@
+Create scripts and that improves the SEO and GEO capabilities of the website, we want to create around 300k indexed pages. In addition to SEO and GEO the website must act like a data api, for ai search engines  and support agent browsing. The website must have increased appeareance in ai searches and be cited by ai agents. The website must include a detailed llms.txt file.  The script must be able to Generate thousands of pages: The sitemap must be indexed in order to generate 300k plus indexed pages. The information used to strengthen the website must include keywords as provided, and on every page there should be links to all the other pages, These pages must include , how to? Where to use, why use the specific conversion, benefits of using, etc... These must include 20 unique academic articles for each category of conversion, the articles to be authored as the Lexigenz Authors. All the articles must appear in a Article page that house all the Articles in category order. How ever each page that highlights a ceratin category must have a link to the articles related to that page. The articles must be unique and high quality , the articles must between 800-1200 words and indicate the read time. Improve on the Site Structure to be user friendly and inviting and wanting people to refer and come back daily and use it daily. The site must scale to a minimum of 300,000+ indexed pages through calculator pages, conversion pages,  formula pages, and educational content, etc...,  while remaining highly attractive for search traffic and advertising revenue. The website is currently opening with this url  https://trufflshuffl.com/en users will search with https://trufflshuffl.com and this must route to https://trufflshuffl.com/en . Google is showing the url address as https://trufflshuffl.com › en, this should be https://trufflshuffl.com  fix this please.
+ Add calculators mentioned below in the website if not already there, and add the categories that may not already be there. The site must keep the google adsense script and the PUB , these must change, the Robots.txt and ads.txt should be updated where necessary especially if the sitemap-index.xml will be created. When completed confirm the number of indexable pages for Seo and Geo. There are ad slots on the pages move it around so that it looks aesthetically pleasing for the user.
+
+Core Keywords
+    • calculator 
+    • online calculator 
+    • free calculator 
+    • calculation tool 
+    • calculator app 
+    • maths calculator 
+    • business calculator 
+    • finance calculator 
+    • conversion calculator 
+    • online tools 
+      Financial Calculator Keywords
+    • loan calculator 
+    • mortgage calculator 
+    • interest calculator 
+    • compound interest calculator 
+    • savings calculator 
+    • retirement calculator 
+    • investment calculator 
+    • inflation calculator 
+    • bond calculator 
+    • tax calculator 
+    • VAT calculator 
+    • salary calculator 
+    • profit calculator 
+    • ROI calculator 
+    • break even calculator 
+      
+      Unit Converter Keywords
+    • unit converter 
+    • conversion calculator 
+    • measurement converter 
+    • metric converter 
+    • imperial converter 
+    • conversion tool 
+    • unit conversion 
+Length Conversion Keywords
+    • miles to km 
+    • km to miles 
+    • cm to inches 
+    • inches to cm 
+    • feet to metres 
+    • metres to feet 
+    • yards to metres 
+    • length converter 
+Weight Conversion Keywords
+    • kg to pounds 
+    • pounds to kg 
+    • grams to ounces 
+    • ounces to grams 
+    • tonnes to kg 
+    • weight converter 
+    • mass converter 
+Temperature Conversion Keywords
+    • Celsius to Fahrenheit 
+    • Fahrenheit to Celsius 
+    • Celsius to Kelvin 
+    • Kelvin to Celsius 
+    • temperature converter 
+Area Conversion Keywords
+    • square metres to square feet 
+    • square feet to square metres 
+    • hectares to acres 
+    • acres to hectares 
+    • area converter 
+Volume Conversion Keywords
+    • litres to gallons 
+    • gallons to litres 
+    • ml to litres 
+    • litres to ml 
+    • volume converter 
+Speed Conversion Keywords
+    • mph to kmh 
+    • kmh to mph 
+    • speed converter 
+    • knots to kmh 
+    • kmh to knots 
+Time Conversion Keywords
+    • hours to minutes 
+    • minutes to hours 
+    • days to weeks 
+    • weeks to days 
+    • time converter 
+Percentage Calculator Keywords
+    • percentage calculator 
+    • percentage increase calculator 
+    • percentage decrease calculator 
+    • discount calculator 
+    • markup calculator 
+    • profit margin calculator 
+Health Calculator Keywords
+    • BMI calculator 
+    • calorie calculator 
+    • ideal weight calculator 
+    • body fat calculator 
+    • water intake calculator 
+    • health calculator 
+Age Calculator Keywords
+    • age calculator 
+    • birthday calculator 
+    • age in days calculator 
+    • age difference calculator 
+Date Calculator Keywords
+    • date calculator 
+    • days between dates 
+    • business days calculator 
+    • working days calculator 
+    • future date calculator 
+Construction Calculator Keywords
+    • concrete calculator 
+    • brick calculator 
+    • roofing calculator 
+    • paint calculator 
+    • flooring calculator 
+    • building calculator 
+Vehicle Calculator Keywords
+    • fuel calculator 
+    • fuel consumption calculator 
+    • vehicle finance calculator 
+    • car loan calculator 
+    • mileage calculator 
+Business Calculator Keywords
+    • business loan calculator 
+    • profit calculator 
+    • margin calculator 
+    • startup cost calculator 
+    • cash flow calculator 
+    • pricing calculator 
+Investment Calculator Keywords
+    • investment growth calculator 
+    • compound interest calculator 
+    • stock return calculator 
+    • dividend calculator 
+    • ETF calculator 
+    • retirement calculator 
+High-Intent Search Keywords must be included for SEO and GEO but not limited to the below.
+    • free online calculator 
+    • quick calculator 
+    • best calculator website 
+    • accurate calculator 
+    • instant calculator 
+    • financial calculator online 
+    • conversion calculator online 
+    • business calculator online 
+    • easy calculator tool 
+    • professional calculator platform 
+Long-Tail Keywords
+    • how much is 12 miles in kilometres 
+    • calculate compound interest monthly 
+    • convert pounds to kilograms 
+    • how much house can I afford 
+    • calculate loan repayments 
+    • calculate VAT in South Africa 
+    • convert USD to ZAR today 
+    • calculate return on investment 
+    • calculate profit margin 
+    • convert Celsius to Fahrenheit 
+
+Unit Conversion Pages
+    • Miles to Kilometres 
+    • Kilometres to Miles 
+    • Feet to Metres 
+    • Metres to Feet 
+    • Pounds to Kilograms 
+    • Kilograms to Pounds 
+Potentially thousands of pages.
+Calculator Pages
+    • Mortgage Calculator 
+    • Loan Calculator 
+    • Compound Interest Calculator 
+    • Salary Calculator 
+    • VAT Calculator 
+    • Profit Calculator 
+    • Retirement Calculator 
+    • ROI Calculator 
+Create Thousands of highly valuable pages.
+Formula Pages
+    • How to Calculate VAT 
+    • How to Calculate Compound Interest 
+    • How to Calculate Profit Margin 
+    • How to Calculate ROI 
+    • How to Calculate BMI 
+These attract educational traffic and backlinks.
+Include 50 High-Traffic Article Ideas per category of conversion
+    1. How Compound Interest Creates Wealth 
+    2. Mortgage vs Rent: Which Is Better? 
+    3. Understanding Currency Exchange Rates 
+    4. How Inflation Impacts Savings 
+    5. Financial Ratios Every Business Owner Should Know 
+    6. How to Calculate ROI 
+    7. The Most Useful Unit Conversions 
+    8. Understanding VAT in South Africa 
+    9. Fuel Cost Planning for Road Trips 
+    10. Building Cost Estimation Basics 
+    11. How Exchange Rates Affect Travel 
+    12. Understanding Investment Growth 
+    13. Common Financial Calculation Mistakes 
+    14. Business Budgeting Explained 
+    15. Retirement Planning Calculations 
+Focus heavily on:
+    1. calculator 
+    2. online calculator 
+    3. unit converter 
+    4. loan calculator 
+    5. mortgage calculator 
+    6. compound interest calculator 
+    7. VAT calculator 
+    8. percentage calculator 
+    9. ROI calculator 
+    10. age calculator 
+    11. BMI calculator 
+    12. date calculator 
+    13. conversion calculator 
+

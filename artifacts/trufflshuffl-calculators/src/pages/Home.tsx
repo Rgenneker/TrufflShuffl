@@ -6,28 +6,36 @@ import { useLang } from "@/context/LanguageContext";
 import {
   TrendingUp, DollarSign, Home, Droplets, Zap, Heart, Calculator,
   Fuel, Hammer, PaintBucket, Layers, Activity, BarChart2,
-  Ruler, Shirt, ArrowLeftRight
+  Ruler, Shirt, ArrowLeftRight, Percent, PiggyBank, Target,
+  Calendar, Briefcase, BadgeDollarSign, ArrowRight
 } from "lucide-react";
 
-function HeroAd() {
+function InlineAd() {
   const ref = useRef<HTMLDivElement>(null);
+  const injected = useRef(false);
   useEffect(() => {
-    if (!ref.current) return;
+    if (!ref.current || injected.current) return;
+    injected.current = true;
     const s = document.createElement("script");
     s.async = true;
     s.setAttribute("data-cfasync", "false");
     s.src = "https://pl29742062.effectivecpmnetwork.com/ad0a4242c48089c8f2af3f8331cc6c92/invoke.js";
     document.body.appendChild(s);
-    return () => { s.remove(); };
   }, []);
-  return <div id="container-ad0a4242c48089c8f2af3f8331cc6c92" ref={ref} />;
+  return (
+    <div className="flex justify-center items-center py-2">
+      <div id="container-ad0a4242c48089c8f2af3f8331cc6c92" ref={ref} />
+    </div>
+  );
 }
 
 const CATEGORY_META: Record<string, { color: string; badge: string }> = {
   Financial:           { color: "text-yellow-400",  badge: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20" },
+  Business:            { color: "text-orange-400",  badge: "bg-orange-500/10 text-orange-400 border-orange-500/20" },
   "Fuel & Travel":     { color: "text-blue-400",    badge: "bg-blue-500/10 text-blue-400 border-blue-500/20" },
   "Home & Garden":     { color: "text-teal-400",    badge: "bg-teal-500/10 text-teal-400 border-teal-500/20" },
   Health:              { color: "text-green-400",   badge: "bg-green-500/10 text-green-400 border-green-500/20" },
+  "Dates & Time":      { color: "text-cyan-400",    badge: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20" },
   Fashion:             { color: "text-pink-400",    badge: "bg-pink-500/10 text-pink-400 border-pink-500/20" },
   "Unit Conversions":  { color: "text-violet-400",  badge: "bg-violet-500/10 text-violet-400 border-violet-500/20" },
 };
@@ -37,36 +45,52 @@ export default function HomePage() {
 
   const CALCULATORS = [
     // Financial
-    { href: "/investment",    icon: TrendingUp,    title: t.calcInvestmentTitle,   desc: t.calcInvestmentDesc,   category: "Financial" },
-    { href: "/loan",          icon: DollarSign,    title: t.calcLoanTitle,         desc: t.calcLoanDesc,         category: "Financial" },
-    { href: "/mortgage",      icon: Home,          title: t.calcMortgageTitle,     desc: t.calcMortgageDesc,     category: "Financial" },
-    { href: "/bond",          icon: BarChart2,     title: t.calcBondTitle,         desc: t.calcBondDesc,         category: "Financial" },
-    { href: "/amortization",  icon: Calculator,    title: t.calcAmortizationTitle, desc: t.calcAmortizationDesc, category: "Financial" },
+    { href: "/investment",    icon: TrendingUp,      title: t.calcInvestmentTitle,   desc: t.calcInvestmentDesc,   category: "Financial" },
+    { href: "/loan",          icon: DollarSign,      title: t.calcLoanTitle,         desc: t.calcLoanDesc,         category: "Financial" },
+    { href: "/mortgage",      icon: Home,            title: t.calcMortgageTitle,     desc: t.calcMortgageDesc,     category: "Financial" },
+    { href: "/bond",          icon: BarChart2,       title: t.calcBondTitle,         desc: t.calcBondDesc,         category: "Financial" },
+    { href: "/amortization",  icon: Calculator,      title: t.calcAmortizationTitle, desc: t.calcAmortizationDesc, category: "Financial" },
+    // Business
+    { href: "/vat",           icon: BadgeDollarSign, title: t.calcVATTitle,          desc: t.calcVATDesc,          category: "Business" },
+    { href: "/percentage",    icon: Percent,         title: t.calcPercentageTitle,   desc: t.calcPercentageDesc,   category: "Business" },
+    { href: "/retirement",    icon: PiggyBank,       title: t.calcRetirementTitle,   desc: t.calcRetirementDesc,   category: "Business" },
+    { href: "/roi",           icon: Target,          title: t.calcROITitle,          desc: t.calcROIDesc,          category: "Business" },
+    { href: "/savings",       icon: TrendingUp,      title: t.calcSavingsTitle,      desc: t.calcSavingsDesc,      category: "Business" },
+    { href: "/salary",        icon: Briefcase,       title: t.calcSalaryTitle,       desc: t.calcSalaryDesc,       category: "Business" },
     // Fuel & Travel
-    { href: "/fuel",          icon: Fuel,          title: t.calcFuelTitle,         desc: t.calcFuelDesc,         category: "Fuel & Travel" },
+    { href: "/fuel",          icon: Fuel,            title: t.calcFuelTitle,         desc: t.calcFuelDesc,         category: "Fuel & Travel" },
     // Home & Garden
-    { href: "/pool",          icon: Droplets,      title: t.calcPoolTitle,         desc: t.calcPoolDesc,         category: "Home & Garden" },
-    { href: "/paving",        icon: Layers,        title: t.calcPavingTitle,       desc: t.calcPavingDesc,       category: "Home & Garden" },
-    { href: "/renovation",    icon: Hammer,        title: t.calcRenovationTitle,   desc: t.calcRenovationDesc,   category: "Home & Garden" },
-    { href: "/paint",         icon: PaintBucket,   title: t.calcPaintTitle,        desc: t.calcPaintDesc,        category: "Home & Garden" },
+    { href: "/pool",          icon: Droplets,        title: t.calcPoolTitle,         desc: t.calcPoolDesc,         category: "Home & Garden" },
+    { href: "/paving",        icon: Layers,          title: t.calcPavingTitle,       desc: t.calcPavingDesc,       category: "Home & Garden" },
+    { href: "/renovation",    icon: Hammer,          title: t.calcRenovationTitle,   desc: t.calcRenovationDesc,   category: "Home & Garden" },
+    { href: "/paint",         icon: PaintBucket,     title: t.calcPaintTitle,        desc: t.calcPaintDesc,        category: "Home & Garden" },
     // Health
-    { href: "/calories",      icon: Zap,           title: t.calcCalorieTitle,      desc: t.calcCalorieDesc,      category: "Health" },
-    { href: "/bmi",           icon: Activity,      title: t.calcBMITitle,          desc: t.calcBMIDesc,          category: "Health" },
+    { href: "/calories",      icon: Zap,             title: t.calcCalorieTitle,      desc: t.calcCalorieDesc,      category: "Health" },
+    { href: "/bmi",           icon: Activity,        title: t.calcBMITitle,          desc: t.calcBMIDesc,          category: "Health" },
+    // Dates & Time
+    { href: "/age",           icon: Calendar,        title: t.calcAgeTitle,          desc: t.calcAgeDesc,          category: "Dates & Time" },
     // Fashion
-    { href: "/clothing-size", icon: Shirt,         title: t.calcClothingTitle,     desc: t.calcClothingDesc,     category: "Fashion" },
-    { href: "/shoe-size",     icon: Ruler,         title: t.calcShoeTitle,         desc: t.calcShoeDesc,         category: "Fashion" },
-    { href: "/belt-ring",     icon: Heart,         title: t.calcBeltRingTitle,     desc: t.calcBeltRingDesc,     category: "Fashion" },
+    { href: "/clothing-size", icon: Shirt,           title: t.calcClothingTitle,     desc: t.calcClothingDesc,     category: "Fashion" },
+    { href: "/shoe-size",     icon: Ruler,           title: t.calcShoeTitle,         desc: t.calcShoeDesc,         category: "Fashion" },
+    { href: "/belt-ring",     icon: Heart,           title: t.calcBeltRingTitle,     desc: t.calcBeltRingDesc,     category: "Fashion" },
     // Unit Conversions
-    { href: "/units",         icon: ArrowLeftRight,title: t.calcUnitTitle,         desc: t.calcUnitDesc,         category: "Unit Conversions" },
+    { href: "/units",         icon: ArrowLeftRight,  title: t.calcUnitTitle,         desc: t.calcUnitDesc,         category: "Unit Conversions" },
   ];
 
   const CATEGORIES = [
-    { key: "Financial",         label: t.catFinancial },
-    { key: "Fuel & Travel",     label: t.catFuelTravel },
-    { key: "Home & Garden",     label: t.catHomeGarden },
-    { key: "Health",            label: t.catHealth },
-    { key: "Fashion",           label: t.catFashion },
-    { key: "Unit Conversions",  label: t.catUnitConversions },
+    { key: "Financial",        label: t.catFinancial },
+    { key: "Business",         label: t.catBusiness },
+    { key: "Fuel & Travel",    label: t.catFuelTravel },
+    { key: "Home & Garden",    label: t.catHomeGarden },
+    { key: "Health",           label: t.catHealth },
+    { key: "Dates & Time",     label: t.catDatesTime },
+    { key: "Fashion",          label: t.catFashion },
+    { key: "Unit Conversions", label: t.catUnitConversions },
+  ];
+
+  const POPULAR_CONVERSIONS = [
+    "miles-to-km", "kg-to-pounds", "celsius-to-fahrenheit",
+    "litres-to-gallons", "mph-to-kmh", "sqm-to-sqft",
   ];
 
   return (
@@ -90,13 +114,8 @@ export default function HomePage() {
         </div>
       </header>
 
-      {/* Ad — above "Professional Calculators" */}
-      <div className="container mx-auto px-4 pt-10 flex justify-center">
-        <HeroAd />
-      </div>
-
       {/* Hero */}
-      <section className="container mx-auto px-4 pt-6 pb-8 text-center">
+      <section className="container mx-auto px-4 pt-10 pb-6 text-center">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
           <span className="text-foreground">{t.heroTitle1}</span>{" "}
           <span className="text-primary">{t.heroTitle2}</span>
@@ -107,11 +126,39 @@ export default function HomePage() {
       </section>
 
       {/* World Clock */}
-      <section className="container mx-auto px-4 pb-12">
+      <section className="container mx-auto px-4 pb-8">
         <h2 className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-4 text-center">
           {t.liveWorldClock}
         </h2>
         <WorldClock />
+      </section>
+
+      {/* Ad — between world clock and calculator grid (natural content break) */}
+      <div className="container mx-auto px-4 pb-8">
+        <InlineAd />
+      </div>
+
+      {/* Popular unit conversions strip */}
+      <section className="container mx-auto px-4 pb-10">
+        <div className="flex items-center gap-3 mb-3">
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-violet-400">Popular Conversions</h2>
+          <div className="flex-1 h-px bg-border" />
+          <Link href="/units" className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1">
+            All converters <ArrowRight className="h-3 w-3" />
+          </Link>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {POPULAR_CONVERSIONS.map(slug => {
+            const label = slug.replace(/-/g, " ").replace("to", "→");
+            return (
+              <Link key={slug} href={`/convert/${slug}`}>
+                <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-violet-500/10 text-violet-400 border border-violet-500/20 hover:border-violet-400 transition-colors cursor-pointer">
+                  {label}
+                </span>
+              </Link>
+            );
+          })}
+        </div>
       </section>
 
       {/* Calculator Grid — grouped by category */}

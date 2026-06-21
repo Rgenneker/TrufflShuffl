@@ -25,6 +25,14 @@ import ClothingSizeCalculator from "@/pages/ClothingSizeCalculator";
 import ShoeSizeCalculator from "@/pages/ShoeSizeCalculator";
 import BeltRingCalculator from "@/pages/BeltRingCalculator";
 import UnitConverter from "@/pages/UnitConverter";
+import VATCalculator from "@/pages/VATCalculator";
+import PercentageCalculator from "@/pages/PercentageCalculator";
+import RetirementCalculator from "@/pages/RetirementCalculator";
+import ROICalculator from "@/pages/ROICalculator";
+import SavingsCalculator from "@/pages/SavingsCalculator";
+import AgeCalculator from "@/pages/AgeCalculator";
+import SalaryCalculator from "@/pages/SalaryCalculator";
+import ConversionPage from "@/pages/ConversionPage";
 import AboutPage from "@/pages/About";
 import ContactPage from "@/pages/Contact";
 import TermsPage from "@/pages/Terms";
@@ -66,22 +74,41 @@ function InnerRoutes() {
   return (
     <Switch>
       <Route path="/" component={HomePage} />
+      {/* Financial */}
       <Route path="/investment" component={InvestmentCalculator} />
       <Route path="/loan" component={LoanCalculator} />
       <Route path="/mortgage" component={MortgageCalculator} />
       <Route path="/bond" component={BondCalculator} />
       <Route path="/amortization" component={AmortizationCalculator} />
+      {/* Business */}
+      <Route path="/vat" component={VATCalculator} />
+      <Route path="/percentage" component={PercentageCalculator} />
+      <Route path="/retirement" component={RetirementCalculator} />
+      <Route path="/roi" component={ROICalculator} />
+      <Route path="/savings" component={SavingsCalculator} />
+      <Route path="/salary" component={SalaryCalculator} />
+      {/* Fuel & Travel */}
       <Route path="/fuel" component={FuelCalculator} />
+      {/* Home & Garden */}
       <Route path="/pool" component={PoolCalculator} />
       <Route path="/paving" component={PavingCalculator} />
       <Route path="/renovation" component={RenovationCalculator} />
       <Route path="/paint" component={PaintCalculator} />
+      {/* Health */}
       <Route path="/calories" component={CalorieCalculator} />
       <Route path="/bmi" component={BMICalculator} />
+      {/* Dates & Time */}
+      <Route path="/age" component={AgeCalculator} />
+      {/* Fashion */}
       <Route path="/clothing-size" component={ClothingSizeCalculator} />
       <Route path="/shoe-size" component={ShoeSizeCalculator} />
       <Route path="/belt-ring" component={BeltRingCalculator} />
+      {/* Unit Conversions */}
       <Route path="/units" component={UnitConverter} />
+      {/* Conversion value pages — /convert/miles-to-km/5 */}
+      <Route path="/convert/:pair/:value" component={ConversionPage} />
+      <Route path="/convert/:pair" component={ConversionPage} />
+      {/* Info pages */}
       <Route path="/about" component={AboutPage} />
       <Route path="/contact" component={ContactPage} />
       <Route path="/terms" component={TermsPage} />
