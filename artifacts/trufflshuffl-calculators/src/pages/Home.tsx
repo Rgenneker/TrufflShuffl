@@ -7,7 +7,7 @@ import {
   TrendingUp, DollarSign, Home, Droplets, Zap, Heart, Calculator,
   Fuel, Hammer, PaintBucket, Layers, Activity, BarChart2,
   Ruler, Shirt, ArrowLeftRight, Percent, PiggyBank, Target,
-  Calendar, Briefcase, BadgeDollarSign, ArrowRight
+  Calendar, Briefcase, BadgeDollarSign, ArrowRight, BookOpen
 } from "lucide-react";
 
 function InlineAd() {
@@ -161,6 +161,24 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Articles banner */}
+      <section className="container mx-auto px-4 pb-10">
+        <Link href="/articles">
+          <div className="group flex items-center justify-between bg-card border border-border hover:border-primary/50 rounded-2xl px-6 py-5 transition-all duration-200 hover:shadow-lg hover:shadow-primary/5 cursor-pointer">
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <BookOpen className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <p className="font-semibold text-foreground group-hover:text-primary transition-colors">Measurement &amp; Conversion Articles</p>
+                <p className="text-xs text-muted-foreground mt-0.5">143 in-depth guides across length, weight, temperature, speed, and more</p>
+              </div>
+            </div>
+            <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+          </div>
+        </Link>
+      </section>
+
       {/* Calculator Grid — grouped by category */}
       <section className="container mx-auto px-4 pb-20 space-y-12">
         {CATEGORIES.map(({ key: cat, label: catLabel }) => {
@@ -207,6 +225,7 @@ export default function HomePage() {
       <footer className="border-t border-border bg-card/40">
         <div className="container mx-auto px-4 py-10 space-y-6">
           <div className="flex flex-wrap justify-center gap-6 text-sm">
+            <Link href="/articles"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">Articles</span></Link>
             <Link href="/about"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">{t.about}</span></Link>
             <Link href="/contact"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">{t.contact}</span></Link>
             <Link href="/terms"><span className="text-muted-foreground hover:text-primary transition-colors cursor-pointer">{t.terms}</span></Link>
