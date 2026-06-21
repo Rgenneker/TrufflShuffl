@@ -7,22 +7,12 @@ interface Props {
   className?: string;
 }
 
-function navigateToLang(newLang: LangCode) {
-  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-  const pathname = window.location.pathname;
-  const withoutBase = pathname.startsWith(base) ? pathname.slice(base.length) : pathname;
-  const segments = withoutBase.split("/").filter(Boolean); // e.g. ["en", "investment"]
-  const pageParts = segments.slice(1);
-  const pageStr = pageParts.length ? `/${pageParts.join("/")}` : "";
-  window.location.href = `${base}/${newLang}${pageStr}`;
-}
-
 export function LanguageSelect({ className }: Props) {
-  const { lang } = useLang();
+  const { lang, setLang } = useLang();
   const current = LANGUAGES.find(l => l.code === lang)!;
 
   return (
-    <Select value={lang} onValueChange={v => navigateToLang(v as LangCode)}>
+    <Select value={lang} onValueChange={(v) => setLang(v as LangCode)}>
       <SelectTrigger
         className={`h-8 text-xs gap-1.5 bg-transparent border-border hover:border-primary/50 transition-colors ${className ?? ""}`}
         aria-label="Select language"
