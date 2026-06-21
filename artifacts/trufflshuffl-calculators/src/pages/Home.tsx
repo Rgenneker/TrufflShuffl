@@ -9,6 +9,7 @@ import {
   Ruler, Shirt, ArrowLeftRight, Percent, PiggyBank, Target,
   Calendar, Briefcase, BadgeDollarSign, ArrowRight, BookOpen
 } from "lucide-react";
+import { CategoryGuide } from "@/components/CategoryGuide";
 
 function InlineAd() {
   const ref = useRef<HTMLDivElement>(null);
@@ -216,6 +217,7 @@ export default function HomePage() {
                   );
                 })}
               </div>
+              <CategoryGuide category={cat} color={meta.color} />
             </div>
           );
         })}
