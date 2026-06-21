@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -16,6 +17,7 @@ function Row({ label, value, highlight }: { label: string; value: string; highli
 }
 
 export default function ShoeSizeCalculator() {
+  const { t } = useLang();
   const [unit, setUnit] = useState<"mm" | "cm" | "in">("mm");
   const [sex, setSex] = useState<"men" | "women" | "children">("men");
   const [length, setLength] = useState("265");
@@ -77,12 +79,12 @@ export default function ShoeSizeCalculator() {
 
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-1.5">
-            <Label>Foot Length ({unit})</Label>
+            <Label>{t.footLength}</Label>
             <Input data-testid="input-length" type="number" value={length} onChange={e => setLength(e.target.value)} />
             <p className="text-xs text-muted-foreground">Heel to longest toe</p>
           </div>
           <div className="space-y-1.5">
-            <Label>Foot Width ({unit})</Label>
+            <Label>{t.footWidth}</Label>
             <Input data-testid="input-width" type="number" value={width} onChange={e => setWidth(e.target.value)} />
             <p className="text-xs text-muted-foreground">Widest part (ball of foot)</p>
           </div>

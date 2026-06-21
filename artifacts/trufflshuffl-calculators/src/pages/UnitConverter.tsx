@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState, useEffect } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -15,6 +16,7 @@ const CATEGORY_ICONS: Record<string, string> = {
 };
 
 export default function UnitConverter() {
+  const { t } = useLang();
   const [catName, setCatName] = useState("Length");
   const [fromIdx, setFromIdx] = useState(4); // Metre
   const [toIdx, setToIdx] = useState(3);     // Centimetre
@@ -102,7 +104,7 @@ export default function UnitConverter() {
           <div className="flex items-end gap-3">
             {/* From */}
             <div className="flex-1 space-y-1.5">
-              <Label>From</Label>
+              <Label>{t.fromLabel}</Label>
               <Select
                 value={String(fromIdx)}
                 onValueChange={v => setFromIdx(Number(v))}
@@ -137,7 +139,7 @@ export default function UnitConverter() {
 
             {/* To */}
             <div className="flex-1 space-y-1.5">
-              <Label>To</Label>
+              <Label>{t.toLabel}</Label>
               <Select
                 value={String(toIdx)}
                 onValueChange={v => setToIdx(Number(v))}

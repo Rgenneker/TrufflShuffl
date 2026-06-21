@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -38,6 +39,7 @@ function fmt(n: number, currency: string) {
 }
 
 export default function RenovationCalculator() {
+  const { t } = useLang();
   const [unit, setUnit] = useState<"metric" | "imperial">("metric");
   const [type, setType] = useState("Kitchen remodel");
   const [area, setArea] = useState("20");
@@ -85,7 +87,7 @@ export default function RenovationCalculator() {
 
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-1.5 col-span-2">
-            <Label>Renovation Type</Label>
+            <Label>{t.renovationType}</Label>
             <Select value={type} onValueChange={setType}>
               <SelectTrigger data-testid="select-type"><SelectValue /></SelectTrigger>
               <SelectContent>{RENOVATION_TYPES.map(t => <SelectItem key={t} value={t}>{t}</SelectItem>)}</SelectContent>
@@ -96,14 +98,14 @@ export default function RenovationCalculator() {
             <Input data-testid="input-area" type="number" value={area} onChange={e => setArea(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label>Currency</Label>
+            <Label>{t.currency}</Label>
             <Select value={currency} onValueChange={setCurrency}>
               <SelectTrigger data-testid="select-currency"><SelectValue /></SelectTrigger>
               <SelectContent>{CURRENCIES.map(c => <SelectItem key={c} value={c}>{c}</SelectItem>)}</SelectContent>
             </Select>
           </div>
           <div className="space-y-1.5 col-span-2">
-            <Label>Quality Grade</Label>
+            <Label>{t.qualityGrade}</Label>
             <div className="grid grid-cols-4 gap-2">
               {GRADES.map(g => (
                 <button key={g.value} data-testid={`btn-grade-${g.value}`} onClick={() => setGrade(g.value as any)}
@@ -114,14 +116,14 @@ export default function RenovationCalculator() {
             </div>
           </div>
           <div className="space-y-1.5 col-span-2">
-            <Label>Location</Label>
+            <Label>{t.location}</Label>
             <Select value={location} onValueChange={setLocation}>
               <SelectTrigger data-testid="select-location"><SelectValue /></SelectTrigger>
               <SelectContent>{LOCATIONS.map(l => <SelectItem key={l.value} value={l.value}>{l.label}</SelectItem>)}</SelectContent>
             </Select>
           </div>
           <div className="flex items-center justify-between col-span-2">
-            <Label className="text-sm text-muted-foreground">Include Labour Costs</Label>
+            <Label className="text-sm text-muted-foreground">{t.includeLabour}</Label>
             <Switch data-testid="switch-labour" checked={labour} onCheckedChange={setLabour} />
           </div>
         </div>
@@ -131,7 +133,7 @@ export default function RenovationCalculator() {
         {result && (
           <div className="space-y-4 pt-2">
             <div className="bg-background rounded-lg p-4 border border-primary/30">
-              <p className="text-xs text-muted-foreground mb-1">Estimated Cost Range</p>
+              <p className="text-xs text-muted-foreground mb-1">{t.estimatedCost}</p>
               <p className="font-mono text-2xl font-bold text-primary" data-testid="result-range">
                 {fmt(result.minCost, currency)} – {fmt(result.maxCost, currency)}
               </p>

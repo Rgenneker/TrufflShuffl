@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -22,6 +23,7 @@ const COUPON_FREQS = [
 ];
 
 export default function BondCalculator() {
+  const { t } = useLang();
   const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
   const [bondType, setBondType] = useState("Government Bond");
   const [faceValue, setFaceValue] = useState("1000");
@@ -68,39 +70,39 @@ export default function BondCalculator() {
     >
       <div className="space-y-5">
         <div className="space-y-1.5">
-          <Label>Currency</Label>
+          <Label>{t.currency}</Label>
           <CurrencySelect value={currency} onChange={setCurrency} />
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-1.5 col-span-2">
-            <Label>Bond Type</Label>
+            <Label>{t.bondType}</Label>
             <Select value={bondType} onValueChange={setBondType}>
               <SelectTrigger data-testid="select-bond-type"><SelectValue /></SelectTrigger>
               <SelectContent>{BOND_TYPES.map(t => <SelectItem key={t} value={t}>{t}</SelectItem>)}</SelectContent>
             </Select>
           </div>
           <div className="space-y-1.5">
-            <Label>Face Value ({currency.symbol})</Label>
+            <Label>{t.faceValue} ({currency.symbol})</Label>
             <Input data-testid="input-face" type="number" value={faceValue} onChange={e => setFaceValue(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label>Coupon Rate (%)</Label>
+            <Label>{t.couponRate} (%)</Label>
             <Input data-testid="input-coupon" type="number" value={couponRate} onChange={e => setCouponRate(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label>Coupon Frequency</Label>
+            <Label>{t.couponFrequency}</Label>
             <Select value={couponFreq} onValueChange={setCouponFreq}>
               <SelectTrigger data-testid="select-freq"><SelectValue /></SelectTrigger>
               <SelectContent>{COUPON_FREQS.map(f => <SelectItem key={f.value} value={f.value}>{f.label}</SelectItem>)}</SelectContent>
             </Select>
           </div>
           <div className="space-y-1.5">
-            <Label>Years to Maturity</Label>
+            <Label>{t.yearsToMaturity}</Label>
             <Input data-testid="input-years" type="number" value={years} onChange={e => setYears(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label>Market Yield (%)</Label>
+            <Label>{t.marketYield} (%)</Label>
             <Input data-testid="input-yield" type="number" value={marketYield} onChange={e => setMarketYield(e.target.value)} />
           </div>
           <div className="space-y-1.5">

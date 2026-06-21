@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -12,6 +13,7 @@ function fmt(n: number, dec = 0) {
 }
 
 export default function PoolCalculator() {
+  const { t } = useLang();
   const [unit, setUnit] = useState<"metric" | "imperial">("metric");
   const [shape, setShape] = useState("rectangle");
   const [dims, setDims] = useState<Record<string, string>>({
@@ -59,7 +61,7 @@ export default function PoolCalculator() {
         </div>
 
         <div className="space-y-1.5">
-          <Label>Pool Shape</Label>
+          <Label>{t.poolShape}</Label>
           <Select value={shape} onValueChange={setShape}>
             <SelectTrigger data-testid="select-shape"><SelectValue /></SelectTrigger>
             <SelectContent>

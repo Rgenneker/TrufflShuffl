@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -8,6 +9,7 @@ import { CurrencySelect } from "@/components/CurrencySelect";
 import { DEFAULT_CURRENCY, fmtCurrency, type Currency } from "@/lib/currencies";
 
 export default function RetirementCalculator() {
+  const { t } = useLang();
   const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
   const [currentAge, setCurrentAge] = useState("35");
   const [retireAge, setRetireAge] = useState("65");
@@ -82,40 +84,40 @@ export default function RetirementCalculator() {
     >
       <div className="space-y-5">
         <div className="space-y-1.5">
-          <Label>Currency</Label>
+          <Label>{t.currency}</Label>
           <CurrencySelect value={currency} onChange={setCurrency} />
         </div>
 
         <div className="grid grid-cols-3 gap-4">
           <div className="space-y-1.5">
-            <Label>Current Age</Label>
+            <Label>{t.currentAge}</Label>
             <Input type="number" value={currentAge} onChange={e => setCurrentAge(e.target.value)} min="18" max="80" />
           </div>
           <div className="space-y-1.5">
-            <Label>Retirement Age</Label>
+            <Label>{t.retirementAge}</Label>
             <Input type="number" value={retireAge} onChange={e => setRetireAge(e.target.value)} min="40" max="90" />
           </div>
           <div className="space-y-1.5">
-            <Label>Life Expectancy</Label>
+            <Label>{t.lifeExpectancy}</Label>
             <Input type="number" value={lifeExp} onChange={e => setLifeExp(e.target.value)} min="60" max="110" />
           </div>
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-1.5">
-            <Label>Current Savings ({currency.symbol})</Label>
+            <Label>{t.currentSavings} ({currency.symbol})</Label>
             <Input type="number" value={currentSavings} onChange={e => setCurrentSavings(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label>Monthly Contribution ({currency.symbol})</Label>
+            <Label>{t.monthlyContribution} ({currency.symbol})</Label>
             <Input type="number" value={monthly} onChange={e => setMonthly(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label>Expected Annual Return (%)</Label>
+            <Label>{t.expectedReturn} (%)</Label>
             <Input type="number" value={returnRate} onChange={e => setReturnRate(e.target.value)} step="0.5" />
           </div>
           <div className="space-y-1.5">
-            <Label>Inflation Rate (%)</Label>
+            <Label>{t.inflationRate} (%)</Label>
             <Input type="number" value={inflationRate} onChange={e => setInflationRate(e.target.value)} step="0.5" />
           </div>
         </div>

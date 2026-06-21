@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -17,6 +18,7 @@ const FREQ_OPTIONS = [
 ];
 
 export default function SavingsCalculator() {
+  const { t } = useLang();
   const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
   const [initial, setInitial] = useState("5000");
   const [monthly, setMonthly] = useState("500");
@@ -69,29 +71,29 @@ export default function SavingsCalculator() {
     >
       <div className="space-y-5">
         <div className="space-y-1.5">
-          <Label>Currency</Label>
+          <Label>{t.currency}</Label>
           <CurrencySelect value={currency} onChange={setCurrency} />
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-1.5">
-            <Label>Initial Deposit ({currency.symbol})</Label>
+            <Label>{t.initialDeposit} ({currency.symbol})</Label>
             <Input type="number" value={initial} onChange={e => setInitial(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label>Monthly Contribution ({currency.symbol})</Label>
+            <Label>{t.monthlyContribution} ({currency.symbol})</Label>
             <Input type="number" value={monthly} onChange={e => setMonthly(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label>Annual Interest Rate (%)</Label>
+            <Label>{t.annualInterestRate} (%)</Label>
             <Input type="number" value={rate} onChange={e => setRate(e.target.value)} step="0.25" />
           </div>
           <div className="space-y-1.5">
-            <Label>Savings Period (years)</Label>
+            <Label>{t.savingsPeriod}</Label>
             <Input type="number" value={years} onChange={e => setYears(e.target.value)} min="1" />
           </div>
           <div className="space-y-1.5 col-span-2">
-            <Label>Compounding Frequency</Label>
+            <Label>{t.compoundingFrequency}</Label>
             <Select value={compFreq} onValueChange={setCompFreq}>
               <SelectTrigger><SelectValue /></SelectTrigger>
               <SelectContent>

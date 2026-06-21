@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -8,6 +9,7 @@ import { CurrencySelect } from "@/components/CurrencySelect";
 import { DEFAULT_CURRENCY, fmtCurrency, type Currency } from "@/lib/currencies";
 
 export default function ROICalculator() {
+  const { t } = useLang();
   const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
   const [initialInvestment, setInitialInvestment] = useState("10000");
   const [finalValue, setFinalValue] = useState("14500");
@@ -53,21 +55,21 @@ export default function ROICalculator() {
     >
       <div className="space-y-5">
         <div className="space-y-1.5">
-          <Label>Currency</Label>
+          <Label>{t.currency}</Label>
           <CurrencySelect value={currency} onChange={setCurrency} />
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-1.5">
-            <Label>Initial Investment ({currency.symbol})</Label>
+            <Label>{t.initialInvestment} ({currency.symbol})</Label>
             <Input type="number" value={initialInvestment} onChange={e => setInitialInvestment(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label>Final Value ({currency.symbol})</Label>
+            <Label>{t.finalValue} ({currency.symbol})</Label>
             <Input type="number" value={finalValue} onChange={e => setFinalValue(e.target.value)} />
           </div>
           <div className="space-y-1.5 col-span-2">
-            <Label>Holding Period (years) — for annualised ROI</Label>
+            <Label>{t.holdingPeriod}</Label>
             <Input type="number" value={years} onChange={e => setYears(e.target.value)} min="0.1" step="0.5" />
           </div>
         </div>

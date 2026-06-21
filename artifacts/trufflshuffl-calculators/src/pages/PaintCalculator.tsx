@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -18,6 +19,7 @@ function fmt(n: number, dec = 1) {
 }
 
 export default function PaintCalculator() {
+  const { t } = useLang();
   const [unit, setUnit] = useState<"metric" | "imperial">("metric");
   const [volUnit, setVolUnit] = useState<"litres" | "gallons">("litres");
   const [wallArea, setWallArea] = useState("50");
@@ -103,7 +105,7 @@ export default function PaintCalculator() {
             <p className="text-xs text-muted-foreground">Std 1.2m × 1.2m each</p>
           </div>
           <div className="space-y-1.5">
-            <Label>Number of Coats</Label>
+            <Label>{t.numberOfCoats}</Label>
             <Select value={coats} onValueChange={setCoats}>
               <SelectTrigger data-testid="select-coats"><SelectValue /></SelectTrigger>
               <SelectContent>
@@ -114,7 +116,7 @@ export default function PaintCalculator() {
             </Select>
           </div>
           <div className="space-y-1.5">
-            <Label>Paint Type</Label>
+            <Label>{t.paintType}</Label>
             <Select value={paintType} onValueChange={setPaintType}>
               <SelectTrigger data-testid="select-paint-type"><SelectValue /></SelectTrigger>
               <SelectContent>{PAINT_TYPES.map(t => <SelectItem key={t} value={t}>{t}</SelectItem>)}</SelectContent>
@@ -126,7 +128,7 @@ export default function PaintCalculator() {
           </div>
 
           <div className="flex items-center justify-between col-span-2">
-            <Label className="text-sm text-muted-foreground">Include Ceiling</Label>
+            <Label className="text-sm text-muted-foreground">{t.includeCeiling}</Label>
             <Switch data-testid="switch-ceiling" checked={includeCeiling} onCheckedChange={setIncludeCeiling} />
           </div>
           {includeCeiling && (

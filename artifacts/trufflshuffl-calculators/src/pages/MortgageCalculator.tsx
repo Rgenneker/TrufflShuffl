@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -15,6 +16,7 @@ const MORTGAGE_TYPES = [
 ];
 
 export default function MortgageCalculator() {
+  const { t } = useLang();
   const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
   const [price, setPrice] = useState("2000000");
   const [deposit, setDeposit] = useState("200000");
@@ -53,7 +55,7 @@ export default function MortgageCalculator() {
     >
       <div className="space-y-5">
         <div className="space-y-1.5">
-          <Label>Currency</Label>
+          <Label>{t.currency}</Label>
           <CurrencySelect value={currency} onChange={setCurrency} />
           {currency.code !== "ZAR" && (
             <p className="text-xs text-yellow-400">Note: Transfer duty brackets are South Africa–specific (ZAR). For other currencies, disable transfer duty or enter costs manually.</p>
@@ -62,23 +64,23 @@ export default function MortgageCalculator() {
 
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-1.5">
-            <Label>Property Price ({currency.symbol})</Label>
+            <Label>{t.propertyPrice} ({currency.symbol})</Label>
             <Input data-testid="input-price" type="number" value={price} onChange={e => setPrice(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label>Deposit ({currency.symbol})</Label>
+            <Label>{t.depositAmount} ({currency.symbol})</Label>
             <Input data-testid="input-deposit" type="number" value={deposit} onChange={e => setDeposit(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label>Annual Interest Rate (%)</Label>
+            <Label>{t.annualInterestRate} (%)</Label>
             <Input data-testid="input-rate" type="number" value={rate} onChange={e => setRate(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label>Loan Term (years)</Label>
+            <Label>{t.loanTermYears}</Label>
             <Input data-testid="input-term" type="number" value={term} onChange={e => setTerm(e.target.value)} />
           </div>
           <div className="space-y-1.5 col-span-2">
-            <Label>Mortgage Type</Label>
+            <Label>{t.mortgageType}</Label>
             <Select value={type} onValueChange={setType}>
               <SelectTrigger data-testid="select-type"><SelectValue /></SelectTrigger>
               <SelectContent>
@@ -120,7 +122,7 @@ export default function MortgageCalculator() {
                 <p className="font-mono text-lg font-bold text-foreground">{result.ltv.toFixed(1)}%</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-border">
-                <p className="text-xs text-muted-foreground mb-1">Total Interest</p>
+                <p className="text-xs text-muted-foreground mb-1">{t.totalInterest}</p>
                 <p className="font-mono text-lg font-bold text-red-400">{fmt(result.totalInterest)}</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-primary/20">

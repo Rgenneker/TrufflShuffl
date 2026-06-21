@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -28,6 +29,7 @@ function fmtd(n: number) {
 }
 
 export default function PavingCalculator() {
+  const { t } = useLang();
   const [unit, setUnit] = useState<"metric" | "imperial">("metric");
   const [areaMode, setAreaMode] = useState<"dims" | "direct">("dims");
   const [length, setLength] = useState("10");
@@ -108,7 +110,7 @@ export default function PavingCalculator() {
           )}
 
           <div className="space-y-1.5 col-span-2">
-            <Label>Paver Size</Label>
+            <Label>{t.paverSize}</Label>
             <Select value={paverSize} onValueChange={setPaverSize}>
               <SelectTrigger data-testid="select-paver-size"><SelectValue /></SelectTrigger>
               <SelectContent>{PAVER_SIZES.map(p => <SelectItem key={p.label} value={p.label}>{p.label}</SelectItem>)}</SelectContent>
@@ -122,7 +124,7 @@ export default function PavingCalculator() {
           )}
 
           <div className="space-y-1.5 col-span-2">
-            <Label>Laying Pattern</Label>
+            <Label>{t.layingPattern}</Label>
             <Select value={pattern} onValueChange={setPattern}>
               <SelectTrigger data-testid="select-pattern"><SelectValue /></SelectTrigger>
               <SelectContent>{PATTERNS.map(p => <SelectItem key={p} value={p}>{p}</SelectItem>)}</SelectContent>
@@ -131,7 +133,7 @@ export default function PavingCalculator() {
           </div>
 
           <div className="space-y-1.5">
-            <Label>Wastage (%)</Label>
+            <Label>{t.wastage}</Label>
             <Input data-testid="input-wastage" type="number" value={wastage} onChange={e => setWastage(e.target.value)} />
           </div>
           <div className="space-y-1.5">
@@ -149,7 +151,7 @@ export default function PavingCalculator() {
         {result && (
           <div className="grid grid-cols-2 gap-3 pt-2">
             <div className="bg-background rounded-lg p-4 border border-primary/30 col-span-2">
-              <p className="text-xs text-muted-foreground mb-1">Pavers Needed (inc. wastage)</p>
+              <p className="text-xs text-muted-foreground mb-1">{t.paversNeeded}</p>
               <p className="font-mono text-2xl font-bold text-primary" data-testid="result-pavers">{fmt(result.paversNeeded)}</p>
               <p className="text-xs text-muted-foreground">Coverage needed: {fmtd(result.coverageNeeded)} m²</p>
             </div>

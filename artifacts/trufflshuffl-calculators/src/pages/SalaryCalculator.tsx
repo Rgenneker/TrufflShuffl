@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -14,6 +15,7 @@ const WORKING_DAYS_PER_YEAR = 260;
 const WORKING_HOURS_PER_DAY = 8;
 
 export default function SalaryCalculator() {
+  const { t } = useLang();
   const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
   const [inputType, setInputType] = useState<InputType>("annual");
   const [salaryInput, setSalaryInput] = useState("500000");
@@ -77,24 +79,24 @@ export default function SalaryCalculator() {
     >
       <div className="space-y-5">
         <div className="space-y-1.5">
-          <Label>Currency</Label>
+          <Label>{t.currency}</Label>
           <CurrencySelect value={currency} onChange={setCurrency} />
         </div>
 
         <div className="space-y-2">
-          <Label>I am entering a...</Label>
+          <Label>{t.iAmEntering}...</Label>
           <div className="flex flex-wrap gap-2">
-            {INPUT_TYPES.map(t => (
+            {INPUT_TYPES.map(inp => (
               <button
-                key={t.key}
-                onClick={() => setInputType(t.key)}
+                key={inp.key}
+                onClick={() => setInputType(inp.key)}
                 className={`px-4 py-1.5 rounded-full text-sm font-medium border transition-colors ${
-                  inputType === t.key
+                  inputType === inp.key
                     ? "bg-primary text-primary-foreground border-primary"
                     : "bg-card border-border text-muted-foreground hover:border-primary"
                 }`}
               >
-                {t.label}
+                {inp.label}
               </button>
             ))}
           </div>
@@ -107,11 +109,11 @@ export default function SalaryCalculator() {
 
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-1.5">
-            <Label>Hours Per Day</Label>
+            <Label>{t.hoursPerDay}</Label>
             <Input type="number" value={hoursPerDay} onChange={e => setHoursPerDay(e.target.value)} min="1" max="24" />
           </div>
           <div className="space-y-1.5">
-            <Label>Working Days / Week</Label>
+            <Label>{t.workingDaysPerWeek}</Label>
             <Input type="number" value={daysPerWeek} onChange={e => setDaysPerWeek(e.target.value)} min="1" max="7" />
           </div>
         </div>

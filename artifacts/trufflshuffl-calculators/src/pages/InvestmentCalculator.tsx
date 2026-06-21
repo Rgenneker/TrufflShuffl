@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -20,6 +21,7 @@ const COMPOUND_FREQS = [
 ];
 
 export default function InvestmentCalculator() {
+  const { t } = useLang();
   const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
   const [principal, setPrincipal] = useState("50000");
   const [monthly, setMonthly] = useState("1000");
@@ -53,21 +55,21 @@ export default function InvestmentCalculator() {
     >
       <div className="space-y-5">
         <div className="space-y-1.5">
-          <Label>Currency</Label>
+          <Label>{t.currency}</Label>
           <CurrencySelect value={currency} onChange={setCurrency} />
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-1.5">
-            <Label>Principal Amount ({currency.symbol})</Label>
+            <Label>{t.principalAmount} ({currency.symbol})</Label>
             <Input data-testid="input-principal" type="number" value={principal} onChange={e => setPrincipal(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label>Monthly Contribution ({currency.symbol})</Label>
+            <Label>{t.monthlyContribution} ({currency.symbol})</Label>
             <Input data-testid="input-monthly" type="number" value={monthly} onChange={e => setMonthly(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label>Annual Interest Rate (%)</Label>
+            <Label>{t.annualInterestRate} (%)</Label>
             <Input data-testid="input-rate" type="number" value={rate} onChange={e => setRate(e.target.value)} />
           </div>
           <div className="space-y-1.5">
@@ -75,7 +77,7 @@ export default function InvestmentCalculator() {
             <Input data-testid="input-years" type="number" value={years} onChange={e => setYears(e.target.value)} />
           </div>
           <div className="space-y-1.5 col-span-2">
-            <Label>Compounding Frequency</Label>
+            <Label>{t.compoundingFrequency}</Label>
             <Select value={freq} onValueChange={setFreq}>
               <SelectTrigger data-testid="select-freq"><SelectValue /></SelectTrigger>
               <SelectContent>

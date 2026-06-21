@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -27,6 +28,7 @@ function Row({ label, value }: { label: string; value: string }) {
 }
 
 export default function ClothingSizeCalculator() {
+  const { t } = useLang();
   const [unit, setUnit] = useState<"metric" | "imperial">("metric");
   const [sex, setSex] = useState<"women" | "men">("women");
   const [chest, setChest] = useState("90");
@@ -129,7 +131,7 @@ export default function ClothingSizeCalculator() {
             <p className="text-xs text-muted-foreground">Crotch to ankle bone</p>
           </div>
           <div className="space-y-1.5 col-span-2">
-            <Label>Body Build</Label>
+            <Label>{t.bodyBuild}</Label>
             <Select value={build} onValueChange={setBuild}>
               <SelectTrigger data-testid="select-build"><SelectValue /></SelectTrigger>
               <SelectContent>

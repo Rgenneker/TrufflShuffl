@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -27,6 +28,7 @@ type MealItem = { name: string; kcal: number; grams: number; meal: string };
 function fmt(n: number) { return Math.round(n).toLocaleString(); }
 
 export default function CalorieCalculator() {
+  const { t } = useLang();
   const [unit, setUnit] = useState<"metric" | "imperial">("metric");
   const [sex, setSex] = useState<"male" | "female">("male");
   const [age, setAge] = useState("30");
@@ -106,7 +108,7 @@ export default function CalorieCalculator() {
           <TabsContent value="tdee" className="space-y-4 pt-4">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-1.5 col-span-2">
-                <Label>Sex</Label>
+                <Label>{t.sex}</Label>
                 <div className="flex rounded-lg border border-border overflow-hidden w-fit">
                   {(["male", "female"] as const).map(s => (
                     <button key={s} data-testid={`btn-sex-${s}`} onClick={() => setSex(s)}
@@ -118,7 +120,7 @@ export default function CalorieCalculator() {
               </div>
 
               <div className="space-y-1.5">
-                <Label>Age</Label>
+                <Label>{t.ageLabel}</Label>
                 <Input data-testid="input-age" type="number" value={age} onChange={e => setAge(e.target.value)} />
               </div>
               <div className="space-y-1.5">
@@ -128,7 +130,7 @@ export default function CalorieCalculator() {
 
               {unit === "metric" ? (
                 <div className="space-y-1.5 col-span-2">
-                  <Label>Height (cm)</Label>
+                  <Label>{t.heightCm}</Label>
                   <Input data-testid="input-height" type="number" value={height} onChange={e => setHeight(e.target.value)} />
                 </div>
               ) : (
@@ -145,7 +147,7 @@ export default function CalorieCalculator() {
               )}
 
               <div className="space-y-1.5 col-span-2">
-                <Label>Activity Level</Label>
+                <Label>{t.activityLevel}</Label>
                 <Select value={activity} onValueChange={setActivity}>
                   <SelectTrigger data-testid="select-activity"><SelectValue /></SelectTrigger>
                   <SelectContent>
@@ -155,7 +157,7 @@ export default function CalorieCalculator() {
               </div>
 
               <div className="space-y-1.5 col-span-2">
-                <Label>Goal</Label>
+                <Label>{t.goal}</Label>
                 <div className="grid grid-cols-3 gap-2">
                   {GOALS.map(g => (
                     <button key={g.value} data-testid={`btn-goal-${g.value}`} onClick={() => setGoal(g.value)}
@@ -172,7 +174,7 @@ export default function CalorieCalculator() {
             {result && (
               <div className="space-y-4 pt-2">
                 <div className="bg-background rounded-lg p-4 border border-primary/30">
-                  <p className="text-xs text-muted-foreground mb-1">Recommended Daily Calories</p>
+                  <p className="text-xs text-muted-foreground mb-1">{t.dailyCalories}</p>
                   <p className="font-mono text-3xl font-bold text-primary" data-testid="result-calories">{fmt(result.goalCal)} kcal</p>
                   <p className="text-xs text-muted-foreground mt-1">TDEE: {fmt(result.tdee)} kcal</p>
                 </div>

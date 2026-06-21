@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -36,6 +37,7 @@ function getColorForBMI(bmi: number) {
 }
 
 export default function BMICalculator() {
+  const { t } = useLang();
   const [unit, setUnit] = useState<"metric" | "imperial">("metric");
   const [height, setHeight] = useState("175");
   const [heightFt, setHeightFt] = useState("5");
@@ -85,11 +87,11 @@ export default function BMICalculator() {
           {unit === "metric" ? (
             <>
               <div className="space-y-1.5 col-span-2">
-                <Label>Height (cm)</Label>
+                <Label>{t.heightCm}</Label>
                 <Input data-testid="input-height" type="number" value={height} onChange={e => setHeight(e.target.value)} />
               </div>
               <div className="space-y-1.5 col-span-2">
-                <Label>Weight (kg)</Label>
+                <Label>{t.weightKg}</Label>
                 <Input data-testid="input-weight" type="number" value={weight} onChange={e => setWeight(e.target.value)} />
               </div>
             </>

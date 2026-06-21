@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -24,6 +25,7 @@ function RingRow({ label, value, highlight }: { label: string; value: string; hi
 }
 
 export default function BeltRingCalculator() {
+  const { t } = useLang();
   const [unit, setUnit] = useState<"metric" | "imperial">("metric");
 
   // Belt
@@ -95,7 +97,7 @@ export default function BeltRingCalculator() {
             </div>
 
             <div className="space-y-1.5">
-              <Label>Wearing Style</Label>
+              <Label>{t.wearingStyle}</Label>
               <Select value={beltStyle} onValueChange={setBeltStyle}>
                 <SelectTrigger data-testid="select-belt-style"><SelectValue /></SelectTrigger>
                 <SelectContent>{BELT_STYLES.map(s => <SelectItem key={s.value} value={s.value}>{s.label}</SelectItem>)}</SelectContent>
@@ -148,7 +150,7 @@ export default function BeltRingCalculator() {
             </div>
 
             <div className="space-y-1.5">
-              <Label>Measurement Method</Label>
+              <Label>{t.measurementMethod}</Label>
               <div className="flex rounded-lg border border-border overflow-hidden">
                 {([
                   { value: "circumference", label: "Circumference (mm)" },

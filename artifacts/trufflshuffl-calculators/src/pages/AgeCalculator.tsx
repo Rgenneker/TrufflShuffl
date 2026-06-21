@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -6,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 export default function AgeCalculator() {
+  const { t } = useLang();
   const today = new Date().toISOString().split("T")[0];
   const [dob, setDob] = useState("1990-01-01");
   const [asOf, setAsOf] = useState(today);
@@ -67,11 +69,11 @@ export default function AgeCalculator() {
       <div className="space-y-5">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-1.5">
-            <Label>Date of Birth</Label>
+            <Label>{t.dateOfBirth}</Label>
             <Input type="date" value={dob} onChange={e => setDob(e.target.value)} max={today} />
           </div>
           <div className="space-y-1.5">
-            <Label>As Of Date</Label>
+            <Label>{t.asOfDate}</Label>
             <Input type="date" value={asOf} onChange={e => setAsOf(e.target.value)} />
           </div>
         </div>

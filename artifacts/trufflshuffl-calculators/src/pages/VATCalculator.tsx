@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -8,6 +9,7 @@ import { Button } from "@/components/ui/button";
 type Mode = "add" | "remove" | "split";
 
 export default function VATCalculator() {
+  const { t } = useLang();
   const [mode, setMode] = useState<Mode>("add");
   const [amount, setAmount] = useState("1000");
   const [rate, setRate] = useState("15");
@@ -87,7 +89,7 @@ export default function VATCalculator() {
             <Input type="number" value={amount} onChange={e => setAmount(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label>VAT Rate (%)</Label>
+            <Label>{t.vatRate} (%)</Label>
             <Input type="number" value={rate} onChange={e => setRate(e.target.value)} step="0.5" />
           </div>
         </div>

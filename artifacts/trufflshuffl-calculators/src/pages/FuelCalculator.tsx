@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -13,6 +14,7 @@ function fmt(n: number, dec = 2) {
 }
 
 export default function FuelCalculator() {
+  const { t } = useLang();
   const [unit, setUnit] = useState<"metric" | "imperial">("metric");
 
   // Fuel cost
@@ -111,7 +113,7 @@ export default function FuelCalculator() {
           <TabsContent value="fuel" className="space-y-4 pt-4">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-1.5">
-                <Label>Fuel Type</Label>
+                <Label>{t.fuelType}</Label>
                 <Select value={fuelType} onValueChange={setFuelType}>
                   <SelectTrigger data-testid="select-fuel-type"><SelectValue /></SelectTrigger>
                   <SelectContent>
@@ -132,7 +134,7 @@ export default function FuelCalculator() {
                 <Input data-testid="input-fuel-price" type="number" value={fuelPrice} onChange={e => setFuelPrice(e.target.value)} />
               </div>
               <div className="space-y-1.5">
-                <Label>Passengers</Label>
+                <Label>{t.passengers}</Label>
                 <Input data-testid="input-passengers" type="number" value={passengers} onChange={e => setPassengers(e.target.value)} min="1" />
               </div>
             </div>

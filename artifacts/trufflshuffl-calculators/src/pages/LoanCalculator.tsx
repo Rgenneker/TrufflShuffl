@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -15,6 +16,7 @@ const LOAN_TYPES = [
 ];
 
 export default function LoanCalculator() {
+  const { t } = useLang();
   const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
   const [amount, setAmount] = useState("100000");
   const [rate, setRate] = useState("18");
@@ -51,17 +53,17 @@ export default function LoanCalculator() {
     >
       <div className="space-y-5">
         <div className="space-y-1.5">
-          <Label>Currency</Label>
+          <Label>{t.currency}</Label>
           <CurrencySelect value={currency} onChange={setCurrency} />
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-1.5">
-            <Label>Loan Amount ({currency.symbol})</Label>
+            <Label>{t.loanAmount} ({currency.symbol})</Label>
             <Input data-testid="input-amount" type="number" value={amount} onChange={e => setAmount(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label>Loan Type</Label>
+            <Label>{t.loanType}</Label>
             <Select value={loanType} onValueChange={setLoanType}>
               <SelectTrigger data-testid="select-loan-type"><SelectValue /></SelectTrigger>
               <SelectContent>
@@ -70,15 +72,15 @@ export default function LoanCalculator() {
             </Select>
           </div>
           <div className="space-y-1.5">
-            <Label>Annual Interest Rate (%)</Label>
+            <Label>{t.annualInterestRate} (%)</Label>
             <Input data-testid="input-rate" type="number" value={rate} onChange={e => setRate(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label>Loan Term (months)</Label>
+            <Label>{t.loanTermMonths}</Label>
             <Input data-testid="input-term" type="number" value={term} onChange={e => setTerm(e.target.value)} />
           </div>
           <div className="space-y-1.5 col-span-2">
-            <Label>Extra Monthly Payment ({currency.symbol})</Label>
+            <Label>{t.extraMonthlyPayment} ({currency.symbol})</Label>
             <Input data-testid="input-extra" type="number" value={extra} onChange={e => setExtra(e.target.value)} placeholder="0" />
           </div>
         </div>
@@ -89,15 +91,15 @@ export default function LoanCalculator() {
           <div className="space-y-4 pt-2">
             <div className="grid grid-cols-2 gap-3">
               <div className="bg-background rounded-lg p-4 border border-primary/30">
-                <p className="text-xs text-muted-foreground mb-1">Monthly Payment</p>
+                <p className="text-xs text-muted-foreground mb-1">{t.monthlyPayment}</p>
                 <p className="font-mono text-xl font-bold text-primary" data-testid="result-monthly">{fmt(result.monthlyPayment)}</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-border">
-                <p className="text-xs text-muted-foreground mb-1">Total Repayment</p>
+                <p className="text-xs text-muted-foreground mb-1">{t.totalRepayment}</p>
                 <p className="font-mono text-xl font-bold text-foreground" data-testid="result-total">{fmt(result.totalPayment)}</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-border">
-                <p className="text-xs text-muted-foreground mb-1">Total Interest</p>
+                <p className="text-xs text-muted-foreground mb-1">{t.totalInterest}</p>
                 <p className="font-mono text-lg font-bold text-red-400" data-testid="result-interest">{fmt(result.totalInterest)}</p>
                 <p className="text-xs text-muted-foreground">{result.interestPercent.toFixed(1)}% of principal</p>
               </div>

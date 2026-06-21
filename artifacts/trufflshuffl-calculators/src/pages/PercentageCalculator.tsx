@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -8,6 +9,7 @@ import { Button } from "@/components/ui/button";
 type Mode = "of" | "what" | "change" | "increase" | "decrease";
 
 export default function PercentageCalculator() {
+  const { t } = useLang();
   const [mode, setMode] = useState<Mode>("of");
   const [a, setA] = useState("25");
   const [b, setB] = useState("200");

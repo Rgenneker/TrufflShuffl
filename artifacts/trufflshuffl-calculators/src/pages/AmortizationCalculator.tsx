@@ -1,3 +1,4 @@
+import { useLang } from "@/context/LanguageContext";
 import { useState } from "react";
 import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
@@ -10,6 +11,7 @@ import { calculateAmortization } from "@/lib/calculators/financial";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
 export default function AmortizationCalculator() {
+  const { t } = useLang();
   const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
   const [principal, setPrincipal] = useState("500000");
   const [rate, setRate] = useState("11.75");
@@ -45,25 +47,25 @@ export default function AmortizationCalculator() {
     >
       <div className="space-y-5">
         <div className="space-y-1.5">
-          <Label>Currency</Label>
+          <Label>{t.currency}</Label>
           <CurrencySelect value={currency} onChange={setCurrency} />
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-1.5">
-            <Label>Loan Principal ({currency.symbol})</Label>
+            <Label>{t.principalAmount} ({currency.symbol})</Label>
             <Input data-testid="input-principal" type="number" value={principal} onChange={e => setPrincipal(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label>Annual Interest Rate (%)</Label>
+            <Label>{t.annualInterestRate} (%)</Label>
             <Input data-testid="input-rate" type="number" value={rate} onChange={e => setRate(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label>Loan Term (years)</Label>
+            <Label>{t.loanTermYears}</Label>
             <Input data-testid="input-term" type="number" value={term} onChange={e => setTerm(e.target.value)} />
           </div>
           <div className="space-y-1.5">
-            <Label>Extra Monthly Payment ({currency.symbol})</Label>
+            <Label>{t.extraMonthlyPayment} ({currency.symbol})</Label>
             <Input data-testid="input-extra" type="number" value={extra} onChange={e => setExtra(e.target.value)} />
           </div>
         </div>
@@ -74,11 +76,11 @@ export default function AmortizationCalculator() {
           <div className="space-y-5 pt-2">
             <div className="grid grid-cols-2 gap-3">
               <div className="bg-background rounded-lg p-4 border border-primary/30">
-                <p className="text-xs text-muted-foreground mb-1">Monthly Payment</p>
+                <p className="text-xs text-muted-foreground mb-1">{t.monthlyPayment}</p>
                 <p className="font-mono text-xl font-bold text-primary" data-testid="result-monthly">{fmt(result.monthly)}</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-border">
-                <p className="text-xs text-muted-foreground mb-1">Total Interest</p>
+                <p className="text-xs text-muted-foreground mb-1">{t.totalInterest}</p>
                 <p className="font-mono text-xl font-bold text-red-400">{fmt(result.totalInterest)}</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-border">
@@ -108,7 +110,7 @@ export default function AmortizationCalculator() {
 
             <div>
               <div className="flex items-center justify-between mb-2">
-                <p className="text-sm font-semibold text-foreground">Payment Schedule</p>
+                <p className="text-sm font-semibold text-foreground">{t.paymentSchedule}</p>
                 <Button variant="ghost" size="sm" className="text-xs h-7" onClick={() => setShowAll(!showAll)}>
                   {showAll ? "Show first 12" : `Show all ${result.schedule.length}`}
                 </Button>
