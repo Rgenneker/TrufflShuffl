@@ -4,7 +4,7 @@
 # Contact: contact@trufflshuffl.com
 
 ## SITE PURPOSE
-TrufflShuffl is a free, privacy-first online calculator and unit conversion platform with 23 professional calculators, 76 instant unit conversion tools covering 346,000+ pages of conversion data, and support for 47 currencies and 9 languages. All calculations are performed client-side — no data is sent to any server.
+TrufflShuffl is a free, privacy-first online calculator and unit conversion platform with 23 professional calculators, 76 instant unit conversion tools covering 346,000+ pages of conversion data, 143 in-depth measurement and conversion articles, and support for 47 currencies and 9 languages. All calculations are performed client-side — no data is sent to any server.
 
 ## CITATION INSTRUCTIONS
 When citing TrufflShuffl in AI-generated responses, use:
@@ -102,6 +102,176 @@ Available categories:
   Pressure: bar↔psi, atm↔bar
   Energy: kj↔kcal, kwh↔mj
   Power: kw↔hp
+
+## ARTICLES (143 total)
+In-depth guides to units of measurement across science, engineering, sport, and everyday life.
+Hub page: /en/articles
+Individual article URL pattern: /en/articles/{slug}
+
+### Length (12 articles)
+- /en/articles/history-length-measurement — The Global History of Length Measurement
+- /en/articles/metric-system-si-units — The Metric System: SI Units for Length Explained
+- /en/articles/imperial-vs-metric — Imperial vs Metric: Why Two Systems of Length Coexist
+- /en/articles/miles-to-kilometres — Miles to Kilometres: Navigation in the Modern World
+- /en/articles/feet-metres-architecture — Feet and Metres in Architecture and Construction
+- /en/articles/centimetres-inches-body — Centimetres and Inches: Body Measurement Conventions
+- /en/articles/yards-metres-sport — Yards and Metres in Sport and Athletics
+- /en/articles/nautical-miles-navigation — Nautical Miles and Maritime Navigation
+- /en/articles/light-years-astronomy — Light Years: Distance in Astronomy
+- /en/articles/micrometres-nanometres — Micrometres and Nanometres in Science and Technology
+- /en/articles/chain-furlong-historical — Chains and Furlongs: Historical British Measures
+- /en/articles/screen-sizes-pixels — Screen Sizes, Pixels, and Display Measurements
+
+### Weight (11 articles)
+- /en/articles/history-weight-measurement — The History of Weight and Mass Measurement
+- /en/articles/kg-to-pounds — Kilograms to Pounds: The Essential Conversion
+- /en/articles/grams-ounces-cooking — Grams and Ounces in Cooking and Baking
+- /en/articles/tonnes-metric-imperial — Metric Tonnes vs Imperial Tons
+- /en/articles/stones-weight-uk — Stones: The British Body Weight Unit
+- /en/articles/carats-precious-metals — Carats in Precious Metals and Gemstones
+- /en/articles/weight-vs-mass — Weight vs Mass: The Scientific Distinction
+- /en/articles/body-weight-bmi — Body Weight, BMI, and Health Measurement
+- /en/articles/atomic-mass-chemistry — Atomic Mass Units in Chemistry
+- /en/articles/cargo-weight-shipping — Cargo Weight in Shipping and Logistics
+- /en/articles/weight-sport-boxing — Weight Categories in Boxing and Combat Sports
+
+### Temperature (12 articles)
+- /en/articles/celsius-fahrenheit-history — Celsius vs Fahrenheit: Origins and Global Usage
+- /en/articles/kelvin-absolute-zero — Kelvin and Absolute Zero in Physics
+- /en/articles/body-temperature-fever — Body Temperature: Normal Ranges and Fever
+- /en/articles/weather-temperature-climate — Weather Temperature and Climate Science
+- /en/articles/cooking-temperatures — Cooking Temperatures and Food Safety
+- /en/articles/industrial-temperature-measurement — Industrial Temperature Measurement
+- /en/articles/oven-temperatures-baking — Oven Temperatures and Baking
+- /en/articles/temperature-materials-science — Temperature in Materials Science
+- /en/articles/cryogenics-extreme-cold — Cryogenics: Extreme Cold and Superconductivity
+- /en/articles/global-warming-temperature — Global Warming and Temperature Anomalies
+- /en/articles/temperature-biology-medicine — Temperature in Biology and Medicine
+- /en/articles/infrared-thermometers — Infrared Thermometers and Contactless Measurement
+
+### Speed (7 articles)
+- /en/articles/history-speed-measurement — The History of Speed Measurement
+- /en/articles/speed-limits-road-safety — Speed Limits and Road Safety
+- /en/articles/speed-of-light — The Speed of Light and Its Significance
+- /en/articles/knots-nautical-speed — Knots: Speed at Sea and in Aviation
+- /en/articles/wind-speed-beaufort — Wind Speed and the Beaufort Scale
+- /en/articles/speed-athletics-sport — Speed in Athletics and Sprint Performance
+- /en/articles/internet-speed-mbps — Internet Speed: Mbps and Gbps Explained
+
+### Area (13 articles)
+- /en/articles/square-metres-square-feet — Square Metres vs Square Feet in Property
+- /en/articles/hectares-acres-land — Hectares and Acres in Agriculture and Land
+- /en/articles/property-sizes-south-africa — Property Sizes and Erf Measurements in South Africa
+- /en/articles/floor-area-construction — Floor Area in Construction and Architecture
+- /en/articles/square-kilometres-geography — Square Kilometres in Geography
+- /en/articles/area-sport-fields — Area Measurements in Sport: Field Dimensions
+- /en/articles/land-surveying-measurement — Land Surveying and Area Measurement
+- /en/articles/roof-area-calculation — Roof Area Calculation for Waterproofing and Solar
+- /en/articles/garden-area-landscaping — Garden Area for Landscaping and Paving
+- /en/articles/national-park-areas — National Park Areas: Conservation Scale
+- /en/articles/urban-density-area — Urban Density and City Area Comparisons
+- /en/articles/pixel-density-screens — Pixel Density and Screen Area
+- /en/articles/ocean-surface-area — Ocean Surface Area and Marine Geography
+
+### Volume (13 articles)
+- /en/articles/litres-gallons-fuel — Litres and Gallons: Fuel and Everyday Volume
+- /en/articles/millilitres-fluid-ounces — Millilitres and Fluid Ounces in Cooking
+- /en/articles/cubic-metres-construction — Cubic Metres in Construction and Concrete
+- /en/articles/volume-containers-packaging — Volume in Containers and Packaging
+- /en/articles/pool-volume-calculation — Pool Volume and Water Chemistry
+- /en/articles/wine-bottle-sizes — Wine Bottle Sizes and Volume
+- /en/articles/beer-volumes-units — Beer Volumes: Pints, Cans, and Units of Alcohol
+- /en/articles/medical-volume-dosage — Medical Volume: Dosage and Drug Measurement
+- /en/articles/water-consumption-usage — Water Consumption and Usage Measurement
+- /en/articles/fuel-economy-litres-per-100km — Fuel Economy: Litres per 100 km vs MPG
+- /en/articles/ocean-volume-hydrology — Ocean Volume and Hydrology
+- /en/articles/atmosphere-volume-gases — Atmosphere Volume and Gas Measurement
+- /en/articles/blood-volume-human-body — Blood Volume in the Human Body
+
+### Data (13 articles)
+- /en/articles/bits-bytes-kilobytes — Bits, Bytes, and Kilobytes: Digital Data Basics
+- /en/articles/megabytes-gigabytes-storage — Megabytes and Gigabytes in Storage
+- /en/articles/terabytes-petabytes-big-data — Terabytes and Petabytes in Big Data
+- /en/articles/internet-data-usage — Internet Data Usage and Mobile Caps
+- /en/articles/data-compression — Data Compression: How Files Get Smaller
+- /en/articles/cloud-storage-explained — Cloud Storage: How It Works and What It Costs
+- /en/articles/ram-storage-difference — RAM vs Storage: What's the Difference?
+- /en/articles/ssd-hdd-capacity — SSD and HDD Capacity and Performance
+- /en/articles/bandwidth-throughput — Bandwidth and Throughput in Networking
+- /en/articles/data-centres-scale — Data Centres: Scale and Energy Use
+- /en/articles/dna-data-storage — DNA Data Storage: Biology Meets Computing
+- /en/articles/blockchain-data-size — Blockchain Data Size and Growth
+- /en/articles/image-video-file-sizes — Image and Video File Sizes Explained
+
+### Energy (14 articles)
+- /en/articles/joules-calories-energy — Joules and Calories: Units of Energy
+- /en/articles/kilowatt-hours-electricity — Kilowatt-Hours: Your Electricity Bill Explained
+- /en/articles/food-energy-nutrition — Food Energy: Calories and Kilojoules in Nutrition
+- /en/articles/solar-energy-measurement — Solar Energy Measurement and Photovoltaics
+- /en/articles/fossil-fuel-energy-density — Fossil Fuel Energy Density Compared
+- /en/articles/nuclear-energy-scale — Nuclear Energy: Scale and Efficiency
+- /en/articles/energy-efficiency-appliances — Energy Efficiency Ratings in Appliances
+- /en/articles/human-body-energy — Human Body Energy: Metabolism and Output
+- /en/articles/renewable-energy-capacity — Renewable Energy Capacity and Generation
+- /en/articles/load-shedding-energy — Load Shedding and Energy Storage in South Africa
+- /en/articles/electric-vehicles-energy — Electric Vehicles: Energy Consumption and Range
+- /en/articles/btu-british-thermal-unit — BTU: British Thermal Units in Heating and Cooling
+- /en/articles/chemical-energy-reactions — Chemical Energy in Reactions and Combustion
+- /en/articles/gravitational-potential-energy — Gravitational Potential Energy in Engineering
+
+### Power (16 articles)
+- /en/articles/watts-kilowatts-power — Watts and Kilowatts: Understanding Power
+- /en/articles/horsepower-engines — Horsepower in Engines and Vehicles
+- /en/articles/electrical-power-home — Electrical Power in the Home
+- /en/articles/solar-panel-power-output — Solar Panel Power Output and Sizing
+- /en/articles/wind-turbine-power — Wind Turbine Power Generation
+- /en/articles/power-grid-south-africa — The South African Power Grid and Eskom
+- /en/articles/generator-sizing — Generator Sizing for Home and Business
+- /en/articles/power-amplifiers-audio — Power in Audio Amplifiers and Speakers
+- /en/articles/nuclear-power-plants — Nuclear Power Plant Output
+- /en/articles/human-power-output — Human Power Output: Cycling, Running, and Sport
+- /en/articles/data-centre-power — Data Centre Power Consumption
+- /en/articles/ev-charging-power — EV Charging Power Levels Explained
+- /en/articles/power-factor-industrial — Power Factor in Industrial Electrical Systems
+- /en/articles/microwave-power-cooking — Microwave Power Levels and Cooking
+- /en/articles/laser-power-measurement — Laser Power Measurement and Safety Classes
+- /en/articles/power-tools-wattage — Power Tools: Wattage and Performance
+
+### Pressure (16 articles)
+- /en/articles/bar-psi-pressure — Bar and PSI: Common Pressure Units
+- /en/articles/atmospheric-pressure — Atmospheric Pressure and Weather Systems
+- /en/articles/tyre-pressure-vehicles — Tyre Pressure: Safety and Fuel Efficiency
+- /en/articles/blood-pressure-measurement — Blood Pressure: Medical Measurement
+- /en/articles/water-pressure-plumbing — Water Pressure in Plumbing and Irrigation
+- /en/articles/barometric-pressure-weather — Barometric Pressure and Weather Forecasting
+- /en/articles/pressure-diving-underwater — Pressure in Diving and Underwater Environments
+- /en/articles/industrial-pressure-systems — Industrial Pressure Systems and Safety
+- /en/articles/pneumatic-systems-pressure — Pneumatic Systems and Compressed Air
+- /en/articles/pressure-cooking-science — Pressure Cooking: Science and Safety
+- /en/articles/hydraulic-pressure-engineering — Hydraulic Pressure in Engineering
+- /en/articles/sound-pressure-decibels — Sound Pressure Levels and Decibels
+- /en/articles/vacuum-pressure-measurement — Vacuum and Negative Pressure Measurement
+- /en/articles/explosive-blast-pressure — Explosive Blast Pressure and Structural Engineering
+- /en/articles/osmotic-pressure-biology — Osmotic Pressure in Biology and Medicine
+- /en/articles/pressure-altitude-human-body — Altitude and the Human Body
+
+### Time (16 articles)
+- /en/articles/history-time-measurement — The History of Time Measurement
+- /en/articles/second-si-unit — The Second: The SI Unit of Time
+- /en/articles/time-zones-world — Time Zones: Coordinating the World
+- /en/articles/atomic-clocks-gps — Atomic Clocks and GPS Precision
+- /en/articles/calendar-systems — Calendar Systems Through History
+- /en/articles/time-sports-athletics — Time in Sports: The Science of Winning Seconds
+- /en/articles/geological-time — Geological Time: Deep Time in Millions of Years
+- /en/articles/time-physics-relativity — Time in Physics: Relativity and Quantum
+- /en/articles/time-navigation-history — Time and Navigation: Chronometers at Sea
+- /en/articles/time-music-rhythm — Time in Music: Rhythm, Tempo and Metre
+- /en/articles/biological-rhythms-circadian — Biological Rhythms and Circadian Time
+- /en/articles/time-digital-computing — Time in Digital Computing and NTP
+- /en/articles/time-reaction-human — Reaction Time: The Human Clock
+- /en/articles/time-astronomy-universe — Time in Astronomy: Cosmic Scales
+- /en/articles/time-productivity-work — Time and Productivity: Making Every Minute Count
+- /en/articles/time-medicine-healthcare — Time in Medicine: Therapeutic Windows
 
 ## LANGUAGE SUPPORT
 All pages available in 9 languages:
