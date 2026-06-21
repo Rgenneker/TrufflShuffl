@@ -160,6 +160,11 @@ function RootRedirect() {
   const { lang } = useLang();
   const [, navigate] = useLocation();
   useEffect(() => {
+    const host = window.location.hostname;
+    if (host !== "trufflshuffl.com" && host !== "www.trufflshuffl.com") {
+      window.location.replace(`https://www.trufflshuffl.com/${lang}`);
+      return;
+    }
     navigate(`/${lang}`, { replace: true } as never);
   }, []);
   return null;
