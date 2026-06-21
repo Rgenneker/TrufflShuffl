@@ -155,26 +155,37 @@ function LangApp() {
   );
 }
 
-/** Redirects bare "/" to the browser-detected or saved language */
-function RootRedirect() {
-  const { lang } = useLang();
-  const [, navigate] = useLocation();
+/** Renders the English homepage at bare "/" without changing the URL */
+function RootHomePage() {
+  const { setLang } = useLang();
   useEffect(() => {
     const host = window.location.hostname;
     if (host !== "trufflshuffl.com" && host !== "www.trufflshuffl.com") {
-      window.location.replace(`https://www.trufflshuffl.com/${lang}`);
+      window.location.replace("https://www.trufflshuffl.com/");
       return;
     }
-    navigate(`/${lang}`, { replace: true } as never);
+    setLang("en");
   }, []);
-  return null;
+
+  if (typeof window !== "undefined") {
+    const host = window.location.hostname;
+    if (host !== "trufflshuffl.com" && host !== "www.trufflshuffl.com") return null;
+  }
+
+  return (
+    <>
+      <HreflangTags lang="en" />
+      <SEOHead lang="en" />
+      <HomePage />
+    </>
+  );
 }
 
 function OuterRouter() {
   return (
     <WouterRouter base={BASE}>
       <Switch>
-        <Route path="/" component={RootRedirect} />
+        <Route path="/" component={RootHomePage} />
         <Route path="/:lang" component={LangApp} />
         <Route path="/:lang/*" component={LangApp} />
         <Route component={NotFound} />
