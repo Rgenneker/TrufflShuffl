@@ -4,6 +4,8 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CurrencySelect } from "@/components/CurrencySelect";
+import { DEFAULT_CURRENCY, fmtCurrency, type Currency } from "@/lib/currencies";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
@@ -25,6 +27,7 @@ const APPLIANCES = [
 ];
 
 export default function ElectricityCalculator() {
+  const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
   const [tariff, setTariff] = useState("3.50");
 
   const [appHours, setAppHours] = useState<Record<string, string>>(
@@ -81,7 +84,7 @@ export default function ElectricityCalculator() {
       description="Calculate your appliance running costs, estimate UPS and battery backup runtime, and work out your geyser electricity usage."
       instructions={
         <ol className="list-decimal list-inside space-y-2 text-sm text-muted-foreground">
-          <li>Enter your Eskom or municipal tariff (R per kWh)</li>
+          <li>Enter your Eskom or municipal tariff per kWh</li>
           <li>Appliance Cost: adjust hours per day for each appliance</li>
           <li>UPS Runtime: enter battery specs and connected load</li>
           <li>Geyser Cost: enter tank size and temperatures</li>
@@ -89,9 +92,14 @@ export default function ElectricityCalculator() {
       }
       testimonial="My electricity bill was out of control and I had no idea where the money was going. This calculator made it brutally clear — my geyser was running R1 400 a month on its own, and the pool pump added another R900. I installed a geyser timer and solar geyser blanket, and moved the pool pump to off-peak hours. My bill dropped by over R2 000 the next month. The UPS tab helped me figure out exactly which appliances to drop during load shedding to extend my runtime — keeping only the router, a few lights and the fridge gets me nearly five hours from my 100 Ah battery. This is genuinely one of the most useful tools I've ever found."
     >
-      <div className="space-y-2 mb-4">
-        <Label>Electricity Tariff (R/kWh)</Label>
-        <Input type="number" value={tariff} onChange={e => setTariff(e.target.value)} className="max-w-xs" />
+      <div className="flex items-center gap-4 mb-4">
+        <div className="flex-1 space-y-1">
+          <Label>Electricity Tariff ({currency.symbol}/kWh)</Label>
+          <Input type="number" value={tariff} onChange={e => setTariff(e.target.value)} className="max-w-xs" />
+        </div>
+        <div className="pt-5">
+          <CurrencySelect value={currency} onChange={setCurrency} />
+        </div>
       </div>
 
       <Tabs defaultValue="appliances">
@@ -121,14 +129,14 @@ export default function ElectricityCalculator() {
                 <div key={r.name} className="flex items-center justify-between bg-background rounded-lg px-3 py-2 border border-border">
                   <span className="text-sm text-muted-foreground">{r.name}</span>
                   <div className="text-right">
-                    <span className="font-mono text-sm font-bold text-foreground">R {fmt(r.cost)}/mo</span>
+                    <span className="font-mono text-sm font-bold text-foreground">{fmtCurrency(r.cost, currency)}/mo</span>
                     <span className="text-xs text-muted-foreground ml-2">{fmt(r.monthly, 1)} kWh</span>
                   </div>
                 </div>
               ))}
               <div className="flex items-center justify-between bg-primary/10 rounded-lg px-3 py-3 border border-primary/30">
                 <span className="font-semibold text-foreground">Total Monthly</span>
-                <span className="font-mono text-lg font-bold text-primary">R {fmt(totalMonthly)}</span>
+                <span className="font-mono text-lg font-bold text-primary">{fmtCurrency(totalMonthly, currency)}</span>
               </div>
             </div>
           )}
@@ -193,7 +201,7 @@ export default function ElectricityCalculator() {
               </div>
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">Cost per Heat</p>
-                <p className="font-mono text-lg font-bold text-foreground">R {fmt(geyserResult.cost)}</p>
+                <p className="font-mono text-lg font-bold text-foreground">{fmtCurrency(geyserResult.cost, currency)}</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">Heat Time (3 kW)</p>

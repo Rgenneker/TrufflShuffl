@@ -4,12 +4,16 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CurrencySelect } from "@/components/CurrencySelect";
+import { DEFAULT_CURRENCY, fmtCurrency, type Currency } from "@/lib/currencies";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
 }
 
 export default function TimeToolsCalculator() {
+  const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
+
   const [targetDate, setTargetDate] = useState(() => {
     const d = new Date();
     d.setFullYear(d.getFullYear() + 1);
@@ -172,13 +176,16 @@ export default function TimeToolsCalculator() {
         </TabsContent>
 
         <TabsContent value="overtime" className="space-y-4 pt-4">
+          <div className="flex justify-end mb-1">
+            <CurrencySelect value={currency} onChange={setCurrency} />
+          </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <Label>Normal Working Day (hours)</Label>
               <Input type="number" value={hoursPerDay} onChange={e => setHoursPerDay(e.target.value)} step="0.5" />
             </div>
             <div className="space-y-1.5">
-              <Label>Hourly Rate (R)</Label>
+              <Label>Hourly Rate ({currency.symbol})</Label>
               <Input type="number" value={hourlyRate} onChange={e => setHourlyRate(e.target.value)} />
             </div>
             <div className="space-y-1.5">
@@ -206,7 +213,7 @@ export default function TimeToolsCalculator() {
             <div className="grid grid-cols-3 gap-3">
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">Normal Pay</p>
-                <p className="font-mono text-lg font-bold text-foreground">R {fmt(otResult.normalPay)}</p>
+                <p className="font-mono text-lg font-bold text-foreground">{fmtCurrency(otResult.normalPay, currency)}</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">Overtime Hours</p>
@@ -214,7 +221,7 @@ export default function TimeToolsCalculator() {
               </div>
               <div className="bg-background rounded-lg p-4 border border-primary/30 text-center">
                 <p className="text-xs text-muted-foreground mb-1">Overtime Pay</p>
-                <p className="font-mono text-lg font-bold text-primary">R {fmt(otResult.otPay)}</p>
+                <p className="font-mono text-lg font-bold text-primary">{fmtCurrency(otResult.otPay, currency)}</p>
               </div>
             </div>
           )}

@@ -4,12 +4,16 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CurrencySelect } from "@/components/CurrencySelect";
+import { DEFAULT_CURRENCY, fmtCurrency, type Currency } from "@/lib/currencies";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
 }
 
 export default function AutomotiveCalculator() {
+  const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
+
   const [oem_width, setOemWidth] = useState("205");
   const [oem_asp, setOemAsp] = useState("55");
   const [oem_rim, setOemRim] = useState("16");
@@ -138,9 +142,12 @@ export default function AutomotiveCalculator() {
         </TabsContent>
 
         <TabsContent value="dep" className="space-y-4 pt-4">
+          <div className="flex justify-end mb-1">
+            <CurrencySelect value={currency} onChange={setCurrency} />
+          </div>
           <div className="grid grid-cols-3 gap-4">
             <div className="space-y-1.5">
-              <Label>Purchase Price (R)</Label>
+              <Label>Purchase Price ({currency.symbol})</Label>
               <Input type="number" value={purchasePrice} onChange={e => setPurchasePrice(e.target.value)} />
             </div>
             <div className="space-y-1.5">
@@ -159,8 +166,8 @@ export default function AutomotiveCalculator() {
                 <div key={i} className="flex items-center justify-between bg-background rounded-lg px-3 py-2.5 border border-border">
                   <span className="text-sm text-muted-foreground">Year {i + 1}</span>
                   <div className="text-right">
-                    <span className="font-mono text-sm font-bold text-foreground">R {fmt(r.valueAfter, 0)}</span>
-                    <span className="text-xs text-muted-foreground ml-2">(R {fmt(r.perMonth, 0)}/mo loss)</span>
+                    <span className="font-mono text-sm font-bold text-foreground">{fmtCurrency(r.valueAfter, currency, 0)}</span>
+                    <span className="text-xs text-muted-foreground ml-2">({fmtCurrency(r.perMonth, currency, 0)}/mo loss)</span>
                   </div>
                 </div>
               ))}

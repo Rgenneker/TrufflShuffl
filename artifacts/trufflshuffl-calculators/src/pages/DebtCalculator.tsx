@@ -4,6 +4,8 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CurrencySelect } from "@/components/CurrencySelect";
+import { DEFAULT_CURRENCY, fmtCurrency, type Currency } from "@/lib/currencies";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
@@ -12,6 +14,8 @@ function fmt(n: number, dec = 2) {
 type Debt = { name: string; balance: string; rate: string; payment: string };
 
 export default function DebtCalculator() {
+  const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
+
   const [debts, setDebts] = useState<Debt[]>([
     { name: "Credit Card", balance: "15000", rate: "22", payment: "450" },
     { name: "Personal Loan", balance: "30000", rate: "18", payment: "1200" },
@@ -88,6 +92,9 @@ export default function DebtCalculator() {
       }
       testimonial="I had four separate debts — a credit card, store account, personal loan and furniture account — each with different rates and payments that were impossible to track. This calculator helped me see the whole picture: R135 000 total, R4 200 a month in payments, and I was paying R62 000 in total interest over the remaining terms. By consolidating at 14% over 60 months my payment dropped to R3 150 and total interest fell to R54 000. Not always the right move depending on your specific rates, but the side-by-side comparison made it crystal clear in my case. The DTI calculator showed me I was at 38% — technically manageable but enough to make any bank hesitant to approve a home loan. That insight alone changed my financial priorities for the year."
     >
+      <div className="flex justify-end mb-2">
+        <CurrencySelect value={currency} onChange={setCurrency} />
+      </div>
       <Tabs defaultValue="consolidation">
         <TabsList className="w-full">
           <TabsTrigger value="consolidation" className="flex-1">Debt Consolidation</TabsTrigger>
@@ -97,7 +104,7 @@ export default function DebtCalculator() {
         <TabsContent value="consolidation" className="space-y-4 pt-4">
           <div className="space-y-2">
             <div className="grid grid-cols-4 gap-2 text-xs text-muted-foreground font-medium">
-              <span>Debt Name</span><span>Balance (R)</span><span>Rate (%)</span><span>Payment (R)</span>
+              <span>Debt Name</span><span>Balance ({currency.symbol})</span><span>Rate (%)</span><span>Payment ({currency.symbol})</span>
             </div>
             {debts.map((d, i) => (
               <div key={i} className="flex items-center gap-2">
@@ -126,29 +133,29 @@ export default function DebtCalculator() {
               <div className="grid grid-cols-2 gap-3">
                 <div className="bg-background rounded-lg p-4 border border-border text-center">
                   <p className="text-xs text-muted-foreground mb-1">Current Monthly</p>
-                  <p className="font-mono text-xl font-bold text-foreground">R {fmt(consResult.currentPayment)}</p>
+                  <p className="font-mono text-xl font-bold text-foreground">{fmtCurrency(consResult.currentPayment, currency)}</p>
                 </div>
                 <div className="bg-background rounded-lg p-4 border border-primary/30 text-center">
                   <p className="text-xs text-muted-foreground mb-1">Consolidated Monthly</p>
-                  <p className="font-mono text-xl font-bold text-primary">R {fmt(consResult.newPayment)}</p>
+                  <p className="font-mono text-xl font-bold text-primary">{fmtCurrency(consResult.newPayment, currency)}</p>
                 </div>
                 <div className="bg-background rounded-lg p-4 border border-border text-center">
                   <p className="text-xs text-muted-foreground mb-1">Total Debt</p>
-                  <p className="font-mono text-xl font-bold text-foreground">R {fmt(consResult.totalBalance)}</p>
+                  <p className="font-mono text-xl font-bold text-foreground">{fmtCurrency(consResult.totalBalance, currency)}</p>
                 </div>
                 <div className={`rounded-lg p-4 border text-center ${consResult.saving > 0 ? "border-green-500/30 bg-green-500/10" : "border-red-500/30 bg-red-500/10"}`}>
                   <p className="text-xs text-muted-foreground mb-1">Monthly Saving</p>
-                  <p className={`font-mono text-xl font-bold ${consResult.saving > 0 ? "text-green-400" : "text-red-400"}`}>R {fmt(Math.abs(consResult.saving))}</p>
+                  <p className={`font-mono text-xl font-bold ${consResult.saving > 0 ? "text-green-400" : "text-red-400"}`}>{fmtCurrency(Math.abs(consResult.saving), currency)}</p>
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div className="bg-background rounded-lg p-3 border border-border text-center">
                   <p className="text-xs text-muted-foreground">Interest (Current)</p>
-                  <p className="font-mono font-bold text-sm">R {fmt(consResult.totalInterestNow)}</p>
+                  <p className="font-mono font-bold text-sm">{fmtCurrency(consResult.totalInterestNow, currency)}</p>
                 </div>
                 <div className="bg-background rounded-lg p-3 border border-border text-center">
                   <p className="text-xs text-muted-foreground">Interest (Consolidated)</p>
-                  <p className="font-mono font-bold text-sm">R {fmt(consResult.totalInterestNew)}</p>
+                  <p className="font-mono font-bold text-sm">{fmtCurrency(consResult.totalInterestNew, currency)}</p>
                 </div>
               </div>
             </div>
@@ -158,11 +165,11 @@ export default function DebtCalculator() {
         <TabsContent value="dti" className="space-y-4 pt-4">
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <Label>Gross Monthly Income (R)</Label>
+              <Label>Gross Monthly Income ({currency.symbol})</Label>
               <Input type="number" value={grossIncome} onChange={e => setGrossIncome(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Total Monthly Debt Payments (R)</Label>
+              <Label>Total Monthly Debt Payments ({currency.symbol})</Label>
               <Input type="number" value={totalDebtPayments} onChange={e => setTotalDebtPayments(e.target.value)} />
             </div>
           </div>

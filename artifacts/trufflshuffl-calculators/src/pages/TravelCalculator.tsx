@@ -4,12 +4,16 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CurrencySelect } from "@/components/CurrencySelect";
+import { DEFAULT_CURRENCY, fmtCurrency, type Currency } from "@/lib/currencies";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
 }
 
 export default function TravelCalculator() {
+  const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
+
   const [flightHours, setFlightHours] = useState("11");
   const [timezonesDiff, setTimezonesDiff] = useState("2");
   const [jetResult, setJetResult] = useState<{ recoveryDays: number; advice: string } | null>(null);
@@ -82,6 +86,9 @@ export default function TravelCalculator() {
       }
       testimonial="I used the trip budget tab to plan our family holiday to Thailand and it was a game-changer. I entered 14 nights at R1 800 per night, R8 000 for flights, R400 per day food and R250 per day activities — the total came to R56 000 which let me set a realistic savings goal six months out. The jet lag tab warned me that an 11-hour flight crossing nine time zones would take about five days to recover from, so I built in two buffer days before any client meetings. The baggage calculator saved me R2 400 at check-in — it showed my bag was 3 kg over the 23 kg limit so I repacked the night before. The currency tab keeps me honest when comparing prices overseas in local currency versus what they really cost in Rand."
     >
+      <div className="flex justify-end mb-2">
+        <CurrencySelect value={currency} onChange={setCurrency} />
+      </div>
       <Tabs defaultValue="budget">
         <TabsList className="w-full">
           <TabsTrigger value="budget" className="flex-1">Trip Budget</TabsTrigger>
@@ -97,23 +104,23 @@ export default function TravelCalculator() {
               <Input type="number" value={nights} onChange={e => setNights(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Hotel per Night (R)</Label>
+              <Label>Hotel per Night ({currency.symbol})</Label>
               <Input type="number" value={hotelNight} onChange={e => setHotelNight(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Flights Total (R)</Label>
+              <Label>Flights Total ({currency.symbol})</Label>
               <Input type="number" value={flights} onChange={e => setFlights(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Food per Day (R)</Label>
+              <Label>Food per Day ({currency.symbol})</Label>
               <Input type="number" value={dailyFood} onChange={e => setDailyFood(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Activities per Day (R)</Label>
+              <Label>Activities per Day ({currency.symbol})</Label>
               <Input type="number" value={dailyActivities} onChange={e => setDailyActivities(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Miscellaneous (R)</Label>
+              <Label>Miscellaneous ({currency.symbol})</Label>
               <Input type="number" value={misc} onChange={e => setMisc(e.target.value)} />
             </div>
           </div>
@@ -123,17 +130,17 @@ export default function TravelCalculator() {
               <div className="grid grid-cols-2 gap-3">
                 <div className="bg-background rounded-lg p-4 border border-primary/30 text-center">
                   <p className="text-xs text-muted-foreground mb-1">Total Trip Cost</p>
-                  <p className="font-mono text-xl font-bold text-primary">R {fmt(budgetResult.total, 0)}</p>
+                  <p className="font-mono text-xl font-bold text-primary">{fmtCurrency(budgetResult.total, currency, 0)}</p>
                 </div>
                 <div className="bg-background rounded-lg p-4 border border-border text-center">
                   <p className="text-xs text-muted-foreground mb-1">Per Day Average</p>
-                  <p className="font-mono text-xl font-bold text-foreground">R {fmt(budgetResult.perDay, 0)}</p>
+                  <p className="font-mono text-xl font-bold text-foreground">{fmtCurrency(budgetResult.perDay, currency, 0)}</p>
                 </div>
               </div>
               {budgetResult.breakdown.map(b => (
                 <div key={b.label} className="flex justify-between items-center bg-background rounded-lg px-3 py-2 border border-border">
                   <span className="text-sm text-muted-foreground">{b.label}</span>
-                  <span className="font-mono text-sm font-bold">R {fmt(b.amount, 0)}</span>
+                  <span className="font-mono text-sm font-bold">{fmtCurrency(b.amount, currency, 0)}</span>
                 </div>
               ))}
             </div>
@@ -176,7 +183,7 @@ export default function TravelCalculator() {
               <Input type="number" value={allowKg} onChange={e => setAllowKg(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Fee per kg (R)</Label>
+              <Label>Fee per kg ({currency.symbol})</Label>
               <Input type="number" value={excessRate} onChange={e => setExcessRate(e.target.value)} />
             </div>
           </div>
@@ -189,7 +196,7 @@ export default function TravelCalculator() {
               </div>
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">Excess Fee</p>
-                <p className="font-mono text-xl font-bold text-foreground">R {fmt(bagResult.fee, 0)}</p>
+                <p className="font-mono text-xl font-bold text-foreground">{fmtCurrency(bagResult.fee, currency, 0)}</p>
               </div>
             </div>
           )}
@@ -202,15 +209,15 @@ export default function TravelCalculator() {
               <Input type="number" value={fromCurr} onChange={e => setFromCurr(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Exchange Rate (1 unit = R)</Label>
+              <Label>Exchange Rate (1 unit = {currency.symbol})</Label>
               <Input type="number" value={rate} onChange={e => setRate(e.target.value)} step="0.01" />
             </div>
           </div>
-          <Button className="w-full" onClick={calcFX}>Convert to Rand</Button>
+          <Button className="w-full" onClick={calcFX}>Convert</Button>
           {fxResult && (
             <div className="bg-background rounded-lg p-4 border border-primary/30 text-center">
-              <p className="text-xs text-muted-foreground mb-1">South African Rand</p>
-              <p className="font-mono text-3xl font-bold text-primary">R {fmt(fxResult.zar)}</p>
+              <p className="text-xs text-muted-foreground mb-1">{currency.name}</p>
+              <p className="font-mono text-3xl font-bold text-primary">{fmtCurrency(fxResult.zar, currency)}</p>
             </div>
           )}
           <p className="text-xs text-muted-foreground">Check the current ZAR rate at your bank or www.xe.com. Typical rates: USD R18.50, EUR R20.00, GBP R23.50, AUD R12.00.</p>

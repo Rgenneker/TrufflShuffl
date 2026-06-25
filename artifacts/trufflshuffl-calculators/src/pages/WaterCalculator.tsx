@@ -4,12 +4,16 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CurrencySelect } from "@/components/CurrencySelect";
+import { DEFAULT_CURRENCY, fmtCurrency, type Currency } from "@/lib/currencies";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
 }
 
 export default function WaterCalculator() {
+  const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
+
   const [people, setPeople] = useState("4");
   const [showerMin, setShowerMin] = useState("8");
   const [showersDay, setShowersDay] = useState("4");
@@ -74,9 +78,14 @@ export default function WaterCalculator() {
       }
       testimonial="During the Cape Town Day Zero crisis I wished I had a tool like this. Our family of five had no idea we were using over 800 litres a day until I started tracking it. This calculator helped us identify the biggest culprits: long showers and daily garden irrigation. We cut to 350 litres per day within two weeks. The rainwater tab showed us that our 180 m² roof in an area with 550 mm of rain per year could harvest over 79 000 litres annually — more than enough to supplement our municipal supply during dry months. We installed two 5 000-litre tanks and they regularly fill from a single good storm. The tank sizing tab told us our 10 000-litre reserve would last 50 days at 200 litres per day — peace of mind during any restriction."
     >
-      <div className="space-y-2 mb-4">
-        <Label>Municipal Water Tariff (R per kilolitre)</Label>
-        <Input type="number" value={tariffKl} onChange={e => setTariffKl(e.target.value)} className="max-w-xs" />
+      <div className="flex items-center gap-4 mb-4">
+        <div className="flex-1 space-y-1">
+          <Label>Municipal Water Tariff ({currency.symbol} per kilolitre)</Label>
+          <Input type="number" value={tariffKl} onChange={e => setTariffKl(e.target.value)} className="max-w-xs" />
+        </div>
+        <div className="pt-5">
+          <CurrencySelect value={currency} onChange={setCurrency} />
+        </div>
       </div>
       <Tabs defaultValue="usage">
         <TabsList className="w-full">
@@ -129,7 +138,7 @@ export default function WaterCalculator() {
               </div>
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">Monthly Bill</p>
-                <p className="font-mono text-lg font-bold text-foreground">R {fmt(usageResult.bill)}</p>
+                <p className="font-mono text-lg font-bold text-foreground">{fmtCurrency(usageResult.bill, currency)}</p>
               </div>
             </div>
           )}

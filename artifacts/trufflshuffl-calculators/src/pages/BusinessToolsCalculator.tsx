@@ -4,12 +4,16 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CurrencySelect } from "@/components/CurrencySelect";
+import { DEFAULT_CURRENCY, fmtCurrency, type Currency } from "@/lib/currencies";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
 }
 
 export default function BusinessToolsCalculator() {
+  const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
+
   const [revenue, setRevenue] = useState("500000");
   const [cogs, setCogs] = useState("300000");
   const [expenses, setExpenses] = useState("100000");
@@ -22,11 +26,6 @@ export default function BusinessToolsCalculator() {
 
   const [saleAmount, setSaleAmount] = useState("50000");
   const [commRate, setCommRate] = useState("10");
-  const [tiers, setTiers] = useState([
-    { threshold: "50000", rate: "5" },
-    { threshold: "100000", rate: "8" },
-    { threshold: "200000", rate: "12" },
-  ]);
   const [commResult, setCommResult] = useState<{ flat: number } | null>(null);
 
   function calcProfit() {
@@ -69,6 +68,9 @@ export default function BusinessToolsCalculator() {
       }
       testimonial="I run a small manufacturing business in Durban and these tools save me hours every month. The profit margin tab gives me an instant read on whether a job is worth taking — if the gross margin is below 35% on a custom order I know my pricing is too low. The break-even calculator helped me understand that with R80 000 in monthly fixed costs and a contribution margin of R300 per unit, I need to sell 267 units just to cover my overheads before making a cent of profit. That insight changed how I set sales targets for my team. The commission tab is something my sales reps use themselves to calculate their earnings on big quotes — it builds trust and transparency. Simple, fast, and exactly what a small business owner needs."
     >
+      <div className="flex justify-end mb-2">
+        <CurrencySelect value={currency} onChange={setCurrency} />
+      </div>
       <Tabs defaultValue="profit">
         <TabsList className="w-full">
           <TabsTrigger value="profit" className="flex-1">Profit Margin</TabsTrigger>
@@ -79,15 +81,15 @@ export default function BusinessToolsCalculator() {
         <TabsContent value="profit" className="space-y-4 pt-4">
           <div className="grid grid-cols-3 gap-4">
             <div className="space-y-1.5">
-              <Label>Revenue (R)</Label>
+              <Label>Revenue ({currency.symbol})</Label>
               <Input type="number" value={revenue} onChange={e => setRevenue(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Cost of Goods Sold (R)</Label>
+              <Label>Cost of Goods Sold ({currency.symbol})</Label>
               <Input type="number" value={cogs} onChange={e => setCogs(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Operating Expenses (R)</Label>
+              <Label>Operating Expenses ({currency.symbol})</Label>
               <Input type="number" value={expenses} onChange={e => setExpenses(e.target.value)} />
             </div>
           </div>
@@ -97,7 +99,7 @@ export default function BusinessToolsCalculator() {
               <div className="grid grid-cols-2 gap-3">
                 <div className="bg-background rounded-lg p-4 border border-border text-center">
                   <p className="text-xs text-muted-foreground mb-1">Gross Profit</p>
-                  <p className="font-mono text-xl font-bold text-foreground">R {fmt(profitResult.grossProfit, 0)}</p>
+                  <p className="font-mono text-xl font-bold text-foreground">{fmtCurrency(profitResult.grossProfit, currency, 0)}</p>
                 </div>
                 <div className="bg-background rounded-lg p-4 border border-border text-center">
                   <p className="text-xs text-muted-foreground mb-1">Gross Margin</p>
@@ -105,7 +107,7 @@ export default function BusinessToolsCalculator() {
                 </div>
                 <div className="bg-background rounded-lg p-4 border border-primary/30 text-center">
                   <p className="text-xs text-muted-foreground mb-1">Net Profit</p>
-                  <p className={`font-mono text-xl font-bold ${profitResult.netProfit > 0 ? "text-primary" : "text-red-400"}`}>R {fmt(profitResult.netProfit, 0)}</p>
+                  <p className={`font-mono text-xl font-bold ${profitResult.netProfit > 0 ? "text-primary" : "text-red-400"}`}>{fmtCurrency(profitResult.netProfit, currency, 0)}</p>
                 </div>
                 <div className="bg-background rounded-lg p-4 border border-primary/30 text-center">
                   <p className="text-xs text-muted-foreground mb-1">Net Margin</p>
@@ -123,15 +125,15 @@ export default function BusinessToolsCalculator() {
         <TabsContent value="breakeven" className="space-y-4 pt-4">
           <div className="grid grid-cols-3 gap-4">
             <div className="space-y-1.5">
-              <Label>Fixed Costs / Month (R)</Label>
+              <Label>Fixed Costs / Month ({currency.symbol})</Label>
               <Input type="number" value={fixedCosts} onChange={e => setFixedCosts(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Selling Price per Unit (R)</Label>
+              <Label>Selling Price per Unit ({currency.symbol})</Label>
               <Input type="number" value={salePrice} onChange={e => setSalePrice(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Variable Cost per Unit (R)</Label>
+              <Label>Variable Cost per Unit ({currency.symbol})</Label>
               <Input type="number" value={varCost} onChange={e => setVarCost(e.target.value)} />
             </div>
           </div>
@@ -144,11 +146,11 @@ export default function BusinessToolsCalculator() {
               </div>
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">Break-even Revenue</p>
-                <p className="font-mono text-xl font-bold text-foreground">R {fmt(beResult.revenue, 0)}</p>
+                <p className="font-mono text-xl font-bold text-foreground">{fmtCurrency(beResult.revenue, currency, 0)}</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">Contribution Margin</p>
-                <p className="font-mono text-xl font-bold text-foreground">R {fmt(beResult.contributionMargin)}</p>
+                <p className="font-mono text-xl font-bold text-foreground">{fmtCurrency(beResult.contributionMargin, currency)}</p>
               </div>
             </div>
           )}
@@ -157,7 +159,7 @@ export default function BusinessToolsCalculator() {
         <TabsContent value="commission" className="space-y-4 pt-4">
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <Label>Sale Amount (R)</Label>
+              <Label>Sale Amount ({currency.symbol})</Label>
               <Input type="number" value={saleAmount} onChange={e => setSaleAmount(e.target.value)} />
             </div>
             <div className="space-y-1.5">
@@ -170,11 +172,11 @@ export default function BusinessToolsCalculator() {
             <div className="grid grid-cols-2 gap-3">
               <div className="bg-background rounded-lg p-4 border border-primary/30 text-center">
                 <p className="text-xs text-muted-foreground mb-1">Commission Earned</p>
-                <p className="font-mono text-3xl font-bold text-primary">R {fmt(commResult.flat)}</p>
+                <p className="font-mono text-3xl font-bold text-primary">{fmtCurrency(commResult.flat, currency)}</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">Net to Business</p>
-                <p className="font-mono text-3xl font-bold text-foreground">R {fmt(Number(saleAmount) - commResult.flat)}</p>
+                <p className="font-mono text-3xl font-bold text-foreground">{fmtCurrency(Number(saleAmount) - commResult.flat, currency)}</p>
               </div>
             </div>
           )}

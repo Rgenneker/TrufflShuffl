@@ -4,12 +4,16 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CurrencySelect } from "@/components/CurrencySelect";
+import { DEFAULT_CURRENCY, fmtCurrency, type Currency } from "@/lib/currencies";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
 }
 
 export default function InvestingCalculator() {
+  const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
+
   const [dcaMonthly, setDcaMonthly] = useState("2000");
   const [dcaYears, setDcaYears] = useState("10");
   const [dcaReturn, setDcaReturn] = useState("12");
@@ -77,6 +81,9 @@ export default function InvestingCalculator() {
       }
       testimonial="I started investing on the JSE three years ago and this calculator helped me understand the power of consistency. The DCA tab showed me that contributing R2 000 a month at a 12% annual return over 20 years turns R480 000 of contributions into R1.97 million — the compounding is staggering. The CAGR calculator helped me evaluate my existing portfolio: entering my unit trust's five-year performance showed me a true CAGR of 9.4%, which compared favourably against the ETF benchmark I was considering switching to. The dividend tab is perfect for REIT and dividend ETF planning — I entered my planned R800 000 portfolio at a 6% yield and 4% dividend growth and can see exactly what passive income I'll be drawing in 10 years. This is essential kit for any self-directed investor."
     >
+      <div className="flex justify-end mb-2">
+        <CurrencySelect value={currency} onChange={setCurrency} />
+      </div>
       <Tabs defaultValue="dca">
         <TabsList className="w-full">
           <TabsTrigger value="dca" className="flex-1">Dollar Cost Avg</TabsTrigger>
@@ -87,7 +94,7 @@ export default function InvestingCalculator() {
         <TabsContent value="dca" className="space-y-4 pt-4">
           <div className="grid grid-cols-3 gap-4">
             <div className="space-y-1.5">
-              <Label>Monthly Investment (R)</Label>
+              <Label>Monthly Investment ({currency.symbol})</Label>
               <Input type="number" value={dcaMonthly} onChange={e => setDcaMonthly(e.target.value)} />
             </div>
             <div className="space-y-1.5">
@@ -105,22 +112,22 @@ export default function InvestingCalculator() {
               <div className="grid grid-cols-3 gap-3">
                 <div className="bg-background rounded-lg p-4 border border-primary/30 text-center">
                   <p className="text-xs text-muted-foreground mb-1">Final Value</p>
-                  <p className="font-mono text-xl font-bold text-primary">R {fmt(dcaResult.futureValue, 0)}</p>
+                  <p className="font-mono text-xl font-bold text-primary">{fmtCurrency(dcaResult.futureValue, currency, 0)}</p>
                 </div>
                 <div className="bg-background rounded-lg p-4 border border-border text-center">
                   <p className="text-xs text-muted-foreground mb-1">Total Invested</p>
-                  <p className="font-mono text-xl font-bold text-foreground">R {fmt(dcaResult.totalInvested, 0)}</p>
+                  <p className="font-mono text-xl font-bold text-foreground">{fmtCurrency(dcaResult.totalInvested, currency, 0)}</p>
                 </div>
                 <div className="bg-background rounded-lg p-4 border border-border text-center">
                   <p className="text-xs text-muted-foreground mb-1">Investment Gains</p>
-                  <p className="font-mono text-xl font-bold text-green-400">R {fmt(dcaResult.gains, 0)}</p>
+                  <p className="font-mono text-xl font-bold text-green-400">{fmtCurrency(dcaResult.gains, currency, 0)}</p>
                 </div>
               </div>
               <div className="space-y-1">
                 {dcaResult.schedule.filter((_, i) => i % Math.max(1, Math.floor(dcaResult.schedule.length / 8)) === 0 || i === dcaResult.schedule.length - 1).map(r => (
                   <div key={r.year} className="flex justify-between items-center text-sm">
                     <span className="text-muted-foreground">Year {r.year}</span>
-                    <span className="font-mono font-bold">R {fmt(r.value, 0)}</span>
+                    <span className="font-mono font-bold">{fmtCurrency(r.value, currency, 0)}</span>
                   </div>
                 ))}
               </div>
@@ -131,11 +138,11 @@ export default function InvestingCalculator() {
         <TabsContent value="cagr" className="space-y-4 pt-4">
           <div className="grid grid-cols-3 gap-4">
             <div className="space-y-1.5">
-              <Label>Starting Value (R)</Label>
+              <Label>Starting Value ({currency.symbol})</Label>
               <Input type="number" value={cagrStart} onChange={e => setCagrStart(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Ending Value (R)</Label>
+              <Label>Ending Value ({currency.symbol})</Label>
               <Input type="number" value={cagrEnd} onChange={e => setCagrEnd(e.target.value)} />
             </div>
             <div className="space-y-1.5">
@@ -162,7 +169,7 @@ export default function InvestingCalculator() {
         <TabsContent value="dividends" className="space-y-4 pt-4">
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <Label>Portfolio Value (R)</Label>
+              <Label>Portfolio Value ({currency.symbol})</Label>
               <Input type="number" value={divPortfolio} onChange={e => setDivPortfolio(e.target.value)} />
             </div>
             <div className="space-y-1.5">
@@ -183,17 +190,17 @@ export default function InvestingCalculator() {
             <div className="grid grid-cols-3 gap-3">
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">Year 1 Dividend</p>
-                <p className="font-mono text-lg font-bold text-foreground">R {fmt(divResult.yearOneDividend, 0)}</p>
-                <p className="text-xs text-muted-foreground">R {fmt(divResult.yearOneDividend / 12, 0)}/mo</p>
+                <p className="font-mono text-lg font-bold text-foreground">{fmtCurrency(divResult.yearOneDividend, currency, 0)}</p>
+                <p className="text-xs text-muted-foreground">{fmtCurrency(divResult.yearOneDividend / 12, currency, 0)}/mo</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-primary/30 text-center">
                 <p className="text-xs text-muted-foreground mb-1">Year {divYears} Dividend</p>
-                <p className="font-mono text-lg font-bold text-primary">R {fmt(divResult.yearTenDividend, 0)}</p>
-                <p className="text-xs text-muted-foreground">R {fmt(divResult.yearTenDividend / 12, 0)}/mo</p>
+                <p className="font-mono text-lg font-bold text-primary">{fmtCurrency(divResult.yearTenDividend, currency, 0)}</p>
+                <p className="text-xs text-muted-foreground">{fmtCurrency(divResult.yearTenDividend / 12, currency, 0)}/mo</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">Total Dividends</p>
-                <p className="font-mono text-lg font-bold text-foreground">R {fmt(divResult.totalDividends, 0)}</p>
+                <p className="font-mono text-lg font-bold text-foreground">{fmtCurrency(divResult.totalDividends, currency, 0)}</p>
               </div>
             </div>
           )}

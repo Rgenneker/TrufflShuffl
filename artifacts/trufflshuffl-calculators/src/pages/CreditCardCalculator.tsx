@@ -4,12 +4,12 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-function fmt(n: number, dec = 2) {
-  return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
-}
+import { CurrencySelect } from "@/components/CurrencySelect";
+import { DEFAULT_CURRENCY, fmtCurrency, type Currency } from "@/lib/currencies";
 
 export default function CreditCardCalculator() {
+  const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
+
   const [balance, setBalance] = useState("15000");
   const [apr, setApr] = useState("22");
   const [minPct, setMinPct] = useState("2");
@@ -77,6 +77,9 @@ export default function CreditCardCalculator() {
       }
       testimonial="I had R22 000 on my credit card and was only paying the 2% minimum each month. I knew it was bad but this calculator showed me exactly how bad: I was paying R385 a month in interest alone, and paying only minimums would take me over 12 years to clear the debt while paying more than R20 000 in interest on top of what I already owed. That was a wake-up call. I switched to paying R1 500 a month and the payoff tab showed I'd be clear in 18 months with just under R3 000 in interest. I set up the debit order the same day. The difference between minimum payments and a fixed amount is genuinely shocking — every South African with credit card debt should run these numbers."
     >
+      <div className="flex justify-end mb-2">
+        <CurrencySelect value={currency} onChange={setCurrency} />
+      </div>
       <Tabs defaultValue="interest">
         <TabsList className="w-full">
           <TabsTrigger value="interest" className="flex-1">Monthly Interest</TabsTrigger>
@@ -86,7 +89,7 @@ export default function CreditCardCalculator() {
         <TabsContent value="interest" className="space-y-4 pt-4">
           <div className="grid grid-cols-3 gap-4">
             <div className="space-y-1.5">
-              <Label>Outstanding Balance (R)</Label>
+              <Label>Outstanding Balance ({currency.symbol})</Label>
               <Input type="number" value={balance} onChange={e => setBalance(e.target.value)} />
             </div>
             <div className="space-y-1.5">
@@ -104,11 +107,11 @@ export default function CreditCardCalculator() {
               <div className="grid grid-cols-2 gap-3">
                 <div className="bg-background rounded-lg p-4 border border-red-500/30 text-center">
                   <p className="text-xs text-muted-foreground mb-1">Monthly Interest</p>
-                  <p className="font-mono text-xl font-bold text-red-400">R {fmt(interestResult.monthlyInterest)}</p>
+                  <p className="font-mono text-xl font-bold text-red-400">{fmtCurrency(interestResult.monthlyInterest, currency)}</p>
                 </div>
                 <div className="bg-background rounded-lg p-4 border border-border text-center">
                   <p className="text-xs text-muted-foreground mb-1">Minimum Payment</p>
-                  <p className="font-mono text-xl font-bold text-foreground">R {fmt(interestResult.minPayment)}</p>
+                  <p className="font-mono text-xl font-bold text-foreground">{fmtCurrency(interestResult.minPayment, currency)}</p>
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3">
@@ -118,7 +121,7 @@ export default function CreditCardCalculator() {
                 </div>
                 <div className="bg-background rounded-lg p-4 border border-red-500/30 text-center">
                   <p className="text-xs text-muted-foreground mb-1">Total Interest (min only)</p>
-                  <p className="font-mono text-xl font-bold text-red-400">R {fmt(interestResult.totalInterestMin)}</p>
+                  <p className="font-mono text-xl font-bold text-red-400">{fmtCurrency(interestResult.totalInterestMin, currency)}</p>
                 </div>
               </div>
               <p className="text-xs text-muted-foreground">SA credit cards typically charge prime + 6–14%. Current prime rate: check SARB website.</p>
@@ -129,7 +132,7 @@ export default function CreditCardCalculator() {
         <TabsContent value="payoff" className="space-y-4 pt-4">
           <div className="grid grid-cols-3 gap-4">
             <div className="space-y-1.5">
-              <Label>Balance (R)</Label>
+              <Label>Balance ({currency.symbol})</Label>
               <Input type="number" value={payoffBalance} onChange={e => setPayoffBalance(e.target.value)} />
             </div>
             <div className="space-y-1.5">
@@ -137,7 +140,7 @@ export default function CreditCardCalculator() {
               <Input type="number" value={payoffApr} onChange={e => setPayoffApr(e.target.value)} step="0.25" />
             </div>
             <div className="space-y-1.5">
-              <Label>Monthly Payment (R)</Label>
+              <Label>Monthly Payment ({currency.symbol})</Label>
               <Input type="number" value={payoffPayment} onChange={e => setPayoffPayment(e.target.value)} />
             </div>
           </div>
@@ -151,11 +154,11 @@ export default function CreditCardCalculator() {
                 </div>
                 <div className="bg-background rounded-lg p-4 border border-border text-center">
                   <p className="text-xs text-muted-foreground mb-1">Total Paid</p>
-                  <p className="font-mono text-xl font-bold text-foreground">R {fmt(payoffResult.totalPaid)}</p>
+                  <p className="font-mono text-xl font-bold text-foreground">{fmtCurrency(payoffResult.totalPaid, currency)}</p>
                 </div>
                 <div className="bg-background rounded-lg p-4 border border-red-500/30 text-center">
                   <p className="text-xs text-muted-foreground mb-1">Total Interest</p>
-                  <p className="font-mono text-xl font-bold text-red-400">R {fmt(payoffResult.totalInterest)}</p>
+                  <p className="font-mono text-xl font-bold text-red-400">{fmtCurrency(payoffResult.totalInterest, currency)}</p>
                 </div>
               </div>
               {payoffResult.schedule.length > 0 && (
@@ -174,10 +177,10 @@ export default function CreditCardCalculator() {
                       {payoffResult.schedule.map(r => (
                         <tr key={r.month} className="border-b border-border/50">
                           <td className="py-1">{r.month}</td>
-                          <td className="py-1 text-right font-mono">R {fmt(r.payment)}</td>
-                          <td className="py-1 text-right font-mono">R {fmt(r.principal)}</td>
-                          <td className="py-1 text-right font-mono text-red-400">R {fmt(r.interest)}</td>
-                          <td className="py-1 text-right font-mono">R {fmt(r.balance)}</td>
+                          <td className="py-1 text-right font-mono">{fmtCurrency(r.payment, currency)}</td>
+                          <td className="py-1 text-right font-mono">{fmtCurrency(r.principal, currency)}</td>
+                          <td className="py-1 text-right font-mono text-red-400">{fmtCurrency(r.interest, currency)}</td>
+                          <td className="py-1 text-right font-mono">{fmtCurrency(r.balance, currency)}</td>
                         </tr>
                       ))}
                     </tbody>

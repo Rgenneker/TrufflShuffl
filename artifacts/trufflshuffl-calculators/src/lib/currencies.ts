@@ -56,10 +56,9 @@ export const CURRENCIES: Currency[] = [
   { code: "XOF", symbol: "CFA",  name: "West African CFA Franc", locale: "fr-SN" },
 ];
 
-export function fmtCurrency(amount: number, currency: Currency): string {
-  // JPY, KRW, VND, IDR have no decimal places
+export function fmtCurrency(amount: number, currency: Currency, dec?: number): string {
   const noDecimals = ["JPY", "KRW", "VND", "IDR", "HUF", "CLP", "XOF", "BDT", "TWD", "PKR"];
-  const decimals = noDecimals.includes(currency.code) ? 0 : 2;
+  const decimals = dec !== undefined ? dec : noDecimals.includes(currency.code) ? 0 : 2;
   try {
     return new Intl.NumberFormat(currency.locale, {
       style: "currency",

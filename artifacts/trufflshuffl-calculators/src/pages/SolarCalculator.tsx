@@ -3,14 +3,17 @@ import { CalculatorLayout } from "@/components/CalculatorLayout";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CurrencySelect } from "@/components/CurrencySelect";
+import { DEFAULT_CURRENCY, fmtCurrency, type Currency } from "@/lib/currencies";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
 }
 
 export default function SolarCalculator() {
+  const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
+
   const [dailyUsage, setDailyUsage] = useState("30");
   const [sunHours, setSunHours] = useState("5.5");
   const [panelWatt, setPanelWatt] = useState("450");
@@ -178,13 +181,16 @@ export default function SolarCalculator() {
         </TabsContent>
 
         <TabsContent value="payback" className="space-y-4 pt-4">
+          <div className="flex justify-end mb-1">
+            <CurrencySelect value={currency} onChange={setCurrency} />
+          </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <Label>Monthly Electricity Bill (R)</Label>
+              <Label>Monthly Electricity Bill ({currency.symbol})</Label>
               <Input type="number" value={monthlyBill} onChange={e => setMonthlyBill(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>System Cost (R)</Label>
+              <Label>System Cost ({currency.symbol})</Label>
               <Input type="number" value={systemCost} onChange={e => setSystemCost(e.target.value)} />
             </div>
             <div className="space-y-1.5">
@@ -205,7 +211,7 @@ export default function SolarCalculator() {
               </div>
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">Monthly Saving</p>
-                <p className="font-mono text-lg font-bold text-foreground">R {fmt(payResult.monthlySaving)}</p>
+                <p className="font-mono text-lg font-bold text-foreground">{fmtCurrency(payResult.monthlySaving, currency)}</p>
               </div>
             </div>
           )}

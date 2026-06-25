@@ -4,12 +4,16 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CurrencySelect } from "@/components/CurrencySelect";
+import { DEFAULT_CURRENCY, fmtCurrency, type Currency } from "@/lib/currencies";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
 }
 
 export default function EVCalculator() {
+  const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
+
   const [batteryKwh, setBatteryKwh] = useState("60");
   const [pricePerKwh, setPricePerKwh] = useState("3.50");
   const [chargeFrom, setChargeFrom] = useState("20");
@@ -72,6 +76,9 @@ export default function EVCalculator() {
       }
       testimonial="I was on the fence about switching to an EV until I used this calculator. I drive 25 000 km a year in Gauteng — my Golf uses about 8.5 L/100km at current petrol prices and that was costing me over R50 000 a year just in fuel. After plugging in my prospective EV's 17 kWh/100km at my home Eskom rate, I realised I'd be paying under R15 000 a year in electricity. The break-even on the premium I'd pay for the EV was under four years, and after that it's pure savings. The charging time tab helped me plan around load shedding and public DC fast chargers on the N1 to Cape Town. I've now put down a deposit."
     >
+      <div className="flex justify-end mb-2">
+        <CurrencySelect value={currency} onChange={setCurrency} />
+      </div>
       <Tabs defaultValue="charge">
         <TabsList className="w-full">
           <TabsTrigger value="charge" className="flex-1">Charging Cost</TabsTrigger>
@@ -86,7 +93,7 @@ export default function EVCalculator() {
               <Input type="number" value={batteryKwh} onChange={e => setBatteryKwh(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Price per kWh (R)</Label>
+              <Label>Price per kWh ({currency.symbol})</Label>
               <Input type="number" value={pricePerKwh} onChange={e => setPricePerKwh(e.target.value)} />
             </div>
             <div className="space-y-1.5">
@@ -108,7 +115,7 @@ export default function EVCalculator() {
                 </div>
                 <div className="bg-background rounded-lg p-4 border border-border text-center">
                   <p className="text-xs text-muted-foreground mb-1">Charge Cost</p>
-                  <p className="font-mono text-lg font-bold text-foreground">R {fmt(chargeResult.cost)}</p>
+                  <p className="font-mono text-lg font-bold text-foreground">{fmtCurrency(chargeResult.cost, currency)}</p>
                 </div>
               </div>
               <p className="text-xs text-muted-foreground font-semibold">Estimated Charge Time:</p>
@@ -135,7 +142,7 @@ export default function EVCalculator() {
               <Input type="number" value={consumptionKwh} onChange={e => setConsumptionKwh(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Electricity Price (R/kWh)</Label>
+              <Label>Electricity Price ({currency.symbol}/kWh)</Label>
               <Input type="number" value={elecPrice} onChange={e => setElecPrice(e.target.value)} />
             </div>
             <div className="space-y-1.5">
@@ -148,15 +155,15 @@ export default function EVCalculator() {
             <div className="grid grid-cols-3 gap-3">
               <div className="bg-background rounded-lg p-4 border border-primary/30 text-center">
                 <p className="text-xs text-muted-foreground mb-1">Per km</p>
-                <p className="font-mono text-lg font-bold text-primary">R {fmt(perKmResult.costPerKm, 3)}</p>
+                <p className="font-mono text-lg font-bold text-primary">{fmtCurrency(perKmResult.costPerKm, currency, 3)}</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">Per 100 km</p>
-                <p className="font-mono text-lg font-bold text-foreground">R {fmt(perKmResult.costPer100)}</p>
+                <p className="font-mono text-lg font-bold text-foreground">{fmtCurrency(perKmResult.costPer100, currency)}</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">Annual Cost</p>
-                <p className="font-mono text-lg font-bold text-foreground">R {fmt(perKmResult.costPerKm * Number(kmRange))}</p>
+                <p className="font-mono text-lg font-bold text-foreground">{fmtCurrency(perKmResult.costPerKm * Number(kmRange), currency)}</p>
               </div>
             </div>
           )}
@@ -174,7 +181,7 @@ export default function EVCalculator() {
               <Input type="number" value={iceLper100} onChange={e => setIceLper100(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Fuel Price (R/L)</Label>
+              <Label>Fuel Price ({currency.symbol}/L)</Label>
               <Input type="number" value={iceFuelPrice} onChange={e => setIceFuelPrice(e.target.value)} />
             </div>
           </div>
@@ -185,11 +192,11 @@ export default function EVCalculator() {
               <Input type="number" value={evKwhPer100} onChange={e => setEvKwhPer100(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Elec Price (R/kWh)</Label>
+              <Label>Elec Price ({currency.symbol}/kWh)</Label>
               <Input type="number" value={evElecPrice} onChange={e => setEvElecPrice(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>EV Premium (R)</Label>
+              <Label>EV Premium ({currency.symbol})</Label>
               <Input type="number" value={evPremium} onChange={e => setEvPremium(e.target.value)} />
             </div>
           </div>
@@ -198,15 +205,15 @@ export default function EVCalculator() {
             <div className="grid grid-cols-2 gap-3">
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">ICE Annual Cost</p>
-                <p className="font-mono text-lg font-bold text-foreground">R {fmt(compareResult.iceCost)}</p>
+                <p className="font-mono text-lg font-bold text-foreground">{fmtCurrency(compareResult.iceCost, currency)}</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-primary/30 text-center">
                 <p className="text-xs text-muted-foreground mb-1">EV Annual Cost</p>
-                <p className="font-mono text-lg font-bold text-primary">R {fmt(compareResult.evCost)}</p>
+                <p className="font-mono text-lg font-bold text-primary">{fmtCurrency(compareResult.evCost, currency)}</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">Annual Saving</p>
-                <p className={`font-mono text-lg font-bold ${compareResult.saving > 0 ? "text-green-400" : "text-red-400"}`}>R {fmt(Math.abs(compareResult.saving))}</p>
+                <p className={`font-mono text-lg font-bold ${compareResult.saving > 0 ? "text-green-400" : "text-red-400"}`}>{fmtCurrency(Math.abs(compareResult.saving), currency)}</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">Break-even</p>

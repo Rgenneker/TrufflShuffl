@@ -4,10 +4,8 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-function fmt(n: number, dec = 2) {
-  return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
-}
+import { CurrencySelect } from "@/components/CurrencySelect";
+import { DEFAULT_CURRENCY, fmtCurrency, type Currency } from "@/lib/currencies";
 
 type BudgetItem = { name: string; amount: string };
 
@@ -26,6 +24,8 @@ const WEDDING_DEFAULTS: BudgetItem[] = [
 ];
 
 export default function LifestyleCalculator() {
+  const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
+
   const [weddingItems, setWeddingItems] = useState<BudgetItem[]>(WEDDING_DEFAULTS);
   const [weddingResult, setWeddingResult] = useState<{ total: number; perHead: number; guests: number } | null>(null);
   const [weddingGuests, setWeddingGuests] = useState("100");
@@ -73,7 +73,6 @@ export default function LifestyleCalculator() {
       monthly = (needed * rate) / (Math.pow(1 + rate, months) - 1);
     }
     const total = monthly * months + existing;
-    const interest = total - (monthly * months + existing - existing);
     setHolidayResult({ monthly, total, interest: total - (needed + existing) });
   }
 
@@ -90,6 +89,9 @@ export default function LifestyleCalculator() {
       }
       testimonial="Planning our wedding in Stellenbosch was overwhelming until I used this calculator. I adjusted each line item to match actual quotes from vendors and immediately saw the total climbing past our R250 000 budget. The per-head breakdown showed me that catering alone was R700 per person for 120 guests. We trimmed the guest list to 80 and swapped the sit-down dinner for a cocktail-style reception — saving R40 000 without compromising on the things that mattered most to us. The holiday savings tab is something I use every January for our annual overseas trip goal. I enter the target, my months to save, and my savings account interest rate and it tells me exactly what to set aside each month. Planning ahead removes all the financial stress."
     >
+      <div className="flex justify-end mb-2">
+        <CurrencySelect value={currency} onChange={setCurrency} />
+      </div>
       <Tabs defaultValue="wedding">
         <TabsList className="w-full">
           <TabsTrigger value="wedding" className="flex-1">Wedding</TabsTrigger>
@@ -107,7 +109,7 @@ export default function LifestyleCalculator() {
               <div key={i} className="flex items-center gap-3">
                 <span className="text-sm text-muted-foreground flex-1">{item.name}</span>
                 <div className="flex items-center gap-1">
-                  <span className="text-xs text-muted-foreground">R</span>
+                  <span className="text-xs text-muted-foreground">{currency.symbol}</span>
                   <Input type="number" value={item.amount} onChange={e => updateWedding(i, e.target.value)} className="w-28 text-sm" />
                 </div>
               </div>
@@ -118,11 +120,11 @@ export default function LifestyleCalculator() {
             <div className="grid grid-cols-2 gap-3">
               <div className="bg-background rounded-lg p-4 border border-primary/30 text-center">
                 <p className="text-xs text-muted-foreground mb-1">Total Budget</p>
-                <p className="font-mono text-xl font-bold text-primary">R {fmt(weddingResult.total, 0)}</p>
+                <p className="font-mono text-xl font-bold text-primary">{fmtCurrency(weddingResult.total, currency, 0)}</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">Cost per Guest</p>
-                <p className="font-mono text-xl font-bold text-foreground">R {fmt(weddingResult.perHead, 0)}</p>
+                <p className="font-mono text-xl font-bold text-foreground">{fmtCurrency(weddingResult.perHead, currency, 0)}</p>
               </div>
             </div>
           )}
@@ -135,23 +137,23 @@ export default function LifestyleCalculator() {
               <Input type="number" value={partyGuests} onChange={e => setPartyGuests(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Venue Hire (R)</Label>
+              <Label>Venue Hire ({currency.symbol})</Label>
               <Input type="number" value={partyVenue} onChange={e => setPartyVenue(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Food per Head (R)</Label>
+              <Label>Food per Head ({currency.symbol})</Label>
               <Input type="number" value={partyFoodPerHead} onChange={e => setPartyFoodPerHead(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Drinks (R)</Label>
+              <Label>Drinks ({currency.symbol})</Label>
               <Input type="number" value={partyDrinks} onChange={e => setPartyDrinks(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Decor (R)</Label>
+              <Label>Decor ({currency.symbol})</Label>
               <Input type="number" value={partyDecor} onChange={e => setPartyDecor(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Entertainment (R)</Label>
+              <Label>Entertainment ({currency.symbol})</Label>
               <Input type="number" value={partyEnt} onChange={e => setPartyEnt(e.target.value)} />
             </div>
           </div>
@@ -160,11 +162,11 @@ export default function LifestyleCalculator() {
             <div className="grid grid-cols-2 gap-3">
               <div className="bg-background rounded-lg p-4 border border-primary/30 text-center">
                 <p className="text-xs text-muted-foreground mb-1">Total Event Cost</p>
-                <p className="font-mono text-xl font-bold text-primary">R {fmt(partyResult.total, 0)}</p>
+                <p className="font-mono text-xl font-bold text-primary">{fmtCurrency(partyResult.total, currency, 0)}</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">Per Head</p>
-                <p className="font-mono text-xl font-bold text-foreground">R {fmt(partyResult.perHead, 0)}</p>
+                <p className="font-mono text-xl font-bold text-foreground">{fmtCurrency(partyResult.perHead, currency, 0)}</p>
               </div>
             </div>
           )}
@@ -173,7 +175,7 @@ export default function LifestyleCalculator() {
         <TabsContent value="holiday" className="space-y-4 pt-4">
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <Label>Holiday Target (R)</Label>
+              <Label>Holiday Target ({currency.symbol})</Label>
               <Input type="number" value={holidayTarget} onChange={e => setHolidayTarget(e.target.value)} />
             </div>
             <div className="space-y-1.5">
@@ -181,7 +183,7 @@ export default function LifestyleCalculator() {
               <Input type="number" value={holidayMonths} onChange={e => setHolidayMonths(e.target.value)} />
             </div>
             <div className="space-y-1.5">
-              <Label>Already Saved (R)</Label>
+              <Label>Already Saved ({currency.symbol})</Label>
               <Input type="number" value={holidayExisting} onChange={e => setHolidayExisting(e.target.value)} />
             </div>
             <div className="space-y-1.5">
@@ -194,15 +196,15 @@ export default function LifestyleCalculator() {
             <div className="grid grid-cols-3 gap-3">
               <div className="bg-background rounded-lg p-4 border border-primary/30 text-center">
                 <p className="text-xs text-muted-foreground mb-1">Save per Month</p>
-                <p className="font-mono text-xl font-bold text-primary">R {fmt(holidayResult.monthly, 0)}</p>
+                <p className="font-mono text-xl font-bold text-primary">{fmtCurrency(holidayResult.monthly, currency, 0)}</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">Total Saved</p>
-                <p className="font-mono text-xl font-bold text-foreground">R {fmt(holidayResult.total, 0)}</p>
+                <p className="font-mono text-xl font-bold text-foreground">{fmtCurrency(holidayResult.total, currency, 0)}</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-border text-center">
                 <p className="text-xs text-muted-foreground mb-1">Interest Earned</p>
-                <p className="font-mono text-xl font-bold text-foreground">R {fmt(holidayResult.interest, 0)}</p>
+                <p className="font-mono text-xl font-bold text-foreground">{fmtCurrency(holidayResult.interest, currency, 0)}</p>
               </div>
             </div>
           )}

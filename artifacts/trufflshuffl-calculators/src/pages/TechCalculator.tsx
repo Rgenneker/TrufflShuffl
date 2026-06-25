@@ -5,12 +5,16 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CurrencySelect } from "@/components/CurrencySelect";
+import { DEFAULT_CURRENCY, fmtCurrency, type Currency } from "@/lib/currencies";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
 }
 
 export default function TechCalculator() {
+  const [currency, setCurrency] = useState<Currency>(DEFAULT_CURRENCY);
+
   const [users, setUsers] = useState("5");
   const [videoHD, setVideoHD] = useState("2");
   const [gaming, setGaming] = useState("1");
@@ -31,7 +35,7 @@ export default function TechCalculator() {
   const [inputTokens, setInputTokens] = useState("1000");
   const [outputTokens, setOutputTokens] = useState("500");
   const [aiRequests, setAiRequests] = useState("1000");
-  const [aiResult, setAiResult] = useState<{ costPerRequest: number; monthlyUSD: number; monthlyZAR: number } | null>(null);
+  const [aiResult, setAiResult] = useState<{ costPerRequest: number; monthlyUSD: number; monthlyLocal: number } | null>(null);
 
   const [ssdCapGB, setSsdCapGB] = useState("500");
   const [tbwRating, setTbwRating] = useState("300");
@@ -67,8 +71,8 @@ export default function TechCalculator() {
     const outCost = (Number(outputTokens) / 1000) * model.out;
     const costPerRequest = inCost + outCost;
     const monthlyUSD = costPerRequest * Number(aiRequests);
-    const monthlyZAR = monthlyUSD * 18.5;
-    setAiResult({ costPerRequest, monthlyUSD, monthlyZAR });
+    const monthlyLocal = monthlyUSD * 18.5;
+    setAiResult({ costPerRequest, monthlyUSD, monthlyLocal });
   }
 
   function calcSSD() {
@@ -159,6 +163,9 @@ export default function TechCalculator() {
         </TabsContent>
 
         <TabsContent value="ai" className="space-y-4 pt-4">
+          <div className="flex justify-end">
+            <CurrencySelect value={currency} onChange={setCurrency} />
+          </div>
           <div className="space-y-1.5">
             <Label>AI Model</Label>
             <Select value={aiModel} onValueChange={setAiModel}>
@@ -196,8 +203,8 @@ export default function TechCalculator() {
                 <p className="font-mono text-lg font-bold text-foreground">${fmt(aiResult.monthlyUSD, 2)}</p>
               </div>
               <div className="bg-background rounded-lg p-4 border border-primary/30 text-center">
-                <p className="text-xs text-muted-foreground mb-1">Monthly (ZAR)</p>
-                <p className="font-mono text-lg font-bold text-primary">R {fmt(aiResult.monthlyZAR, 2)}</p>
+                <p className="text-xs text-muted-foreground mb-1">Monthly ({currency.code})</p>
+                <p className="font-mono text-lg font-bold text-primary">{fmtCurrency(aiResult.monthlyLocal, currency)}</p>
               </div>
             </div>
           )}
