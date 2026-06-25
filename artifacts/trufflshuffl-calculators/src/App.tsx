@@ -40,6 +40,28 @@ import ContactPage from "@/pages/Contact";
 import TermsPage from "@/pages/Terms";
 import PrivacyPage from "@/pages/Privacy";
 import SitemapPage from "@/pages/Sitemap";
+import EVCalculator from "@/pages/EVCalculator";
+import SolarCalculator from "@/pages/SolarCalculator";
+import ElectricityCalculator from "@/pages/ElectricityCalculator";
+import WaterCalculator from "@/pages/WaterCalculator";
+import ConstructionCalculator from "@/pages/ConstructionCalculator";
+import FitnessCalculator from "@/pages/FitnessCalculator";
+import AutomotiveCalculator from "@/pages/AutomotiveCalculator";
+import TravelCalculator from "@/pages/TravelCalculator";
+import PetCalculator from "@/pages/PetCalculator";
+import FoodCalculator from "@/pages/FoodCalculator";
+import EducationCalculator from "@/pages/EducationCalculator";
+import EngineeringCalculator from "@/pages/EngineeringCalculator";
+import EnvironmentCalculator from "@/pages/EnvironmentCalculator";
+import LifestyleCalculator from "@/pages/LifestyleCalculator";
+import TechCalculator from "@/pages/TechCalculator";
+import CreditCardCalculator from "@/pages/CreditCardCalculator";
+import DebtCalculator from "@/pages/DebtCalculator";
+import InvestingCalculator from "@/pages/InvestingCalculator";
+import NetWorthCalculator from "@/pages/NetWorthCalculator";
+import BodyHealthCalculator from "@/pages/BodyHealthCalculator";
+import BusinessToolsCalculator from "@/pages/BusinessToolsCalculator";
+import TimeToolsCalculator from "@/pages/TimeToolsCalculator";
 
 const queryClient = new QueryClient();
 const VALID_CODES = LANGUAGES.map(l => l.code);
@@ -71,7 +93,6 @@ function ThemeProvider({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-/** All calculator/page routes — rendered inside the language-prefixed nested Router */
 function InnerRoutes() {
   return (
     <Switch>
@@ -82,6 +103,11 @@ function InnerRoutes() {
       <Route path="/mortgage" component={MortgageCalculator} />
       <Route path="/bond" component={BondCalculator} />
       <Route path="/amortization" component={AmortizationCalculator} />
+      <Route path="/credit-card" component={CreditCardCalculator} />
+      <Route path="/debt" component={DebtCalculator} />
+      <Route path="/net-worth" component={NetWorthCalculator} />
+      {/* Investing */}
+      <Route path="/investing" component={InvestingCalculator} />
       {/* Business */}
       <Route path="/vat" component={VATCalculator} />
       <Route path="/percentage" component={PercentageCalculator} />
@@ -89,25 +115,57 @@ function InnerRoutes() {
       <Route path="/roi" component={ROICalculator} />
       <Route path="/savings" component={SavingsCalculator} />
       <Route path="/salary" component={SalaryCalculator} />
+      <Route path="/business-tools" component={BusinessToolsCalculator} />
       {/* Fuel & Travel */}
       <Route path="/fuel" component={FuelCalculator} />
+      <Route path="/travel" component={TravelCalculator} />
+      {/* Automotive */}
+      <Route path="/automotive" component={AutomotiveCalculator} />
+      {/* Electric Vehicles */}
+      <Route path="/ev" component={EVCalculator} />
+      {/* Solar & Energy */}
+      <Route path="/solar" component={SolarCalculator} />
+      {/* Home Electricity */}
+      <Route path="/electricity" component={ElectricityCalculator} />
+      {/* Water */}
+      <Route path="/water" component={WaterCalculator} />
       {/* Home & Garden */}
       <Route path="/pool" component={PoolCalculator} />
       <Route path="/paving" component={PavingCalculator} />
       <Route path="/renovation" component={RenovationCalculator} />
       <Route path="/paint" component={PaintCalculator} />
+      {/* Construction */}
+      <Route path="/construction" component={ConstructionCalculator} />
       {/* Health */}
       <Route path="/calories" component={CalorieCalculator} />
       <Route path="/bmi" component={BMICalculator} />
+      <Route path="/body-health" component={BodyHealthCalculator} />
+      {/* Fitness */}
+      <Route path="/fitness" component={FitnessCalculator} />
       {/* Dates & Time */}
       <Route path="/age" component={AgeCalculator} />
+      <Route path="/time-tools" component={TimeToolsCalculator} />
       {/* Fashion */}
       <Route path="/clothing-size" component={ClothingSizeCalculator} />
       <Route path="/shoe-size" component={ShoeSizeCalculator} />
       <Route path="/belt-ring" component={BeltRingCalculator} />
       {/* Unit Conversions */}
       <Route path="/units" component={UnitConverter} />
-      {/* Conversion value pages — /convert/miles-to-km/5 */}
+      {/* Pets */}
+      <Route path="/pets" component={PetCalculator} />
+      {/* Food */}
+      <Route path="/food" component={FoodCalculator} />
+      {/* Education */}
+      <Route path="/education" component={EducationCalculator} />
+      {/* Engineering */}
+      <Route path="/engineering" component={EngineeringCalculator} />
+      {/* Environment */}
+      <Route path="/environment" component={EnvironmentCalculator} />
+      {/* Lifestyle */}
+      <Route path="/lifestyle" component={LifestyleCalculator} />
+      {/* Technology */}
+      <Route path="/tech" component={TechCalculator} />
+      {/* Conversion value pages */}
       <Route path="/convert/:pair/:value" component={ConversionPage} />
       <Route path="/convert/:pair" component={ConversionPage} />
       {/* Articles */}
@@ -124,7 +182,6 @@ function InnerRoutes() {
   );
 }
 
-/** Reads :lang from the outer route, syncs to LanguageContext, mounts the inner nested Router */
 function LangApp() {
   const params = useParams<{ lang: string }>();
   const langFromUrl = (params?.lang ?? "en") as LangCode;
@@ -147,7 +204,6 @@ function LangApp() {
     <>
       <HreflangTags lang={langFromUrl} />
       <SEOHead lang={langFromUrl} />
-      {/* Nested Router: all <Link href="/…"> inside here resolve to /${lang}/… */}
       <WouterRouter base={`${BASE}/${langFromUrl}`}>
         <InnerRoutes />
       </WouterRouter>
@@ -155,7 +211,6 @@ function LangApp() {
   );
 }
 
-/** Renders the English homepage at bare "/" */
 function RootHomePage() {
   const { setLang } = useLang();
   useEffect(() => {
