@@ -1,0 +1,308 @@
+2. Electric Vehicles (100+)
+This category is becoming extremely popular.
+Charging
+    • Charging Time 
+    • Cost to Charge 
+    • Cost per km 
+    • Charger Speed Comparison 
+    • Home vs Public Charger 
+    • Fast Charging Savings 
+    • Overnight Charging 
+
+Battery
+    • Battery Health 
+    • Battery Degradation 
+    • Battery Capacity Loss 
+    • Range Reduction 
+    • Remaining Battery Life 
+    • Warranty Estimate 
+    • Cycle Count Estimator 
+
+Vehicle
+    • Annual Fuel Savings 
+    • ICE vs EV Cost 
+    • CO₂ Savings 
+    • Running Cost 
+    • Monthly Charging Cost 
+    • Trip Cost 
+    • Regenerative Braking Estimate 
+
+Solar + EV
+    • Solar Charging Time 
+    • Solar Panels Needed 
+    • Battery Storage Required 
+    • Solar Savings 
+    • Off-grid Charging 
+    • PV Production vs Vehicle Usage 
+
+3. Solar Power (200+)
+One of the fastest-growing calculator categories worldwide.
+System Design
+    • Solar Panel Requirement 
+    • Roof Size 
+    • Battery Size 
+    • Inverter Size 
+    • Charge Controller 
+    • Cable Size 
+    • Tilt Angle 
+    • Solar Hours 
+    • Battery Backup 
+
+Financial
+    • Payback Period 
+    • ROI 
+    • Savings 
+    • Feed-in Tariff 
+    • Net Metering 
+    • Electricity Offset 
+
+Household
+    • Daily Consumption 
+    • Monthly Consumption 
+    • Peak Demand 
+    • Appliance Load 
+    • Battery Runtime 
+    • Generator Backup 
+
+Battery
+Allow users to select
+    • 5kWh 
+    • 8kWh 
+    • 10kWh 
+    • 15kWh 
+    • 20kWh 
+    • Custom 
+Automatically calculate:
+    • runtime 
+    • depth of discharge 
+    • efficiency losses 
+    • inverter losses 
+    • battery ageing 
+
+4. Home Electricity
+Very useful.
+    • Electricity Bill 
+    • Appliance Consumption 
+    • Air Conditioner Cost 
+    • Geyser Cost 
+    • Pool Pump Cost 
+    • Fridge Consumption 
+    • Heater Cost 
+    • Solar Offset 
+    • Generator Fuel 
+    • UPS Runtime 
+    • Load Shedding Battery Runtime 
+
+5. Water
+Excellent for drought-prone countries.
+Household
+    • Daily Water Use 
+    • Monthly Consumption 
+    • Water Bill 
+    • Shower Cost 
+    • Bath Cost 
+    • Toilet Usage 
+    • Washing Machine 
+    • Dishwasher 
+    • Garden Irrigation 
+
+Rain
+    • Rainwater Harvesting 
+    • Tank Size 
+    • Roof Collection 
+    • Storage Capacity 
+    • Overflow Estimate 
+
+Agriculture
+    • Crop Irrigation 
+    • Livestock Water 
+    • Borehole Pumping 
+    • Dam Capacity 
+
+6. Household
+    • Paint 
+    • Tiles 
+    • Flooring 
+    • Wallpaper 
+    • Concrete 
+    • Bricks 
+    • Cement 
+    • Sand 
+    • Gravel 
+    • Roofing 
+    • Ceiling 
+    • Drywall 
+    • Fence 
+    • Driveway 
+
+7. Construction
+    • Foundation 
+    • Slab 
+    • Column 
+    • Beam 
+    • Rebar 
+    • Steel Weight 
+    • Asphalt 
+    • Excavation 
+    • Volume 
+    • Earthworks 
+
+8. Health
+    • BMI 
+    • Body Fat 
+    • Lean Body Mass 
+    • Calorie Needs 
+    • TDEE 
+    • BMR 
+    • Heart Rate 
+    • Water Intake 
+    • Pregnancy Due Date 
+    • Ovulation 
+    • Sleep Calculator 
+    • Step Counter 
+    • Blood Alcohol Estimate 
+
+9. Fitness
+    • Running Pace 
+    • Marathon Time 
+    • Cycling Calories 
+    • Swimming Calories 
+    • Hiking Calories 
+    • VO₂ Max 
+    • One Rep Max 
+
+10. Automotive
+Huge category.
+    • Fuel Consumption 
+    • Fuel Cost 
+    • Road Trip 
+    • Tyre Size 
+    • Speedometer Error 
+    • Brake Distance 
+    • Towing Capacity 
+    • Vehicle Depreciation 
+    • Engine RPM 
+    • Gear Ratio 
+
+11. Aviation
+    • Fuel Burn 
+    • Flight Time 
+    • Crosswind 
+    • Density Altitude 
+    • Take-off Distance 
+    • Landing Distance 
+    • Payload 
+    • Weight & Balance 
+    • Cargo 
+    • Runway Performance 
+
+12. Marine
+    • Boat Fuel 
+    • Anchor Chain 
+    • Tidal Time 
+    • Hull Speed 
+    • Cruise Range 
+
+13. Travel
+    • Currency 
+    • Jet Lag 
+    • Trip Budget 
+    • Hotel Cost 
+    • Fuel Cost 
+    • Visa Days 
+    • Baggage Weight 
+
+14. Pets
+    • Dog Age 
+    • Cat Age 
+    • Feeding 
+    • Water 
+    • Medication Dose 
+
+15. Parenting
+    • Pregnancy 
+    • Baby Feeding 
+    • Nappy Usage 
+    • Growth 
+    • Child BMI 
+
+16. Food
+    • Recipe Scaling 
+    • Baking 
+    • Coffee Ratio 
+    • Pizza Dough 
+    • Meat Smoking 
+    • BBQ Time 
+
+17. Agriculture
+    • Fertiliser 
+    • Seed Rate 
+    • Crop Yield 
+    • Rainfall 
+    • Livestock Feed 
+
+18. Education
+    • GPA 
+    • Grade Average 
+    • Final Exam Score Needed 
+    • Attendance 
+    • Study Hours 
+
+19. Business
+    • Profit Margin 
+    • VAT/GST 
+    • Break-even 
+    • Payroll 
+    • Commission 
+    • Pricing 
+    • ROI 
+
+20. Engineering
+    • Ohm's Law 
+    • Voltage Drop 
+    • Resistor Colour Code 
+    • Wire Size 
+    • Torque 
+    • Gear Ratio 
+    • Hydraulic Force 
+
+21. Science
+    • Unit Converter 
+    • Density 
+    • Velocity 
+    • Pressure 
+    • Boyle's Law 
+    • pH 
+    • Molarity 
+
+22. Environment
+    • Carbon Footprint 
+    • Tree Offset 
+    • Recycling Savings 
+    • Plastic Reduction 
+    • Water Footprint 
+
+23. Lifestyle
+    • Wedding Budget 
+    • Party Budget 
+    • Event Planner 
+    • Holiday Savings 
+    • Gift Budget 
+
+24. Time
+    • Age 
+    • Countdown 
+    • Working Days 
+    • Overtime 
+    • Time Zone 
+    • Date Difference 
+
+25. AI & Technology
+    • Internet Speed Requirement 
+    • Storage Calculator 
+    • Cloud Cost 
+    • GPU Power 
+    • AI Token Cost Estimator 
+    • AI API Usage Cost 
+    • SSD Lifespan 
+    • Battery Runtime
