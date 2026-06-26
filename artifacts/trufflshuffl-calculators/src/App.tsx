@@ -27,6 +27,8 @@ import BeltRingCalculator from "@/pages/BeltRingCalculator";
 import UnitConverter from "@/pages/UnitConverter";
 import VATCalculator from "@/pages/VATCalculator";
 import GSTCalculator from "@/pages/GSTCalculator";
+import ExciseDutyCalculator from "@/pages/ExciseDutyCalculator";
+import CustomsDutyCalculator from "@/pages/CustomsDutyCalculator";
 import PercentageCalculator from "@/pages/PercentageCalculator";
 import RetirementCalculator from "@/pages/RetirementCalculator";
 import ROICalculator from "@/pages/ROICalculator";
@@ -112,6 +114,8 @@ function InnerRoutes() {
       {/* Business */}
       <Route path="/vat" component={VATCalculator} />
       <Route path="/gst" component={GSTCalculator} />
+      <Route path="/excise" component={ExciseDutyCalculator} />
+      <Route path="/customs" component={CustomsDutyCalculator} />
       <Route path="/percentage" component={PercentageCalculator} />
       <Route path="/retirement" component={RetirementCalculator} />
       <Route path="/roi" component={ROICalculator} />

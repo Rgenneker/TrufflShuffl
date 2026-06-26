@@ -3711,4 +3711,168 @@ export const CALCULATOR_GUIDES: Record<string, PageGuide> = {
       },
     ],
   },
+
+  excise: {
+    title: "Excise Duty Calculator: Complete Guide",
+    intro: [
+      "Excise duties are taxes levied on specific goods — principally fuel, tobacco, and alcohol — at the point of manufacture or importation, rather than at the retail sale like GST or VAT. Unlike broad consumption taxes, excise is typically a fixed amount per unit (cents per litre, dollars per stick, pounds per litre of alcohol) rather than a percentage of value. This makes them powerful revenue tools that are easy to administer and hard to avoid through transfer pricing.",
+      "This calculator covers excise duties in Australia (ATO), the United Kingdom (HMRC), and the United States (TTB/IRS) as at 2026. Many excise rates are indexed to inflation and updated on fixed schedules — Australian fuel and alcohol rates are indexed twice yearly, tobacco annually; UK rates update in the February budget; US federal rates are largely static and set by Congress. Always verify the current rate with the relevant authority before filing an excise return.",
+    ],
+    sections: [
+      {
+        heading: "How Excise Duty Differs from GST/VAT",
+        paragraphs: [
+          "GST and VAT are ad valorem taxes — calculated as a percentage of the sale price — and apply broadly to most goods and services. Excise is a specific tax on a defined category of goods, usually levied per physical unit (per litre, per stick, per kilogram) rather than per dollar of value. This means that as prices rise with inflation, GST revenue rises automatically with them, but excise revenue from a specific-rate tax does not unless the rate is explicitly indexed.",
+          "For businesses, the practical difference is significant: GST is collected from the customer and remitted to the tax authority (with input tax credits available), while excise is typically paid by the manufacturer or importer at the point of production or entry and is not separately recoverable through the GST system. Excise is a cost of production, not a tax collected on behalf of the government from customers — it is embedded in the cost base.",
+          "In most jurisdictions, both excise and GST/VAT apply simultaneously. In Australia, fuel excise is paid when the fuel leaves a licensed excise premises, and then GST of 10% is charged on the GST-inclusive price (which already includes the excise). This 'tax on a tax' effect means the effective tax burden on excisable goods is higher than the simple sum of the rates.",
+        ],
+      },
+      {
+        heading: "Australia: Fuel Excise",
+        paragraphs: [
+          "Australia's fuel excise is levied under the Excise Act 1901 and the Excise Tariff Act 1921. The rate for petrol and diesel (and most other fuel types) is indexed twice yearly — on 1 February and 1 August — to movement in the CPI. This indexation was suspended from April 2001 to July 2014, so rates were frozen for 13 years. Since July 2014 indexation has been continuous.",
+          "The estimated rate for February 2026 is approximately 52.4 cents per litre, up from 50.8 cents in February 2025. The rate applies at the point the fuel leaves the licensed excise premises (refinery, blending facility, or storage). Importers pay excise at the point of importation. Fuel used for certain off-road purposes (farming, mining, marine) may be eligible for the Fuel Tax Credits scheme, which effectively refunds some or all of the excise.",
+          "Small fuel producers (biodiesel, ethanol blends) have historically been eligible for excise duty remissions or production grants. The ATO updates the current excise rate on its website after each indexation. For compliance purposes, always use the ATO's published current rate, not the estimate in this calculator.",
+        ],
+      },
+      {
+        heading: "Australia: Tobacco Excise",
+        paragraphs: [
+          "Tobacco excise in Australia is among the highest in the world and has been increasing aggressively since 2010. The rate is set per stick (per cigarette) and is indexed each September to CPI plus 5 percentage points — meaning the real (inflation-adjusted) rate increases by approximately 5% every year. From 2023, the annual increase was changed to twice yearly to accelerate the reduction in smoking rates.",
+          "The 2026 estimated rate is approximately A$1.64 per stick. For a pack of 25 cigarettes, this equates to approximately A$41.00 in excise alone, before GST and retailer margin. Australia's tobacco excise applies to all tobacco products by weight equivalent — cigars, roll-your-own tobacco, and pipe tobacco are all covered. Illicit tobacco is a significant enforcement challenge given the enormous price differential created by high excise rates.",
+          "Excise is paid by licensed tobacco manufacturers and importers. There are no legal means for end consumers to access duty-free tobacco for domestic consumption (duty-free allowances apply only to international travellers and are capped at 25 cigarettes or 25 grams of other tobacco products per adult).",
+        ],
+      },
+      {
+        heading: "Australia: Alcohol Excise",
+        paragraphs: [
+          "Alcohol excise in Australia is calculated per litre of pure alcohol (LAL), not per litre of product. To calculate the excise on a product, you need to know the product's alcohol by volume (ABV). For example, a 375ml can of beer at 4.5% ABV contains 0.375 × 0.045 = 0.016875 LAL of alcohol. At the packaged beer rate of approximately A$75.47/LAL, the excise on that can is approximately A$1.27.",
+          "The rates differ by product type and how the product is served. Draught beer (beer sold from kegs at licensed venues) attracts a lower rate than packaged beer. Beer under 3.5% ABV attracts a lower rate again. Spirits and RTDs (ready-to-drink pre-mixed beverages) attract the highest excise rate — approximately A$103.25/LAL — regardless of whether they are draught or packaged.",
+          "Wine is not subject to the volumetric alcohol excise system. Instead, it is subject to the Wine Equalisation Tax (WET) at 29% of the wholesale value of the wine. This means that for wine, the excise-equivalent tax is ad valorem (percentage of value) rather than volumetric. Wine producers with an annual WET liability may be eligible for the WET producer rebate of up to A$350,000.",
+        ],
+      },
+      {
+        heading: "United Kingdom: Fuel and Alcohol Duty",
+        paragraphs: [
+          "The UK fuel duty rate has been frozen at 52.95 pence per litre since March 2022, when the rate was cut by 5p from 57.95p as a cost-of-living measure. Successive budgets through 2026 have maintained this freeze. The rate applies equally to unleaded petrol, diesel, and biodiesel blends. The UK's combined fuel tax burden (duty + 20% VAT on duty + VAT on the pre-tax price) makes UK pump prices among the highest in Europe in absolute terms.",
+          "UK alcohol duty was reformed in August 2023, moving from a product-based system (different rates for beer, wine, spirits regardless of strength) to a strength-based system where duty increases with the alcohol content. This means a 5% ABV craft beer and a 5% ABV cider now attract the same duty rate. The 2026 estimated rates under the new system: beer at 3.5–8.4% ABV approximately £26.51 per LAL; spirits approximately £32.97 per LAL. Rates are typically updated in February and August aligned to CPI.",
+          "UK tobacco duty applies to cigarettes, cigars, hand-rolling tobacco, and heated tobacco products. Cigarettes attract a specific (fixed) duty of approximately £6.79 per pack of 20 (est. April 2026) plus an ad valorem element of 16.5% of the retail price. The minimum excise tax applies if the total duty on a pack falls below a floor level. HMRC publishes confirmed rates after each budget.",
+        ],
+      },
+      {
+        heading: "United States: Federal Excise Tax",
+        paragraphs: [
+          "US federal excise taxes are set by Congress and are generally static — the federal gasoline tax of 18.4 cents per gallon has been unchanged since 1993. Unlike many other countries, federal excise rates in the US are not automatically indexed to inflation. The Highway Trust Fund, which is largely funded by fuel excise, has faced recurring shortfalls as a result of inflation eroding the real value of the fixed-rate tax.",
+          "US alcohol excise (administered by the Alcohol and Tobacco Tax and Trade Bureau — TTB) distinguishes between large and small producers. The Craft Beverage Modernization Act (CBMA), made permanent in 2020, provides significantly reduced rates for small domestic brewers, wineries, and distilleries on their first tranche of production. For example, standard beer rate is $18 per barrel, but domestic small brewers pay $3.50 per barrel on the first 60,000 barrels annually.",
+          "State excise taxes are entirely separate from federal rates and can dwarf the federal component. New York state cigarette tax is $5.35 per pack; California fuel tax is 59.6 cents per gallon (2026 estimate). Total tax on excisable goods in the US is the sum of federal + state (and sometimes local) excise, and must be researched for each specific state.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is excise duty included in the price shown at the petrol station?",
+        a: "Yes. In Australia, the UK, and the US, the pump price for fuel is fully inclusive of all applicable taxes — excise/fuel duty, GST/VAT, and any levies. The price you see is the total price you pay. Excise is embedded in the cost structure before the pump price is set, not added separately at the point of sale.",
+      },
+      {
+        q: "How do I calculate excise on Australian beer if I know the volume and ABV?",
+        a: "Multiply the volume in litres by the ABV percentage expressed as a decimal to get the litres of pure alcohol (LAL). Then multiply by the applicable excise rate. Example: 24 × 375ml cans at 4.9% ABV = 9 litres of product × 4.9% = 0.441 LAL. At A$75.47/LAL (est. Feb 2026): 0.441 × A$75.47 = A$33.28 excise. Note: the threshold for the packaged beer rate is above 1.15% ABV.",
+      },
+      {
+        q: "What is the difference between the draught beer and packaged beer rate in Australia?",
+        a: "Draught beer sold from kegs at licensed venues (hotels, restaurants, pubs) attracts a lower excise rate than beer sold in cans, bottles, or other packaged forms. The rationale is that draught beer is consumed on-premise under licensed supervision. The draught rate is approximately A$61.00/LAL (est. 2026) versus A$75.47/LAL for packaged. Craft breweries selling direct from taps may qualify for the draught rate on eligible sales.",
+      },
+      {
+        q: "Can I claim back fuel excise in Australia?",
+        a: "Yes, through the Fuel Tax Credits (FTC) scheme. Businesses that use fuel in machinery, plant, or equipment for eligible off-road activities (agriculture, mining, construction) can claim a credit for some or all of the fuel excise. The FTC rate is the full excise rate for most off-road uses. The credit is claimed on your BAS (Business Activity Statement). On-road use of heavy vehicles (GVM > 4.5 tonnes) also qualifies for a partial FTC at a reduced rate.",
+      },
+      {
+        q: "Why is UK tobacco duty a combination of specific and ad valorem rates?",
+        a: "The dual structure (fixed amount per pack + percentage of retail price) is designed to achieve two goals simultaneously: the fixed element ensures a minimum tax floor per cigarette regardless of how cheap the product is (closing a loophole where very cheap cigarettes could be taxed at very low absolute amounts); the ad valorem element captures some of the revenue from premium brands whose price exceeds the floor. Most jurisdictions use one or the other; the UK uses both.",
+      },
+      {
+        q: "Does US excise tax apply to imports?",
+        a: "Yes. US federal excise taxes (including alcohol and tobacco excise) apply to imported goods at the same rates as domestically produced goods. For alcohol, imported beverages are taxed by TTB at the applicable rate based on volume and type. For tobacco, US Customs and Border Protection (CBP) collects the excise duty on imported tobacco products at importation. Some CBMA reduced rates for domestic small producers are not available to importers.",
+      },
+      {
+        q: "What is the Wine Equalisation Tax (WET) in Australia?",
+        a: "WET is a 29% tax on the wholesale value of wine sold in Australia, applied instead of the volumetric alcohol excise that applies to beer and spirits. It applies to grape wine, wine-based beverages, sake, mead, and similar products. WET is typically paid by the last wholesale supplier of the wine in Australia. Wine producers with eligible Australian-sourced grapes can apply for a WET producer rebate of up to A$350,000 per year, which significantly offsets the WET liability for smaller producers.",
+      },
+    ],
+  },
+
+  customs: {
+    title: "Customs Duty & Tariff Calculator: Complete Guide",
+    intro: [
+      "Customs duties (also called import tariffs) are taxes levied on goods when they cross an international border. Unlike excise duties — which are domestic taxes on specific goods regardless of origin — customs duties apply specifically to imported goods and are determined by three variables: what the goods are (the HS code / tariff classification), where they come from (the country of origin), and their value (the customs value, typically CIF — cost, insurance, and freight to the port of importation).",
+      "The global tariff landscape changed dramatically in 2025–2026 with the United States implementing sweeping new reciprocal tariffs, Section 232 national security tariffs on steel, aluminum, and motor vehicles, and a complex web of country-specific rates. This calculator covers the most significant tariff regimes for the United States, European Union, United Kingdom, Australia, and Canada, reflecting 2026 rates including the key 2025–2026 US tariff actions. All rates are estimates — always verify at the exact HS code level with the applicable customs authority before an import transaction.",
+    ],
+    sections: [
+      {
+        heading: "How Customs Duty is Calculated",
+        paragraphs: [
+          "Customs duty is expressed as a percentage of the customs value and is calculated as: Customs Value × Tariff Rate = Duty Payable. The customs value is typically the CIF (Cost + Insurance + Freight) value — the price of the goods plus the cost of insuring and shipping them to the first port of entry in the importing country. Some countries (including the US) use FOB (Free On Board — the price at the port of export, excluding international freight and insurance) as the basis; check the applicable rule for the specific importing country.",
+          "The applicable tariff rate depends on the HS (Harmonized System) code — an internationally standardized 6-digit commodity code that classifies all traded goods — and the country of origin. The same good can attract very different rates depending on its origin. A car imported into the US from Germany attracts a different rate to the same car imported from Canada under USMCA. The origin determination itself is a compliance area — goods must genuinely originate in the claimed country to qualify for preferential (FTA) rates.",
+          "In addition to the base customs duty, many countries apply other import charges: GST or VAT on the customs value plus duty; anti-dumping duties (country- and product-specific); countervailing duties (to offset foreign government subsidies); and various fees and levies. Total import cost = customs value + customs duty + anti-dumping/CVD (if any) + GST/VAT on the total.",
+        ],
+      },
+      {
+        heading: "US Tariffs 2025–2026: Major Changes",
+        paragraphs: [
+          "The most significant tariff development of 2025–2026 is the US administration's use of emergency trade powers to impose sweeping new tariffs. On April 2, 2025 ('Liberation Day'), executive orders established a universal 10% baseline tariff on imports from virtually all countries, plus higher 'reciprocal' tariffs on countries with large US trade deficits. On April 9, 2025, the higher reciprocal tariffs were paused for 90 days for most countries (except China), reverting to the 10% baseline during the pause period.",
+          "For China, the tariff escalated to 145% in April 2025 (combining reciprocal tariff plus existing Section 301 tariffs). On May 12, 2025, the US and China agreed to a 90-day truce reducing China's combined rate to 30% (from 145%) for most goods, effective from mid-May 2025. This 90-day window would expire in mid-August 2025. The rate applicable as at mid-2026 is subject to post-truce negotiations — verify at USTR.",
+          "Section 232 national security tariffs, which are separate from and additional to the above, impose 25% tariffs on steel and aluminum from all countries (as expanded in March 2025) and 25% tariffs on automobiles and auto parts from all countries (effective April 2025). These stack on top of other applicable tariffs. USMCA partners Canada and Mexico are not exempt from Section 232 measures, though USMCA-compliant goods generally remain at 0% for the base tariff.",
+        ],
+      },
+      {
+        heading: "Free Trade Agreements and Preferential Rates",
+        paragraphs: [
+          "FTAs allow qualifying goods to enter at reduced or zero tariff rates. To qualify for an FTA preferential rate, goods must meet the rules of origin specified in the agreement — typically requiring a minimum level of domestic processing or content (e.g., the USMCA yarn-forward rule for textiles requires that fiber, yarn, fabric, and garment all be produced in North America).",
+          "Key FTAs relevant to this calculator: USMCA (US, Canada, Mexico — successor to NAFTA, in force since July 2020): most goods traded between the three countries qualify for 0% tariff if USMCA origin rules are met. Note that Section 232 steel/aluminum and auto tariffs are separate measures and apply even to USMCA partners. Australia–US FTA (AUSFTA, 2005): substantially eliminates tariffs between the two countries on qualifying goods. Australia–China FTA (ChAFTA, 2015): most tariffs phased to 0% by 2019. EU–various FTAs: the EU has over 40 FTAs providing preferential access; the CPTPP provides the UK with preferential access to 11 Asia-Pacific markets.",
+          "The origin of goods is determined by where they last underwent 'substantial transformation.' In complex global supply chains, this can be non-obvious. A product assembled in Vietnam from Chinese components may be considered to originate in Vietnam for tariff purposes — or it may not, depending on the specific transformation test. Customs brokers and lawyers specialise in origin determination for high-value or high-volume imports.",
+        ],
+      },
+      {
+        heading: "EU, UK, and Australian Tariff Regimes",
+        paragraphs: [
+          "The European Union operates the Common External Tariff (CET) — a single tariff schedule applied by all 27 member states to imports from outside the EU. EU MFN (Most-Favoured-Nation) rates average about 4% for industrial goods and about 13% for agricultural goods, though specific products can be much higher (EU peak tariffs on some agricultural products exceed 100%). The EU uses TARIC (Integrated Tariff of the European Union) as its official tariff database. Anti-dumping and countervailing duties on Chinese EVs (17–38.1%, imposed 2024) are significant recent additions.",
+          "The United Kingdom's Global Tariff (UKGT) replaced the EU's CET after Brexit in January 2021. The UK broadly retained similar rates to the EU CET on most goods, with some reductions (notably eliminating tariffs on many products the UK does not produce domestically). UK MFN rates average about 4% industrial, 10% agricultural. The UK has progressively signed trade deals post-Brexit, including with Australia (UKFTA) and accession to the CPTPP. A US–UK trade deal was under active negotiation as at 2026.",
+          "Australia has one of the most open tariff regimes in the world. Most goods enter at 0% or 5% MFN, and Australia's FTA network — including ChAFTA (China), AUSFTA (US), JAEPA (Japan), KAFTA (Korea), AANZFTA (ASEAN), UK–Australia FTA, and IndAus ECTA (India) — means that goods from most major trading partners enter duty-free. Australia eliminated all tariffs on passenger vehicles in 2010. The Australian Border Force administers the Working Tariff (ICS).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "What is the difference between MFN and preferential tariff rates?",
+        a: "MFN (Most-Favoured-Nation) is the standard WTO tariff rate that a country applies to all other WTO members with whom it does not have a preferential trade agreement. A preferential rate is a lower rate available to countries that have an FTA or other preferential arrangement with the importing country. For example, the EU's MFN rate on passenger cars is 10%, but cars imported from countries with EU FTAs may enter at 0%. To claim a preferential rate, the importer must have proof of origin (certificate of origin or origin declaration) for the goods.",
+      },
+      {
+        q: "What is CIF and why does it matter for calculating customs duty?",
+        a: "CIF stands for Cost + Insurance + Freight — the total cost of the goods plus the cost of insuring and shipping them to the importing country's port of entry. Most countries (including the EU, UK, Australia, and Canada) use CIF as the customs value basis, meaning you pay duty on the landed value including shipping. The US uses FOB (Free On Board — the price at the port of export, excluding international freight and insurance), so US customs value is typically lower than CIF value for the same shipment. This difference can be significant for heavy goods with high shipping costs.",
+      },
+      {
+        q: "What are Section 232 tariffs and which goods do they affect?",
+        a: "Section 232 of the Trade Expansion Act of 1962 allows the US President to impose tariffs on goods that threaten US national security. Section 232 tariffs currently in effect (2026): 25% on imports of steel and aluminum from all countries (expanded March 2025, now including derivative steel/aluminum articles); 25% on all imported motor vehicles and auto parts (April 2025). These tariffs apply universally — including to USMCA partners Canada and Mexico — and stack on top of other applicable tariff rates including the base MFN or reciprocal tariff.",
+      },
+      {
+        q: "How does country of origin work when goods are manufactured in multiple countries?",
+        a: "Country of origin is the country where the goods last underwent 'substantial transformation' — meaning a change in tariff classification or a manufacturing process that creates a fundamentally new and different article. The specific test depends on the HS code and the importing country's rules. For FTA purposes, stricter 'rules of origin' apply (e.g., USMCA textile yarns must be North American; EU origin requires a specific percentage of domestic value added). Goods assembled in a third country from Chinese components may or may not be considered Chinese origin depending on the transformation test — this is a frequent area of customs enforcement.",
+      },
+      {
+        q: "What is anti-dumping duty and how does it differ from standard customs duty?",
+        a: "Anti-dumping duty (ADD) is imposed when a government determines that foreign goods are being exported to its market at below-normal value (i.e., below the price in the exporting country's domestic market or below cost of production). It is a trade remedy measure allowed under WTO rules. Unlike standard customs duty — which applies uniformly to all imports of a given product from a given country — anti-dumping duty rates are typically set at specific amounts or percentages for specific named exporters. ADD is additional to, not a replacement for, standard customs duty. Countervailing duty (CVD) is similar but targets foreign government subsidies rather than dumping.",
+      },
+      {
+        q: "Do I pay GST or VAT on top of customs duty?",
+        a: "Yes, in most countries. In Australia: the importer pays 10% GST on the sum of customs value + customs duty. In the EU: VAT at the applicable national rate (typically 20–25%) applies on CIF + customs duty. In the UK: 20% VAT on the customs value + duty. GST/VAT-registered importers can typically claim back the import GST/VAT as an input tax credit on their next return, so the net cost is the duty only. Non-registered importers (including individuals) cannot recover import GST/VAT — it is a real additional cost.",
+      },
+      {
+        q: "What is the de minimis threshold and when does customs duty not apply?",
+        a: "Most countries have a de minimis threshold below which customs duty (and sometimes GST/VAT) is not collected on imported goods: Australia raised its threshold to AUD 1,000 in 2018, though GST on low-value imports was extended to all values from 2018. US de minimis is USD 800 — the highest in the world — meaning goods valued under USD 800 typically enter duty-free (this threshold was actively debated in 2025 in the context of Chinese e-commerce). UK de minimis for customs duty is GBP 135. EU de minimis for customs duty is EUR 150 (zero VAT threshold was eliminated in 2021). Check the current threshold for your importing country, as these figures are subject to policy change.",
+      },
+      {
+        q: "How do I find the exact tariff rate for my specific product?",
+        a: "Use the official tariff databases: US — HTS (Harmonized Tariff Schedule) at hts.usitc.gov; EU — TARIC at trade.ec.europa.eu/access-to-markets; UK — UK Trade Tariff at trade-tariff.service.gov.uk; Australia — Working Tariff / ICS at abf.gov.au; Canada — Customs Tariff at cbsa-asfc.gc.ca. In all cases, you need the correct 6–10 digit HS tariff code for your specific goods. A licensed customs broker can provide the tariff classification and applicable rate with legal certainty.",
+      },
+    ],
+  },
 };

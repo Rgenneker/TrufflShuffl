@@ -82,6 +82,8 @@ export default function HomePage() {
     // Business
     { href: "/vat",           icon: BadgeDollarSign, title: t.calcVATTitle,           desc: t.calcVATDesc,           category: "Business" },
     { href: "/gst",           icon: BadgeDollarSign, title: "GST Calculator",          desc: "Add GST to a price, remove GST from a GST-inclusive amount — Australia, NZ, Canada, Singapore and more", category: "Business" },
+    { href: "/excise",        icon: Landmark,        title: "Excise Duty Calculator",  desc: "Calculate excise duties on fuel, tobacco, beer, spirits and wine — Australia, UK and US (2026 rates)", category: "Business" },
+    { href: "/customs",       icon: Building2,       title: "Customs & Tariff Calculator", desc: "Estimate import duties for US, EU, UK, Australia and Canada — includes 2026 US reciprocal tariffs and FTA rates", category: "Business" },
     { href: "/percentage",    icon: Percent,         title: t.calcPercentageTitle,    desc: t.calcPercentageDesc,    category: "Business" },
     { href: "/salary",        icon: Briefcase,       title: t.calcSalaryTitle,        desc: t.calcSalaryDesc,        category: "Business" },
     { href: "/business-tools",icon: TrendingUp,      title: "Business Tools",          desc: "Profit margin, break-even point, and sales commission calculator",           category: "Business" },
