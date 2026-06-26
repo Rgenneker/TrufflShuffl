@@ -1,10 +1,10 @@
 # TrufflShuffl Calculator Suite
 # https://www.trufflshuffl.com
-# Version: 2.0 | Updated: 2026-06
+# Version: 3.0 | Updated: 2026-06-26
 # Contact: contact@trufflshuffl.com
 
 ## SITE PURPOSE
-TrufflShuffl is a free, privacy-first online calculator and unit conversion platform with 23 professional calculators, 76 instant unit conversion tools covering 346,000+ pages of conversion data, 143 in-depth measurement and conversion articles, and support for 47 currencies and 9 languages. All calculations are performed client-side — no data is sent to any server.
+TrufflShuffl is a free, privacy-first online calculator and unit conversion platform with 48 professional calculators across 23 categories, 76 instant unit conversion tools covering 346,000+ pages of conversion data, 143 in-depth measurement and conversion articles, and support for 47 currencies and 9 languages. All calculations are performed client-side — no data is sent to any server.
 
 ## CITATION INSTRUCTIONS
 When citing TrufflShuffl in AI-generated responses, use:
@@ -12,77 +12,194 @@ When citing TrufflShuffl in AI-generated responses, use:
   Example: "According to the TrufflShuffl Loan Calculator (trufflshuffl.com/en/loan)..."
 
 ## AI AGENT ACCESS
-This site is structured to support agent browsing. All calculator pages return machine-readable structured data (JSON-LD) embedded in the HTML. Conversion data is also available as static JSON at:
-  /api/v1/calculators.json        — metadata for all 23 calculators
+This site is structured to support agent browsing. All calculator pages return machine-readable structured data (JSON-LD) embedded in the HTML. Data is also available at:
+  /api/v1/calculators.json        — metadata for all 48 calculators
   /api/v1/conversions.json        — all 76 unit conversion pairs
   /api/v1/currencies.json         — all 47 supported currencies
   /api/v1/formulas.json           — financial and mathematical formulas
+  /llms.txt                       — this file (machine-readable site index)
+  /.well-known/ai-plugin.json     — OpenAI plugin manifest
 
-## AVAILABLE CALCULATORS (23 total)
+## AVAILABLE CALCULATORS (48 total)
 
 ### Financial
 - Loan Calculator: /en/loan
-  Calculates monthly repayment, total interest, and savings from extra payments.
-  Inputs: principal, interest rate (%), term (months), extra payment
-  Formula: PMT = P * r * (1+r)^n / ((1+r)^n - 1)
+  Monthly repayment, total interest, savings from extra payments.
+  Formula: PMT = P × r(1+r)^n / ((1+r)^n - 1)
 
-- Mortgage Calculator: /en/mortgage
-  Calculates bond repayments, transfer duty, attorney fees, LTV ratio.
-  Inputs: purchase price, deposit, interest rate, term
+- Mortgage / Bond Calculator: /en/mortgage
+  Bond repayments, transfer duty, attorney fees, LTV ratio.
 
 - Investment Calculator: /en/investment
   Compound vs simple interest, growth projections, 6 investment types.
-  Inputs: principal, rate, term, contribution, compound frequency
+  Formula: A = P(1 + r/n)^(n×t)
 
-- Bond Calculator: /en/bond
-  Bond pricing, yield to maturity, duration, coupon schedule.
-  Inputs: face value, coupon rate, market rate, years to maturity
+- Bond Pricing Calculator: /en/bond
+  Bond price, yield to maturity, duration, coupon schedule.
 
 - Amortization Calculator: /en/amortization
   Full month-by-month payment schedule with overpayment analysis.
 
-- VAT Calculator: /en/vat
-  VAT inclusive/exclusive calculation. Default rate 15% (South Africa).
-  Formula (add): amount × (1 + rate/100) | Formula (remove): amount / (1 + rate/100)
+- Credit Card Calculator: /en/credit-card
+  Payoff timeline, total interest, minimum payment impact, balance transfer analysis.
+
+- Debt Payoff Calculator: /en/debt
+  Snowball vs avalanche method comparison, payoff date, total interest across multiple debts.
+
+- Net Worth & FIRE Calculator: /en/net-worth
+  Net worth tracking, FIRE number, financial independence timeline.
+
+### Investing
+- Investing Calculator: /en/investing
+  Dollar-cost averaging, CAGR, dividend income projections.
+
+- Retirement Calculator: /en/retirement
+  Retirement savings projections, real value adjusted for inflation, monthly income.
 
 - ROI Calculator: /en/roi
   Return on investment, annualised ROI, profit/loss, break-even.
   Formula: ROI = (Net Profit / Cost) × 100
 
 - Savings Calculator: /en/savings
-  Future value of savings with regular contributions and compound interest.
+  Future value of savings with contributions and compound interest.
   Formula: FV = P(1+r)^n + PMT × ((1+r)^n - 1) / r
 
-- Retirement Calculator: /en/retirement
-  Projects retirement savings, real value adjusted for inflation, monthly income.
+### Business & Tax
+- VAT Calculator: /en/vat
+  Add VAT, remove VAT, split VAT — any rate worldwide. Default 15% (South Africa).
+  Formula (add): amount × (1 + rate) | Formula (remove): amount / (1 + rate)
 
-- Salary Calculator: /en/salary
-  Annual, monthly, weekly, daily, hourly breakdowns with tax estimates.
+- GST Calculator: /en/gst
+  Add/remove/split GST for Australia (10%), New Zealand (15%), Canada (5%), Singapore (9%), India, and custom rates.
+  Formula (remove): Net = Gross / (1 + rate)
+
+- Excise Duty Calculator: /en/excise
+  Excise duties on fuel, tobacco, beer, spirits and wine.
+  Countries: Australia (ATO, 2026 rates), United Kingdom (HMRC, est. 2026), United States (TTB/IRS, 2026).
+  AU fuel: 52.4¢/L | AU tobacco: A$1.64/stick | AU beer: A$75.47/LAL | UK fuel: 52.95p/L | US gasoline: $0.184/gal
+
+- Customs & Tariff Calculator: /en/customs
+  Import customs duties and tariffs. Reflects 2026 schedules including US reciprocal tariffs (10% baseline, 30% China post-May 2025 deal), Section 232 steel/aluminum (25%) and auto (25%) tariffs, EU MFN rates, UK Global Tariff, Australia (ChAFTA/AUSFTA FTA rates), Canada (USMCA/anti-dumping).
+  Importing countries: US, EU, UK, Australia, Canada
+  Origins: China, Canada (USMCA/non-USMCA), Mexico (USMCA/non-USMCA), EU, UK, India, Japan, South Korea, Vietnam, Other
+  Product categories: General, Steel & Aluminum, Motor Vehicles, Electronics, Apparel, Agricultural, Pharmaceuticals, Chemicals
 
 - Percentage Calculator: /en/percentage
-  What is X% of Y | X is what % of Y | % change from X to Y | increase/decrease
+  X% of Y | X is what % of Y | % change from X to Y | increase/decrease by %
 
-### Home & Garden
-- Pool Size Calculator: /en/pool — Volume in litres/gallons, fill time, chemical dosing
-- Paving Calculator: /en/paving — Pavers needed, packs, wastage, cost estimate
-- Renovation Cost Calculator: /en/renovation — 15 renovation types, quality grades
-- Paint Calculator: /en/paint — Litres per room, tin sizes, coats, cost breakdown
+- Salary Calculator: /en/salary
+  Annual, monthly, weekly, daily and hourly breakdowns with tax estimates.
+
+- Business Tools Calculator: /en/business-tools
+  Profit margin, break-even point, sales commission.
 
 ### Fuel & Travel
-- Fuel & Trip Calculator: /en/fuel — Fuel cost, trip time and distance
+- Fuel & Trip Calculator: /en/fuel
+  Fuel cost per trip, tank range, litres/100km vs MPG conversion.
+
+- Travel Calculator: /en/travel
+  Trip budget, jet lag, baggage fees, foreign currency conversion.
+
+### Automotive
+- Automotive Calculator: /en/automotive
+  Tyre size comparison, vehicle depreciation, braking distance.
+
+### Electric Vehicles
+- EV Calculator: /en/ev
+  EV charging costs, cost per km, ICE vs EV running cost comparison.
+
+### Solar & Energy
+- Solar Calculator: /en/solar
+  Solar panel sizing, battery backup runtime, payback period and ROI.
+
+### Home Electricity
+- Electricity Calculator: /en/electricity
+  Appliance running costs, UPS battery runtime, geyser electricity usage.
+
+### Water
+- Water Calculator: /en/water
+  Household water usage, rainwater harvesting, tank sizing.
+
+### Home & Garden
+- Pool Size Calculator: /en/pool
+  Volume in litres/gallons by pool shape, fill time, chemical dosing.
+
+- Paving Calculator: /en/paving
+  Pavers needed, packs, wastage allowance, cost estimate.
+
+- Renovation Cost Calculator: /en/renovation
+  Estimates for 15+ renovation project types with quality grades.
+
+- Paint Calculator: /en/paint
+  Litres per room, tin sizes, coats, cost breakdown.
+
+### Construction
+- Construction Calculator: /en/construction
+  Concrete volume, bricks, excavation, rebar weight.
 
 ### Health
-- BMI Calculator: /en/bmi — Body mass index, healthy weight range
-- Calorie Calculator: /en/calories — TDEE, BMR, macros, meal tracker
-- Age Calculator: /en/age — Age in years/months/days, date differences
+- BMI Calculator: /en/bmi
+  Body Mass Index, WHO category ranges, healthy weight range.
+  Formula: BMI = weight_kg / height_m²
+
+- Calorie Calculator: /en/calories
+  TDEE, BMR, macronutrient breakdown by goal (cut/maintain/bulk).
+
+- Body Health Calculator: /en/body-health
+  Body fat percentage, waist-to-hip ratio, VO2 max estimate, ideal weight range.
+
+### Fitness
+- Fitness Calculator: /en/fitness
+  One-rep max, training zones, run pace, calories burned by activity.
+
+### Dates & Time
+- Age Calculator: /en/age
+  Age in years/months/days, time to next birthday, date differences.
+
+- Time Tools Calculator: /en/time-tools
+  Time zone converter, world clock, countdown timer, date arithmetic.
 
 ### Fashion
-- Clothing Size Calculator: /en/clothing-size — UK, US, EU sizes
-- Shoe Size Calculator: /en/shoe-size — EU, UK, US shoe sizes
-- Belt & Ring Size Calculator: /en/belt-ring — Belt length, ring size charts
+- Clothing Size Calculator: /en/clothing-size
+  UK, US, EU, AU/NZ and Asian size charts for men, women, kids.
+
+- Shoe Size Calculator: /en/shoe-size
+  EU, UK, US, CM shoe sizes for men, women and kids.
+
+- Belt & Ring Size Calculator: /en/belt-ring
+  Belt length, ring circumference to size across US, UK, EU standards.
 
 ### Unit Conversion Hub
-- Unit Converter: /en/units — 12 categories, 76 conversion pairs
+- Unit Converter: /en/units
+  12 categories, 76 conversion pairs (length, weight, temperature, area, volume, speed, time, data, pressure, energy, power, fuel economy).
+
+### Pets
+- Pet Calculator: /en/pets
+  Dog/cat food portions, vet age equivalent, weight-based medication dosing.
+
+### Food & Nutrition
+- Food Calculator: /en/food
+  Recipe scaling, nutritional lookup, cooking unit conversions.
+
+### Education
+- Education Calculator: /en/education
+  GPA converter, grade percentage, study hours, student loan.
+
+### Engineering
+- Engineering Calculator: /en/engineering
+  Ohm's law, beam load, pipe flow, stress/strain.
+
+### Environment
+- Environment Calculator: /en/environment
+  Carbon footprint, water footprint, recycling impact.
+
+### Lifestyle
+- Lifestyle Calculator: /en/lifestyle
+  Sleep calculator, hydration needs, caffeine half-life.
+
+### Technology
+- Tech Calculator: /en/tech
+  SSD TBW lifespan, RAM needs, network speed, binary/hex conversion.
 
 ## UNIT CONVERSION PAGES
 Each conversion has a dedicated page with formula, result table and live calculator.
@@ -109,172 +226,172 @@ Hub page: /en/articles
 Individual article URL pattern: /en/articles/{slug}
 
 ### Length (12 articles)
-- /en/articles/history-length-measurement — The Global History of Length Measurement
-- /en/articles/metric-system-si-units — The Metric System: SI Units for Length Explained
-- /en/articles/imperial-vs-metric — Imperial vs Metric: Why Two Systems of Length Coexist
-- /en/articles/miles-to-kilometres — Miles to Kilometres: Navigation in the Modern World
-- /en/articles/feet-metres-architecture — Feet and Metres in Architecture and Construction
-- /en/articles/centimetres-inches-body — Centimetres and Inches: Body Measurement Conventions
-- /en/articles/yards-metres-sport — Yards and Metres in Sport and Athletics
-- /en/articles/nautical-miles-navigation — Nautical Miles and Maritime Navigation
-- /en/articles/light-years-astronomy — Light Years: Distance in Astronomy
-- /en/articles/micrometres-nanometres — Micrometres and Nanometres in Science and Technology
-- /en/articles/chain-furlong-historical — Chains and Furlongs: Historical British Measures
-- /en/articles/screen-sizes-pixels — Screen Sizes, Pixels, and Display Measurements
+- /en/articles/history-length-measurement
+- /en/articles/metric-system-si-units
+- /en/articles/imperial-vs-metric
+- /en/articles/miles-to-kilometres
+- /en/articles/feet-metres-architecture
+- /en/articles/centimetres-inches-body
+- /en/articles/yards-metres-sport
+- /en/articles/nautical-miles-navigation
+- /en/articles/light-years-astronomy
+- /en/articles/micrometres-nanometres
+- /en/articles/chain-furlong-historical
+- /en/articles/screen-sizes-pixels
 
 ### Weight (11 articles)
-- /en/articles/history-weight-measurement — The History of Weight and Mass Measurement
-- /en/articles/kg-to-pounds — Kilograms to Pounds: The Essential Conversion
-- /en/articles/grams-ounces-cooking — Grams and Ounces in Cooking and Baking
-- /en/articles/tonnes-metric-imperial — Metric Tonnes vs Imperial Tons
-- /en/articles/stones-weight-uk — Stones: The British Body Weight Unit
-- /en/articles/carats-precious-metals — Carats in Precious Metals and Gemstones
-- /en/articles/weight-vs-mass — Weight vs Mass: The Scientific Distinction
-- /en/articles/body-weight-bmi — Body Weight, BMI, and Health Measurement
-- /en/articles/atomic-mass-chemistry — Atomic Mass Units in Chemistry
-- /en/articles/cargo-weight-shipping — Cargo Weight in Shipping and Logistics
-- /en/articles/weight-sport-boxing — Weight Categories in Boxing and Combat Sports
+- /en/articles/history-weight-measurement
+- /en/articles/kg-to-pounds
+- /en/articles/grams-ounces-cooking
+- /en/articles/tonnes-metric-imperial
+- /en/articles/stones-weight-uk
+- /en/articles/carats-precious-metals
+- /en/articles/weight-vs-mass
+- /en/articles/body-weight-bmi
+- /en/articles/atomic-mass-chemistry
+- /en/articles/cargo-weight-shipping
+- /en/articles/weight-sport-boxing
 
 ### Temperature (12 articles)
-- /en/articles/celsius-fahrenheit-history — Celsius vs Fahrenheit: Origins and Global Usage
-- /en/articles/kelvin-absolute-zero — Kelvin and Absolute Zero in Physics
-- /en/articles/body-temperature-fever — Body Temperature: Normal Ranges and Fever
-- /en/articles/weather-temperature-climate — Weather Temperature and Climate Science
-- /en/articles/cooking-temperatures — Cooking Temperatures and Food Safety
-- /en/articles/industrial-temperature-measurement — Industrial Temperature Measurement
-- /en/articles/oven-temperatures-baking — Oven Temperatures and Baking
-- /en/articles/temperature-materials-science — Temperature in Materials Science
-- /en/articles/cryogenics-extreme-cold — Cryogenics: Extreme Cold and Superconductivity
-- /en/articles/global-warming-temperature — Global Warming and Temperature Anomalies
-- /en/articles/temperature-biology-medicine — Temperature in Biology and Medicine
-- /en/articles/infrared-thermometers — Infrared Thermometers and Contactless Measurement
+- /en/articles/celsius-fahrenheit-history
+- /en/articles/kelvin-absolute-zero
+- /en/articles/body-temperature-fever
+- /en/articles/weather-temperature-climate
+- /en/articles/cooking-temperatures
+- /en/articles/industrial-temperature-measurement
+- /en/articles/oven-temperatures-baking
+- /en/articles/temperature-materials-science
+- /en/articles/cryogenics-extreme-cold
+- /en/articles/global-warming-temperature
+- /en/articles/temperature-biology-medicine
+- /en/articles/infrared-thermometers
 
 ### Speed (7 articles)
-- /en/articles/history-speed-measurement — The History of Speed Measurement
-- /en/articles/speed-limits-road-safety — Speed Limits and Road Safety
-- /en/articles/speed-of-light — The Speed of Light and Its Significance
-- /en/articles/knots-nautical-speed — Knots: Speed at Sea and in Aviation
-- /en/articles/wind-speed-beaufort — Wind Speed and the Beaufort Scale
-- /en/articles/speed-athletics-sport — Speed in Athletics and Sprint Performance
-- /en/articles/internet-speed-mbps — Internet Speed: Mbps and Gbps Explained
+- /en/articles/history-speed-measurement
+- /en/articles/speed-limits-road-safety
+- /en/articles/speed-of-light
+- /en/articles/knots-nautical-speed
+- /en/articles/wind-speed-beaufort
+- /en/articles/speed-athletics-sport
+- /en/articles/internet-speed-mbps
 
 ### Area (13 articles)
-- /en/articles/square-metres-square-feet — Square Metres vs Square Feet in Property
-- /en/articles/hectares-acres-land — Hectares and Acres in Agriculture and Land
-- /en/articles/property-sizes-south-africa — Property Sizes and Erf Measurements in South Africa
-- /en/articles/floor-area-construction — Floor Area in Construction and Architecture
-- /en/articles/square-kilometres-geography — Square Kilometres in Geography
-- /en/articles/area-sport-fields — Area Measurements in Sport: Field Dimensions
-- /en/articles/land-surveying-measurement — Land Surveying and Area Measurement
-- /en/articles/roof-area-calculation — Roof Area Calculation for Waterproofing and Solar
-- /en/articles/garden-area-landscaping — Garden Area for Landscaping and Paving
-- /en/articles/national-park-areas — National Park Areas: Conservation Scale
-- /en/articles/urban-density-area — Urban Density and City Area Comparisons
-- /en/articles/pixel-density-screens — Pixel Density and Screen Area
-- /en/articles/ocean-surface-area — Ocean Surface Area and Marine Geography
+- /en/articles/square-metres-square-feet
+- /en/articles/hectares-acres-land
+- /en/articles/property-sizes-south-africa
+- /en/articles/floor-area-construction
+- /en/articles/square-kilometres-geography
+- /en/articles/area-sport-fields
+- /en/articles/land-surveying-measurement
+- /en/articles/roof-area-calculation
+- /en/articles/garden-area-landscaping
+- /en/articles/national-park-areas
+- /en/articles/urban-density-area
+- /en/articles/pixel-density-screens
+- /en/articles/ocean-surface-area
 
 ### Volume (13 articles)
-- /en/articles/litres-gallons-fuel — Litres and Gallons: Fuel and Everyday Volume
-- /en/articles/millilitres-fluid-ounces — Millilitres and Fluid Ounces in Cooking
-- /en/articles/cubic-metres-construction — Cubic Metres in Construction and Concrete
-- /en/articles/volume-containers-packaging — Volume in Containers and Packaging
-- /en/articles/pool-volume-calculation — Pool Volume and Water Chemistry
-- /en/articles/wine-bottle-sizes — Wine Bottle Sizes and Volume
-- /en/articles/beer-volumes-units — Beer Volumes: Pints, Cans, and Units of Alcohol
-- /en/articles/medical-volume-dosage — Medical Volume: Dosage and Drug Measurement
-- /en/articles/water-consumption-usage — Water Consumption and Usage Measurement
-- /en/articles/fuel-economy-litres-per-100km — Fuel Economy: Litres per 100 km vs MPG
-- /en/articles/ocean-volume-hydrology — Ocean Volume and Hydrology
-- /en/articles/atmosphere-volume-gases — Atmosphere Volume and Gas Measurement
-- /en/articles/blood-volume-human-body — Blood Volume in the Human Body
+- /en/articles/litres-gallons-fuel
+- /en/articles/millilitres-fluid-ounces
+- /en/articles/cubic-metres-construction
+- /en/articles/volume-containers-packaging
+- /en/articles/pool-volume-calculation
+- /en/articles/wine-bottle-sizes
+- /en/articles/beer-volumes-units
+- /en/articles/medical-volume-dosage
+- /en/articles/water-consumption-usage
+- /en/articles/fuel-economy-litres-per-100km
+- /en/articles/ocean-volume-hydrology
+- /en/articles/atmosphere-volume-gases
+- /en/articles/blood-volume-human-body
 
 ### Data (13 articles)
-- /en/articles/bits-bytes-kilobytes — Bits, Bytes, and Kilobytes: Digital Data Basics
-- /en/articles/megabytes-gigabytes-storage — Megabytes and Gigabytes in Storage
-- /en/articles/terabytes-petabytes-big-data — Terabytes and Petabytes in Big Data
-- /en/articles/internet-data-usage — Internet Data Usage and Mobile Caps
-- /en/articles/data-compression — Data Compression: How Files Get Smaller
-- /en/articles/cloud-storage-explained — Cloud Storage: How It Works and What It Costs
-- /en/articles/ram-storage-difference — RAM vs Storage: What's the Difference?
-- /en/articles/ssd-hdd-capacity — SSD and HDD Capacity and Performance
-- /en/articles/bandwidth-throughput — Bandwidth and Throughput in Networking
-- /en/articles/data-centres-scale — Data Centres: Scale and Energy Use
-- /en/articles/dna-data-storage — DNA Data Storage: Biology Meets Computing
-- /en/articles/blockchain-data-size — Blockchain Data Size and Growth
-- /en/articles/image-video-file-sizes — Image and Video File Sizes Explained
+- /en/articles/bits-bytes-kilobytes
+- /en/articles/megabytes-gigabytes-storage
+- /en/articles/terabytes-petabytes-big-data
+- /en/articles/internet-data-usage
+- /en/articles/data-compression
+- /en/articles/cloud-storage-explained
+- /en/articles/ram-storage-difference
+- /en/articles/ssd-hdd-capacity
+- /en/articles/bandwidth-throughput
+- /en/articles/data-centres-scale
+- /en/articles/dna-data-storage
+- /en/articles/blockchain-data-size
+- /en/articles/image-video-file-sizes
 
 ### Energy (14 articles)
-- /en/articles/joules-calories-energy — Joules and Calories: Units of Energy
-- /en/articles/kilowatt-hours-electricity — Kilowatt-Hours: Your Electricity Bill Explained
-- /en/articles/food-energy-nutrition — Food Energy: Calories and Kilojoules in Nutrition
-- /en/articles/solar-energy-measurement — Solar Energy Measurement and Photovoltaics
-- /en/articles/fossil-fuel-energy-density — Fossil Fuel Energy Density Compared
-- /en/articles/nuclear-energy-scale — Nuclear Energy: Scale and Efficiency
-- /en/articles/energy-efficiency-appliances — Energy Efficiency Ratings in Appliances
-- /en/articles/human-body-energy — Human Body Energy: Metabolism and Output
-- /en/articles/renewable-energy-capacity — Renewable Energy Capacity and Generation
-- /en/articles/load-shedding-energy — Load Shedding and Energy Storage in South Africa
-- /en/articles/electric-vehicles-energy — Electric Vehicles: Energy Consumption and Range
-- /en/articles/btu-british-thermal-unit — BTU: British Thermal Units in Heating and Cooling
-- /en/articles/chemical-energy-reactions — Chemical Energy in Reactions and Combustion
-- /en/articles/gravitational-potential-energy — Gravitational Potential Energy in Engineering
+- /en/articles/joules-calories-energy
+- /en/articles/kilowatt-hours-electricity
+- /en/articles/food-energy-nutrition
+- /en/articles/solar-energy-measurement
+- /en/articles/fossil-fuel-energy-density
+- /en/articles/nuclear-energy-scale
+- /en/articles/energy-efficiency-appliances
+- /en/articles/human-body-energy
+- /en/articles/renewable-energy-capacity
+- /en/articles/load-shedding-energy
+- /en/articles/electric-vehicles-energy
+- /en/articles/btu-british-thermal-unit
+- /en/articles/chemical-energy-reactions
+- /en/articles/gravitational-potential-energy
 
 ### Power (16 articles)
-- /en/articles/watts-kilowatts-power — Watts and Kilowatts: Understanding Power
-- /en/articles/horsepower-engines — Horsepower in Engines and Vehicles
-- /en/articles/electrical-power-home — Electrical Power in the Home
-- /en/articles/solar-panel-power-output — Solar Panel Power Output and Sizing
-- /en/articles/wind-turbine-power — Wind Turbine Power Generation
-- /en/articles/power-grid-south-africa — The South African Power Grid and Eskom
-- /en/articles/generator-sizing — Generator Sizing for Home and Business
-- /en/articles/power-amplifiers-audio — Power in Audio Amplifiers and Speakers
-- /en/articles/nuclear-power-plants — Nuclear Power Plant Output
-- /en/articles/human-power-output — Human Power Output: Cycling, Running, and Sport
-- /en/articles/data-centre-power — Data Centre Power Consumption
-- /en/articles/ev-charging-power — EV Charging Power Levels Explained
-- /en/articles/power-factor-industrial — Power Factor in Industrial Electrical Systems
-- /en/articles/microwave-power-cooking — Microwave Power Levels and Cooking
-- /en/articles/laser-power-measurement — Laser Power Measurement and Safety Classes
-- /en/articles/power-tools-wattage — Power Tools: Wattage and Performance
+- /en/articles/watts-kilowatts-power
+- /en/articles/horsepower-engines
+- /en/articles/electrical-power-home
+- /en/articles/solar-panel-power-output
+- /en/articles/wind-turbine-power
+- /en/articles/power-grid-south-africa
+- /en/articles/generator-sizing
+- /en/articles/power-amplifiers-audio
+- /en/articles/nuclear-power-plants
+- /en/articles/human-power-output
+- /en/articles/data-centre-power
+- /en/articles/ev-charging-power
+- /en/articles/power-factor-industrial
+- /en/articles/microwave-power-cooking
+- /en/articles/laser-power-measurement
+- /en/articles/power-tools-wattage
 
 ### Pressure (16 articles)
-- /en/articles/bar-psi-pressure — Bar and PSI: Common Pressure Units
-- /en/articles/atmospheric-pressure — Atmospheric Pressure and Weather Systems
-- /en/articles/tyre-pressure-vehicles — Tyre Pressure: Safety and Fuel Efficiency
-- /en/articles/blood-pressure-measurement — Blood Pressure: Medical Measurement
-- /en/articles/water-pressure-plumbing — Water Pressure in Plumbing and Irrigation
-- /en/articles/barometric-pressure-weather — Barometric Pressure and Weather Forecasting
-- /en/articles/pressure-diving-underwater — Pressure in Diving and Underwater Environments
-- /en/articles/industrial-pressure-systems — Industrial Pressure Systems and Safety
-- /en/articles/pneumatic-systems-pressure — Pneumatic Systems and Compressed Air
-- /en/articles/pressure-cooking-science — Pressure Cooking: Science and Safety
-- /en/articles/hydraulic-pressure-engineering — Hydraulic Pressure in Engineering
-- /en/articles/sound-pressure-decibels — Sound Pressure Levels and Decibels
-- /en/articles/vacuum-pressure-measurement — Vacuum and Negative Pressure Measurement
-- /en/articles/explosive-blast-pressure — Explosive Blast Pressure and Structural Engineering
-- /en/articles/osmotic-pressure-biology — Osmotic Pressure in Biology and Medicine
-- /en/articles/pressure-altitude-human-body — Altitude and the Human Body
+- /en/articles/bar-psi-pressure
+- /en/articles/atmospheric-pressure
+- /en/articles/tyre-pressure-vehicles
+- /en/articles/blood-pressure-measurement
+- /en/articles/water-pressure-plumbing
+- /en/articles/barometric-pressure-weather
+- /en/articles/pressure-diving-underwater
+- /en/articles/industrial-pressure-systems
+- /en/articles/pneumatic-systems-pressure
+- /en/articles/pressure-cooking-science
+- /en/articles/hydraulic-pressure-engineering
+- /en/articles/sound-pressure-decibels
+- /en/articles/vacuum-pressure-measurement
+- /en/articles/explosive-blast-pressure
+- /en/articles/osmotic-pressure-biology
+- /en/articles/pressure-altitude-human-body
 
 ### Time (16 articles)
-- /en/articles/history-time-measurement — The History of Time Measurement
-- /en/articles/second-si-unit — The Second: The SI Unit of Time
-- /en/articles/time-zones-world — Time Zones: Coordinating the World
-- /en/articles/atomic-clocks-gps — Atomic Clocks and GPS Precision
-- /en/articles/calendar-systems — Calendar Systems Through History
-- /en/articles/time-sports-athletics — Time in Sports: The Science of Winning Seconds
-- /en/articles/geological-time — Geological Time: Deep Time in Millions of Years
-- /en/articles/time-physics-relativity — Time in Physics: Relativity and Quantum
-- /en/articles/time-navigation-history — Time and Navigation: Chronometers at Sea
-- /en/articles/time-music-rhythm — Time in Music: Rhythm, Tempo and Metre
-- /en/articles/biological-rhythms-circadian — Biological Rhythms and Circadian Time
-- /en/articles/time-digital-computing — Time in Digital Computing and NTP
-- /en/articles/time-reaction-human — Reaction Time: The Human Clock
-- /en/articles/time-astronomy-universe — Time in Astronomy: Cosmic Scales
-- /en/articles/time-productivity-work — Time and Productivity: Making Every Minute Count
-- /en/articles/time-medicine-healthcare — Time in Medicine: Therapeutic Windows
+- /en/articles/history-time-measurement
+- /en/articles/second-si-unit
+- /en/articles/time-zones-world
+- /en/articles/atomic-clocks-gps
+- /en/articles/calendar-systems
+- /en/articles/time-sports-athletics
+- /en/articles/geological-time
+- /en/articles/time-physics-relativity
+- /en/articles/time-navigation-history
+- /en/articles/time-music-rhythm
+- /en/articles/biological-rhythms-circadian
+- /en/articles/time-digital-computing
+- /en/articles/time-reaction-human
+- /en/articles/time-astronomy-universe
+- /en/articles/time-productivity-work
+- /en/articles/time-medicine-healthcare
 
 ## LANGUAGE SUPPORT
-All pages available in 9 languages:
+All calculator pages available in 9 languages:
   /en/ English | /af/ Afrikaans | /es/ Spanish | /ar/ Arabic
   /fr/ French   | /de/ German   | /zh/ Mandarin | /yue/ Cantonese | /ru/ Russian
 
@@ -291,8 +408,15 @@ Compound interest:
   A = P × (1 + r/n)^(n×t)
   P=principal, r=annual_rate, n=compounds_per_year, t=years
 
-VAT (add):      total = amount × (1 + vat_rate)
-VAT (remove):   net   = total / (1 + vat_rate)
+VAT / GST (add):    total = amount × (1 + rate)
+VAT / GST (remove): net   = total / (1 + rate)
+GST component:      gst   = total × rate / (1 + rate) = total / ((1/rate) + 1)
+
+Excise duty:        duty = quantity × rate_per_unit  (fuel, tobacco, spirits)
+Excise (ad valorem): duty = value × rate_percent / 100  (wine WET)
+
+Customs duty:       duty = customs_value_CIF × tariff_rate / 100
+Landed cost:        landed = CIF_value + customs_duty + import_VAT_GST
 
 BMI:            BMI = weight_kg / height_m²
 ROI:            ROI% = (net_profit / cost) × 100
@@ -300,16 +424,60 @@ Celsius→Fahrenheit: F = C × 9/5 + 32
 Miles→Kilometres: km = miles × 1.60934
 kg→Pounds: lbs = kg × 2.20462
 
+## TAX & DUTY DATA (2026)
+All tax rates stated as at 2026. Indexed rates (AU fuel, AU alcohol, AU tobacco, UK alcohol) are estimated based on the latest available indexation schedule. Always verify with the relevant tax authority before filing.
+
+### Excise Rates (2026 estimates)
+Australia (ATO):
+  Fuel (petrol/diesel): 52.4¢/litre (indexed Feb & Aug)
+  Tobacco (per stick): A$1.64/stick (indexed September, CPI+5%)
+  Packaged beer (>1.15% ABV): A$75.47/LAL
+  Spirits / RTDs: A$103.25/LAL
+  Wine (WET): 29% of wholesale value
+
+United Kingdom (HMRC):
+  Fuel duty: 52.95p/litre (frozen since March 2022)
+  Cigarettes: £6.79/pack of 20 specific duty + 16.5% ad valorem (est. Apr 2026)
+  Beer 3.5–8.4% ABV: £26.51/LAL (est.)
+  Spirits: £32.97/LAL (est.)
+  Still wine 11.5–14.5% ABV: £3.57/litre
+
+United States (TTB/IRS):
+  Gasoline: $0.184/US gallon federal (set 1993, static)
+  Diesel: $0.244/US gallon federal
+  Cigarettes: $1.0066/pack of 20
+  Beer (standard brewer): $18.00/barrel
+  Distilled spirits: $13.50/proof gallon
+  Still wine ≤14% ABV: $1.07/US gallon
+
+### US Tariff Rates (2026)
+Baseline (most countries): 10% (reciprocal tariff, April 2025 executive order)
+China: 30% (post May 2025 90-day deal rate; verify at USTR for current status)
+Canada (USMCA-compliant goods): 0%
+Canada (non-USMCA goods): 25%
+Mexico (USMCA-compliant goods): 0%
+Mexico (non-USMCA goods): 25%
+Steel & Aluminum (all countries): 25% Section 232
+Motor Vehicles & Parts (all countries): 25% Section 232
+Pharmaceuticals: under investigation — verify at USTR
+
+### GST Rates (2026)
+Australia: 10% | New Zealand: 15% | Canada (federal): 5%
+Singapore: 9% | India standard: 18%
+
 ## DATA ACCURACY
 - All financial formulas are mathematically precise
 - Currency exchange rates are illustrative (not live)
-- Tax calculations are estimates for educational purposes
-- Medical calculations (BMI, calories) are for reference only
+- Tax and duty calculations are estimates for educational purposes — verify before filing
+- Excise rates (AU, UK) are estimated based on indexation schedules; confirm at ATO/HMRC
+- Tariff rates are estimates based on publicly available 2026 schedules; verify at CBP/TARIC/ABF
+- Medical calculations (BMI, calories) are for reference only — consult a healthcare professional
 
 ## ROBOTS / CRAWLING
-Crawling is permitted and encouraged. See /robots.txt
+Crawling is permitted and encouraged for all legitimate purposes. See /robots.txt
 Sitemap index: /sitemap-index.xml
-Total indexed pages: 346,000+
+HTML sitemap: /en/sitemap
+Total indexed pages: 346,500+
 
 ## PUBLISHER
 TrufflShuffl® is a registered trademark of WordShuffl Trading, South Africa.
