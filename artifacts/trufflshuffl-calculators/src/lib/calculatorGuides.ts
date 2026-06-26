@@ -2,6 +2,86 @@ import type { PageGuide } from "@/components/CalculatorPageGuide";
 
 export const CALCULATOR_GUIDES: Record<string, PageGuide> = {
 
+  gst: {
+    title: "GST Calculator: Complete Guide",
+    intro: [
+      "GST (Goods and Services Tax) is a broad-based consumption tax levied on most goods and services in countries including Australia (10%), New Zealand (15%), Canada (5%), Singapore (9%), and India (multiple rates). Whether you are a business owner invoicing clients, a freelancer quoting project fees, or a consumer trying to understand a receipt, this calculator handles the three core GST tasks: adding GST to a net price, removing GST from a gross price, and isolating the GST component from a total.",
+      "This guide explains how the calculations work, what each mode does, which rate to use for your country, and how GST interacts with invoicing requirements. All calculations apply equally whether you call it GST, HST (Canada), or any equivalent consumption tax in your jurisdiction.",
+    ],
+    sections: [
+      {
+        heading: "Three Modes: Add, Remove, and Split",
+        paragraphs: [
+          "Add GST is for when you have a net (ex-GST) price and need to calculate the GST-inclusive price to charge your customer. Example: you charge $500 for a service. At 10% GST: $500 × 1.10 = $550 GST-inclusive. This is the mode to use when building a quote or invoice from your base rate.",
+          "Remove GST is for when you have a gross (GST-inclusive) price and need to extract the net price and GST component separately. Example: you receive a $550 invoice and need to know how much is GST for your accounts. Net = $550 ÷ 1.10 = $500. GST = $550 − $500 = $50. This is critical for businesses registered for GST input tax credits — you can only claim back the actual GST component, not the full amount.",
+          "Split GST produces the same result as Remove GST — both start from a gross amount and return the net and GST breakdown. Use whichever label makes more intuitive sense for your workflow. The mathematics behind both is identical: divide the gross by (1 + rate) to get the net, and subtract net from gross to get the GST.",
+        ],
+      },
+      {
+        heading: "GST Rates by Country",
+        paragraphs: [
+          "Australia: 10% on most goods and services. Introduced 1 July 2000. Administered by the ATO. Most fresh food, medical services, and educational services are GST-free. Financial services are input-taxed (GST applies to the margin, not the full amount). Businesses with annual turnover over AUD 75,000 must register for GST.",
+          "New Zealand: 15% on virtually all goods and services. One of the broadest-base GST systems in the world — very few exemptions. Businesses with annual turnover over NZD 60,000 must register. New Zealand's GST is also applied to imported goods and services, including digital services from offshore suppliers.",
+          "Canada: The federal GST is 5%. However, most provinces combine it with a provincial sales tax into the Harmonised Sales Tax (HST): Ontario and Maritime provinces charge 13–15% HST; British Columbia, Saskatchewan, and Manitoba have separate 5% GST and provincial taxes. Quebec has the QST (9.975%) alongside GST. Use the combined rate for your province when calculating total tax on a purchase.",
+          "Singapore: 9% as of 2024 (increased from 8% in January 2024, and from 7% to 8% in 2023). Registered businesses with annual taxable turnover above SGD 1 million must register for GST. India: GST replaced multiple state taxes in 2017. India uses a tiered system: 0% (essential goods), 5% (basic necessities), 12%, 18% (standard rate for most goods and services), and 28% (luxury items). Use the rate specific to the good or service category in question.",
+        ],
+      },
+      {
+        heading: "GST and Business Invoicing",
+        paragraphs: [
+          "In Australia and New Zealand, a GST-registered business must issue a tax invoice for supplies over AUD/NZD 82.50 (inc. GST). The tax invoice must show the seller's ABN (Australia) or GST number (NZ), the amount of GST included (or the statement that the price is GST-inclusive), and the date. A recipient cannot claim an input tax credit without a valid tax invoice.",
+          "The standard presentation on a business invoice is to show the net amount, a separate GST line, and the gross total — exactly the format this calculator's results section produces. For a service invoiced at $1,000 net: Line item $1,000.00 + GST $100.00 = Total $1,100.00. This makes it unambiguous to the recipient which portion is GST and claimable as an input tax credit.",
+          "When you receive a supplier invoice, use the Remove GST mode to verify the GST amount matches what the supplier has stated. If the supplier has made a calculation error and the amounts do not reconcile, your input tax credit claim may be disallowed on audit. A quick check with this calculator before paying and lodging takes seconds.",
+        ],
+      },
+      {
+        heading: "Input Tax Credits and the GST Cycle",
+        paragraphs: [
+          "GST is a value-added tax: each business in the supply chain collects GST from its customers and remits it to the tax authority, but can offset (credit) the GST it paid on its own business inputs. The net effect is that GST is paid only on the value added at each stage, and the final consumer bears the entire GST cost.",
+          "For a GST-registered business: GST payable = GST collected on sales − GST paid on business purchases (input tax credits). If you collected $10,000 in GST from customers and paid $6,000 in GST on business purchases and expenses, you remit $4,000 to the tax authority. If input credits exceed collected GST in a period (common in early-stage businesses with high setup costs), you receive a refund.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I calculate GST in Australia?",
+        a: "To add 10% GST: multiply the net amount by 1.10. To find the GST component in a gross amount: divide the gross by 11 (which equals gross ÷ 1.10 × 0.10). To remove GST from a gross amount: divide by 1.10. Example: a $330 GST-inclusive price contains $330 ÷ 11 = $30 of GST, and the net price is $300.",
+      },
+      {
+        q: "What is the formula to extract GST from a GST-inclusive price?",
+        a: "GST amount = Gross ÷ (1 + rate) × rate, which simplifies to Gross × rate ÷ (1 + rate). For 10%: GST = Gross × 0.10 ÷ 1.10 = Gross ÷ 11. For 15%: GST = Gross × 0.15 ÷ 1.15 = Gross ÷ 7.667. For 5%: GST = Gross × 0.05 ÷ 1.05 = Gross ÷ 21. The net amount is simply Gross − GST.",
+      },
+      {
+        q: "What is the difference between GST and VAT?",
+        a: "GST and VAT are economically identical consumption taxes — both are collected at each stage of the supply chain, with businesses crediting the tax they paid on inputs against the tax they collect on sales, so only the final consumer bears the full tax. The name differs by country: GST in Australia, New Zealand, Canada, Singapore, and India; VAT in the UK, EU, South Africa, and most of the world. The calculator works for both — simply enter the applicable rate.",
+      },
+      {
+        q: "Does GST apply to all goods and services in Australia?",
+        a: "No. GST-free categories in Australia include: most basic food (fresh fruit, vegetables, bread, meat, milk — but not restaurant meals or hot takeaway food); medical, health, and dental services; educational courses and childcare; exports; certain financial supplies; and water, sewerage, and drainage services. Input-taxed supplies (no GST charged, but no input credit either) include residential rental, financial services, and precious metals.",
+      },
+      {
+        q: "When do I need to register for GST in Australia?",
+        a: "You must register for GST if your annual GST turnover is AUD 75,000 or more (or AUD 150,000 for non-profit bodies). For ride-share and taxi drivers, registration is compulsory from the first dollar of income, regardless of turnover. Voluntary registration below the threshold is possible and beneficial if you have significant business input costs with GST you want to claim back.",
+      },
+      {
+        q: "How is Canadian GST different from HST?",
+        a: "The federal GST is 5% across Canada. The Harmonised Sales Tax (HST) combines federal GST and a provincial sales tax into a single tax collected and remitted to the federal government. HST provinces (Ontario 13%, Nova Scotia/PEI/New Brunswick/Newfoundland 15%) use HST in place of separate GST and PST. Other provinces (BC, Saskatchewan, Manitoba, Quebec) retain separate GST and provincial taxes. For Canadian calculations, use the combined rate applicable in the province of sale.",
+      },
+      {
+        q: "Can I claim GST back on all business purchases?",
+        a: "No. You can only claim input tax credits on purchases made for a creditable business purpose. Non-creditable purchases include: private or domestic use, entertainment expenses (subject to FBT — partially or fully non-deductible), purchases from non-GST-registered suppliers (no GST charged, so nothing to claim), and GST-free or input-taxed purchases. Keep tax invoices for all creditable purchases — the ATO requires them for any input tax credit claim.",
+      },
+      {
+        q: "Why does dividing a GST-inclusive amount by 1.10 give the net, not multiplying by 0.90?",
+        a: "Because GST at 10% was added to the net price, not to the gross. If the net was $100, GST of $10 was added to give a gross of $110. To reverse this: $110 ÷ 1.10 = $100. If you multiplied $110 by 0.90 instead, you'd get $99 — wrong. The 0.90 approach would only be correct if the 10% was calculated on the gross (it is not). Always divide by (1 + rate) to reverse GST.",
+      },
+      {
+        q: "Do I need to charge GST to overseas clients?",
+        a: "Generally, exports of goods and cross-border services to overseas clients are GST-free in Australia and New Zealand (zero-rated). This means you charge 0% GST on the invoice, but you can still claim input tax credits on related business costs. The rules for digital services and intangibles vary — both Australia and NZ require offshore digital service providers to register and charge local GST to local consumers if turnover exceeds the threshold. Check the ATO or IRD guidelines for your specific service type.",
+      },
+    ],
+  },
+
   investment: {
     title: "Investment Calculator: Complete Guide",
     intro: [

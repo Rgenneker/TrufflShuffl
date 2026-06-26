@@ -81,6 +81,7 @@ export default function HomePage() {
     { href: "/savings",       icon: TrendingUp,      title: t.calcSavingsTitle,       desc: t.calcSavingsDesc,       category: "Investing" },
     // Business
     { href: "/vat",           icon: BadgeDollarSign, title: t.calcVATTitle,           desc: t.calcVATDesc,           category: "Business" },
+    { href: "/gst",           icon: BadgeDollarSign, title: "GST Calculator",          desc: "Add GST to a price, remove GST from a GST-inclusive amount — Australia, NZ, Canada, Singapore and more", category: "Business" },
     { href: "/percentage",    icon: Percent,         title: t.calcPercentageTitle,    desc: t.calcPercentageDesc,    category: "Business" },
     { href: "/salary",        icon: Briefcase,       title: t.calcSalaryTitle,        desc: t.calcSalaryDesc,        category: "Business" },
     { href: "/business-tools",icon: TrendingUp,      title: "Business Tools",          desc: "Profit margin, break-even point, and sales commission calculator",           category: "Business" },

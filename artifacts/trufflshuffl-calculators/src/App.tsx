@@ -26,6 +26,7 @@ import ShoeSizeCalculator from "@/pages/ShoeSizeCalculator";
 import BeltRingCalculator from "@/pages/BeltRingCalculator";
 import UnitConverter from "@/pages/UnitConverter";
 import VATCalculator from "@/pages/VATCalculator";
+import GSTCalculator from "@/pages/GSTCalculator";
 import PercentageCalculator from "@/pages/PercentageCalculator";
 import RetirementCalculator from "@/pages/RetirementCalculator";
 import ROICalculator from "@/pages/ROICalculator";
@@ -110,6 +111,7 @@ function InnerRoutes() {
       <Route path="/investing" component={InvestingCalculator} />
       {/* Business */}
       <Route path="/vat" component={VATCalculator} />
+      <Route path="/gst" component={GSTCalculator} />
       <Route path="/percentage" component={PercentageCalculator} />
       <Route path="/retirement" component={RetirementCalculator} />
       <Route path="/roi" component={ROICalculator} />
