@@ -4,6 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
@@ -82,6 +83,7 @@ export default function EducationCalculator() {
 
   return (
     <CalculatorLayout
+      guide={CALCULATOR_GUIDES['education']}
       title="Education Calculator"
       description="Calculate your GPA, determine the exam score you need to reach your target average, and plan your study hours across subjects."
       instructions={

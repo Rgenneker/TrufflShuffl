@@ -4,6 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
@@ -80,6 +81,7 @@ export default function FoodCalculator() {
 
   return (
     <CalculatorLayout
+      guide={CALCULATOR_GUIDES['food']}
       title="Food & Cooking Calculator"
       description="Scale recipes for any number of servings, calculate coffee brew ratios, estimate BBQ braai cooking times, and work out bread baking hydration."
       instructions={

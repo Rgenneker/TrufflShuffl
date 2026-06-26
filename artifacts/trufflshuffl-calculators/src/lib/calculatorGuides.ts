@@ -2522,4 +2522,1113 @@ export const CALCULATOR_GUIDES: Record<string, PageGuide> = {
       },
     ],
   },
+
+  investing: {
+    title: "Investing Calculator: Complete Guide",
+    intro: [
+      "The TrufflShuffl Investing Calculator covers three of the most important tools for self-directed investors: dollar-cost averaging (DCA), compound annual growth rate (CAGR), and dividend income projection. Each tab answers a different question — how much will I accumulate if I invest regularly, what return has my portfolio actually delivered, and what income can I expect from dividend-paying shares. Together, they give you a complete picture of your investment strategy.",
+      "This guide explains every input and output on each tab, shows you how to interpret the results, and highlights the common mistakes that lead investors to draw wrong conclusions from their numbers. All calculations work with any currency, making the calculator equally useful whether you are investing in a local index fund, a US stock portfolio, or a global ETF.",
+    ],
+    sections: [
+      {
+        heading: "DCA Tab: How Dollar-Cost Averaging Compounds Over Time",
+        paragraphs: [
+          "Enter your monthly contribution — the fixed amount you plan to invest every month regardless of market conditions. Then set the number of years and the expected annual return. The calculator assumes contributions are made at the start of each month and compounds monthly.",
+          "The result shows your total future value, total amount contributed, and total gains from compounding. The growth table breaks this down year by year, so you can see exactly when the compounding curve begins to accelerate. In the early years, contributions dominate. After roughly the midpoint of your horizon, compounding gains overtake new contributions — this crossover is the visual proof of why time in the market matters more than timing the market.",
+          "The expected return rate is the most sensitive input. Use a conservative rate for planning: 7–10% per year is a reasonable assumption for a diversified equity portfolio over the long run, but actual returns vary significantly year to year. Running the calculator at both a low (6%) and high (12%) scenario shows the range of outcomes and helps you size contributions to hit your goal even in the conservative case.",
+        ],
+      },
+      {
+        heading: "CAGR Tab: Measuring True Investment Performance",
+        paragraphs: [
+          "Enter the starting value, ending value, and number of years. The CAGR calculator returns the compound annual growth rate — the single annual percentage that, applied consistently, takes you from start to end over that period. It also shows the total return as a percentage.",
+          "CAGR is the only honest way to compare investments of different lengths. A fund that turned R100 000 into R180 000 over 6 years has a CAGR of 10.3%, not 13.3% (which is the simple total return divided by years). Use CAGR to compare your portfolio against a benchmark index, or to evaluate whether switching to a different product is worth the costs.",
+          "A common pitfall: CAGR smooths out volatility. A portfolio that dropped 40% in one year and recovered strongly still shows an attractive CAGR if the end value is high. Always look at CAGR alongside maximum drawdown and volatility data from your fund's fact sheet.",
+        ],
+      },
+      {
+        heading: "Dividends Tab: Projecting Passive Income From Shares",
+        paragraphs: [
+          "Enter your current portfolio value, the dividend yield percentage, the expected annual dividend growth rate, and the number of years. The calculator projects Year 1 annual dividend income, the income in the final year of your projection, and total dividends received over the entire period.",
+          "Dividend growth is as important as current yield. A share with a 3% yield growing dividends at 8% per year will yield 6.5% on your original investment in 10 years and 14% in 20 years (yield-on-cost). A share with a 7% yield and no dividend growth stays at 7% forever. Growth compounds; high static yield does not.",
+          "The dividend tab does not model reinvestment (DRIP). If you reinvest dividends, run the DCA tab with your dividend income as the monthly contribution and your portfolio as the starting principal — the combined result approximates a dividend reinvestment strategy. Including dividend reinvestment typically adds 30–50% to total returns over a 20-year period.",
+        ],
+      },
+      {
+        heading: "Interpreting Results and Common Mistakes",
+        paragraphs: [
+          "The biggest mistake is confusing nominal and real returns. If you enter 10% as your expected return but inflation runs at 4%, your real return is closer to 6%. Your future portfolio value in nominal terms looks impressive, but its purchasing power is significantly less than the number suggests. For retirement planning, always calculate using a real return (after inflation) assumption.",
+          "Fees have a dramatic compounding effect that calculators rarely show directly. A 1% annual management fee on a portfolio compounding at 10% reduces the effective rate to 9%, which sounds small but costs you roughly 17% of your total portfolio value over 20 years. If your fund charges 1.5%, that cost rises to 25% of what you would have earned in a fee-free index fund. Account for fees by reducing your expected return input by the annual total expense ratio (TER) of your chosen product.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "What monthly contribution rate should I use as a target?",
+        a: "Financial planners generally recommend saving 15–20% of gross income for retirement and a further 5–10% for medium-term goals. Use the DCA calculator to work backward: set your target future value and years, then adjust the monthly contribution until you hit it. This tells you the exact savings rate required, which you can compare against your income.",
+      },
+      {
+        q: "Why does the DCA result look different from simple multiplication?",
+        a: "Because contributions earn returns for different periods. The first month's contribution grows for the full period; the last month's contribution earns almost nothing. The calculator accounts for this correctly using the future value of an annuity formula. Simple multiplication would overstate the result.",
+      },
+      {
+        q: "What is a realistic CAGR for a global equity index fund?",
+        a: "Global equity index funds (MSCI World, S&P 500) have historically delivered 8–10% CAGR in USD over rolling 20-year periods. In local currency terms this varies significantly with exchange rate movements. A conservative planning assumption is 7–9% nominal, or 4–6% real (after inflation). Past performance does not guarantee future returns.",
+      },
+      {
+        q: "What dividend yield is considered sustainable?",
+        a: "A dividend yield of 3–5% from a well-established company with consistent earnings is generally considered sustainable. Yields above 7% often signal that the share price has fallen (yield = dividend / price), which may indicate financial stress. Always check the dividend payout ratio: a company paying out more than 80% of earnings as dividends has little room to maintain the dividend if earnings dip.",
+      },
+      {
+        q: "How do I use the calculator to check if I am on track for retirement?",
+        a: "Enter your current retirement savings as the DCA starting value, your monthly contribution, your expected return, and your years to retirement. Compare the projected future value to your retirement income target: a common rule is to accumulate 25× your desired annual income (the 4% withdrawal rule). If the projected value falls short, the calculator tells you exactly how much to increase monthly contributions to close the gap.",
+      },
+      {
+        q: "Does the calculator account for tax on investment returns?",
+        a: "No — the calculator uses pre-tax returns. In practice, returns from unit trusts, ETFs, and fixed deposits may attract dividends tax, capital gains tax, or income tax depending on your jurisdiction and account type. For tax-advantaged accounts (pension, provident, retirement annuity in South Africa; ISA in the UK; IRA/401k in the US), the calculator's pre-tax figures are more accurate since growth is tax-deferred.",
+      },
+      {
+        q: "What is yield-on-cost and why does it matter for dividend investors?",
+        a: "Yield-on-cost is your current annual dividend income divided by your original purchase price. If you bought at R100 and the dividend has grown to R8 per share, your yield-on-cost is 8%, even if the current share price is R200 (making the current yield 4%). Yield-on-cost shows how rewarding a past investment decision was; it's a useful personal tracking metric but irrelevant for new capital allocation decisions.",
+      },
+      {
+        q: "Can I model ETF vs lump-sum vs DCA strategies in the calculator?",
+        a: "Yes. For a lump-sum strategy, enter the full amount as the starting value with zero monthly contribution. For pure DCA, enter zero starting value and your monthly contribution. For a combination (starting lump sum plus regular contributions), enter both. Running all three scenarios side by side shows which approach delivers the best outcome under your specific return and time assumptions.",
+      },
+    ],
+  },
+
+  automotive: {
+    title: "Automotive Calculator: Complete Guide",
+    intro: [
+      "The TrufflShuffl Automotive Calculator covers three distinct but related vehicle calculations: tyre size comparison and speedometer error, vehicle depreciation over time, and braking distance at various speeds and road conditions. Whether you are modifying your vehicle, making a buying decision, or trying to understand the true cost of car ownership, these tools give you precise numbers rather than rough estimates.",
+      "This guide explains what each tab calculates, how to enter your values correctly, and how to apply the results to real decisions. The calculations are based on standard automotive physics and depreciation models used by fleet managers and insurers worldwide.",
+    ],
+    sections: [
+      {
+        heading: "Tyre Size Tab: Understanding Diameter, Speedo Error, and Legality",
+        paragraphs: [
+          "Enter your current (OEM) tyre size in the standard format: width/aspect ratio/wheel diameter (e.g., 225/55R17). Then enter the new tyre size you are considering. The calculator converts both to overall diameter, shows the percentage difference, and calculates the speedometer error at any speed you specify.",
+          "The speedometer error works because your vehicle's speedometer is calibrated to the rotations-per-kilometre of your original tyre size. A taller tyre rotates fewer times per kilometre, making the speedo read lower than actual speed (you are going faster than the display shows). A shorter tyre rotates more, making the speedo read high (you appear slower than you are going to a speed camera).",
+          "Most manufacturers specify an allowable tyre size range in the vehicle handbook. Legally, most jurisdictions allow a diameter change of up to ±3% from original. Beyond this, the change may require a roadworthy certificate, may affect your insurance cover, and will interfere with ABS and traction control calibration. The calculator flags whether your proposed change falls within this tolerance.",
+        ],
+      },
+      {
+        heading: "Depreciation Tab: The True Cost of Car Ownership",
+        paragraphs: [
+          "Enter the vehicle's purchase price, the annual depreciation rate, and the number of years. The calculator shows the residual value at each year, the total depreciation cost, and the annual depreciation amount. You can compare two vehicles side by side by running the calculator twice.",
+          "The default depreciation model uses a declining balance method (the same percentage applied to the remaining value each year), which mirrors how vehicle values actually behave in most markets. A 20% annual rate means the vehicle retains 80% of its previous year's value each year: after 5 years it's worth 32.8% of the original price (0.8⁵ = 0.328).",
+          "Use the depreciation output as part of a total cost of ownership calculation: annual depreciation + annual insurance + annual fuel + annual servicing = true cost per year. Dividing by annual kilometres gives you a cost per kilometre figure that is far more revealing than the pump price alone. Many people are surprised to find that depreciation exceeds fuel cost as the single largest expense for a newer vehicle.",
+        ],
+      },
+      {
+        heading: "Braking Distance Tab: The Physics of Stopping",
+        paragraphs: [
+          "Enter your vehicle speed, the road surface type (dry tarmac, wet tarmac, gravel, or ice), and your reaction time. The calculator returns braking distance (from brake application to stop), reaction distance (distance covered while you perceive the hazard and apply the brake), and total stopping distance.",
+          "The key physics: braking distance scales with the square of speed. At 60 km/h you need roughly 27m to stop on dry tarmac. At 120 km/h (double the speed) you need 108m (four times the distance, not double). This quadratic relationship is why each 10 km/h increment at highway speeds adds disproportionately more stopping distance than the same increment at lower speeds.",
+          "The friction coefficient (μ) for each surface is: dry tarmac 0.75–0.80, wet tarmac 0.45–0.55, gravel 0.40–0.55, ice 0.10–0.20. Worn tyres reduce the coefficient by 15–30% even on dry surfaces. The calculator's surface presets use mid-range values; if your tyres are worn, the actual stopping distance will be longer than shown.",
+        ],
+      },
+      {
+        heading: "Applying These Calculations to Real Decisions",
+        paragraphs: [
+          "For tyre changes: always calculate the speedo error before purchasing. A 2% speedo error at 120 km/h means you are actually travelling at 122.4 km/h when the instrument shows 120 — enough to attract a speed fine in many jurisdictions. Also verify that the new tyre fits within the wheel arch without rubbing at full lock and maximum suspension compression.",
+          "For vehicle purchases: run the depreciation calculator for both the new vehicle you are considering and a 3-year-old equivalent. The difference in residual values after 5 years of your ownership tells you how much of the price premium for new disappears over your holding period. For most buyers who keep vehicles 5–8 years, the premium for new is not recovered in any financial sense.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I read a tyre size code?",
+        a: "The code 225/55R17 means: 225mm tyre width, 55% aspect ratio (sidewall height = 55% of 225mm = 123.75mm), R = radial construction, 17-inch wheel diameter. The overall diameter = wheel diameter in mm (17 × 25.4 = 431.8mm) + 2 × sidewall height (2 × 123.75 = 247.5mm) = 679.3mm total.",
+      },
+      {
+        q: "What annual depreciation rate should I use?",
+        a: "New passenger vehicles typically depreciate at 15–25% per year. Luxury vehicles and those with high running costs depreciate faster (20–30%). Vehicles with strong reliability reputations and high demand depreciate more slowly (10–15%). Fleet vehicles and commercial vehicles use straight-line depreciation for accounting. For a typical new family car, 18–20% per year is a reasonable estimate.",
+      },
+      {
+        q: "What reaction time should I use in the braking distance calculator?",
+        a: "Alert, undistracted drivers have a reaction time of approximately 0.75 seconds. The legal standard in most countries assumes 1.0 second. Distracted or fatigued drivers may take 1.5–2.5 seconds. Most road safety guidelines use 1.5 seconds for conservative stopping distance calculations. Enter 1.5 seconds unless you are doing a specific performance analysis.",
+      },
+      {
+        q: "Does tyre aspect ratio affect handling as well as diameter?",
+        a: "Yes. A lower aspect ratio (e.g. 40 vs 55) means a shorter, stiffer sidewall. This typically improves handling precision (less sidewall flex in corners) but produces a harsher ride and makes the tyre more vulnerable to pothole damage. Going to a significantly lower aspect ratio also means fitting a larger wheel to maintain overall diameter, adding wheel cost to the modification.",
+      },
+      {
+        q: "Why do vehicles depreciate so fast in the first year?",
+        a: "A new vehicle commands a price premium for its warranty, factory specification, and zero previous owners. The moment it is registered and driven off the forecourt, it becomes a used vehicle and is priced accordingly. Part of the first-year drop is also the dealer margin: the retail markup means the market price of a second-hand version is below the new price even on day one. This is why finance on a new vehicle is financially inefficient — you are borrowing at interest to fund an asset that immediately loses 15–25% of its value.",
+      },
+      {
+        q: "Is braking distance the same for all vehicles at the same speed?",
+        a: "No. Heavier vehicles have more kinetic energy to dissipate at the same speed, which requires longer braking distances unless the braking force is proportionally higher. ABS-equipped vehicles brake significantly shorter than non-ABS vehicles on slippery surfaces. High-performance vehicles with wider tyres, stickier compounds, and larger brake systems stop in shorter distances than standard family cars. The calculator uses mid-range values; sports cars may stop in 20–30% less distance, while heavy SUVs may need 10–20% more.",
+      },
+      {
+        q: "How do I calculate the cost per kilometre of running my vehicle?",
+        a: "Cost per kilometre = (annual depreciation + annual insurance + annual fuel + annual servicing + tyres + licensing) ÷ annual kilometres. The depreciation tab gives you the annual depreciation figure. Add your actual insurance premium, fuel spend (litres × price per litre × annual kilometres ÷ 100 for your consumption rate), and typical service costs. The result is typically 2–4× the fuel cost alone.",
+      },
+      {
+        q: "What happens to ABS if I change tyre sizes significantly?",
+        a: "ABS and stability control (ESC) rely on wheel speed sensors. If the tyre diameter changes, the wheel rotates at a different speed for a given vehicle speed, and the ECU may interpret this as wheel slip and intervene incorrectly — or fail to intervene when it should. A diameter change within ±3% is generally safe. Beyond this, the ECU may need recalibration, which requires dealer-level diagnostic equipment.",
+      },
+    ],
+  },
+
+  ev: {
+    title: "Electric Vehicle Calculator: Complete Guide",
+    intro: [
+      "The TrufflShuffl EV Calculator has three tabs designed to answer the questions that matter most to current and prospective EV owners: how much does a charge cost, what is my real cost per kilometre, and how does running an EV compare financially to keeping a petrol or diesel vehicle. Each tab isolates a different part of the economics so you can see exactly where the savings come from — and where they do not.",
+      "This guide walks through every input on each tab, explains the formulas behind the results, and highlights the real-world factors that can cause your actual costs to differ from the calculator's output. All calculations support any currency, making the tool equally useful whether you are pricing charging costs in South Africa, the UK, Australia, or the US.",
+    ],
+    sections: [
+      {
+        heading: "Charging Cost Tab: What Each Charge Session Actually Costs",
+        paragraphs: [
+          "Enter your vehicle's battery capacity in kWh (found in the spec sheet or owner's manual), your current state of charge (e.g. 20%), your target charge level (e.g. 80%), and your electricity rate in the local currency per kWh. The calculator returns the energy required, the cost of that charge session, and the effective cost per 100km based on your vehicle's consumption figure.",
+          "The key input is your electricity tariff. Home overnight charging is typically the cheapest option — in most markets this is 0.15–0.30 per kWh. Public AC chargers typically cost 1.5–2× the home rate. DC fast chargers (50–350 kW) can cost 2–4× the home rate because the infrastructure investment is amortised across fewer sessions. The calculator lets you compare all three rates side by side.",
+          "Charging efficiency matters: not all the electricity drawn from the grid makes it into the battery. Most EVs have a charging efficiency of 90–95% for AC charging and slightly lower for DC fast charging due to the additional conversion step. The displayed kWh on a charge session is the energy drawn from the grid, not what enters the battery, so some difference between the stated capacity and the measured charge is normal.",
+        ],
+      },
+      {
+        heading: "Cost Per km Tab: Your True Running Cost",
+        paragraphs: [
+          "Enter your vehicle's real-world consumption (kWh per 100km, found in your in-car display after a few weeks of driving), your electricity tariff, and your annual mileage. The calculator returns your cost per kilometre, monthly energy cost, and annual energy cost.",
+          "Real-world consumption typically runs 10–20% higher than the manufacturer's stated WLTP figure. A vehicle rated at 18 kWh/100km commonly delivers 20–22 kWh/100km in mixed driving, especially in winter when cabin heating draws from the battery. Use at least 4 weeks of your actual driving data for the most accurate input.",
+          "The tab also shows the equivalent litres-per-100km your electricity spend represents at the current fuel price — a useful translation for comparing to your previous petrol vehicle. If electricity at your rate costs the equivalent of 2.5 L/100km in petrol terms, and your old car used 8.5 L/100km, the energy saving is immediately visible.",
+        ],
+      },
+      {
+        heading: "ICE vs EV Comparison Tab: The Full Financial Picture",
+        paragraphs: [
+          "Enter the purchase price of the EV, the purchase price of the equivalent petrol/diesel vehicle (ICE), both vehicles' running costs (energy and servicing), and your annual mileage. The calculator computes the annual running cost difference, the cumulative cost advantage of the EV, and the break-even year — the point at which the lower running costs offset the higher purchase price.",
+          "Servicing costs are a significant part of the comparison and are often understated in favour of EVs. EVs have no oil changes, spark plugs, timing belts, or exhaust replacements, and reduced brake wear from regenerative braking. However, tyre wear on heavy EVs is higher than average. A realistic EV servicing cost is 40–60% of an equivalent ICE vehicle over a 5-year period.",
+          "The comparison does not automatically include battery replacement cost, which remains a variable depending on vehicle age and usage pattern. For most current buyers planning 5–8 year ownership, battery replacement is unlikely to be necessary with normal use. For longer ownership periods or high annual mileage, factor in a battery replacement cost at year 10–12 to keep the comparison fair.",
+        ],
+      },
+      {
+        heading: "Factors That Affect Your Real-World Numbers",
+        paragraphs: [
+          "Climate is the largest variable. In cold climates (below 5°C regularly), EV range and efficiency can drop 20–40% because lithium-ion batteries deliver less capacity at low temperatures and cabin heating draws entirely from the battery rather than waste engine heat. If you live in a cold climate, use a consumption figure 25–30% above the manufacturer's WLTP rating for winter planning.",
+          "Charging habits matter for long-term cost. If you frequently use expensive public DC fast chargers instead of home charging, the cost advantage narrows significantly. The Charging Cost tab lets you model a realistic mix: enter what percentage of your charging is done at home, at work (free), and at public fast chargers to see your blended effective rate.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I find my EV's real-world kWh/100km consumption?",
+        a: "The most accurate method is to note the total kWh added during a full charge-to-charge cycle (your home charger app or the car's display shows this) and divide by the kilometres driven in that cycle. After several cycles, average the results. The car's in-built efficiency display is a close second — look in the trip or energy menu for kWh/100km.",
+      },
+      {
+        q: "What electricity rate should I use for home charging?",
+        a: "Use the rate shown on your electricity bill for the tariff block that applies to overnight use. If you have a flat tariff, use that rate directly. If you have time-of-use pricing, use the off-peak rate since most EV owners schedule overnight charging for the cheapest window. The Charging Cost tab allows you to compare home and public rates directly.",
+      },
+      {
+        q: "How long does it take to charge from 20% to 80%?",
+        a: "Charging time = energy required (kWh) ÷ charger power (kW). For a 60 kWh battery from 20% to 80% (36 kWh needed): on a 7.4 kW home charger = 36 ÷ 7.4 = 4.9 hours. On a 50 kW DC fast charger = 36 ÷ 50 = 0.72 hours (43 minutes). Note that DC charging slows above 80% to protect the battery, so 80% is the practical fast-charge limit.",
+      },
+      {
+        q: "Does charging to 100% damage the battery?",
+        a: "Regularly charging to 100% accelerates lithium-ion battery degradation because the cells are under maximum stress at full charge. Most EV manufacturers recommend a daily charging limit of 80% for longevity, with 100% charges reserved for long trips. Conversely, regularly depleting below 10–15% also stresses the battery. The sweet spot for daily cycling is 20–80%.",
+      },
+      {
+        q: "What is the real break-even point for switching from a petrol car to an EV?",
+        a: "It depends on the price premium, annual mileage, and the fuel-to-electricity price ratio. With typical inputs in most markets (EV premium of $5,000–$15,000, electricity at 25% of the equivalent petrol cost per km, 15,000 km/year), break-even falls between 3 and 7 years. Higher annual mileage and a larger fuel-to-electricity price gap shorten the break-even significantly.",
+      },
+      {
+        q: "How much cheaper is EV servicing than petrol car servicing?",
+        a: "EV annual servicing typically costs 40–60% of equivalent petrol vehicle servicing over a 5-year period. Services consist mainly of tyre rotation, cabin air filter replacement, brake fluid check (brake pads last longer due to regenerative braking), and software updates. Oil changes, spark plugs, timing belt replacements, and exhaust work are eliminated entirely.",
+      },
+      {
+        q: "Are public DC fast chargers always more expensive?",
+        a: "Yes, in most markets. Public DC fast charging typically costs 2–4× the home electricity rate per kWh because operators must recover the capital cost of the charger, installation, grid connection, and land use through the per-kWh charge. Some networks offer subscription plans that reduce the per-kWh rate for frequent users. Use public DC chargers for long trips and home/workplace charging for daily use.",
+      },
+      {
+        q: "How does cold weather affect the ICE vs EV comparison?",
+        a: "Cold weather narrows the EV's efficiency advantage. A petrol car's fuel economy changes little with temperature (engines warm up quickly); an EV's efficiency can drop 20–40% in cold conditions. In very cold climates, the break-even year lengthens and the annual running cost saving is smaller. However, EVs still break even in most climates — the advantage is just less dramatic in the cold.",
+      },
+    ],
+  },
+
+  solar: {
+    title: "Solar Power Calculator: Complete Guide",
+    intro: [
+      "The TrufflShuffl Solar Calculator covers the three questions that every prospective solar owner needs to answer before committing to a system: how many panels does my household need, how long will my battery last during an outage or off-grid period, and when will the system pay for itself and what is the long-term return on investment. Getting these numbers right before engaging installers saves you from over-specifying an expensive system or under-specifying one that doesn't meet your actual needs.",
+      "This guide explains every input on each tab, describes the formulas used, and highlights where real-world results typically differ from ideal calculations. The calculator applies globally — whether you are sizing a grid-tied system in South Africa, a hybrid system in Australia, or an off-grid setup in Europe.",
+    ],
+    sections: [
+      {
+        heading: "Panel Sizing Tab: How Many Panels Do You Need?",
+        paragraphs: [
+          "Enter your daily electricity consumption in kWh (from your electricity bill: monthly kWh ÷ 30), the peak sun hours for your location (the number of hours per day at 1,000 W/m² irradiance — typically 4–6 for most of Africa, Australia, and southern Europe; 2–4 for northern Europe), and your panel wattage (typically 400–550 W for modern monocrystalline panels).",
+          "The calculator applies a system derate factor of 0.80 by default, which accounts for inverter efficiency losses (~4%), wiring losses (~2%), soiling and shading (~5%), and temperature derating (~7%) that reduce real-world output below the nameplate specification. This is the industry-standard derate factor; in dusty environments or with significant shading, reduce to 0.70–0.75.",
+          "The result is the minimum number of panels. Always round up to a whole panel. Your installer may add 1–2 additional panels depending on roof space and inverter input capacity. More panels than the minimum size produce surplus energy, which can be exported to the grid (if a feed-in tariff applies) or used to charge batteries faster.",
+        ],
+      },
+      {
+        heading: "Battery Backup Tab: How Long Will It Last?",
+        paragraphs: [
+          "Enter your battery capacity (kWh), the depth of discharge (DoD) your battery type supports (LFP/LiFePO4: 80–95%; lead-acid: 40–50%; NMC lithium: 70–80%), and the connected load in watts. The calculator returns the runtime in hours.",
+          "The connected load input is where most people make their mistake. Use the actual load during an outage, not your full household consumption. During a power cut, you typically run only essentials: a fridge (80–150W), lights (40–80W LED), router (15–25W), laptop and phone chargers (60–100W), and possibly a TV (80–150W). A selective essential load of 300–500W will last many times longer on the same battery than a full household load of 2,000–4,000W.",
+          "Battery capacity degrades over time. A 10 kWh battery rated for 3,000 cycles to 80% DoD will retain roughly 80% of its original capacity after those cycles (around 8–10 years of daily cycling). The calculator uses nameplate capacity; for an older battery, reduce the capacity input by the estimated degradation percentage to get a more accurate current runtime estimate.",
+        ],
+      },
+      {
+        heading: "Payback & ROI Tab: When Does the System Pay for Itself?",
+        paragraphs: [
+          "Enter your total system cost, current monthly electricity bill, the percentage of your bill you expect to offset (typically 60–90% for a well-sized grid-tied system), and your assumed annual electricity tariff escalation rate. The calculator returns the simple payback period and a 25-year return on investment.",
+          "Tariff escalation is the most powerful variable in a solar payback calculation. If electricity prices rise 8% per year (a conservative assumption in many markets), the value of each unit of self-generated solar energy increases every year — dramatically accelerating the payback. A system with a 7-year simple payback at today's tariff may effectively pay back in 5 years when the rising value of displaced electricity is included.",
+          "The 25-year ROI reflects the full lifespan of quality solar panels (warranted to 80% output at 25 years, with real lifespans typically exceeding 30 years). After the payback period, all energy generated is pure financial return. A well-designed system in a good solar resource area with rising tariffs can deliver a 15–25% internal rate of return — comparable to a high-performing equity investment but with zero volatility.",
+        ],
+      },
+      {
+        heading: "What the Calculator Does Not Include",
+        paragraphs: [
+          "The panel sizing tab assumes unshaded panels facing the optimal direction (north in the southern hemisphere, south in the northern hemisphere) at the optimal tilt angle. Shading from trees, neighbouring buildings, or the roof edge significantly reduces output and may require a string inverter to be replaced with microinverters or power optimisers at additional cost. Have a shading analysis done before finalising the design.",
+          "The ROI tab does not include maintenance costs (panel cleaning, inverter replacement at 10–15 years, battery replacement at 8–12 years for most lithium chemistries). For a complete ROI picture, add an annualised maintenance provision of 0.5–1% of system cost per year, and a battery replacement cost at year 10 if your system includes storage.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I find the peak sun hours for my location?",
+        a: "The most reliable source is the Global Solar Atlas (globalsolaratlas.info), which provides irradiance data in kWh/m²/day for any location — this figure directly equals peak sun hours per day. Alternatively, solar installers will have local data. For planning purposes: most of sub-Saharan Africa: 5–6, Australia: 4.5–6, southern Europe and southern US: 4.5–6, central Europe and northern US: 3–4.5, northern Europe: 2–3.",
+      },
+      {
+        q: "What panel wattage should I use in the sizing calculator?",
+        a: "Use the wattage of the specific panel your installer quotes, or use 400W as a planning default if you have not yet obtained quotes. Modern residential panels range from 400W to 550W. Using a higher wattage panel produces more energy per panel, so you need fewer panels for the same output — but the panels cost more each. The total system cost often ends up similar regardless of panel wattage.",
+      },
+      {
+        q: "What depth of discharge should I set for my battery?",
+        a: "For LFP (lithium iron phosphate) batteries — the current standard for residential solar: set DoD to 80–90%. Manufacturers typically warrant 80% DoD for their rated cycle life. For lead-acid batteries: use 40–50% DoD to prevent premature degradation. For NMC (nickel manganese cobalt) lithium: use 70–80%. Never use 100% DoD for planning — always leave a buffer.",
+      },
+      {
+        q: "Will my solar system still work during a power outage if I have no battery?",
+        a: "No. A grid-tied system without battery storage automatically shuts down during a power outage for safety reasons (to prevent the solar panels from back-feeding into the grid and injuring line workers). Only a hybrid or off-grid system with battery storage continues to operate independently during grid outages. If backup power during outages is your priority, batteries are essential.",
+      },
+      {
+        q: "What percentage of my electricity bill can solar realistically offset?",
+        a: "A well-designed grid-tied system can offset 60–90% of annual electricity consumption for a typical household. The offset is not 100% because solar produces nothing at night and less on overcast days, requiring grid power during those periods. With battery storage, the offset can reach 80–95% for most households. The ROI tab lets you adjust this percentage based on your specific situation.",
+      },
+      {
+        q: "How does annual tariff escalation affect the payback calculation?",
+        a: "Every percentage point of annual electricity tariff increase shortens the payback period because the value of self-generated electricity rises each year. At 0% escalation, payback depends entirely on current bill savings. At 8% annual escalation, the value of displaced electricity nearly doubles over 9 years, cutting the effective payback period by 20–30% compared to the simple calculation.",
+      },
+      {
+        q: "What causes real-world solar output to be lower than calculated?",
+        a: "The main factors: temperature (panels lose efficiency above 25°C — typically 0.4% per °C above rated temperature, meaning a 35°C panel temperature reduces output by 4%); soiling and dust on panels; partial shading from objects or roof features; inverter efficiency losses; wiring resistance; and panel-to-panel mismatch in a string. The system derate factor (default 0.80) captures the combined effect of all these.",
+      },
+      {
+        q: "Is it worth adding batteries to an existing panels-only solar system?",
+        a: "The financial case depends on your tariff structure and outage frequency. If you have significant time-of-use pricing (high peak rates, low off-peak), battery arbitrage — charging from cheap off-peak grid power and discharging during expensive peak hours — can generate returns. If your main driver is backup power, estimate the value of avoided outage disruption. Batteries added to an existing system typically have a longer payback (5–10 years) than panels alone.",
+      },
+    ],
+  },
+
+  electricity: {
+    title: "Home Electricity Calculator: Complete Guide",
+    intro: [
+      "The TrufflShuffl Home Electricity Calculator breaks your electricity bill into its component parts. The Appliance Cost tab identifies which devices are responsible for the largest share of your consumption. The UPS Runtime tab tells you exactly how long your battery backup will run during an outage under a specified load. The Geyser tab calculates the daily, monthly, and annual cost of heating your water, which is typically the single largest item on a residential electricity bill.",
+      "This guide explains how to use each tab, what each input means, and how to interpret the results. Understanding where your electricity goes is the first step to reducing your bill — and these three tools cover the three areas where the largest savings are typically found.",
+    ],
+    sections: [
+      {
+        heading: "Appliance Cost Tab: Finding Your Biggest Consumers",
+        paragraphs: [
+          "Start by entering your electricity tariff (the rate you pay per kWh, from your electricity bill). Then add each appliance: its wattage (found on the device label or in its manual), and the number of hours per day it runs. The calculator shows the daily, monthly, and annual cost for each appliance individually and as a total.",
+          "Wattage for variable-speed or thermostat-controlled appliances (fridges, air conditioners, geysers) is the peak or rated wattage, not the average. A fridge rated at 150W does not draw 150W continuously — its compressor cycles, and average consumption is typically 30–50% of the rated wattage. Use the appliance's actual annual kWh from its energy label for more accuracy, or divide that figure by 365 to get daily kWh.",
+          "The most impactful appliances to investigate are always thermal loads: anything that heats or cools. A 2000W bar heater running 5 hours a day uses 10 kWh — at a typical tariff this costs as much per day as all your LED lights running all day combined. Switching from resistive electric heating to a heat pump (4–5× more efficient) is the single highest-impact appliance change most households can make.",
+        ],
+      },
+      {
+        heading: "UPS Runtime Tab: Planning Your Backup Power",
+        paragraphs: [
+          "Enter the UPS capacity in VA (volt-amperes), the power factor (typically 0.6–0.8 for office-type UPS units; check the specs), the UPS efficiency (typically 85–95%), and the total wattage of connected loads. The calculator returns usable watts and estimated runtime.",
+          "The load input should be the combined wattage of everything you plan to connect during an outage: desktop PC (80–200W), monitor (20–40W), router (15–25W), a lamp (5–10W LED). Keep the connected load to 70% of the UPS's usable watts to allow for surge currents when devices start and to preserve battery health.",
+          "UPS batteries degrade significantly over 3–5 years. If your UPS is older, the actual runtime will be lower than the calculator shows because the battery can no longer hold its full rated charge. Most UPS units display a battery health indicator; if the battery is flagged for replacement, treat the calculator's output as the new-battery ideal rather than the current reality.",
+        ],
+      },
+      {
+        heading: "Geyser Cost Tab: Your Largest Single Appliance",
+        paragraphs: [
+          "Enter your geyser (hot water heater) tank size in litres, the element wattage (stamped on the element or visible in the settings, typically 2–4 kW), the cold water inlet temperature (15–20°C in most climates, lower in winter), the thermostat set temperature (typically 55–65°C), and your tariff. The calculator returns the energy to heat a full tank and the cost.",
+          "The formula is: Energy (kWh) = tank volume (litres) × 4.186 × temperature rise (°C) ÷ 3,600 ÷ element efficiency. For a 150-litre tank heating from 18°C to 60°C: 150 × 4.186 × 42 ÷ 3,600 = 7.32 kWh per heat-up cycle. At a typical tariff this is a significant daily cost — and if the geyser has poor insulation or is in a cold roof space, the cycle may repeat 2–3 times per day.",
+          "The most cost-effective geyser interventions are: installing a timer (heat only during off-peak tariff windows or before peak demand periods), insulating the geyser blanket and the first metre of hot water pipe (reduces standby losses by 30–40%), and reducing the thermostat temperature from 65°C to 55–60°C (saves 15–25% in heating energy with minimal practical impact on available hot water volume).",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I find the wattage of an appliance?",
+        a: "Check the label on the appliance, its manual, or its energy rating sticker. It may be expressed in watts (W) or kilowatts (kW). If you find the amps (A) and voltage (V), calculate wattage as W = V × A. For most countries: 230V (Europe, Africa, Australia, Asia) or 120V (US, Canada). A 10A appliance on a 230V supply draws 2,300W.",
+      },
+      {
+        q: "What does kWh mean and how does it relate to my bill?",
+        a: "A kilowatt-hour (kWh) is the energy used by a 1,000-watt device running for one hour. Your bill charges you per kWh consumed. To calculate the cost of any appliance: (watts ÷ 1000) × hours per day × days × tariff per kWh. A 2,000W heater running 4 hours per day for 30 days at $0.25/kWh = 2 × 4 × 30 × 0.25 = $60/month.",
+      },
+      {
+        q: "How long will a 1000VA UPS last with my PC and monitor?",
+        a: "A typical desktop PC draws 80–200W and a monitor 20–40W, so roughly 100–240W total. A 1000VA UPS with 0.7 power factor delivers approximately 700W usable. At 90% efficiency, that is 630W available. At a 150W load: 630 ÷ 150 = 4.2 hours theoretical. In practice, the battery may be older and partially degraded, so expect 2–3 hours for a typical setup.",
+      },
+      {
+        q: "What temperature should my geyser thermostat be set to?",
+        a: "55–60°C is the recommended range. Below 55°C there is a risk of Legionella bacteria growth in stored water (a health risk). Above 65°C is unnecessary and wastes energy, and poses a scalding hazard at the tap without a tempering valve. At 60°C most households have sufficient hot water and the geyser runs at near-optimal efficiency.",
+      },
+      {
+        q: "Will a geyser timer actually save money?",
+        a: "Yes, in two ways. First, if you have time-of-use tariffs, scheduling the geyser to run during off-peak (cheaper) hours directly reduces cost. Second, even on flat tariffs, a timer prevents the thermostat from cycling throughout the day to maintain temperature when no hot water is being drawn — reducing standby energy losses. A basic 24-hour mechanical timer costs very little and typically pays back within weeks.",
+      },
+      {
+        q: "How do I reduce my electricity bill by the most in the least time?",
+        a: "Focus on your three biggest consumers in order: (1) geyser — add a timer and insulation, consider a solar water heater; (2) space heating/cooling — switch from resistive heating to heat pump, improve insulation; (3) pool pump if applicable — reduce daily run hours and install a variable-speed pump. LED lighting upgrades have a lower impact than commonly believed because the energy saving per bulb is small — but they are easy and cumulative.",
+      },
+      {
+        q: "Is it worth upgrading to a heat pump water heater?",
+        a: "Generally yes, with a payback period of 2–5 years in most markets. A heat pump water heater uses 60–75% less energy than a resistive element geyser because it moves heat from the air rather than generating it directly. In warm climates (above 10°C ambient air temperature), heat pumps operate efficiently. In cold climates they are less efficient but still significantly better than resistive heating.",
+      },
+      {
+        q: "How accurate are the appliance wattage values I find online?",
+        a: "Wattage published online or in appliance databases is the rated peak wattage, which appliances rarely draw continuously. A washing machine rated at 2200W only draws that during the heating phase; it uses much less during the wash and spin cycle. For accurate cost calculation, a plug-in energy monitor (smart plug with power metering) measures actual consumption over a full usage cycle and is the most reliable method.",
+      },
+    ],
+  },
+
+  water: {
+    title: "Water Calculator: Complete Guide",
+    intro: [
+      "The TrufflShuffl Water Calculator covers three interconnected water planning tasks: estimating your household's daily water consumption and monthly bill, calculating the rainwater harvesting potential from your roof, and determining how long a water storage tank will last at your consumption rate. Used together, these three tools let you assess your water self-sufficiency and plan any combination of efficiency, harvesting, and storage interventions.",
+      "This guide explains each tab's inputs, the formulas behind the calculations, and how to apply the results to real water management decisions. The principles are universal and apply whether you are planning for drought resilience, calculating for an off-grid property, or simply trying to understand your water bill.",
+    ],
+    sections: [
+      {
+        heading: "Daily Usage Tab: Knowing Where Your Water Goes",
+        paragraphs: [
+          "Enter the number of people in your household, then adjust the daily usage for each category: shower duration and flow rate, toilet flushes per person per day, washing machine cycles per week, garden area and irrigation days, and an allowance for other uses (cooking, handwashing, dishwasher). The calculator totals these to give a daily household consumption in litres and an estimated monthly water cost based on your tariff.",
+          "Flow rates matter significantly. A standard shower head flows at 10–15 litres per minute; a low-flow head at 6–8 litres per minute. A 5-minute shower on a standard head uses 50–75 litres; on a low-flow head, 30–40 litres. This single fixture change, multiplied by every shower in the household every day, is often the highest-impact conservation intervention.",
+          "Compare the calculator's total to your water bill. If the calculated consumption is substantially lower than your billed consumption, the most likely explanation is a leak. A continuously running toilet wastes 200–400 litres per day invisibly. Verify by reading your water meter before and after a 2-hour period with zero water use — any movement indicates a leak.",
+        ],
+      },
+      {
+        heading: "Rainwater Harvesting Tab: Your Collection Potential",
+        paragraphs: [
+          "Enter your roof catchment area in m², your local annual rainfall in mm, and the collection efficiency of your system. The calculator returns monthly and annual collection volumes in litres.",
+          "Roof area for harvesting purposes is the plan area (footprint) of the roof, not the actual roof surface. A house with a 10m × 8m footprint has 80m² of catchment regardless of the roof pitch. The collection efficiency of 0.80 (default) accounts for evaporation from the roof surface, first-flush losses, and system inefficiencies. In practice, a well-maintained system with a first-flush diverter achieves 78–85% efficiency.",
+          "Local monthly rainfall data transforms this tab from an annual average into a seasonal planning tool. In climates with distinct wet and dry seasons, knowing that 70% of annual rain falls in 4 months tells you exactly how large a tank you need to bridge the dry season. Enter your monthly rainfall figures separately to see month-by-month collection estimates and identify the driest period your storage must cover.",
+        ],
+      },
+      {
+        heading: "Tank Sizing Tab: Storage Duration and Independence",
+        paragraphs: [
+          "Enter your tank capacity in litres and your daily household consumption. The calculator shows how many days the tank will sustain your household at that consumption rate — your 'days of independence' from external supply.",
+          "For urban households wanting resilience against supply interruptions: 3–7 days of storage (1,500–4,000 litres for a typical family) provides reasonable buffer against short outages. For off-grid or drought-resilient setups: size for your longest expected dry period between rain events, typically 30–90 days depending on climate, requiring 15,000–50,000 litres or more.",
+          "Tank sizing must be combined with the harvesting tab. If your roof harvests 4,000 litres per month and your household uses 6,000 litres per month, you have a 2,000-litre monthly deficit regardless of tank size — you will always need to supplement with municipal supply or reduce consumption. Tank sizing solves the timing mismatch between when rain falls and when you need water; it does not solve a supply deficit.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I find my household's average daily water consumption?",
+        a: "Check your water bill for the monthly consumption in kilolitres or cubic metres (1 kL = 1,000 litres). Divide by the number of days in the billing period to get daily usage, then divide by the number of people for per-capita usage. Alternatively, use the Daily Usage tab with your actual habits to estimate from first principles and compare the two figures.",
+      },
+      {
+        q: "What is a first-flush diverter and does my rainwater system need one?",
+        a: "A first-flush diverter discards the first portion of runoff from each rain event, which carries the dust, bird droppings, and debris accumulated on the roof since the last rain. For non-potable uses (garden, toilet flushing) it is optional but improves water quality. For potable rainwater systems, it is essential and is required by most health regulations. The rule of thumb is to divert 1 litre per 25m² of roof.",
+      },
+      {
+        q: "How much water does a garden irrigation system use?",
+        a: "A garden drip system uses approximately 2–4 litres per m² per watering session for established plants. Lawn sprinklers use 10–15 litres per m² per session. A 100m² lawn watered three times per week uses 3,000–4,500 litres per week — often more than the entire indoor consumption of the household. Switching to drought-tolerant plants and drip irrigation typically reduces garden water use by 50–70%.",
+      },
+      {
+        q: "Can I use rainwater for drinking?",
+        a: "Rainwater from clean roofs can be made potable with appropriate treatment: a first-flush diverter, particle filtration (at least 1 micron), and UV sterilisation or chlorination. Roofs with lead flashing, painted with lead paint, or with asphalt shingles may contaminate the water and require more extensive treatment. Regulations vary; some jurisdictions prohibit rainwater as a primary drinking water source. Always check local health and building codes.",
+      },
+      {
+        q: "What tank material is best for water storage?",
+        a: "Polyethylene (HDPE) tanks are the most common for residential use: lightweight, corrosion-resistant, and food-grade options are available. They must be opaque (black or dark-coloured) to prevent algae growth. For underground tanks, reinforced concrete or fibreglass/GRP is standard. Steel tanks lined with food-grade coating are used for larger capacities. Avoid galvanised steel in contact with drinking water due to zinc leaching.",
+      },
+      {
+        q: "How do I know if I have a water leak?",
+        a: "Read your water meter and then avoid using any water for 1–2 hours (including not flushing toilets). Read the meter again. Any movement indicates a continuous flow somewhere — almost certainly a leak. A dripping tap loses 20–150 litres per day; a running toilet 200–400 litres per day; a pressurised pipe leak underground can waste thousands of litres per day. The most common invisible leaks are in toilet cisterns — check by adding food colouring to the cistern and watching if it appears in the bowl without flushing.",
+      },
+      {
+        q: "How much water can I realistically collect from my roof each year?",
+        a: "Annual collection (litres) = roof area (m²) × annual rainfall (mm) × collection efficiency (0.80). A 120m² roof in an area with 600mm of annual rainfall at 80% efficiency: 120 × 600 × 0.80 = 57,600 litres per year — about 4,800 litres per month. Whether this is sufficient depends on your monthly consumption from the Daily Usage tab.",
+      },
+      {
+        q: "What is the minimum tank size for a family of four?",
+        a: "For 7-day backup at typical consumption of 150 litres per person per day: 4 people × 150 L × 7 days = 4,200 litres minimum. A 5,000-litre tank provides a comfortable buffer. For 30-day independence: 4 × 150 × 30 = 18,000 litres, requiring two to three standard 5,000–10,000-litre tanks. For primary supply rather than backup, size based on the dry period between rainfall events in your area.",
+      },
+    ],
+  },
+
+  construction: {
+    title: "Construction Calculator: Complete Guide",
+    intro: [
+      "The TrufflShuffl Construction Calculator covers four of the most frequently needed materials estimation tasks on a building project: concrete volume, brick count, excavation volume, and rebar weight. Getting these quantities right before you order saves money, prevents site delays, and gives you an accurate basis for comparing contractor quotes. Ordering 10% short means an emergency purchase at retail prices; ordering 20% too much means disposal costs and wasted budget.",
+      "This guide explains what each tab calculates, which inputs matter most, and where estimators commonly make mistakes. The formulas used align with standard quantity surveying practice and are applicable in any country regardless of units — the calculator handles both metric and imperial inputs.",
+    ],
+    sections: [
+      {
+        heading: "Concrete Tab: Volumes, Mix Ratios, and Wastage",
+        paragraphs: [
+          "Enter the pour dimensions: length, width, and depth. For slabs, this is straightforward. For footings, enter the cross-section width and depth and use the footing length as the 'length' input. For columns, enter the column cross-section dimensions and height, then multiply by the number of columns in the quantity field.",
+          "The volume result is the theoretical net volume. Always add a wastage allowance before ordering: 10% is standard for most residential pours. Pour into the wastage field or simply multiply the volume by 1.10. Wastage accounts for spillage, formwork variations, uneven sub-base, and the fact that ready-mix trucks cannot deliver the exact volume — they round to the nearest 0.5m³.",
+          "The mix tab shows quantities of cement, sand, and aggregate for a site-mixed approach. A 1:2:3 mix (1 part cement, 2 parts sand, 3 parts aggregate by volume) produces general-purpose concrete at approximately C20 strength — suitable for residential floor slabs, pathways, and non-structural elements. For driveways use a richer 1:1.5:3 mix (C25). For structural elements like beams, columns, and suspended slabs, always use an engineer-specified mix with a minimum C25 strength and have it supplied by a ready-mix plant.",
+        ],
+      },
+      {
+        heading: "Bricks Tab: Wall Areas, Openings, and Brick Rates",
+        paragraphs: [
+          "Enter the wall length and height to get the gross wall area, then subtract each door and window opening by entering their dimensions. The net brick area is the wall area minus all openings. Select the brick size and mortar joint width — the calculator applies the correct bricks-per-m² rate for that combination.",
+          "Standard metric brick (230 × 110 × 76mm) with 10mm joints gives 50 bricks per m² for a single-leaf (half-brick) wall. A double-leaf (full-brick) wall doubles this. Non-standard bricks (maxi, imperial, jumbo) have different courses-per-metre and therefore different per-m² rates — always confirm with your brick supplier before calculating.",
+          "Wastage for brickwork: 5% for straightforward walls with few openings. 7–10% for walls with multiple openings, corners, and cut bricks at the edges. 12–15% for decorative bond patterns (herringbone, diagonal, soldier course) that require more cutting. Round up to the nearest full-pallet quantity when ordering — bricks returned from site in good condition can usually be credited, while a short delivery causes work stoppages.",
+        ],
+      },
+      {
+        heading: "Excavation Tab: Volumes, Swell, and Truck Loads",
+        paragraphs: [
+          "Enter the excavation plan dimensions and depth. The calculator returns the in-situ volume (the volume of earth to be removed from the ground) and the bulked (expanded) volume after removal. Enter your soil type to apply the correct swell factor: clay 25–30%, sand 10–15%, mixed/loam 15–20%, soft rock 30–40%, hard rock 40–60%.",
+          "The bulked volume is what goes into the trucks — this is the critical figure for transport planning, not the in-situ volume. If you order truck disposals based on in-situ volume and your soil has a 25% swell, you will need 25% more truck trips than planned and incur proportionally higher disposal costs.",
+          "The truck load count assumes a standard-capacity tipper truck. Enter the actual capacity of the trucks being used (typically 5–10m³ for a small tipper, 10–16m³ for a medium rigid, and larger for multi-axle trucks) to get a realistic truck count. Add 10% to the truck count for delays, breakdowns, and site access limitations.",
+        ],
+      },
+      {
+        heading: "Rebar Tab: Diameter, Length, and Weight",
+        paragraphs: [
+          "Enter the bar diameter in millimetres, total length in metres, and quantity. The calculator uses the standard formula: weight (kg) = (diameter²/162) × length. For multiple bar sizes, add each as a separate entry and the calculator totals the weight. Rebar is ordered and priced by weight (kg or tonnes), so the total weight is the ordering quantity.",
+          "Add a wastage allowance of 10% to the calculated weight for laps, hooks, bends, and cutting offcuts. For complex reinforcement cages with many short bars and tight bends, increase the wastage to 12–15%. The total weight including wastage is what you order.",
+          "Bar mark schedules from structural drawings list each bar with its mark number, diameter, shape code, total length per bar, and quantity. Enter each mark separately into the calculator and sum the weights. This is the professional quantity surveying approach and ensures nothing is missed from the schedule.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I calculate concrete for a slab with a step-down?",
+        a: "Calculate each section separately as if it were a separate slab, then add the volumes. If the slab has a 100mm thick main area and a 300mm thick thickened edge beam, calculate the main area volume and the edge beam volume as a strip footing, then sum them. Add 10% wastage to the total.",
+      },
+      {
+        q: "What does '50 bricks per m²' mean for a double-skin wall?",
+        a: "50 bricks per m² applies to a single-skin (single-leaf, 110mm thick) wall. For a double-skin (full-brick, 220mm + mortar) wall you effectively have two single-leaf walls built side by side, so use 100 bricks per m² of wall face. For a cavity wall (two single skins with an air gap), calculate each skin separately at 50 bricks per m².",
+      },
+      {
+        q: "What is the difference between in-situ and bulked volume for excavation?",
+        a: "In-situ volume is the volume of earth as it sits in the ground, undisturbed. Bulked volume is the volume of that same soil once it has been excavated and loaded onto a truck — soil loosens when disturbed, occupying 10–60% more volume depending on soil type. In-situ volume tells you how big the hole is; bulked volume tells you how many truck loads to order.",
+      },
+      {
+        q: "How do I calculate the number of cement bags needed for a concrete pour?",
+        a: "For a standard 1:2:3 mix (one part cement, two parts sand, three parts aggregate by volume): approximately 8 x 50kg bags of cement per cubic metre of concrete. For a richer 1:1.5:3 mix: approximately 9–10 bags per m³. For 5m³ of 1:2:3 concrete: 5 × 8 = 40 bags of cement, plus approximately 0.55m³ of sand and 0.85m³ of aggregate per m³.",
+      },
+      {
+        q: "What is the formula for rebar weight?",
+        a: "Weight (kg) = diameter² ÷ 162 × length (m). For a 12mm diameter bar, 1 metre weighs 12² ÷ 162 = 144 ÷ 162 = 0.889 kg/m. For 100 metres of 12mm bar: 88.9 kg. Common weights: 6mm = 0.222 kg/m, 8mm = 0.395 kg/m, 10mm = 0.617 kg/m, 12mm = 0.888 kg/m, 16mm = 1.579 kg/m, 20mm = 2.469 kg/m.",
+      },
+      {
+        q: "Do I need an engineer for residential construction calculations?",
+        a: "For all structural elements — foundations, load-bearing walls, beams, suspended slabs, columns, and retaining walls over 600mm high — an engineer's design is required by building regulations in most countries. The Construction Calculator gives you material quantity estimates, not structural designs. Always work from an engineer's drawings for anything that bears load or affects building safety.",
+      },
+      {
+        q: "What swell factor should I use for Cape soil or black clay?",
+        a: "Expansive clays (black cotton soil, Uitenhage clay, Cape clay) have high swell factors in the 25–35% range. For planning purposes, use 30% for any dark clay soil. These soils also present significant structural risk due to volume change with moisture — excavations in expansive clay should be supervised by a geotechnical engineer to determine appropriate foundation design.",
+      },
+      {
+        q: "How much mortar do I need for brickwork?",
+        a: "A standard rule of thumb: approximately 55 litres of mortar per square metre of single-skin brickwork. For a 1:3 cement:sand mortar mix, that is approximately 15 litres of cement and 45 litres of sand per m². For 1,000 bricks in a standard wall, you need roughly 0.35m³ of mortar. Add 10–15% for waste and waste from the joint tooling.",
+      },
+    ],
+  },
+
+  fitness: {
+    title: "Fitness Calculator: Complete Guide",
+    intro: [
+      "The TrufflShuffl Fitness Calculator covers four tools that serious athletes and casual exercisers alike find invaluable: running pace conversion and race time prediction, cycling calorie estimation, heart rate training zone calculation, and one-repetition maximum (1RM) estimation for strength training. Each tab takes a different approach to quantifying your fitness performance and gives you numbers you can act on directly in your training.",
+      "This guide explains what each tab calculates, how to interpret the output, and how to apply the results to build more effective training plans. Whether you are targeting a marathon finish time, trying to understand your energy expenditure on the bike, or programming a strength training cycle, the numbers this calculator provides are the foundation of evidence-based training.",
+    ],
+    sections: [
+      {
+        heading: "Running Pace Tab: Speed, Splits, and Race Predictions",
+        paragraphs: [
+          "Enter a known performance — either a distance and a time, or a pace directly — and the calculator converts between pace formats (min/km and min/mile) and projects finish times across common race distances: 5km, 10km, half marathon (21.1km), and full marathon (42.2km). The race time projections use the Riegel fatigue formula, which accounts for the fact that you slow down proportionally more over longer distances.",
+          "The Riegel formula: T2 = T1 × (D2/D1)^1.06, where T1 is your known time for distance D1, and T2 is the projected time for distance D2. The exponent 1.06 captures the typical rate of fatigue increase with distance. If you run 5km in 25 minutes, the formula projects your 10km at approximately 51:45 (not 50:00), your half marathon at 1:55:00, and your full marathon at 4:00:00. Use these as planning targets, not guarantees — individual aerobic efficiency varies.",
+          "The required pace tab works in reverse: enter your goal finish time for a race distance and the calculator tells you what pace per kilometre you must sustain. Use this to set your GPS watch target pace for training runs and on race day. A common race strategy is to target a pace 5–10 seconds per km slower than your theoretical maximum in the first half, then accelerate if you feel strong.",
+        ],
+      },
+      {
+        heading: "Cycling Calories Tab: Energy Expenditure on the Bike",
+        paragraphs: [
+          "Enter your body weight, the duration of your ride, and the intensity level. The calculator uses the MET (Metabolic Equivalent of Task) method: calories = MET × weight (kg) × hours. MET values for cycling range from 4.0 (very light, <16 km/h) through to 16.0 (racing intensity, >32 km/h). The intensity selector applies the appropriate MET for each effort level.",
+          "For cyclists with power meters, the kilocalorie estimate is more precise: 1 kilojoule of mechanical work requires approximately 4 kcal of metabolic energy (assuming 25% mechanical efficiency, typical for a trained cyclist). One hour at 200W = 200 × 3,600 ÷ 1,000 = 720 kJ ≈ 720 kcal. Enter your average power and duration for this method.",
+          "Calorie estimates have significant individual variation — two riders of the same weight at the same speed can burn 15–20% different amounts of energy depending on fitness level, pedaling efficiency, and bike/rider aerodynamics. Use the estimates for fuelling planning and relative comparison between workouts, not as precise measurements.",
+        ],
+      },
+      {
+        heading: "Heart Rate Zones Tab: Training the Right System",
+        paragraphs: [
+          "Enter your age (for the 220-minus-age maximum heart rate estimate) and optionally your resting heart rate (for a more accurate Karvonen zone calculation). The calculator returns the five training zones in BPM and as percentages of maximum heart rate.",
+          "The 220-minus-age formula has significant individual variation: actual maximum heart rate can be 10–20 BPM above or below the estimate. For more accurate zones, perform a maximum heart rate test: after a proper warm-up, run or cycle at maximum effort for 2–3 minutes. The highest reading in the final 30 seconds approximates your true maximum.",
+          "Zone 2 (60–70% max HR) is the most important zone for building endurance base: this is the intensity at which fat oxidation is maximised and mitochondrial density increases most efficiently. Most recreational athletes spend too much time in Zone 3 (the 'grey zone' — too hard to be truly aerobic, not hard enough for performance benefits). Use your heart rate zones to ensure your easy days are genuinely easy.",
+        ],
+      },
+      {
+        heading: "One-Rep Max Tab: Estimating Your Strength Ceiling",
+        paragraphs: [
+          "Enter the weight lifted and the number of clean repetitions performed (to the point where another rep would fail). The calculator applies the Epley formula: estimated 1RM = weight × (1 + reps/30). It also shows standard training load percentages: the weight you should use for strength work (80–90% 1RM), hypertrophy (65–80%), and endurance (below 65%).",
+          "The formula is most accurate for rep ranges of 3–10. Above 10 reps, the estimate becomes less reliable because the limiting factor shifts more to muscular endurance than absolute strength. If you do a set of 15 reps, the estimated 1RM will typically be an overestimate. For best results, test with a weight you can lift for 3–6 repetitions.",
+          "Recalculate your 1RM estimate every 4–6 weeks as your strength improves, or after completing a training programme block. As the weight increases on your working sets, update the percentage-based prescription accordingly. Stale 1RM estimates lead to training at the wrong intensity — either too light to drive adaptation, or too heavy to complete the planned volume safely.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "What pace do I need to run a sub-2-hour half marathon?",
+        a: "A sub-2:00 half marathon requires completing 21.1km in under 120 minutes: 120 ÷ 21.1 = 5:41 per km (or 9:09 per mile). The Running Pace tab calculates this instantly from your target time. In practice, accounting for the first-kilometre warm-up and the fatigue curve, target 5:35–5:38 per km in training runs to have a buffer on race day.",
+      },
+      {
+        q: "How do I use heart rate zones to structure a week of training?",
+        a: "A polarised training model (proven effective for endurance athletes) allocates roughly 80% of weekly training volume in Zone 1–2 (easy aerobic) and 20% in Zone 4–5 (high intensity). The 'grey zone' (Zone 3) is used sparingly. Practically: 3–4 easy runs or rides per week in Zone 2, one tempo session in Zone 4, one interval session touching Zone 5, and one long easy effort in Zone 1–2.",
+      },
+      {
+        q: "Is it safe to estimate my 1RM without actually attempting a maximum lift?",
+        a: "Yes — the submaximal rep estimation method used here is the standard approach for most athletes. Attempting a true 1RM carries significant injury risk without a spotter and thorough warm-up, and is generally only appropriate for competitive powerlifters in a controlled environment. The estimated 1RM from 3–6 rep sets is accurate enough for programming and is far safer.",
+      },
+      {
+        q: "How many calories do I burn cycling 20km?",
+        a: "At a moderate recreational pace (20–25 km/h), a 75 kg rider burns approximately 300–400 kcal for 20km (roughly 45–60 minutes). At a brisk training pace (25–30 km/h), the same rider burns 400–500 kcal. Use the Cycling Calories tab with your actual weight, duration, and intensity for a more precise estimate.",
+      },
+      {
+        q: "Why does my running pace projection for a marathon seem slower than expected?",
+        a: "The Riegel formula uses an exponent of 1.06, which means pace degrades approximately 3–4% for each doubling of distance in a healthy runner. A 5km pace of 5:00/km projects to a marathon pace of approximately 5:43/km. This is a physiologically normal degradation — marathon performance requires a pacing strategy well below 5km race pace to manage glycogen depletion and thermoregulation over 42km.",
+      },
+      {
+        q: "What is the Karvonen method for heart rate zones?",
+        a: "The Karvonen method uses heart rate reserve (HRR) instead of maximum heart rate alone. HRR = max HR − resting HR. Zone percentage = resting HR + (target percentage × HRR). This produces more personalised zones because it accounts for individual cardiovascular fitness (fitter athletes have lower resting HRs). Enter your resting heart rate in the Heart Rate tab to use this method.",
+      },
+      {
+        q: "How often should I update my 1RM estimate?",
+        a: "Every 4–6 weeks as part of a training programme cycle. Most strength programmes are structured in 4–6 week blocks with a deload week before a new block starts. At the start of each new block, perform a rep-max test (3–5 reps at near-maximal effort) and recalculate. Alternatively, update whenever your working weights feel substantially easier than when you set the estimate.",
+      },
+      {
+        q: "What if my actual race time is much slower than the calculator predicts?",
+        a: "The Riegel formula assumes comparable aerobic conditioning at both distances. If your 5km time is from a flat, well-paced race but your marathon takes place on a hilly course, in heat, or if you went out too fast — your result will be slower than the prediction. The formula also does not account for specific race-distance training: a runner who only trains up to 15km may not achieve the predicted marathon time due to insufficient long-run adaptation.",
+      },
+    ],
+  },
+
+  pets: {
+    title: "Pet Calculator: Complete Guide",
+    intro: [
+      "The TrufflShuffl Pet Calculator helps pet owners with three tasks that come up constantly in everyday animal care: converting your pet's age to a meaningful human-equivalent figure, calculating the correct daily food portion based on the animal's weight and life stage, and determining medication doses by body weight. These are the calculations veterinary nurses perform routinely, and having them at your fingertips reduces the risk of under-feeding, over-feeding, or incorrect dosing.",
+      "This guide explains each tab's inputs, the science behind the calculations, and what you should — and should not — do with the results. The medication tab in particular provides reference information; it is not a substitute for veterinary advice, and prescription medications should always be dosed under professional guidance.",
+    ],
+    sections: [
+      {
+        heading: "Pet Age Tab: Beyond the 7-Year Myth",
+        paragraphs: [
+          "Select the species (dog or cat), the size category for dogs (small: under 10kg, medium: 10–25kg, large: 25–45kg, giant: over 45kg), and enter the pet's age in years. The calculator returns the human-equivalent age using a size-adjusted model for dogs and a standard feline aging model for cats.",
+          "For dogs, the model used is derived from epigenetic (DNA methylation) research rather than the oversimplified 7× rule. Dogs age very rapidly in their first two years — a 1-year-old dog is biologically equivalent to a human in their late twenties. After year 2, the aging rate slows and diverges significantly by size: a small breed dog at 15 years is roughly equivalent to a 74-year-old human, while a giant breed at the same age may be equivalent to a 93-year-old.",
+          "For cats, the standard feline equivalency model applies: a 1-year-old cat is approximately 15 in human years, a 2-year-old is 24, and each additional year adds approximately 4 human years. At 10 years, a cat is in its senior phase (equivalent to about 56 human years); at 15 years, it is a super-senior (approximately 76 human years). These figures explain why senior health checks become increasingly important for cats from 10 years onward.",
+        ],
+      },
+      {
+        heading: "Feeding Tab: Getting Portions Right for Your Individual Pet",
+        paragraphs: [
+          "Enter the pet's current weight, the target weight (for overweight animals, this should be the ideal weight, not the current weight — caloric target is based on ideal body weight to facilitate healthy weight loss), the life stage (puppy/kitten, adult, senior), and the caloric density of the food in kcal per 100g (found on the food packaging).",
+          "The calculator uses the Resting Energy Requirement (RER) formula: RER (kcal/day) = 70 × body weight (kg)^0.75, then multiplies by a life-stage activity factor. For adult dogs at rest: 1.6×; for adult dogs with moderate activity: 2.0×; for working dogs: 3.0×. For adult cats: 1.2× (sedentary) to 1.4× (active). Puppies and kittens use higher multipliers of 2.0–3.0× depending on age.",
+          "Body condition score (BCS) is the practical feedback tool — compare the calculated ration against what you observe on the animal. If you can easily see the ribs, increase the portion by 10%. If you cannot feel the ribs without pressing firmly, decrease by 10%. Adjust gradually over 2–4 weeks and reassess. Never change portions by more than 10–15% at once as this can cause digestive upset.",
+        ],
+      },
+      {
+        heading: "Medication Tab: Weight-Based Dose Reference",
+        paragraphs: [
+          "Enter the pet's body weight and the dose rate prescribed by the veterinarian or stated on the product label (in mg per kg of body weight). The calculator returns the total dose in mg and, if you enter the product concentration in mg/ml, the volume in ml to administer.",
+          "Common over-the-counter dose references included in the calculator (anti-parasitics, some anti-histamines, probiotics) are provided as general reference values. Always verify the dose against the product packaging, and never assume that the same molecule or product name dosed for one species is safe for another. Many dog medications are toxic to cats at any dose; some human medications are acutely toxic to both.",
+          "If your pet has been prescribed a compounded liquid medication with an unusual concentration, use the mg/ml field to get the correct volume. Liquid medications for small animals are often concentrated, and even a small dosing error (1ml instead of 0.5ml) can represent a dangerous 100% overdose for a 3–4kg cat. Use a graduated syringe, not a kitchen spoon.",
+        ],
+      },
+      {
+        heading: "When to See a Veterinarian",
+        paragraphs: [
+          "The Pet Calculator is a planning and reference tool, not a diagnostic or clinical resource. Use it to understand your pet's needs and provide accurate information to your veterinarian — weight, typical daily intake, and any medications being given. Never use the calculator to diagnose illness or adjust medications prescribed by your vet.",
+          "Weight loss or gain in a pet despite unchanged feeding is always a reason for a veterinary visit: it may indicate metabolic disease (thyroid problems, diabetes), dental pain, parasites, or other underlying conditions that require diagnosis and treatment. The feeding calculator assumes a healthy animal; sick animals have different caloric needs.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Why is the '7 dog years per human year' rule wrong?",
+        a: "The rule assumes linear aging, but dogs age fastest in their early years and more slowly later. A 1-year-old dog is sexually mature and physically adult — biologically equivalent to a human in their late twenties. The 7× rule would say 7 years, which is clearly wrong. The rate of equivalence also varies significantly by breed size: large breeds age faster than small breeds in later life, which the 7× rule completely ignores.",
+      },
+      {
+        q: "How do I know if my dog or cat is overweight?",
+        a: "Use the Body Condition Score (BCS) assessment. At ideal weight: you can feel (but not see) the ribs without pressing; there is a visible waist when viewed from above; there is a slight abdominal tuck when viewed from the side. Overweight: ribs require firm pressure to feel, no visible waist, no abdominal tuck, rounded abdomen. Obese: ribs cannot be felt even with pressure, obvious fat deposits on back and base of tail.",
+      },
+      {
+        q: "How do I calculate the caloric density of my pet's food?",
+        a: "It should be printed on the packaging as kcal/kg or kcal per cup/per 100g. If not listed, it can often be found on the manufacturer's website. If you cannot find it, use a typical value: premium dry dog food is approximately 350–400 kcal/100g; standard dry food is 310–360 kcal/100g; wet food is typically 80–120 kcal/100g due to its high moisture content.",
+      },
+      {
+        q: "At what age should I switch from puppy to adult food?",
+        a: "Small breeds (under 10kg adult): 9–12 months. Medium breeds (10–25kg): 12 months. Large breeds (25–45kg): 12–18 months. Giant breeds (over 45kg): 18–24 months. Switching too early deprives a growing puppy of nutrients. Staying on puppy food too long for a large breed puppy can provide excess calcium, increasing the risk of developmental orthopaedic disease. Use the Feeding tab with 'puppy' life stage selected until the appropriate switch age.",
+      },
+      {
+        q: "Can I give my cat a medication prescribed for my dog?",
+        a: "Never, without explicit veterinary instruction. Cats lack certain liver enzymes that metabolise many compounds, making drugs safe for dogs acutely toxic to cats. Paracetamol (acetaminophen) is lethal to cats; aspirin is toxic at dog doses; many NSAIDs and antiparasitics are dangerous or fatal. Always confirm with your vet before giving any animal a medication not specifically prescribed for that individual animal.",
+      },
+      {
+        q: "How accurate is the feeding calculator for my specific pet?",
+        a: "The RER-based calculation is accurate to within ±20% for most healthy animals. Individual variation in metabolic rate, activity level, and body composition means some animals need 20% more and some 20% less than the formula suggests. Treat the result as a starting point and adjust based on your pet's BCS over a 4–6 week period. Animals that gain weight despite the calculated ration have a lower metabolic rate and need less; those that lose weight on the calculated ration need more.",
+      },
+      {
+        q: "Why is my cat's 'human age' so much higher than I expected?",
+        a: "Cats reach physiological adulthood (sexually mature, full adult organs) within their first year. A 1-year-old cat is equivalent to a late-teenager or young adult in human development terms, not a 7-year-old (which the 7× rule would suggest). The equivalencies jump quickly in years 1–2 then slow: 1 year ≈ 15 human years, 2 years ≈ 24, each subsequent year ≈ 4 human years.",
+      },
+      {
+        q: "What is the safest way to give liquid medication to a cat?",
+        a: "Use a graduated syringe (provided with most liquid medications). Draw up the exact prescribed volume. Hold the cat gently but securely with its body supported. Insert the syringe tip into the corner of the mouth (between the back teeth and cheek). Administer the liquid slowly in small amounts, allowing the cat to swallow between each. Follow immediately with a small amount of food or a treat to ensure the medication is swallowed and does not linger and cause oral irritation.",
+      },
+    ],
+  },
+
+  food: {
+    title: "Food & Cooking Calculator: Complete Guide",
+    intro: [
+      "The TrufflShuffl Food and Cooking Calculator brings precision to four areas of kitchen craft that most cooks handle intuitively but inconsistently: scaling recipes for different serving sizes, dialling in coffee brew ratios, timing meat on the braai or BBQ, and calculating bread dough hydration. For home cooks, these tools replace guesswork with reproducible results. For anyone who cooks for a crowd, a catering event, or a commercial kitchen, they are essential for consistent quality at scale.",
+      "This guide explains what each tab calculates, how to enter your inputs accurately, and the principles that make the math work. Understanding the underlying logic helps you know when to apply the calculator directly and when to use your own judgement to adjust the output.",
+    ],
+    sections: [
+      {
+        heading: "Recipe Scaling Tab: Adjusting Recipes for Any Yield",
+        paragraphs: [
+          "Enter the original serving count, the target serving count, and the ingredients with their original quantities and units. The calculator scales all ingredient quantities by the ratio (target ÷ original) and converts units where appropriate. The scaling factor is shown so you can apply it manually to any ingredients not listed.",
+          "Most ingredients scale linearly: double the servings, double the meat, vegetables, and liquid. However, three categories require special treatment. Leavening agents (baking powder, baking soda, yeast) should be scaled at 75% of the linear factor when doubling, and at 60–70% when quadrupling — too much leavening produces a metallic taste and a collapsed crumb. Salt can scale linearly but taste and adjust near the end of cooking. Spices and aromatics in large-batch cooking often need only 70–80% of the linear scale because extraction efficiency increases with volume.",
+          "Cooking time does not scale with quantity. A doubled batch in the same pan takes longer to cook; the same batch in a wider pan may take less time. The calculator does not adjust cooking times — this requires recipe-specific knowledge and practical experience. The key rule: check for doneness at the original cooking time and extend if needed, rather than automatically doubling the time.",
+        ],
+      },
+      {
+        heading: "Coffee Ratio Tab: Precision Brewing",
+        paragraphs: [
+          "Enter the brew method, the amount of coffee you want to make in ml, and your preferred coffee-to-water ratio. The calculator returns the exact coffee dose in grams. The Specialty Coffee Association (SCA) reference ratio of 60g per litre (1:16.7) is the default, with presets for common methods.",
+          "The ratio expresses how many grams of water per gram of coffee: 1:15 means 15g of water for every 1g of coffee (strong), 1:17 means 17g of water per 1g of coffee (lighter). Espresso is an outlier at approximately 1:2 (18g of coffee to 36g of espresso output). The higher the second number, the more water relative to coffee — a more dilute, lighter brew.",
+          "Weight-based measurement is significantly more consistent than volume measurement. Coffee grounds vary in density by 10–30% depending on grind size and roast level, so a volumetric tablespoon can deliver very different brew strengths between grind settings. Using a kitchen scale for both coffee and water eliminates this variable. Even a basic 0.1g-resolution kitchen scale costing very little transforms brew consistency.",
+        ],
+      },
+      {
+        heading: "Braai/BBQ Tab: Temperature Over Time",
+        paragraphs: [
+          "Select the meat type and cut, enter the weight, and choose your target doneness. The calculator returns an estimated cooking time for both direct heat (thin cuts: chops, steaks, sausages, burgers) and indirect heat (thick cuts: whole chicken, whole leg of lamb, roasts). Target internal temperatures are shown for each doneness level.",
+          "These are estimates based on standard fire temperatures (approximately 180–220°C for direct, 150–180°C for indirect/low-and-slow). Fire temperature, meat starting temperature, and your specific braai/grill design all affect actual cooking time. The only reliable way to achieve target doneness consistently is an instant-read digital thermometer inserted into the thickest part of the meat, away from bone.",
+          "Resting is not optional for thick cuts. After removing from heat, tent with foil and rest for 5 minutes (steaks), 10–15 minutes (whole chicken thighs and portions), or 20–30 minutes (whole roasts and legs). During resting, residual heat equalises throughout the meat and juices that migrated to the centre during cooking redistribute — cutting immediately causes significant juice loss.",
+        ],
+      },
+      {
+        heading: "Bread Hydration Tab: The Baker's Percentage System",
+        paragraphs: [
+          "Enter the flour weight in grams and the water weight in grams. The calculator returns the hydration percentage (water ÷ flour × 100) and optionally shows the baker's percentage for other ingredients if you add them. The baker's percentage system expresses all ingredients as a percentage of the flour weight, making recipe comparison and scaling straightforward regardless of batch size.",
+          "Hydration ranges and their typical applications: 55–65% (stiff dough): bagels, pretzels, pizza with tight crumb; 65–75% (medium dough): sandwich bread, most sourdoughs, ciabatta; 75–85% (high hydration): open-crumb artisan sourdough, focaccia, wet-style baguettes; 85%+ (very high): requires strong technique, produces extremely open crumb in skilled hands.",
+          "Different flours absorb different amounts of water. Whole wheat and rye absorb 5–10% more water than white bread flour at the same hydration because of their fibre content. All-purpose flour absorbs slightly less water than bread flour. If you substitute one flour for another in a recipe, you may need to adjust water to maintain the same dough consistency even if the percentage stays the same on paper.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Why can't I just double all ingredients including baking powder?",
+        a: "Chemical leavening works by producing gas in proportion to the batter volume, not just the batter mass. When you double a recipe, the volume doesn't exactly double — it depends on pan size and batter depth. Using the full doubled amount of baking powder produces too much gas, which causes the structure to set before it can rise properly, then collapse. Scale leavening at 75% of the linear factor when doubling, and taste for saltiness separately.",
+      },
+      {
+        q: "What is the correct coffee ratio for a French press?",
+        a: "The SCA reference is 60g per litre (1:16.7), which works well for French press. Many dedicated French press users prefer a slightly stronger 1:14 to 1:15 ratio (67–71g per litre) because French press immersion extraction is less efficient than pour-over. Enter your target volume and a 1:14 or 1:15 ratio in the Coffee tab to get your dose in grams.",
+      },
+      {
+        q: "What internal temperature should lamb chops reach?",
+        a: "For lamb: medium-rare = 57°C (135°F), medium = 63°C (145°F), well done = 71°C (160°F). Lamb at medium-rare to medium is the standard in most culinary traditions (pink inside, with a browned crust). Well-done lamb is very dry and is not recommended. Use an instant-read thermometer inserted horizontally through the side of the chop to measure the thickest point.",
+      },
+      {
+        q: "What hydration percentage should a beginner bread baker start with?",
+        a: "65–70% is the recommended starting range. The dough is workable without being too sticky to shape, produces a decent open crumb, and behaves predictably through the bulk fermentation and shaping stages. Once you are comfortable with the shaping technique, increase to 72–75% to develop a more open crumb. High-hydration (75%+) doughs require developed gluten structure and confident handling to avoid sticking and spreading.",
+      },
+      {
+        q: "How do I use the recipe scaling calculator for catering?",
+        a: "Enter the recipe's original yield, then enter your target number of servings. The scaling factor (shown in the output) applies to all measured ingredients. For large-scale catering, remember: leavening and spices scale at 70–80% of the factor; cooking times do not scale; pan sizes must be increased proportionally (a recipe scaled 4× requires 4 pans the same size as the original, or 1 pan with 4× the area); cooling and holding requirements change with larger masses.",
+      },
+      {
+        q: "Is it accurate to estimate braai/BBQ cooking times by weight?",
+        a: "Thickness is actually more accurate than weight for cooking time estimation. Two chicken breasts weighing the same can cook at different rates if one is butterflied flat and the other is left whole. The calculator uses weight as a proxy because it's easier to measure, but always treat the output as an estimate and verify with a thermometer. For thick pieces, check internal temperature 10 minutes before the estimated time.",
+      },
+      {
+        q: "What does baker's percentage mean?",
+        a: "Baker's percentage expresses every ingredient as a percentage of the total flour weight, not the total recipe weight. Flour is always 100%. Water at 70% hydration means 70g of water per 100g of flour. Salt at 2% means 2g of salt per 100g of flour. This system makes it easy to scale any recipe: just change the flour amount and multiply every other ingredient by the same percentage. A recipe with 1kg of flour at 70% hydration uses 700g of water; at 500g of flour it uses 350g of water.",
+      },
+      {
+        q: "Can I use volume measurements instead of grams for the bread hydration calculator?",
+        a: "The calculator requires weights because volume measurements for flour are notoriously inaccurate. A cup of flour can range from 120g to 170g depending on whether it was sifted, spooned loosely, or packed. Hydration percentage calculated from volume is meaningless because the baseline (flour weight from a volume measurement) is too variable. Invest in a kitchen scale — it is the single most impactful tool upgrade for baking.",
+      },
+    ],
+  },
+
+  education: {
+    title: "Education Calculator: Complete Guide",
+    intro: [
+      "The TrufflShuffl Education Calculator provides three practical tools for students managing their academic performance: a GPA calculator that works with multiple credit-weighted subjects, a final exam score calculator that tells you exactly what you need on an upcoming exam to hit your overall target, and a study hours planner that allocates your available time across subjects based on their relative weight. Together, these tools replace academic anxiety with a concrete plan.",
+      "This guide explains how each tab works, what the inputs mean, and how to interpret and act on the outputs. The tools apply equally to school, college, and university systems — the underlying mathematics is the same regardless of the grading scale or credit system your institution uses.",
+    ],
+    sections: [
+      {
+        heading: "GPA Tab: Calculating Your Grade Point Average",
+        paragraphs: [
+          "Add each subject (course) with its credit weight and grade. Select your institution's grading scale (US 4.0, UK, South African percentage, Australian 7-point, or custom) and the calculator returns the weighted GPA. Credits ensure that a 4-credit course contributes twice as much to the GPA as a 2-credit course.",
+          "The formula is: GPA = Σ(grade points × credits) ÷ Σ(credits). If you have an A (4.0) in a 4-credit course and a C (2.0) in a 2-credit course: GPA = (4.0×4 + 2.0×2) ÷ (4+2) = (16+4) ÷ 6 = 3.33. An unweighted average of the two grades would be (4.0+2.0) ÷ 2 = 3.0 — less accurate because it ignores the difference in credit weight.",
+          "The 'scenario planning' function lets you add future courses with anticipated grades. This shows you what GPA you will have after the current semester depending on your performance, and how far above or below your target you land. Use this to identify which subjects you need to prioritise to move the needle on your cumulative GPA.",
+        ],
+      },
+      {
+        heading: "Final Exam Tab: What Score Do You Need?",
+        paragraphs: [
+          "Enter your current grade (continuous assessment/coursework average), the weight of that continuous assessment as a percentage, and your target overall grade. The calculator returns the minimum exam score required and tells you if the target is mathematically possible given the maximum exam score of 100%.",
+          "The formula: Required exam score = (Target overall − Current grade × CA weight) ÷ Exam weight. Example: you have 62% in coursework (weighted 60%), you need 65% overall, and the exam counts for 40%: required exam = (65 − 62 × 0.60) ÷ 0.40 = (65 − 37.2) ÷ 0.40 = 69.5%. You need approximately 70% on the exam to achieve 65% overall.",
+          "When the required score exceeds 100%, your target is mathematically impossible — the calculator flags this clearly so you can adjust your expectations and focus your energy on other subjects. This is not a reason to give up: a lower target may still be achievable, and finishing the exam with a strong performance preserves GPA for future terms.",
+        ],
+      },
+      {
+        heading: "Study Hours Tab: Planning Your Time Across Subjects",
+        paragraphs: [
+          "Enter your total available study hours, the number of subjects, and optionally the relative weight (credit count or exam weight) of each subject. The calculator allocates hours proportionally and produces a daily study schedule based on your target start date and the number of hours per day you can commit.",
+          "A standard guideline: for each credit hour of course contact time, plan 2–3 hours of independent study per week. For a 3-credit course meeting 3 hours per week, that is 6–9 additional hours of study per week during semester. For exam preparation in the final 2–3 weeks, add 10–20 hours per major subject on top of the regular study allocation.",
+          "Research on learning consistently shows that spaced repetition outperforms massed practice (cramming). Plan study sessions of 45–90 minutes with short breaks, spread across multiple days, rather than marathon sessions. The planner's daily schedule reflects this — it shows you how to distribute time over the available days rather than concentrating everything at the end.",
+        ],
+      },
+      {
+        heading: "Recovering From a Bad Result",
+        paragraphs: [
+          "Use the GPA tab to model the impact of a poor semester. A student with a 3.5 cumulative GPA after 60 credits who earns a 2.5 semester GPA on 15 credits will have a cumulative GPA of: (3.5×60 + 2.5×15) ÷ 75 = (210+37.5) ÷ 75 = 3.3. This models the mathematical reality: early strong performance provides a buffer that partially absorbs a bad semester. As total credits increase, recovering a bad result becomes harder because more credits are needed to shift the average.",
+          "Check your institution's grade replacement, grade forgiveness, or retake policies before deciding to repeat a course. Some institutions replace the original grade in GPA calculations; others average all attempts. Some have one-time academic forgiveness provisions. Understanding the policy determines whether retaking a course will improve or have no effect on your calculated GPA.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "What GPA do I need to keep my scholarship?",
+        a: "Most merit scholarships require a minimum cumulative GPA of 3.0 (B average on a 4.0 scale) for renewal, with some requiring 3.3–3.5 for highly competitive awards. Check your scholarship's specific conditions — some also require minimum credits per semester or prohibit taking courses pass/fail. Use the GPA scenario planner to identify the minimum grades needed in each subject to maintain the required average.",
+      },
+      {
+        q: "How do I calculate GPA from percentage marks?",
+        a: "Convert each percentage to a grade point using your institution's scale. A common South African university conversion: 75–100% = 7 (excellent), 70–74% = 6 (meritorious), 60–69% = 5 (credit), 50–59% = 4 (adequate), 40–49% = 3 (elementary), 33–39% = 2 (subminimum), below 33% = 1 (fail). The calculator supports custom scales if your institution uses different cut-offs.",
+      },
+      {
+        q: "What if my required exam score is above 100%?",
+        a: "Your target overall grade is mathematically impossible given your current coursework mark. The best response is to set a more realistic target using the same calculator — find the highest achievable overall mark (when exam score = 100%). Then focus on achieving the highest possible exam performance rather than the original target. Exam performance also demonstrates academic capability independent of the final grade.",
+      },
+      {
+        q: "How many study hours per day is productive?",
+        a: "Research on deliberate practice and cognitive load suggests a ceiling of 4–6 hours of high-quality, focused study per day beyond which retention and concentration decline. Beyond this, additional study hours produce diminishing returns. Quality matters more than quantity: studying with full attention and active retrieval for 4 hours outperforms passive re-reading for 8 hours. The Study Hours planner allocates realistic daily hours within this range.",
+      },
+      {
+        q: "Should I allocate more study time to my weakest subjects?",
+        a: "Allocate time proportionally to both subject credit weight and your current performance gap. A heavily weighted subject where you are close to passing deserves priority over a lightly weighted subject where you are comfortably passing. The study planner allows you to weight subjects — use a combination of credit weight and your perceived difficulty gap for each course.",
+      },
+      {
+        q: "What is the difference between semester GPA and cumulative GPA?",
+        a: "Semester GPA covers only the courses taken in one term. Cumulative GPA (CGPA) averages all courses across all completed semesters, weighted by credits. A weak semester GPA has a larger proportional impact when your total credit count is low. As total credits accumulate, a single semester's impact on the cumulative average diminishes. Graduate schools and employers typically request cumulative GPA.",
+      },
+      {
+        q: "How much does one failed subject affect my GPA?",
+        a: "It depends on the credit weight of the subject and your total credits. On a 4.0 scale, failing (0.0) a 4-credit course in a 60-credit cumulative GPA of 3.5 changes the cumulative GPA to: (3.5×60 + 0.0×4) ÷ 64 = 210 ÷ 64 = 3.28. The impact is larger if the failed subject carries more credits or if your total credit count is lower. Use the GPA tab to model the exact impact of a fail in any scenario.",
+      },
+      {
+        q: "Is there a minimum study time that guarantees passing?",
+        a: "No — there is no universal minimum, and the relationship between study hours and marks is nonlinear. Factors that matter more than hours: quality of study (active retrieval vs passive reading), prior knowledge of the subject, clarity of the material, exam technique, and performance under exam conditions. The Study Hours planner helps you ensure sufficient time allocation across subjects; what you do with that time determines the outcome.",
+      },
+    ],
+  },
+
+  engineering: {
+    title: "Engineering Calculator: Complete Guide",
+    intro: [
+      "The TrufflShuffl Engineering Calculator covers three fundamental electrical and mechanical calculations: Ohm's Law (the relationship between voltage, current, resistance, and power), cable voltage drop (with reference to standard wiring codes), and torque from force and lever arm. These are the calculations that electricians, engineers, technicians, and makers perform constantly — and getting them right is the difference between a system that works safely and one that trips, overheats, or fails mechanically.",
+      "This guide explains every input on each tab, the formulas used, and how to interpret and apply the results. The voltage drop calculator is particularly noteworthy: it cross-references standard wiring codes (including SANS 10142 for South Africa, and IEC 60364 for international use) and tells you whether your cable selection is within the permitted limits.",
+    ],
+    sections: [
+      {
+        heading: "Ohm's Law Tab: The Foundation of Circuit Analysis",
+        paragraphs: [
+          "Select the unknown quantity (voltage V, current I, resistance R, or power P), then enter the two known values. The calculator solves for all four quantities simultaneously. This is useful for component selection, circuit troubleshooting, and understanding the relationship between any two electrical parameters.",
+          "The core relationships: V = I × R (voltage equals current times resistance). P = V × I = I² × R = V² ÷ R (power in watts is the product of voltage and current). From any two known values, all four can be derived. Common uses: selecting a resistor to limit current to a specific value (R = V ÷ I), calculating the power dissipated in a resistor (P = I² × R), or checking whether a wire's resistance will cause a significant voltage drop (V_drop = I × R_wire).",
+          "The tab assumes DC or single-phase AC with a resistive load. For AC circuits with inductive or capacitive loads (motors, transformers, capacitor banks), impedance (Z) replaces resistance in the formula. Impedance is the vector sum of resistance and reactance; for simple resistive loads at mains frequency, R and Z are approximately equal.",
+        ],
+      },
+      {
+        heading: "Voltage Drop Tab: Ensuring Compliance and Safety",
+        paragraphs: [
+          "Enter the supply voltage, circuit current (load amps), cable conductor cross-sectional area (mm²), conductor material (copper or aluminium), single cable length in metres, and circuit type (single-phase or three-phase). The calculator returns the voltage drop in volts and as a percentage of supply voltage, and indicates whether the result complies with the applicable standard.",
+          "Most electrical codes specify a maximum voltage drop of 3% for lighting circuits and 5% for power circuits, measured from the distribution board (consumer unit) to the load. For a 230V supply: 3% = 6.9V, 5% = 11.5V. The voltage drop calculator cross-references these limits against your inputs and flags any non-compliant cable selection.",
+          "The formula: Voltage drop (V) = 2 × I × L × ρ ÷ A, where I is current (A), L is cable length (m), ρ is resistivity (copper: 0.0171 Ω·mm²/m, aluminium: 0.0282 Ω·mm²/m), and A is conductor cross-sectional area (mm²). The factor of 2 accounts for both the outgoing and return conductors in a single-phase circuit. For three-phase balanced circuits, the factor is √3 ≈ 1.732.",
+          "If the result exceeds the code limit, the calculator suggests the minimum conductor size required to comply. This is particularly important for long cable runs: a 30-metre run in a workshop at 15A on a 2.5mm² conductor may exceed the 3% limit, requiring an upgrade to 4mm² or 6mm² for compliance.",
+        ],
+      },
+      {
+        heading: "Torque Tab: Force, Lever Arm, and Tightening Specifications",
+        paragraphs: [
+          "Enter the force applied (in Newtons) and the lever arm length (in metres — the perpendicular distance from the pivot point to the line of force). The calculator returns torque in Newton-metres (Nm) and the equivalent in kilogram-metres (kg·m) and foot-pounds (ft·lb) for reference.",
+          "Torque is used in two main contexts for engineering calculations: determining the tightening torque for bolts and fasteners (to achieve the correct clamping force without yielding the bolt), and calculating the rotational force produced or required by motors, gearboxes, and levers. The calculator addresses the first context directly; motor torque calculations require additional input (speed, power).",
+          "For bolted joints, the relationship between torque and clamping force is: T = K × d × F, where K is the nut factor (approximately 0.15–0.20 for clean, dry steel; 0.12–0.15 for lubricated), d is bolt nominal diameter (m), and F is the desired clamping force (N). The torque tab can be used in reverse: enter a torque specification and a bolt diameter, and solve for the implied clamping force.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I use Ohm's Law to select a resistor?",
+        a: "Identify the supply voltage (V), the desired current through the resistor (I), and calculate R = V ÷ I. Then calculate the power dissipation: P = I² × R, and select a resistor rated for at least twice the calculated power to ensure a safety margin. Example: limiting LED current to 20mA from a 12V supply with a 2V LED: R = (12−2) ÷ 0.02 = 500Ω; select the nearest standard value (470Ω or 510Ω); power = 0.02² × 500 = 0.2W; use a 0.5W resistor.",
+      },
+      {
+        q: "What cable size do I need for a 20A circuit over 25 metres?",
+        a: "For a 230V single-phase circuit at 20A over 25m, the voltage drop on 2.5mm² copper is: 2 × 20 × 25 × 0.0171 ÷ 2.5 = 6.84V = 2.97% of 230V. This is just within the 3% limit for lighting but tight for a power circuit (5% limit gives more headroom). For comfortable compliance, use 4mm²: drop = 2 × 20 × 25 × 0.0171 ÷ 4 = 4.28V = 1.86%.",
+      },
+      {
+        q: "What is the difference between voltage drop and power loss?",
+        a: "Voltage drop (in volts) is the reduction in voltage from source to load due to cable resistance. Power loss (in watts) is the energy dissipated as heat in the cable: P_loss = I² × R_cable. A cable carrying 20A with 0.5Ω total resistance (both conductors) has a voltage drop of 20 × 0.5 = 10V and a power loss of 20² × 0.5 = 200W — heat generated in the cable that is pure energy waste.",
+      },
+      {
+        q: "Why does the voltage drop formula multiply by 2?",
+        a: "Current flows through the live conductor to the load and returns through the neutral conductor. Both conductors have resistance and contribute to the total voltage drop. For a single cable of length L, the total conductor length in the circuit is 2L. For three-phase balanced circuits, the return path is shared among phases (vector addition) so the factor becomes √3 rather than 2.",
+      },
+      {
+        q: "What is the SANS 10142 voltage drop limit?",
+        a: "SANS 10142-1 (South African National Standard for electrical installations) specifies a maximum voltage drop of 3% from the main distribution board to the final circuit for lighting, and 5% for other final circuits (power outlets, appliances). These are measured under full load conditions. The calculator applies these limits when South Africa is selected as the jurisdiction.",
+      },
+      {
+        q: "How do I convert between torque units?",
+        a: "1 Nm = 0.1020 kg·m = 0.7376 ft·lb = 8.851 in·lb. The Torque tab shows the result in all three major units simultaneously. Torque specifications on fasteners in automotive and industrial applications are usually in Nm (European/metric) or ft·lb (US). Workshop manuals for imported equipment may use either; always convert before applying a torque wrench.",
+      },
+      {
+        q: "Does aluminium cable require a larger size than copper for the same current?",
+        a: "Yes. Aluminium has approximately 61% of copper's electrical conductivity, meaning an aluminium conductor must have approximately 1.6× the cross-sectional area of copper to carry the same current with the same voltage drop. A 16mm² aluminium conductor is roughly equivalent to a 10mm² copper conductor. Aluminium is also lighter and cheaper per metre, which is why it is used for large service entrance cables where weight and cost per metre are significant.",
+      },
+      {
+        q: "What happens if voltage drop exceeds the permitted limit?",
+        a: "Excessive voltage drop causes connected equipment to operate below its rated voltage: motors run hotter and may trip on thermal overload; LED drivers may flicker or operate outside their tolerance; sensitive electronics may malfunction or be damaged. Long-term operation under low voltage reduces equipment lifespan. Beyond the practical effects, exceeding code limits makes the installation non-compliant and may affect insurance cover and legal liability in the event of a fault.",
+      },
+    ],
+  },
+
+  environment: {
+    title: "Environmental Calculator: Complete Guide",
+    intro: [
+      "The TrufflShuffl Environmental Calculator makes your personal environmental impact tangible through three interconnected tools: a carbon footprint calculator that quantifies your greenhouse gas emissions from daily life, a tree offset calculator that shows how many trees you would need to plant to neutralise a given amount of CO₂, and a water footprint calculator that reveals the embedded water in your diet and lifestyle choices. These numbers transform abstract environmental concepts into a personal starting point for action.",
+      "This guide explains how each tab works, what the emission factors and footprint data behind the calculations are based on, and how to interpret and act on the results. The calculator is designed for awareness and planning — not guilt. The most useful outcome is identifying the one or two changes in your life that have the biggest impact.",
+    ],
+    sections: [
+      {
+        heading: "Carbon Footprint Tab: Measuring Your Climate Impact",
+        paragraphs: [
+          "Enter your annual data for each category: vehicle kilometres driven (and fuel type), domestic and international flights (as return trip equivalents), home electricity consumption (kWh/month), home heating fuel type and consumption, diet type, and an estimate for goods and services consumption. The calculator applies standard emission factors to each category and returns your total annual footprint in tonnes of CO₂ equivalent (tCO₂e).",
+          "Emission factors come from internationally recognised sources (IPCC, DEFRA, EPA). They vary by country for grid electricity (a country running on renewables has a much lower emission factor per kWh than one relying on coal), but use global averages where country-specific data is not entered. The most significant factors: one passenger kilometre of economy class air travel ≈ 0.15–0.25 kgCO₂e; one km driven in a typical petrol car ≈ 0.12–0.18 kgCO₂e; one kWh of electricity varies from near-zero (Iceland) to over 1 kgCO₂e (coal-heavy grids).",
+          "Diet is a major and often underestimated contributor. A meat-heavy diet (red meat daily) has a carbon footprint of approximately 3.3 tCO₂e per year from food alone; a vegetarian diet drops to around 1.7 tCO₂e; a vegan diet to 1.5 tCO₂e. The difference between a meat-heavy and plant-based diet is roughly equivalent to driving an average car for 5,000–6,000 km per year.",
+        ],
+      },
+      {
+        heading: "Tree Offset Tab: What a Tree Actually Absorbs",
+        paragraphs: [
+          "Enter the amount of CO₂ to offset in tonnes, the tree species type (tropical fast-growing, temperate, or mixed), and the time horizon in years. The calculator returns the number of trees needed to sequester that CO₂ over the specified period.",
+          "The average sequestration rate used: fast-growing tropical species ≈ 20 kg CO₂/tree/year, mixed plantation ≈ 12 kg CO₂/tree/year, temperate species ≈ 8 kg CO₂/tree/year. These are growing-tree averages; very young trees sequester less, mature trees sequester more, and old-growth trees eventually plateau. For a 10-year offset horizon at 12 kg/year/tree: 1 tonne of CO₂ requires 1,000 ÷ 12 ÷ 10 = approximately 8 trees.",
+          "The critical caveat: tree offsets are long-term by nature. Planting 8 trees today does not offset 1 tonne of CO₂ today — it offsets that tonne over 10 years of growth. If you need to offset an emission that is happening now, the trees planted must survive and grow for the full period. Tree mortality from drought, fire, disease, or land-use change returns the carbon to the atmosphere. Quality offset programmes account for this with buffer stocks of extra trees.",
+        ],
+      },
+      {
+        heading: "Water Footprint Tab: The Water Behind Your Lifestyle",
+        paragraphs: [
+          "Enter your dietary habits (servings per week of beef, pork, chicken, fish, dairy, and plant-based foods), clothing purchases per year, and other consumption. The calculator returns your annual water footprint in cubic metres, broken down by category.",
+          "Food dominates the water footprint for most people, accounting for 70–80% of total consumption. The water intensity of common foods (litres per kg): beef ≈ 15,400, chocolate ≈ 17,000, pork ≈ 6,000, chicken ≈ 4,300, cheese ≈ 3,200, eggs ≈ 3,300, rice ≈ 2,500, wheat ≈ 1,800, vegetables ≈ 300–400, citrus fruit ≈ 600. These figures include all water used in the supply chain — crop irrigation, animal drinking water, processing, and waste treatment.",
+          "Clothing has a surprisingly large water footprint. A single cotton t-shirt requires approximately 2,700 litres of water to produce (primarily for growing the cotton). A pair of jeans requires approximately 10,000 litres. Buying second-hand clothing eliminates the water cost of production for new items and is one of the highest-impact fashion choices for water footprint reduction.",
+        ],
+      },
+      {
+        heading: "Using the Results to Identify Priorities",
+        paragraphs: [
+          "After running all three calculators, the pattern that usually emerges is that 3–4 activities account for 60–70% of your total environmental impact. Focus first on the highest-impact categories. For most people in high-income countries: reducing long-haul flights (1.5–2.5 tCO₂e per avoided return long-haul trip), switching to low-emission transport (electric vehicle or car-free), and reducing red meat consumption (0.5–1.5 tCO₂e/year savings) are the three highest-leverage changes available.",
+          "The tree offset calculator is most useful for understanding the scale of natural sequestration — how many trees it takes to absorb various amounts of CO₂ — rather than as a primary strategy for reducing your footprint. One long-haul flight round-trip emits approximately 1.5–2 tCO₂e, which would require 125–160 trees to offset over 10 years. Growing those trees takes space, water, and maintenance. Not taking the flight is simpler and more certain.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "What is a tonne of CO₂ equivalent?",
+        a: "CO₂ equivalent (CO₂e) converts all greenhouse gases to a common scale based on their global warming potential over 100 years. 1 kg of methane (CH₄) = 28–34 kg CO₂e; 1 kg of nitrous oxide (N₂O) = 265 kg CO₂e. One tonne of CO₂e represents the warming equivalent of one tonne of CO₂ — a useful standard unit for comparing sources and mitigation actions across different gas types.",
+      },
+      {
+        q: "What is the average global personal carbon footprint?",
+        a: "Approximately 4–5 tCO₂e per person per year globally, but this masks enormous variation. The United States averages approximately 15 tCO₂e per person; the EU average is approximately 7–8 tCO₂e; India averages approximately 1.9 tCO₂e. To limit global warming to 1.5°C, the world needs to reach approximately 2 tCO₂e per person by 2050 — a reduction of over 60% from the current US average.",
+      },
+      {
+        q: "How many trees does it take to offset one tonne of CO₂?",
+        a: "At a typical mixed plantation sequestration rate of 12 kg CO₂/tree/year: 1 tonne requires approximately 83 trees to offset over 1 year, 8 trees over 10 years, or 3 trees over 25 years. Faster-growing tropical species can reduce these numbers; slower temperate species require more. The Tree Offset tab calculates this precisely for any combination of amount, species type, and time horizon.",
+      },
+      {
+        q: "Why is beef's carbon footprint so high?",
+        a: "Beef has a high carbon footprint for three reasons: (1) cattle produce methane (a potent greenhouse gas) through enteric fermentation in their digestive systems; (2) they require large amounts of feed (grains, soy) to produce relatively little meat by weight (roughly 7kg of grain per 1kg of beef); and (3) their land requirement is very high, and in many regions, raising cattle is associated with deforestation. Together these factors give beef a carbon intensity approximately 7–10× higher than chicken and 15–20× higher than pulses (lentils, beans).",
+      },
+      {
+        q: "Is tree planting an effective offset strategy?",
+        a: "It is one legitimate tool among several, but comes with important limitations: trees take decades to accumulate meaningful carbon, are vulnerable to fire, drought, pests, and land-use change, and require active management for permanence. Quality offset projects (verified under Gold Standard or Verra/VCS protocols) account for these risks with buffer stocks. Use tree planting to offset residual emissions after making the highest-impact reductions in your footprint — not as a substitute for reducing emissions at the source.",
+      },
+      {
+        q: "How does my electricity consumption compare to the average?",
+        a: "Average household electricity consumption varies widely: approximately 877 kWh/month in the US, 350 kWh/month in the UK, and 900–1,200 kWh/month in South Africa (higher due to electric geysers and air conditioning in extreme climates). The emission factor per kWh depends on the energy mix of your grid: approximately 0.45 kgCO₂e/kWh in the UK, 0.38 in the US average, 0.87 in South Africa (coal-heavy), and near-zero in Norway (predominantly hydroelectric).",
+      },
+      {
+        q: "Does switching to electric vehicle reduce my carbon footprint?",
+        a: "In most markets, yes — significantly. An EV running on the average UK grid emits approximately 40–50 gCO₂e/km (including manufacturing); a petrol car emits 120–150 gCO₂e/km. In Norway (near-zero grid), an EV emits near-zero operational emissions. In South Africa (coal-heavy grid, approximately 0.87 kgCO₂e/kWh), an EV at 18 kWh/100km emits approximately 157 gCO₂e/km — close to a petrol car — but the gap improves as the grid decarbonises.",
+      },
+      {
+        q: "What dietary change reduces water footprint most?",
+        a: "Reducing beef consumption has the largest single impact. Beef has a water footprint of approximately 15,400 litres per kg. Replacing one 250g beef serving per week with chicken (4,300 L/kg) saves approximately 2,775 litres per week — over 144,000 litres per year from a single dietary substitution. Replacing beef with legumes (300–400 L/kg) saves proportionally more.",
+      },
+    ],
+  },
+
+  lifestyle: {
+    title: "Lifestyle Budget Calculator: Complete Guide",
+    intro: [
+      "The TrufflShuffl Lifestyle Budget Calculator helps you plan the finances of three types of major life events: a wedding, a party or event, and a holiday. Each tab takes a different approach to the same underlying problem — understanding the total cost before you commit, and working out how to fund it without financial stress. These are the occasions where people most commonly overspend because the emotional stakes are high and the costs are distributed across many vendors over a long period.",
+      "This guide explains what each tab calculates, how to enter your figures accurately, and the common planning mistakes that cause budgets to blow out. The calculator works with any currency, so it applies equally whether you are budgeting a Johannesburg wedding, a London summer party, or a European holiday.",
+    ],
+    sections: [
+      {
+        heading: "Wedding Budget Tab: Allocating Across Categories",
+        paragraphs: [
+          "Enter your total wedding budget and the number of guests. The calculator distributes the budget across standard wedding expense categories (venue, catering, photography, décor, entertainment, attire, stationery, and contingency) using industry-typical percentage allocations. Adjust each category's percentage to match your priorities — the totals dynamically recalculate.",
+          "The per-head cost output is the most actionable number: it shows what you are effectively spending per guest across the variable cost categories (catering, venue hire, and décor scale with guest count). This figure lets you evaluate vendor quotes directly: a caterer charging $120 per head when your per-head budget is $90 tells you immediately that you need to reduce the guest count, choose a different caterer, or reallocate budget from another category.",
+          "Catering and venue together typically consume 55–70% of a wedding budget, which is why the guest list is the most powerful lever for managing total cost. Every additional guest adds approximately 0.8–1.0× the per-head cost to the total bill (the full per-head cost applies to catering, and a portion applies to venue, linen, and florals). The tab shows the cost impact of adding or removing guests.",
+        ],
+      },
+      {
+        heading: "Event/Party Tab: Scaling a Per-Head Budget",
+        paragraphs: [
+          "Enter the number of guests and your per-head budget for each cost category (catering, venue, entertainment, décor, and other). The calculator shows the total cost for each category and the event total. This format is ideal for corporate events, birthday parties, and fundraisers where a per-person spend target has been established.",
+          "Events budgeted on a per-head basis are easier to scale than fixed-cost budgets: if the guest count grows by 20, you know exactly how much additional budget is needed for the variable cost categories. Only venue (if priced as a flat rate) and some entertainment costs remain fixed as the guest count changes.",
+          "Catering complexity significantly affects per-head cost. A casual cocktail-style event with finger foods and a bar runs at 40–60% of the cost of a formal sit-down dinner service per head. The choice between these styles is often the single biggest cost driver after the guest count itself.",
+        ],
+      },
+      {
+        heading: "Holiday Savings Tab: From Dream to Monthly Goal",
+        paragraphs: [
+          "Enter your holiday target cost, your current savings toward the trip, the number of months until you travel, and your savings account interest rate. The calculator shows the monthly savings required and the total interest earned on your savings during the period.",
+          "Building a budget estimate before you start saving is the step most people skip. A realistic holiday budget should include: return flights, accommodation, meals (use an average daily food budget for the destination — budget travel: $30–50/day, mid-range: $80–150/day, comfortable: $200+/day), activities and entrance fees, local transport, travel insurance, and a 10–15% contingency for currency movements and unexpected costs.",
+          "Currency risk deserves attention for international travel. If you are saving in your home currency but spending in a foreign currency, a 10% exchange rate movement in the wrong direction between now and your travel date increases the effective cost of your holiday by 10%. Build this buffer into your target amount, or consider converting a portion to the destination currency once you are within 3 months of travel.",
+        ],
+      },
+      {
+        heading: "Budget Discipline and Contingency",
+        paragraphs: [
+          "The most common reason large event budgets fail is scope creep: the gradual addition of extras — upgrades, add-ons, additional guests — each of which seems individually small. Set category limits before vendor engagement and enforce them as hard caps. A vendor presenting an option 20% above budget is offering something outside your plan, not within it.",
+          "Contingency must be planned, not hoped for. A 10% contingency on the total event budget is the minimum for a well-planned wedding or event. Contingency is not budget for upgrades — it is insurance against the unexpected: a vendor who cancels, a weather event that requires a venue change, a last-minute addition of dietary requirements. If the contingency is not used, it can be redirected to the honeymoon fund or returned to savings.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How do I set a realistic wedding budget?",
+        a: "Start from what you can afford without debt that takes more than 12 months to repay. Divide the total by the expected number of guests to get your effective per-head budget, and check it against local catering quotes (catering alone is typically $50–$150+ per head depending on market and service style). If the per-head budget is below the minimum catering cost, either the guest list needs to shrink or the total budget needs to increase.",
+      },
+      {
+        q: "What percentage of a wedding budget should go to catering?",
+        a: "Catering (food, drinks, service staff) typically consumes 30–40% of the total wedding budget in most markets. This is usually the single largest expense. If catering is priced at the higher end, other categories must compress proportionally. Use the Wedding Budget tab to see the allocation and adjust percentages until the category totals align with actual vendor quotes.",
+      },
+      {
+        q: "How much should I save per month for a holiday in 12 months?",
+        a: "Monthly savings needed = (target cost − current savings) ÷ months remaining. Adjusted for interest: the calculator accounts for savings interest reducing the required contribution. Example: target $4,000 holiday, current savings $500, 12 months, 4.5% annual interest rate: approximately $285/month. Without interest: ($4,000 − $500) ÷ 12 = $292/month. The interest saving is small at this scale but grows with larger targets and longer horizons.",
+      },
+      {
+        q: "What is a realistic per-head budget for a corporate year-end event?",
+        a: "For a corporate sit-down dinner event: $80–$150 per head is mid-range in most markets; below $60 makes full table service difficult; above $200 is premium. For a cocktail-style year-end: $40–$100 per head. These benchmarks vary significantly by city, venue type, and service standard. Request quotes from at least three caterers before fixing the per-head budget.",
+      },
+      {
+        q: "Should I budget for tipping and gratuities in an event budget?",
+        a: "Yes, always. Gratuities for venue staff, waiters, and bartenders are often not included in quoted prices and are expected in most markets. A standard 10–15% tip on the food and beverage bill is appropriate for quality service at an event. On a $10,000 catering bill, this adds $1,000–$1,500. Also check whether the caterer's quote includes service charge — some add 10–15% to the final bill automatically.",
+      },
+      {
+        q: "How do I account for exchange rate risk in a holiday budget?",
+        a: "Add 10–15% to your target amount as a currency buffer when saving for international travel. Alternatively, once within 3 months of travel, convert your savings to the destination currency through a travel money service or bank forward contract, locking in the current rate. For expensive destinations in currencies historically volatile against yours, a 15% buffer is more appropriate.",
+      },
+      {
+        q: "What is typically underestimated in wedding planning?",
+        a: "The most commonly underestimated wedding costs are: overtime charges when events run late (venue and catering both charge for this), alterations and accessories for wedding attire (often 20–30% of the dress purchase price), the rehearsal dinner if hosted by the couple, gratuities for vendors, and the cost of the honeymoon if planned concurrently with the wedding budget. Adding these together can easily add 10–20% to the expected total.",
+      },
+      {
+        q: "Is it better to save in one account or multiple accounts for different goals?",
+        a: "Multiple dedicated accounts — one per goal — improves goal achievement because each account's balance represents progress toward a specific objective rather than a general pool that gets raided for unrelated expenses. Use a high-yield savings account or money market account for each goal. Set up automatic transfers on payday so the savings happen before spending does.",
+      },
+    ],
+  },
+
+  tech: {
+    title: "Technology Calculator: Complete Guide",
+    intro: [
+      "The TrufflShuffl Technology Calculator covers four practical calculations that most people face repeatedly but rarely have a precise tool for: how long a file or download will take at a given internet speed, how much storage you need to plan for your data over time, what an AI API will cost at your expected usage volume, and how many write-years remain on your SSD before the write endurance is consumed. Each tab gives a concrete number to a question that otherwise gets answered with a vague guess.",
+      "This guide explains what each tab calculates, what the key inputs mean, and how to interpret the output for real purchasing and planning decisions. The calculations apply regardless of country or currency — the underlying technology standards are global.",
+    ],
+    sections: [
+      {
+        heading: "Internet Speed Tab: Download Times and What Speed You Actually Need",
+        paragraphs: [
+          "Enter the file size (in GB, MB, or TB) and your connection speed in Mbps. The calculator converts file size to megabits (1 byte = 8 bits; 1 GB = 8,000 Mb) and divides by speed to give download time in hours, minutes, and seconds. A real-world throughput factor of 75–85% of advertised speed is applied by default, reflecting the typical gap between the ISP's maximum speed and what you actually achieve on a congested network.",
+          "The 'what speed do I need' function works in reverse: enter the activities you want to run simultaneously (4K streaming, video calls, gaming, working from home with cloud sync) and the number of users. Each activity has a minimum Mbps requirement, and the calculator aggregates them to give the minimum plan speed that will support all concurrent activities without buffering or lag.",
+          "Upload speed matters as much as download for two-way activities: video calls require 3–5 Mbps upload per stream; uploading large files to cloud storage, working from home with video conferencing, and live streaming all require meaningful upload capacity. Most home broadband plans offer asymmetric speeds (download >> upload). Check your plan's upload speed separately if these activities are relevant.",
+        ],
+      },
+      {
+        heading: "Storage Planning Tab: How Much Space You Will Need",
+        paragraphs: [
+          "Enter your current data volume in GB or TB, your estimated annual growth rate (in GB or TB per year, or as a percentage), and the planning horizon in years. The calculator projects the total storage needed at the end of the horizon, including year-by-year growth. The 3-2-1 backup multiplier is optionally applied: 3 copies of all data on at least 2 different storage media types, with 1 copy off-site — meaning your actual storage infrastructure must support 3× the raw data volume.",
+          "Data growth rates vary enormously by use case. A typical household adding 1,000 photos and 20 videos per month grows by approximately 50–80 GB/month using smartphone JPEG and compressed video. A RAW photography workflow at 1,000 images/month grows by 200–400 GB/month. A video production workflow with uncompressed or RAW video can grow by 2–10 TB per month. Enter your actual estimated monthly growth from recent months of data creation.",
+          "The tab also helps with cost comparison between storage options. For cloud storage: enter the per-GB/TB monthly cost and see the 5-year total cost. For on-premise storage (NAS, external drives): enter the upfront hardware cost and compare to the cloud total. For most high-volume users (photographers, videographers), on-premise NAS storage becomes more economical than cloud after approximately 3–5 years of use.",
+        ],
+      },
+      {
+        heading: "AI API Cost Tab: Projecting Spend at Scale",
+        paragraphs: [
+          "Enter the AI model's input cost per million tokens, output cost per million tokens, your average input tokens per request, your average output tokens per request, and your expected daily request volume. The calculator returns cost per individual request, daily cost, monthly cost, and annual cost.",
+          "Tokens are approximately 4 characters or 0.75 words of English text. A system prompt of 500 words ≈ 650–700 tokens. A typical user message of 100 words ≈ 130 tokens. An AI response of 300 words ≈ 400 tokens. For a chatbot with a 500-token system prompt, 100-token user input, and 400-token response: total per request = 600 input tokens + 400 output tokens. At $3/M input and $15/M output: cost per request = (600 × 3 + 400 × 15) ÷ 1,000,000 = $0.0000078 — $7.80 per million requests.",
+          "At scale, seemingly tiny per-request costs become significant. 100,000 daily requests at $0.0000078 = $0.78/day = $23/month = $284/year. At 10 million daily requests: $28,000/year. The AI API Cost tab makes this scaling math instantly visible, which is essential for product pricing decisions: the API cost at your expected user load must be covered by your revenue model with appropriate margin.",
+        ],
+      },
+      {
+        heading: "SSD Lifespan Tab: Write Endurance and Replacement Planning",
+        paragraphs: [
+          "Enter the SSD's TBW rating (terabytes written — the manufacturer's specified total write endurance, found in the drive's datasheet), the drive capacity in GB, and your estimated daily writes in GB. The calculator returns the projected lifespan in years before the TBW rating is consumed.",
+          "TBW ratings are conservative: most SSDs continue to function reliably well beyond their TBW rating in real-world use, particularly for consumer workloads. However, for write-intensive professional applications (database servers, video recording, continuous backup targets), TBW is the key reliability metric and drives should be monitored and replaced before reaching their rated endurance.",
+          "Monitor SSD health using SMART data (S.M.A.R.T. = Self-Monitoring, Analysis and Reporting Technology). Free tools like CrystalDiskInfo (Windows) or smartmontools (Linux/macOS) show attributes including 'Media Wearout Indicator' or 'Percentage of Life Used' — the drive's own estimate of consumed write endurance. Plan replacement when this reaches 80–85% consumed, before the drive enters the higher-risk zone.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Why does my actual download speed never match my plan speed?",
+        a: "Advertised internet speeds are the maximum under ideal conditions: direct wired connection to the modem, no network congestion, close to the exchange or DSLAM. Real-world throughput is typically 60–90% of the advertised rate due to network congestion (especially during peak hours), Wi-Fi interference and signal loss, router and modem overhead, and distance-related signal degradation on DSL connections. The calculator uses 75% as a conservative real-world factor.",
+      },
+      {
+        q: "What Mbps speed do I need for 4K streaming?",
+        a: "Netflix recommends 25 Mbps for 4K Ultra HD streaming. Disney+ and Apple TV+ require 25 Mbps. YouTube 4K typically uses 15–25 Mbps. For a household streaming 4K on two screens simultaneously while on a video call: 25 + 25 + 5 = 55 Mbps minimum — requiring at least a 75–100 Mbps plan to have comfortable headroom for other devices.",
+      },
+      {
+        q: "What is a token in the context of AI API pricing?",
+        a: "Tokens are the units that language models use to process text. In English, 1 token ≈ 4 characters ≈ 0.75 words. The word 'understanding' is approximately 2–3 tokens. Most language model APIs price separately for input tokens (your prompt) and output tokens (the model's response). The ratio of input to output tokens significantly affects cost: models with expensive output pricing punish long responses more than models with symmetric pricing.",
+      },
+      {
+        q: "What is TBW for an SSD and how do I find it?",
+        a: "TBW (Terabytes Written) is the manufacturer's specified total amount of data that can be written to the drive before reliability is no longer guaranteed. Find it in the product datasheet (usually linked from the product page), in the drive's packaging, or by searching '[drive model] TBW'. Consumer SSDs range from 150 TBW (budget 500GB drives) to 1,200 TBW (premium 4TB drives). Enterprise SSDs may be rated 10,000+ TBW.",
+      },
+      {
+        q: "How much storage do I need for 5 years of 4K video production?",
+        a: "4K video at standard bitrates: 4K H.264 (60fps) ≈ 3–6 GB per minute; 4K ProRes (editing format) ≈ 12–30 GB per minute; RAW cinema formats ≈ 50–200+ GB per minute. For a creator editing 10 hours of final video per month using H.264 camera footage (approximately 40 hours of raw footage at 6 GB/min = 14,400 GB/month): 5 years = 864 TB of raw storage, before any backup copies. The 3-2-1 rule multiplies this by 3. Use the Storage Planning tab with your actual monthly capture volume.",
+      },
+      {
+        q: "How do I know which AI model to use for cost efficiency?",
+        a: "Balance cost against capability. For tasks requiring nuanced reasoning, long context, and high accuracy (legal analysis, code generation, complex writing): frontier models (GPT-4, Claude Sonnet/Opus) are appropriate despite higher cost. For classification, simple summarisation, customer-facing chatbots where responses are short: lightweight models (GPT-3.5-turbo, Claude Haiku, Gemini Flash) deliver adequate quality at 5–20× lower cost. The API Cost tab lets you model the total annual cost for each model at your volume so you can quantify the cost difference and compare it to any quality difference.",
+      },
+      {
+        q: "How much daily write load is typical for a PC user?",
+        a: "A typical desktop PC user writes 5–15 GB per day (OS paging, application caching, downloads, document saves). A developer running builds and tests: 20–50 GB/day. A video editor working on raw footage: 50–200 GB/day. A database server: potentially thousands of GB/day. For a 500 GB consumer SSD rated at 300 TBW with a user writing 10 GB/day: estimated lifespan = 300,000 GB ÷ (10 × 365) = approximately 82 years — far exceeding the physical lifespan of the hardware.",
+      },
+      {
+        q: "Does SSD lifespan differ between NVMe and SATA SSDs?",
+        a: "NVMe SSDs are generally faster than SATA but TBW ratings are determined by the NAND flash cell type (TLC, QLC, SLC, MLC), not the interface. A SATA drive with TLC NAND may have a higher TBW rating than an NVMe drive with QLC NAND, or vice versa. Check the TBW specification for each specific model rather than assuming NVMe = more durable. Enterprise NVMe drives (designed for server workloads) have dramatically higher TBW ratings than consumer NVMe drives.",
+      },
+    ],
+  },
 };

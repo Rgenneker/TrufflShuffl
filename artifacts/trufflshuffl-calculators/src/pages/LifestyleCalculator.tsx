@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CurrencySelect } from "@/components/CurrencySelect";
 import { DEFAULT_CURRENCY, fmtCurrency, type Currency } from "@/lib/currencies";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 
 type BudgetItem = { name: string; amount: string };
 
@@ -78,6 +79,7 @@ export default function LifestyleCalculator() {
 
   return (
     <CalculatorLayout
+      guide={CALCULATOR_GUIDES['lifestyle']}
       title="Lifestyle Budget Calculator"
       description="Plan your wedding budget, estimate event and party costs, and calculate how much to save each month to fund your dream holiday."
       instructions={

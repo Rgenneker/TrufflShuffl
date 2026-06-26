@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
@@ -70,6 +71,7 @@ export default function PetCalculator() {
 
   return (
     <CalculatorLayout
+      guide={CALCULATOR_GUIDES['pets']}
       title="Pet Calculator"
       description="Convert your pet's age to human years, calculate daily feeding amounts, and work out medication doses by body weight."
       instructions={

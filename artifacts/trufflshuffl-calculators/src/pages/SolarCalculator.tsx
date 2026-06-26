@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CurrencySelect } from "@/components/CurrencySelect";
 import { DEFAULT_CURRENCY, fmtCurrency, type Currency } from "@/lib/currencies";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
@@ -75,6 +76,7 @@ export default function SolarCalculator() {
 
   return (
     <CalculatorLayout
+      guide={CALCULATOR_GUIDES['solar']}
       title="Solar Power Calculator"
       description="Size your solar system, calculate battery backup runtime, and estimate payback period and ROI for your South African installation."
       instructions={

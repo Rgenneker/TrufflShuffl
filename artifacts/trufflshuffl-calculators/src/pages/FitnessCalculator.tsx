@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
@@ -83,6 +84,7 @@ export default function FitnessCalculator() {
 
   return (
     <CalculatorLayout
+      guide={CALCULATOR_GUIDES['fitness']}
       title="Fitness Calculator"
       description="Calculate running pace and race predictions, cycling calories, heart rate training zones, and your one-rep max for strength training."
       instructions={

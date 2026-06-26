@@ -4,6 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
@@ -57,6 +58,7 @@ export default function EngineeringCalculator() {
 
   return (
     <CalculatorLayout
+      guide={CALCULATOR_GUIDES['engineering']}
       title="Engineering Calculator"
       description="Solve Ohm's Law for voltage, current or resistance, calculate voltage drop in cables, and compute torque from force and lever arm."
       instructions={

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CurrencySelect } from "@/components/CurrencySelect";
 import { DEFAULT_CURRENCY, fmtCurrency, type Currency } from "@/lib/currencies";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
@@ -67,6 +68,7 @@ export default function WaterCalculator() {
 
   return (
     <CalculatorLayout
+      guide={CALCULATOR_GUIDES['water']}
       title="Water Calculator"
       description="Calculate your household water usage and bills, estimate rainwater harvesting yield, and size your storage tank — essential for drought-prone South Africa."
       instructions={

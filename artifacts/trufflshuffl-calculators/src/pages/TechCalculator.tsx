@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CurrencySelect } from "@/components/CurrencySelect";
 import { DEFAULT_CURRENCY, fmtCurrency, type Currency } from "@/lib/currencies";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
@@ -89,6 +90,7 @@ export default function TechCalculator() {
 
   return (
     <CalculatorLayout
+      guide={CALCULATOR_GUIDES['tech']}
       title="Technology Calculator"
       description="Calculate your required internet speed, estimate storage needs, work out AI API costs per request, and check your SSD remaining lifespan."
       instructions={

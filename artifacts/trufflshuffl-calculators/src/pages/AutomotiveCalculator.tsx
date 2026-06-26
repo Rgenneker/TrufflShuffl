@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CurrencySelect } from "@/components/CurrencySelect";
 import { DEFAULT_CURRENCY, fmtCurrency, type Currency } from "@/lib/currencies";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
@@ -70,6 +71,7 @@ export default function AutomotiveCalculator() {
 
   return (
     <CalculatorLayout
+      guide={CALCULATOR_GUIDES['automotive']}
       title="Automotive Calculator"
       description="Compare tyre sizes and speedometer accuracy, calculate vehicle depreciation, and estimate braking distances at any speed."
       instructions={

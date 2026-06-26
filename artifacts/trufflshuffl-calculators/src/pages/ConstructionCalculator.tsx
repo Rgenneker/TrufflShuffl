@@ -4,6 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
@@ -68,6 +69,7 @@ export default function ConstructionCalculator() {
 
   return (
     <CalculatorLayout
+      guide={CALCULATOR_GUIDES['construction']}
       title="Construction Calculator"
       description="Calculate concrete volumes and mix ratios, bricks required for walls, excavation volumes, and rebar weights for your South African building project."
       instructions={

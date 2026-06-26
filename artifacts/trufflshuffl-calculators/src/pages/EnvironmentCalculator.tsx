@@ -4,6 +4,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { CALCULATOR_GUIDES } from "@/lib/calculatorGuides";
 
 function fmt(n: number, dec = 2) {
   return n.toLocaleString("en-ZA", { minimumFractionDigits: dec, maximumFractionDigits: dec });
@@ -52,6 +53,7 @@ export default function EnvironmentCalculator() {
 
   return (
     <CalculatorLayout
+      guide={CALCULATOR_GUIDES['environment']}
       title="Environmental Calculator"
       description="Estimate your personal carbon footprint, calculate how many trees it takes to offset it, and understand your water footprint."
       instructions={
