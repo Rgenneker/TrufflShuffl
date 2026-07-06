@@ -36,8 +36,9 @@ Allow: /
 User-agent: ia_archiver
 Allow: /
 
+User-agent*
 Disallow: /src/
 Disallow: /node_modules/
 
 Sitemap: https://www.trufflshuffl.com/sitemap-index.xml
-Sitemap: https://www.trufflshuffl.com/sitemap.xml
+
